@@ -8,7 +8,7 @@
 
 function casted_on(NPC, Spawn,SpellName)
    local invul = IsInvulnerable(Spawn)
- if SpellName == 'Enter South Freeport' then  
+ if SpellName == 'Enter North Freeport' then  
     if not HasCompletedQuest(Spawn,5866) and
      not HasCompletedQuest(Spawn,5867) and
      not HasCompletedQuest(Spawn,5868) and
@@ -28,7 +28,7 @@ function casted_on(NPC, Spawn,SpellName)
     
     else
         ZoneRef = GetZone("NorthFreeport")
-        Zone(ZoneRef,Spawn,-81.61, -34.58, -3370.35, 181.78)        
+        Zone(ZoneRef,Spawn,-79.65, -34.58, -369.01, 181.78)        
     end    
 end     
 end    

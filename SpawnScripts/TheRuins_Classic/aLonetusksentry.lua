@@ -26,24 +26,29 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
-    AddTimer(NPC, math.random(2500,6000), "Animation")
-end
-
-function hailed(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
+    AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop")
 end
 
 function respawn(NPC)
-	spawn(NPC)
+    spawn(NPC)
 end
 
-function Animation(NPC)
-    local x = math.random(1,3)
-        if not IsInCombat(NPC) then
-    if x == 1 then
-        PlayAnimation(NPC,11976) else
-            PlayAnimation(NPC,12325)
-    end
-    AddTimer(NPC, math.random(10000,20000), "Animation")
-    end
+function EmoteLoop(NPC,Spawn)
+   if IsInCombat(NPC) == false then
+        choice = MakeRandomInt(1,5)
+        if choice == 1 then
+            PlayAnimation(NPC, 310)
+        elseif choice == 2 then
+            PlayAnimation(NPC, 411)
+        elseif choice == 3 then
+            PlayAnimation(NPC, 891)
+        elseif choice == 4 then
+            PlayAnimation(NPC, 713)
+        elseif choice == 5 then
+            PlayAnimation(NPC, 553)
+end
+    AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop")    
+else
+    AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop") 
+end
 end
