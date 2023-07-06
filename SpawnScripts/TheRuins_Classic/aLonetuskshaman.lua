@@ -5,6 +5,7 @@
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/MonsterCallouts/LoneTusk2.lua")
 
 function spawn(NPC)
 
@@ -23,11 +24,14 @@ function EmoteLoop(NPC,Spawn)
         elseif choice == 2 then
             CastSpell(NPC, 110003, 5, NPC)
         elseif choice == 3 then
-            PlayAnimation(NPC, 891)
+            PlayFlavor(NPC,"","","ponder",0,0)
+--          PlayAnimation(NPC, 431)
         elseif choice == 4 then
-            PlayAnimation(NPC, 713)
+            PlayFlavor(NPC,"","","tapfoot",0,0)
+--          PlayAnimation(NPC, 713)
         elseif choice == 5 then
-            PlayAnimation(NPC, 553)
+            PlayFlavor(NPC,"","","sniff",0,0)
+--          PlayAnimation(NPC, 553)
 end
     AddTimer(NPC,MakeRandomInt(15000,20000),"EmoteLoop")    
 else

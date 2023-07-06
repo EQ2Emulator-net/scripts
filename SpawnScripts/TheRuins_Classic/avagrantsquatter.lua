@@ -1,22 +1,21 @@
 --[[
-    Script Name    : SpawnScripts/TheRuins_Classic/aLonetuskpawn.lua
+    Script Name    : SpawnScripts/TheRuins_Classic/avagrantsquatter.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.06.27 02:06:03
+    Script Date    : 2023.07.06 04:07:11
     Script Purpose : 
                    : 
 --]]
-dofile("SpawnScripts/Generic/MonsterCallouts/LoneTusk2.lua")
 
 function spawn(NPC)
     local Level = GetLevel(NPC)
-    local level1 = 5
-    local level2 = 6
+    local level1 = 7
+    local level2 = 8
     local difficulty1 = 6
-    local hp1 = 130
-    local power1 = 65
+    local hp1 = 200
+    local power1 = 90
     local difficulty2 = 6
-    local hp2 = 150
-    local power2 = 80
+    local hp2 = 240
+    local power2 = 100
     if Level == level1 then
     SpawnSet(NPC, "difficulty", difficulty1)
     SpawnSet(NPC, "hp", hp1)

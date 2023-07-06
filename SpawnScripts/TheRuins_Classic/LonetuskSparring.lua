@@ -5,15 +5,16 @@
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/MonsterCallouts/LoneTusk2.lua")
 
 function spawn(NPC)
     SpawnSet(NPC, "heroic", 1)
-    --SetInfoStructString(NPC, "action_state", "pugilist_idle")
+  --SetInfoStructString(NPC, "action_state", "pugilist_idle")
     AddTimer(NPC, MakeRandomInt(2500,4000), "AttackAnim")
 end
 
 function hailed(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
+--	FaceTarget(NPC, Spawn)
 end
 
 function respawn(NPC)
@@ -26,7 +27,24 @@ end
 
 function AttackAnim(NPC,Spawn)
    if IsInCombat(NPC) == false then
-    PlayAnimation(NPC, 65)
+        choice = MakeRandomInt(1,7)
+        if choice == 1 then
+        PlayFlavor(NPC,"","","1h_sword_ouch_down",0,0)
+        elseif choice == 2 then
+        PlayFlavor(NPC,"","","1h_sword_dodge_forehand",0,0)
+         elseif choice == 3 then
+        PlayFlavor(NPC,"","","kick",0,0)           
+        elseif choice == 4 then
+        PlayFlavor(NPC,"","","1h_sword_parry_backhand",0,0)
+        elseif choice == 5 then
+        PlayFlavor(NPC,"","","pugilist_attack",0,0)
+        elseif choice == 6 then
+        PlayFlavor(NPC,"","","pugilist_attack",0,0)
+        elseif choice == 7 then
+        PlayFlavor(NPC,"","","pugilist_attack",0,0)       
+
+end
+--    PlayAnimation(NPC, 65)
     end
     AddTimer(NPC, MakeRandomInt(2500,4000), "AttackAnim")
  end

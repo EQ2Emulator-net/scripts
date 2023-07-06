@@ -5,6 +5,7 @@
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/MonsterCallouts/LoneTusk2.lua")
 
 function spawn(NPC)
     local Level = GetLevel(NPC)
@@ -47,15 +48,20 @@ function EmoteLoop(NPC,Spawn)
    if IsInCombat(NPC) == false then
         choice = MakeRandomInt(1,5)
         if choice == 1 then
-            PlayAnimation(NPC, 717)
+            PlayFlavor(NPC,"","","threaten",0,0)
+ --           PlayAnimation(NPC, 717)
         elseif choice == 2 then
-            PlayAnimation(NPC, 717)
+            PlayFlavor(NPC,"","","threaten",0,0)
+--            PlayAnimation(NPC, 717)
         elseif choice == 3 then
-            PlayAnimation(NPC, 891)
+            PlayFlavor(NPC,"","","yawn",0,0)
+--            PlayAnimation(NPC, 891)
         elseif choice == 4 then
             PlayAnimation(NPC, 713)
+            PlayFlavor(NPC,"","","tapfoot",0,0)
         elseif choice == 5 then
-            PlayAnimation(NPC, 553)
+            PlayFlavor(NPC,"","","sniff",0,0)
+--            PlayAnimation(NPC, 553)
 end
     AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop")    
 else

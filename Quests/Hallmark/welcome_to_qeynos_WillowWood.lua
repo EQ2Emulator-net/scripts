@@ -72,13 +72,15 @@ end
 function Step6Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 6, "I've placed the painting and spoken with the caretaker.")
 	UpdateQuestTaskGroupDescription(Quest, 6, "I've placed the painting and spoken with the caretaker.")
-	AddQuestStepZoneLoc(Quest, 7, "I need to visit the gates to the Forest Ruins.",6,"\"Some people choose to adventure in the Forest Ruins.  It's a dangerous place, so watch yourself.  Here's where you can find the gates to the ruins.  I'll show you a few other places after you take a look at the gates.\" - Ms. Fairlee", 11,883.43, -15.20, -584.80,237)
+    UpdateQuestZone(Quest,"Forest Ruins")
+	AddQuestStepZoneLoc(Quest, 7, "I need to visit the gates to the Forest Ruins.",8,"\"Some people choose to adventure in the Forest Ruins.  It's a dangerous place, so watch yourself.  Here's where you can find the gates to the ruins.  I'll show you a few other places after you take a look at the gates.\" - Ms. Fairlee", 11,922.51, -20.99, -562.5,827)
 	AddQuestStepCompleteAction(Quest, 7, "Step7Complete")   
 end
 
 function Step7Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 7, "I've found the gates to the Forest Ruins.")
 	UpdateQuestTaskGroupDescription(Quest, 7, "I've visisted one of four locations Ms. Fairlee has told me about.")
+    UpdateQuestZone(Quest,"Willow Wood")
 	AddQuestStepChat(Quest, 8, "I need to introduce myself to the Willow Wood crafting trainer, Oseof Crestryder.",1,"\"Not all coin gained by refugees comes from battling vermin. Crafting is a great opportunity for some refugees to become skilled in a tradeskill.  You should meet with the crafting trainer outside the Wayfarer's Stockpilers so you become familiar with where to begin a tradeskill if you so desire.\" - Ms. Fairlee", 11,2370008)
 	AddQuestStepCompleteAction(Quest, 8, "Step8Complete")   
 end
@@ -93,7 +95,7 @@ end
 function Step9Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 9, "I've found the enterence to the Down Below.")
 	UpdateQuestTaskGroupDescription(Quest, 9, "I've visisted three of four locations Ms. Fairlee has told me about.")
-	AddQuestStepZoneLoc(Quest, 10, "I need to locate the gates to the Elddar Grove.",6, "\"Even though only citizens can travel into the city proper, it would be rude not to at least show where the gates to Qeynos are.  I'll lead you over to where you can find the gates into the city.  I should be done with fixing up the place by the time you get back.\" - Ms. Fairlee", 11,810.64, -21.30, -565.55,237)
+	AddQuestStep(Quest, 10, "I need to locate the gates to the Elddar Grove.",1,100, "\"Even though only citizens can travel into the city proper, it would be rude not to at least show where the gates to Qeynos are.  I'll lead you over to where you can find the gates into the city.  I should be done with fixing up the place by the time you get back.\" - Ms. Fairlee", 11)
 	AddQuestStepCompleteAction(Quest, 10, "Step10Complete")   
 end
 
