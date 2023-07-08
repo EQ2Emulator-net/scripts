@@ -53,7 +53,7 @@ function Discord(NPC,Spawn)
     AddConversationOption(con, "[ Content Status ]", "ContentStatus")
     AddConversationOption(con, "[ Report a Bug? ]", "Bugs")
     AddConversationOption(con, "[ Exit ]","CloseConvo")
-    StartDialogConversation(con, 1, NPC, Spawn, "Goal: The ability to take what is developed here and apply it to a custom server.  Content across the EMU is focused from Classic to Alter of Malice (AoM) in various states. A future server opporator can take the EQ2EMU tools and apply their own rulesets with the content foundation here.\n\n Currently, the AOM client has had the most stability work completed, but other clients, such as Desert of Flames (DoF) have some minor support until they recieve additional attention.")
+    StartDialogConversation(con, 1, NPC, Spawn, "Goal: The ability to take what is developed here and apply it to a custom server.  Content across the EMU is focused from Classic to Altar of Malice (AoM) in various states. A future server opporator can take the EQ2EMU tools and apply their own rulesets with the content foundation here.\n\n Currently, the AOM client has had the most stability work completed, but other clients, such as Desert of Flames (DoF) have some minor support until they recieve additional attention.")
  end   
  
 function CurrentStatus(NPC,Spawn)
@@ -124,7 +124,7 @@ function Quests(NPC,Spawn)
     AddConversationOption(con, "[ Quests ]","Quests")
     AddConversationOption(con, "[ Player Housing ]","PlayerHouse")
     AddConversationOption(con, "[ Exit ]","CloseConvo")
-   StartDialogConversation(con, 1, NPC, Spawn, "Quests: Thousands of quests have been rebuilt, many by hand.  All Original Classic quests in Qeynos for T1 & T2 have been rebuilt, with the exception of faction writs and class training.  Citizenship requirements are in place for Qeynos Refugees.")
+   StartDialogConversation(con, 1, NPC, Spawn, "Quests: Thousands of quests have been rebuilt, many by hand.  All Original Classic quests in Qeynos for T1 & T2 have been rebuilt, with the exception of faction writs and class training.  Citizenship requirements are in place for Qeynos AND Freeport Refugees.")
 end  
 
 function PlayerHouse(NPC,Spawn)
@@ -136,7 +136,7 @@ function PlayerHouse(NPC,Spawn)
     AddConversationOption(con, "[ Quests ]","Quests")
     AddConversationOption(con, "[ Player Housing ]","PlayerHouse")
     AddConversationOption(con, "[ Exit ]","CloseConvo")
-   StartDialogConversation(con, 1, NPC, Spawn, "Player Housing: A work in progress.  Currently, you can purchase a home in the major cities, but placing furniture does not work entirely.  Zoning out of a player home can be done with /zone ###.  Free Inn Rooms in Qeynos temporarily use the Bell system when leaving via the inn room door.")
+   StartDialogConversation(con, 1, NPC, Spawn, "Player Housing: A work in progress.  Currently, you can purchase a home in the major cities, but placing furniture does not work entirely.  Zoning out of a player home can be done with /house or /zone ###.  Free Inn Rooms in Qeynos temporarily use the Bell system when leaving via the inn room door.")
 end  
  
   function Bugs(NPC,Spawn)

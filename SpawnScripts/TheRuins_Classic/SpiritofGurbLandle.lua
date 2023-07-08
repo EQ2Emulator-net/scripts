@@ -8,6 +8,17 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function spawn(NPC)
+AddTimer(NPC,MakeRandomInt(10000,300000),"FairyCheck")
+end
+
+function FairyCheck(NPC)
+local zone = GetZone(NPC)
+if GetSpawnByLocationID(zone, 133785613)==nil  then --WELE
+    SpawnByLocationID(zone,133785613)
+end
+ if GetSpawnByLocationID(zone, 133785612)==nil  then --XEL
+    SpawnByLocationID(zone,133785612)
+end
 end
 
 function respawn(NPC)

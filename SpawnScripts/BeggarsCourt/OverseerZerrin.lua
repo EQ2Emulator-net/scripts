@@ -20,9 +20,9 @@ function InRange(NPC, Spawn) --Quest Callout
 if GetFactionAmount(Spawn,12)<0 then
 PlayFlavor(NPC, "", "", "glare", 0, 0, Spawn)
 FaceTarget(NPC, Spawn)
-if GetRace(Spawn)== 12 or GetRace(Spawn) == 14  then
+elseif GetRace(Spawn)== 12 or GetRace(Spawn) == 14  then
     if CanReceiveQuest(Spawn, Welcome)then   
-        PlayFlavor(NPC,"","Refugees will report to me at once!","nod",850117394,1406850605,Spawn)
+        PlayFlavor(NPC,"","Refugees will report to me at once!","nod",0,0,Spawn)
     elseif CalloutTimer == false then
     CalloutTimer = true
     AddTimer(NPC,90000,"ResetCallout",1,Spawn)
@@ -34,7 +34,7 @@ elseif CalloutTimer == false then
     Talk(NPC,Spawn)
     end
 end
-end
+
 
 
 function ResetCallout(NPC,Spawn)
