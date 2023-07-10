@@ -8,6 +8,7 @@
 
 function spawn(NPC)
     SetInfoStructString(NPC, "action_state", "sit_idle")
+    Appearance(NPC)
 end
 
 function hailed(NPC, Spawn)
@@ -36,4 +37,12 @@ end
 
 function aggro(NPC,Spawn)
     PlayFlavor(NPC,"","","sit_exit",0,0)
+end
+
+function Appearance(NPC)
+    if GetGender(NPC)==2 then
+    SpawnSet(NPC,"model_type",132)    
+    else
+    SpawnSet(NPC,"model_type",134)    
+    end
 end

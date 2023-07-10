@@ -28,6 +28,7 @@ function spawn(NPC)
     end
 
 waypoints(NPC)
+Appearance(NPC)
 end
 
 function hailed(NPC, Spawn)
@@ -80,3 +81,10 @@ function waypoints(NPC)
 	MovementLoopAddLocation(NPC, -139.95, 2.26, 129.52, 2, 0)
 end
 
+function Appearance(NPC)
+    if GetGender(NPC)==2 then
+    SpawnSet(NPC,"model_type",132)    
+    else
+    SpawnSet(NPC,"model_type",134)    
+    end
+end

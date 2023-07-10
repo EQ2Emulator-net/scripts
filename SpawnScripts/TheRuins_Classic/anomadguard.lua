@@ -1,21 +1,21 @@
 --[[
-    Script Name    : SpawnScripts/TheRuins_Classic/avagrantsquatter.lua
+    Script Name    : SpawnScripts/TheRuins_Classic/anomadguard.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.07.06 04:07:11
+    Script Date    : 2023.07.09 07:07:50
     Script Purpose : 
                    : 
 --]]
 
 function spawn(NPC)
     local Level = GetLevel(NPC)
-    local level1 = 7
-    local level2 = 8
+    local level1 = 6
+    local level2 = 7
     local difficulty1 = 6
-    local hp1 = 200
-    local power1 = 90
+    local hp1 = 150
+    local power1 = 80
     local difficulty2 = 6
-    local hp2 = 240
-    local power2 = 100
+    local hp2 = 200
+    local power2 = 90
     if Level == level1 then
     SpawnSet(NPC, "difficulty", difficulty1)
     SpawnSet(NPC, "hp", hp1)
@@ -26,20 +26,32 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
+    
+    Appearance(NPC)
+    AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop")
+end
 
-AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop")
-Appearance(NPC)
+function hailed(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
 end
 
 function respawn(NPC)
-    spawn(NPC)
+	spawn(NPC)
+end
+
+function Appearance(NPC)
+    if GetGender(NPC)==2 then
+    SpawnSet(NPC,"model_type",132)    
+    else
+    SpawnSet(NPC,"model_type",134)    
+    end
 end
 
 function EmoteLoop(NPC,Spawn)
    if IsInCombat(NPC) == false then
         choice = MakeRandomInt(1,5)
         if choice == 1 then
-            PlayFlavor(NPC,"","","beg",0,0)
+            PlayFlavor(NPC,"","","glare",0,0)
 --            PlayAnimation(NPC, 310)
         elseif choice == 2 then
             PlayFlavor(NPC,"","","peer",0,0)
@@ -59,12 +71,4 @@ end
 else
     AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop") 
 end
-end
-
-function Appearance(NPC)
-    if GetGender(NPC)==2 then
-    SpawnSet(NPC,"model_type",132)    
-    else
-    SpawnSet(NPC,"model_type",134)    
-    end
 end

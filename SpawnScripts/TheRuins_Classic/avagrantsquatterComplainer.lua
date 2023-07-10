@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheRuins_Classic/avagrantsquatter.lua
+    Script Name    : SpawnScripts/TheRuins_Classic/avagrantsquatterComplainer.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.07.06 04:07:11
+    Script Date    : 2023.07.10 03:07:27
     Script Purpose : 
                    : 
 --]]
@@ -26,8 +26,10 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
+    
 
-AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop")
+
+AddTimer(NPC,MakeRandomInt(7000,10000),"EmoteLoop")
 Appearance(NPC)
 end
 
@@ -39,25 +41,20 @@ function EmoteLoop(NPC,Spawn)
    if IsInCombat(NPC) == false then
         choice = MakeRandomInt(1,5)
         if choice == 1 then
-            PlayFlavor(NPC,"","","beg",0,0)
---            PlayAnimation(NPC, 310)
+            PlayFlavor(NPC,"","","frustrated",0,0)
         elseif choice == 2 then
-            PlayFlavor(NPC,"","","peer",0,0)
---            PlayAnimation(NPC, 411)
+            PlayFlavor(NPC,"","","curse",0,0)
         elseif choice == 3 then
-            PlayFlavor(NPC,"","","yawn",0,0)
---            PlayAnimation(NPC, 891)
+            PlayFlavor(NPC,"","","scold",0,0)
         elseif choice == 4 then
-            PlayFlavor(NPC,"","","tapfoot",0,0)
---            PlayAnimation(NPC, 713)
+            PlayFlavor(NPC,"","","shakefist",0,0)
         elseif choice == 5 then
-            PlayFlavor(NPC,"","","sniff",0,0)
---            PlayAnimation(NPC, 553)
+            PlayFlavor(NPC,"","","swear",0,0)
 
 end
-    AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop")    
+    AddTimer(NPC,MakeRandomInt(7000,10000),"EmoteLoop")    
 else
-    AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop") 
+    AddTimer(NPC,MakeRandomInt(7000,10000),"EmoteLoop") 
 end
 end
 

@@ -8,6 +8,8 @@
 
 function spawn(NPC)
     SpawnSet(NPC, "heroic", 1)
+    Appearance(NPC)
+    
 
 end
 
@@ -30,4 +32,12 @@ end
 
 function respawn(NPC)
 	spawn(NPC)
+end
+
+function Appearance(NPC)
+    if GetGender(NPC)==2 then
+    SpawnSet(NPC,"model_type",132)    
+    else
+    SpawnSet(NPC,"model_type",134)    
+    end
 end
