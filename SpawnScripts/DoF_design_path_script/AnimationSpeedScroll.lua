@@ -20,17 +20,19 @@ end
 
 function Dialog1(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("What would you like to do?")
     if Busy == false then
+	Dialog.AddDialog("This scroll will demonstrate the effects on model animations based on movement speed and spawn size. What would you like to do?")
 	Dialog.AddOption("Setup the Spawns","Setup")
 	Dialog.AddOption("Nevermind")
     elseif Move == false then
+	Dialog.AddDialog("What would you like to do?")
 	    Dialog.AddOption("Begin Movement","Movement")
 	    Dialog.AddOption("Change Spawn Type","SpawnType1")
 	    Dialog.AddOption("Change Spawn Size","Size1")
 	    Dialog.AddOption("Reset the Spawns","Reset")
 	    Dialog.AddOption("Nevermind")
     else	    
+    	Dialog.AddDialog("What would you like to do?")
 	    Dialog.AddOption("Change Spawn Type","SpawnType1")
 	    Dialog.AddOption("Change Spawn Size","Size1")
 	    Dialog.AddOption("Reset the Spawns","Reset")
@@ -240,16 +242,16 @@ function Cat(NPC,Spawn)
     local Speed4 = GetSpawnByLocationID(zone, 133785991)
     local Speed6 = GetSpawnByLocationID(zone, 133785992)
     if Speed1 ~=nil then
-    SpawnSet(Speed1,"model_type",304)
+    SpawnSet(Speed1,"model_type",305)
     end    
     if Speed2 ~=nil then
-    SpawnSet(Speed2,"model_type",304)
+    SpawnSet(Speed2,"model_type",305)
     end  
     if Speed4 ~=nil then
-    SpawnSet(Speed4,"model_type",304)
+    SpawnSet(Speed4,"model_type",305)
     end  
     if Speed6 ~=nil then
-    SpawnSet(Speed6,"model_type",304)
+    SpawnSet(Speed6,"model_type",305)
     end  
 end
 
