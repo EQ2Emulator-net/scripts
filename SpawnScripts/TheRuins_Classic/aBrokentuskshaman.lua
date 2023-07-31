@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheRuins_Classic/aBrokentuskpounder.lua
+    Script Name    : SpawnScripts/TheRuins_Classic/aBrokentuskshaman.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.07.01 11:07:55
+    Script Date    : 2023.07.30 09:07:58
     Script Purpose : 
                    : 
 --]]
@@ -35,9 +35,7 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp3)
     SpawnSet(NPC, "power", power3)
     end
-    
-    
- AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop")
+AddTimer(NPC,MakeRandomInt(15000,20000),"EmoteLoop")
 end
 
 function respawn(NPC)
@@ -48,18 +46,20 @@ function EmoteLoop(NPC,Spawn)
    if IsInCombat(NPC) == false then
         choice = MakeRandomInt(1,5)
         if choice == 1 then
-            PlayAnimation(NPC, 717)
+            CastSpell(NPC, 110002, 5, NPC)
         elseif choice == 2 then
-            PlayAnimation(NPC, 717)
-        elseif choice == 3 then
-            PlayAnimation(NPC, 891)
+            CastSpell(NPC, 110003, 5, NPC)
+            PlayFlavor(NPC,"","","yawn",0,0)
+--          PlayAnimation(NPC, 891)
         elseif choice == 4 then
-            PlayAnimation(NPC, 713)
+            PlayFlavor(NPC,"","","tapfoot",0,0)
+--          PlayAnimation(NPC, 713)
         elseif choice == 5 then
-            PlayAnimation(NPC, 553)
+            PlayFlavor(NPC,"","","sniff",0,0)
+--          PlayAnimation(NPC, 553)
 end
-    AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop")    
+    AddTimer(NPC,MakeRandomInt(15000,20000),"EmoteLoop")    
 else
-    AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop") 
+    AddTimer(NPC,MakeRandomInt(15000,20000),"EmoteLoop") 
 end
 end
