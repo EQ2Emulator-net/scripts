@@ -5,6 +5,7 @@
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/MonsterCallouts/BrokenTusk1.lua")
 
 function spawn(NPC)
     AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop")
