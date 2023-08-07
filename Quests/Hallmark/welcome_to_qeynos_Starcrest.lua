@@ -65,7 +65,7 @@ end
 function Step5Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 5, "I've returned to my room and spoken with caretaker Fairlee.")
 	UpdateQuestTaskGroupDescription(Quest, 5, "I've returned to my room and spoken with caretaker Fairlee.  She gave me a painting of hers to place on my walls.")
-	AddQuestStep(Quest, 6, "Open your inventory.  \"Place\" your new painting and then speak with the caretaker.", 1,100, "Caretake Fairlee has suggested that I place the painting on my walls to liven up the place.  I should place the painting and then ask her about The Baubbleshire.",0)
+	AddQuestStep(Quest, 6, "Open your inventory.  \"Place\" your new painting and then speak with the caretaker.", 1,100, "Caretake Fairlee has suggested that I place the painting on my walls to liven up the place.  I should place the painting and then ask her about Starcrest Commune.",0)
 	AddQuestStepCompleteAction(Quest, 6, "Step6Complete")   
 end
 
