@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheGraveyard_Classic/acrumblingskeleton.lua
+    Script Name    : SpawnScripts/TheGraveyard_Classic/anundeadpikeman.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.08.08 03:08:01
+    Script Date    : 2023.08.14 01:08:08
     Script Purpose : 
                    : 
 --]]

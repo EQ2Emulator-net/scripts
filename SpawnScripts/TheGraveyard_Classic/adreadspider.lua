@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheGraveyard_Classic/acrumblingskeleton.lua
+    Script Name    : SpawnScripts/TheGraveyard_Classic/adreadspider.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.08.08 03:08:01
+    Script Date    : 2023.08.14 12:08:23
     Script Purpose : 
                    : 
 --]]
