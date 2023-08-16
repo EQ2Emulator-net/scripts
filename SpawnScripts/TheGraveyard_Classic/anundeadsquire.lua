@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheGraveyard_Classic/abrittleskeleton.lua
+    Script Name    : SpawnScripts/TheGraveyard_Classic/anundeadsquire.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.08.08 03:08:02
+    Script Date    : 2023.08.15 10:08:22
     Script Purpose : 
                    : 
 --]]
@@ -49,9 +49,9 @@ function RouteOne(NPC, Spawn)
 	local Z = GetZ(NPC)
     MovementLoopAddLocation(NPC, X, Y, Z, 2, math.random(10,20))
     MovementLoopAddLocation(NPC, X + 5, Y, Z, 2,math.random(10,20))
-	MovementLoopAddLocation(NPC, X , Y, Z + 5, 2, math.random(10,20))
+	MovementLoopAddLocation(NPC, X , Y, Z + 8, 2, math.random(10,20))
 	MovementLoopAddLocation(NPC, X + 5, Y, Z -5, 2, math.random(10,20))
-	MovementLoopAddLocation(NPC, X + 5, Y, Z + 4, 2, math.random(10,20))
+	MovementLoopAddLocation(NPC, X + 8, Y, Z + 4, 2, math.random(10,20))
 	MovementLoopAddLocation(NPC, X, Y, Z, 2, math.random(10,20), "ChooseMovement")
 end
 

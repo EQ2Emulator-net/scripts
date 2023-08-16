@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheGraveyard_Classic/abrittleskeleton.lua
+    Script Name    : SpawnScripts/TheGraveyard_Classic/arottingzombieRoamer.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.08.08 03:08:02
+    Script Date    : 2023.08.15 08:08:35
     Script Purpose : 
                    : 
 --]]
