@@ -8,7 +8,7 @@
 
 function spawn(NPC)
     SpawnSet(NPC, "heroic", 1)
-
+    SetSpawnAnimation(NPC, 13016)
 end
 
 function hailed(NPC, Spawn)

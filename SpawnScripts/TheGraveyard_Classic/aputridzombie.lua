@@ -35,7 +35,7 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp3)
     SpawnSet(NPC, "power", power3)
     end
-
+    SetSpawnAnimation(NPC, 13016)
 ChooseMovement(NPC)
 end
 

@@ -26,8 +26,9 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
+    SetSpawnAnimation(NPC, 13016)
 
-ChooseMovement(NPC)
+AddTimer(NPC,MakeRandomInt(1500,4000),"ChooseMovement")
 end
 
 function ChooseMovement(NPC)

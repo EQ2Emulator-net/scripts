@@ -26,8 +26,9 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
-
-ChooseMovement(NPC)
+    SetSpawnAnimation(NPC, 13016)
+    ChooseMovement(NPC)
+    Appearance(NPC)
 end
 
 function ChooseMovement(NPC)
@@ -97,4 +98,12 @@ end
 
 function hailed(NPC, Spawn)
     FaceTarget(NPC, Spawn)
+end
+
+function Appearance(NPC)
+    if GetGender(NPC)==2 then
+    SpawnSet(NPC,"model_type",1521)    
+    else
+    SpawnSet(NPC,"model_type",140)    
+    end
 end

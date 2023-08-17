@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheGraveyard_Classic/anundeadlancerHeroic.lua
+    Script Name    : SpawnScripts/TheGraveyard_Classic/anundeadbattlepriestValeron.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.08.14 04:08:24
+    Script Date    : 2023.08.17 03:08:16
     Script Purpose : 
                    : 
 --]]
@@ -9,6 +9,8 @@
 function spawn(NPC)
     SpawnSet(NPC, "heroic", 1)
     SetSpawnAnimation(NPC, 13016)
+    SpawnSet(NPC,"model_type",140) 
+
 end
 
 function hailed(NPC, Spawn)

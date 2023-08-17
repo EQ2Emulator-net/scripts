@@ -26,6 +26,7 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
+    SetSpawnAnimation(NPC, 13016)
 
 end
 

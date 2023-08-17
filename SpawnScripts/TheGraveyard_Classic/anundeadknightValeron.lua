@@ -7,7 +7,7 @@
 --]]
 
 function spawn(NPC)
-
+    SetSpawnAnimation(NPC, 13016)
 end
 
 function hailed(NPC, Spawn)
