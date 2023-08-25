@@ -73,7 +73,7 @@ function Step6Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 6, "I've placed the painting and spoken with the caretaker.")
 	UpdateQuestTaskGroupDescription(Quest, 6, "I've placed the painting and spoken with the caretaker.")
     UpdateQuestZone(Quest,"Oakmyst Forest")
-	AddQuestStepZoneLoc(Quest, 7, "I need to visit the gates to the Oakmyst Forest.",8,"\"Some people choose to adventure in the Oakmyst Forest.  It's a dangerous place, so watch yourself.  Here's where you can find the gates to the forest.  I'll show you a few other places after you take a look at the gates.\" - Ms. Fairlee", 11,756.89, 10.24, -200.68,830)
+	AddQuestStepZoneLoc(Quest, 7, "I need to visit the gates to the Oakmyst Forest.",15,"\"Some people choose to adventure in the Oakmyst Forest.  It's a dangerous place, so watch yourself.  Here's where you can find the gates to the forest.  I'll show you a few other places after you take a look at the gates.\" - Ms. Fairlee", 11,756.89, 10.24, -200.68,830)
 	AddQuestStepCompleteAction(Quest, 7, "Step7Complete")   
 end
 

@@ -73,7 +73,7 @@ function Step6Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 6, "I've placed the painting and spoken with the caretaker.")
 	UpdateQuestTaskGroupDescription(Quest, 6, "I've placed the painting and spoken with the caretaker.")
     UpdateQuestZone(Quest,"Peat Bog")
-	AddQuestStepZoneLoc(Quest, 7, "I need to visit the gates to the Peat Bog.",8,"\"Some people choose to adventure in the Peat Bog.  It's a dangerous place, so watch yourself.  Here's where you can find the gates to the Bog.  I'll show you a few other places after you take a look at the gates.\" - Ms. Fairlee", 11,565.60, -27.25, 415.96,829)
+	AddQuestStepZoneLoc(Quest, 7, "I need to visit the gates to the Peat Bog.",15,"\"Some people choose to adventure in the Peat Bog.  It's a dangerous place, so watch yourself.  Here's where you can find the gates to the Bog.  I'll show you a few other places after you take a look at the gates.\" - Ms. Fairlee", 11,565.60, -27.25, 415.96,829)
 	AddQuestStepCompleteAction(Quest, 7, "Step7Complete")   
 end
 
