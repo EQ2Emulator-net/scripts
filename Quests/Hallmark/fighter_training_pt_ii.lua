@@ -28,6 +28,10 @@ function Accepted(Quest, QuestGiver, Player)
     PlayFlavor(QuestGiver, "", "", "smile", 0, 0, Player)
     Dialog.AddOption("Sounds easy enough. I'll let you know once I've met with the other guards.")	
 	Dialog.Start()
+
+if GetQuestStep(Player,5878)==1 then
+    QuestStepIsComplete(Player,5878,1)
+end
 end
 
 function Declined(Quest, QuestGiver, Player)

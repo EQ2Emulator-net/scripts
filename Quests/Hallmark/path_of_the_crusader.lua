@@ -23,6 +23,10 @@ function Accepted(Quest, QuestGiver, Player)
     PlayFlavor(QuestGiver, "", "", "nod", 0, 0, Player)
     Dialog.AddOption("Thank you, Dagorel.  I won't forget your lessons.")	
 	Dialog.Start()
+
+if GetQuestStep(Player,5878)==1 then
+    QuestStepIsComplete(Player,5878,1)
+end
 end
 
 function Declined(Quest, QuestGiver, Player)

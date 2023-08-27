@@ -19,10 +19,14 @@ end
 function Accepted(Quest, QuestGiver, Player)
     FaceTarget(QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)   
- 	Dialog.AddDialog("We shall see. In this trial for aspiring sorcerers, you will face against the arcane creations from the Three-Tower's menagerie. They will each be translocated into the testing chamber, but also taken swiftly out once defeated. All for swift repairs, of course!  Defeat these guardians and you will have proven yourself in the art of sorcery.")
+ 	Dialog.AddDialog("We shall see. In this trial for aspiring sorcerers, you will face against the arcane creations from the Three-Tower's menagerie. They will each be translocated into the testing chamber, but also taken swiftly out once defeated. All for swift repairs, of course!  Defeat these arcane guardians and you will have proven yourself in the art of sorcery.")
     PlayFlavor(QuestGiver, "", "", "agree", 0, 0, Player)
     Dialog.AddOption("Once I prove myself, should I find you?","GoodbyeSumm")	
 	Dialog.Start()
+	
+if GetQuestStep(Player,5877)==1 then
+    QuestStepIsComplete(Player,5877,1)
+end	
 end
 
 function Declined(Quest, QuestGiver, Player)

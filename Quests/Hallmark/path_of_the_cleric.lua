@@ -25,6 +25,10 @@ function Accepted(Quest, QuestGiver, Player)
     Dialog.AddOption("I am.","ClericPort" )	
     Dialog.AddOption("I will be shortly. I will return.")	
 	Dialog.Start()    
+
+if GetQuestStep(Player,5879)==1 then
+    QuestStepIsComplete(Player,5879,1)
+end
 end
 
 function ClericPort(QuestGiver,Player)

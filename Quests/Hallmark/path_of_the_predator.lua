@@ -24,6 +24,9 @@ function Accepted(Quest, QuestGiver, Player)
     PlayFlavor(QuestGiver, "", "", "smile", 0, 0, Player)
     Dialog.AddOption("This does sound like a worthy task. My hunt begins.")	
 	Dialog.Start()
+if GetQuestStep(Player,5880)==1 then
+    QuestStepIsComplete(Player,5880,1)
+end
 end
 
 function Declined(Quest, QuestGiver, Player)

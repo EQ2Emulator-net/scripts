@@ -7,12 +7,12 @@
 --]]
 
 function spawn(NPC)
-SetPlayerProximityFunction(NPC, 8, "InRange", "LeaveRange")
+SetPlayerProximityFunction(NPC, 12, "InRange", "LeaveRange")
 end
 
 function InRange(NPC, Spawn) --Quest Callout
- if GetFactionAmount(Spawn,11)>=10000 then
-     --QUEST CHECK, CHECKS EACH RACE SUBURB
+    --QUEST CHECK, CHECKS EACH RACE SUBURB
+  
     if not HasQuest(Spawn,5760) and not HasCompletedQuest(Spawn, 5760) and
     not HasQuest(Spawn,5761) and not HasCompletedQuest(Spawn, 5761) and
     not HasQuest(Spawn,5762) and not HasCompletedQuest(Spawn, 5762) and
@@ -27,8 +27,10 @@ function InRange(NPC, Spawn) --Quest Callout
     AddConversationOption(conversation, " ")
     StartDialogConversation(conversation, 1, NPC, Spawn, "The voice of Queen Antonia Bayle enters your mind as you step forward... \n\n\"Prepare yourself. When you enter the city gates, you accept the challenge of citizenship.\"")
     end
+
+
 end
-end
+
 
 function respawn(NPC)
 	spawn(NPC)

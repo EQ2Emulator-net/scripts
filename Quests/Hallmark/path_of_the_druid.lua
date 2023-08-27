@@ -24,6 +24,9 @@ function Accepted(Quest, QuestGiver, Player)
     PlayFlavor(QuestGiver, "", "", "agree", 0, 0, Player)
     Dialog.AddOption("I am ready.","DruidPort" )
     Dialog.Start()   
+if GetQuestStep(Player,5879)==1 then
+    QuestStepIsComplete(Player,5879,1)
+end
 end
 
 function Declined(Quest, QuestGiver, Player)

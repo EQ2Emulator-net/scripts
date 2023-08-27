@@ -25,6 +25,10 @@ function Accepted(Quest, QuestGiver, Player)
     PlayFlavor(QuestGiver, "", "", "scold", 0, 0, Player)
     Dialog.AddOption("I will step forth victorious! Wait and see!")	
 	Dialog.Start()
+
+if GetQuestStep(Player,5878)==1 then
+    QuestStepIsComplete(Player,5878,1)
+end
 end
 
 function Declined(Quest, QuestGiver, Player)

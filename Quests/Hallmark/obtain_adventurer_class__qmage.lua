@@ -11,6 +11,7 @@
 --]]
 
 function Init(Quest)
+	SetQuestRepeatable(Quest)
 	AddQuestStepChat(Quest, 1, "I need to speak with Magister Niksel outside the mage tower in South Qeynos.", 1, "I need to speak with Magister Niksel in South Qeynos.", 11, 2310376)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
     UpdateQuestZone(Quest,"South Qeynos")

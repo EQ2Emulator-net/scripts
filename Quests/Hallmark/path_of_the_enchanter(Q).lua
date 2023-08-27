@@ -30,6 +30,11 @@ function Accepted(Quest, QuestGiver, Player)
     PlayFlavor(QuestGiver, "", "", "agree", 0, 0, Player)
     Dialog.AddOption("Alright. I'll deal with the crowd.","GoodbyeEnch")	
 	Dialog.Start()
+	
+if GetQuestStep(Player,5877)==1 then
+    QuestStepIsComplete(Player,5877,1)
+end
+
 end
 
 function Declined(Quest, QuestGiver, Player)

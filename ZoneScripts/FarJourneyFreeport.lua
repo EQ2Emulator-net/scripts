@@ -12,7 +12,9 @@ function player_entry(Zone, player)
     SetHeading(player,180)
 end
 
-    
+function init_zone_script(Zone)
+SetRain(0.2)
+end    
 
 
 function signal_changed(zone, player, signal)

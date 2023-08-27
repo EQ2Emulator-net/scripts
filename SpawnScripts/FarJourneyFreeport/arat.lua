@@ -17,6 +17,15 @@ function respawn(NPC)
 	spawn(NPC)
 end
 
+function death(NPC,Spawn)
+    local zone = GetZone(NPC)
+    local rat1 = GetSpawnByLocationID(zone,1586105)
+    local rat2 = GetSpawnByLocationID(zone,1586106)
+    if not IsAlive(rat1) and not IsAlive(rat2) then
+        SetPlayerLevel(Spawn,2)
+    end
+end
+
 function waypoints(NPC)
     if GetSpawnLocationID(NPC)== 1586106 then
 	MovementLoopAddLocation(NPC, 2.31, -2.07, -4.95, 1, math.random(6,10))

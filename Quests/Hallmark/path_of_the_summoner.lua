@@ -24,6 +24,11 @@ function Accepted(Quest, QuestGiver, Player)
     PlayFlavor(QuestGiver, "", "", "scold", 0, 0, Player)
     Dialog.AddOption("Should I return to you once I've completed the trial?","GoodbyeSumm")	
 	Dialog.Start()
+	
+if GetQuestStep(Player,5877)==1 then
+    QuestStepIsComplete(Player,5877,1)
+end
+
 end
 
 function Declined(Quest, QuestGiver, Player)

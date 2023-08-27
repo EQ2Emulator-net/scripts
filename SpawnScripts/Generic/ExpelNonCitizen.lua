@@ -5,8 +5,17 @@
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/AdvancementGaze.lua")
 
 function NonCitizen(NPC,Spawn)
+
+
+ if GetFactionAmount(Spawn,11)>=5000 then
+    if GetLevel(Spawn) ==8 or GetLevel(Spawn)==9 then
+    ClassCheck(NPC,Spawn)
+    end
+end
+
 	Qfaction = GetFactionAmount(Spawn,11)
 	FPfaction = GetFactionAmount(Spawn,12)
     local invul = IsInvulnerable(Spawn)
@@ -39,6 +48,11 @@ function NonCitizen(NPC,Spawn)
         PlaySound(Spawn,"sounds/ui/ui_warning.wav", GetX(NPC), GetY(NPC), GetZ(NPC))
         end
         end
+        elseif GOOD and GetFactionAmount(Spawn,11)<1000 and invul == false then
+        Attack(NPC,Spawn)
+        AddTimer(NPC,500,"ExpelOtherFaction",1,Spawn)
+        SendMessage(Spawn,"A guard has spotted you!","red")
+        PlaySound(Spawn,"sounds/ui/ui_warning.wav", GetX(NPC), GetY(NPC), GetZ(NPC))       
     end
 end
 
@@ -47,7 +61,7 @@ function Expel(NPC,Spawn)
     local invul = IsInvulnerable(Spawn)
     if IsInCombat(NPC) then
     AddTimer(NPC,500,"Expel",1,Spawn)
-    if invul == true and GetDistance(Spawn,NPC) <=6 then
+    if invul == false and GetDistance(Spawn,NPC) <=6 then
         CastSpell(NPC,1225)
         PlayAnimation(Spawn,11764)
         ExpeltoHood(NPC,Spawn)
@@ -59,6 +73,28 @@ function Expel(NPC,Spawn)
     end
 end
 end
+
+function ExpelOtherFaction(NPC,Spawn)
+    local invul = IsInvulnerable(Spawn)
+    if IsInCombat(NPC) then
+    if invul == false and GetDistance(Spawn,NPC) <=6 then
+        CastSpell(NPC,1225)
+        PlayAnimation(Spawn,11764)
+        ExpeltoOutofCity(NPC,Spawn)
+        SetInvulnerable(Spawn)
+        SendPopUpMessage(Spawn,"You are not allowed inside the walls of Qeynos!",250,0,0)
+        SendMessage(Spawn,"You are not allowed inside the walls of Qeynos!","red")
+        PlaySound(Spawn,"sounds/ui/ui_duel_defeat.wav", GetX(NPC), GetY(NPC), GetZ(NPC))
+        SetHP(Spawn,SetMaxHP(Spawn))
+    end
+end
+end
+
+function ExpeltoOutofCity(NPC,Spawn)
+        ZoneRef = GetZone("Antonica")
+        Zone(ZoneRef,Spawn,-2223.67, -29.19, 607.59, 275.37)
+end
+
 
 function ExpeltoHood(NPC,Spawn)
    local Race = GetRace(Spawn)

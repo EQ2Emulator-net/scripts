@@ -25,6 +25,10 @@ function Accepted(Quest, QuestGiver, Player)
     PlayFlavor(QuestGiver, "", "", "thanks", 0, 0, Player)
     Dialog.AddOption("Ah, I knew you had a task for me!  All right.  I'll return when I've killed five carnivorous slugs.")	
 	Dialog.Start()
+
+if GetQuestStep(Player,5879)==1 then
+    QuestStepIsComplete(Player,5879,1)
+end
 end
 
 function Declined(Quest, QuestGiver, Player)

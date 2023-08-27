@@ -24,6 +24,10 @@ function Accepted(Quest, QuestGiver, Player)
     PlayFlavor(QuestGiver, "", "", "agree", 0, 0, Player)
     Dialog.AddOption("What kind of note am I looking for?","Rogue3")	
 	Dialog.Start()
+if GetQuestStep(Player,5880)==1 then
+    QuestStepIsComplete(Player,5880,1)
+end
+
 end
 
 function Declined(Quest, QuestGiver, Player)

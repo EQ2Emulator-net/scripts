@@ -26,6 +26,10 @@ function Accepted(Quest, QuestGiver, Player)
     Dialog.AddOption("I'll learn what I can from these spiders. They shouldn't be a problem.")	
     Dialog.AddOption("Oof. Spiders. It HAD to be spiders?!")	
 	Dialog.Start()
+
+if GetQuestStep(Player,5880)==1 then
+    QuestStepIsComplete(Player,5880,1)
+end
 end
 
 function Declined(Quest, QuestGiver, Player)
