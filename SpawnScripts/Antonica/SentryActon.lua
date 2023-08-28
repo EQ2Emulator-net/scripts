@@ -39,7 +39,7 @@ function Dialog2(NPC, Spawn)
     PlayFlavor(NPC,"","","frustrated",0,0,Spawn)
 	local conversation = CreateConversation()
 	AddConversationOption(conversation, "Are you alright? Why was she in Freeport?","Dialog4")
-	StartConversation(conversation, NPC, Spawn, "My sister? Taken care of... my sister?! She was suppose to be in Freeport already! This is... this is terrible!")
+	StartConversation(conversation, NPC, Spawn, "My sister? Taken care of... my sister?! She was supposed to be in Freeport already! This is... this is terrible!")
 end
 
 function Dialog3(NPC, Spawn)

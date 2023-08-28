@@ -64,6 +64,8 @@ function Dialog2a(NPC, Spawn)
 	Dialog.AddOption("Jack-of-all-trades?","Dialog2b")
     elseif GetRace(Spawn)==11 then
 	Dialog.AddOption("I'd say box inspector, but I guess I should just put down Adventurer.","Dialog2b")
+	elseif GetRace(Spawn)==19 then
+	Dialog.AddOption("Moonlighter, perhaps? I prefer to be discrete.","Dialog2b")
     end
 	Dialog.Start()
 end
