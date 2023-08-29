@@ -31,7 +31,8 @@ end
 --non DoF Version
 function NonDoFattack(NPC)
 --	SendStateCommand(NPC, 10783) -- attack
-    SpawnSet(NPC, "visual_state", 10783)
+    PlayFlavor(NPC,"","","attack")
+    --SpawnSet(NPC, "visual_state", 10783)
 	AddTimer(NPC, 40000, "drake_rain")    
 end
 

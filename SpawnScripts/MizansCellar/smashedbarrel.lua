@@ -15,7 +15,7 @@ function casted_on(NPC, Spawn, Message)
      if QuestStepIsComplete(Spawn,5749,3)== false then
        PlayFlavor(Spawn,"","","tantrum_short",0,0)
         SpawnSet(NPC,"visual_state","0")
- AddTimer(NPC,1200,"FireOut",1,Spawn)
+ AddTimer(NPC,800,"FireOut",1,Spawn)
     end
     end
 end
