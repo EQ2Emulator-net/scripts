@@ -1,20 +1,14 @@
 --[[
-    Script Name    : Spells/Traditions/SnappingMandible.lua
-    Script Author  : neatz09
-    Script Date    : 2022.05.21 05:05:11
+    Script Name    : Spells/Fighter/WaveringStrike.lua
+    Script Author  : LordPazuzu
+    Script Date    : 2023.08.30 02:08:01
     Script Purpose : 
                    : 
 --]]
 
---[[ Info from spell_display_effects (remove from script when done)
-
-*Inflicts 2 - 3 melee damage on target
-
---]]
-
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
     Level = GetLevel(Caster)
-    SpellLevel = 1
+    SpellLevel = 5
     Mastery = SpellLevel + 50
     StatBonus = GetStr(Caster) / 10
         
@@ -28,4 +22,6 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal)
     MinDmg = MinVal + math.floor(DmgBonus)
     
     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
+
 end
+

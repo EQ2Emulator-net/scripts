@@ -76,7 +76,7 @@ function BusyFinished(NPC,Spawn)
     PlayFlavor(NPC, "","", "", 0, 0,Spawn)
 	Dialog.AddDialog("Hmm, yes it looks like you did your job.  Reports of the mischeivious fayfolk interfering in the villages have lessened considerably. Here is your payment for a job well done.")
     Dialog.AddVoiceover("voiceover/english/lieutenant_ilgar/qey_south/lieutenantilgar002.mp3",1911360769, 3372915409)
-	Dialog.AddOption("Greatful I could be of assistance.", "QuestDone")
+	Dialog.AddOption("Grateful I could be of assistance.", "QuestDone")
 	Dialog.Start()
 end	
 

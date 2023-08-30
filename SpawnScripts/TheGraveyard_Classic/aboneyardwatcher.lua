@@ -5,6 +5,7 @@
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseGolem1.lua")
 
 function spawn(NPC)
     local Level = GetLevel(NPC)
@@ -30,7 +31,7 @@ function spawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
+    SendMessage(NPC,"The watcher's cold and unwavering stare leaves you uneasy.","white")
 end
 
 function respawn(NPC)

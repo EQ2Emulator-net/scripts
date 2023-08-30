@@ -22,7 +22,6 @@ end
 
 
 function tick(Caster, Target, MainVal, DoTVal)
-    --SetInfoStructString(Caster, "visual_state", "result_poison_rain_damage")
     Level = GetLevel(Caster)
     SpellLevel = 3
     Mastery = SpellLevel + 5
@@ -36,8 +35,3 @@ function tick(Caster, Target, MainVal, DoTVal)
     ModifyPower(Target, PowerDrain)
 
 end
-
---[[function remove(Caster, Target, DoTType, MinVal, MaxVal)
-    SetInfoStructString(Caster, "action_state", "0")
-     SpawnSet(Caster,"action_state",0)
-end --]]

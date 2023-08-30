@@ -6,12 +6,15 @@
                    : 
 --]]
 
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseDarkElf1.lua")
+
 function spawn(NPC)
     AddTimer(NPC, 6000, "waypoints")
 end
 
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
+	SendMessage(NPC,"The ethernere guard stares you down. They obviously don't have time for you.","white")
 end
 
 function respawn(NPC)

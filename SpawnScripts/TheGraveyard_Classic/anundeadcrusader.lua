@@ -6,6 +6,7 @@
                    : 
 --]]
 
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseSkeleton2.lua")
 
 function spawn(NPC)
     local Level = GetLevel(NPC)

@@ -56,10 +56,10 @@ end
 function Dialog3(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Looking for work, eh?  Well, alright.  Let's see what you can do.  Go to the fisherman's market and find me the best price on three baskets of fresh fish.  Here, let me write down the merchant's names for you.  Let's just call this a test of your abiities!")
+	Dialog.AddDialog("Looking for work, eh?  Well, alright.  Let's see what you can do.  Go to the fisherman's market and find me the best price on three baskets of fresh fish.  Here, let me write down the merchants' names for you.  Let's just call this a test of your abilities!")
 	Dialog.AddVoiceover("voiceover/english/innkeeper_galsway/qey_harbor/qst_innkeepergalsway000.mp3", 2510257560, 588326201)
 	Dialog.AddOption("Alright.  I'll ask around the harbor market for you.", "QuestStart")
-	Dialog.AddOption("Not sure what I expected coming from a place called 'Fish's Alehouse and Inn', but I'm not interested in this sorty of fishy business.")
+	Dialog.AddOption("Not sure what I expected coming from a place called \"Fish's Alehouse and Inn\" but I'm not interested in this sorty of fishy business.")
 	Dialog.Start()
 end
 

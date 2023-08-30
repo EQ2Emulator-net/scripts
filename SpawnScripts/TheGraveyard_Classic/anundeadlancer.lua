@@ -5,6 +5,7 @@
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseSkeleton2.lua")
 
 function spawn(NPC)
     SetSpawnAnimation(NPC, 13016)
