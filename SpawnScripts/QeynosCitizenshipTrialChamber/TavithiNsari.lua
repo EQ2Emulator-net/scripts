@@ -98,25 +98,28 @@ function aggro(NPC,Spawn)
 end
 
 function death(NPC,Spawn)
-    if GetSpawn(NPC,8250011) == nil or not IsAlive(NPC,8250011) == false and
-    GetSpawn(NPC,8250012) == nil or not IsAlive(NPC,8250012) == false and
-    GetSpawn(NPC,8250013) == nil or not IsAlive(NPC,8250013) == false and
-    GetSpawn(NPC,8250014) == nil or not IsAlive(NPC,8250014) == false 
-    then
+    if GetSpawn(NPC,8250011) == nil or IsAlive(NPC,8250011) == false then
+    if GetSpawn(NPC,8250012) == nil or IsAlive(NPC,8250012) == false then
+    if GetSpawn(NPC,8250013) == nil or IsAlive(NPC,8250013) == false then
+    if GetSpawn(NPC,8250014) == nil or IsAlive(NPC,8250014) == false then
+
         if HasQuest(Spawn,BQCitizen) then
-	SetStepComplete(Spawn,BQCitizen,4)
-	elseif HasQuest(Spawn,CVQCitizen) then
- 	SetStepComplete(Spawn,CVQCitizen,4)
-	elseif HasQuest(Spawn,GQCitizen) then
- 	SetStepComplete(Spawn,GQCitizen,4)
-	elseif HasQuest(Spawn,NQCitizen) then
- 	SetStepComplete(Spawn,NQCitizen,4)
-	elseif HasQuest(Spawn,SCQCitizen) then
- 	SetStepComplete(Spawn,SCQCitizen,4)
-	elseif HasQuest(Spawn,WWQCitizen) then
- 	SetStepComplete(Spawn,WWQCitizen,4)
- 	end    
-end
+	    SetStepComplete(Spawn,BQCitizen,4)
+	    elseif HasQuest(Spawn,CVQCitizen) then
+ 	    SetStepComplete(Spawn,CVQCitizen,4)
+	    elseif HasQuest(Spawn,GQCitizen) then
+ 	    SetStepComplete(Spawn,GQCitizen,4)
+	    elseif HasQuest(Spawn,NQCitizen) then
+ 	    SetStepComplete(Spawn,NQCitizen,4)
+	    elseif HasQuest(Spawn,SCQCitizen) then
+ 	    SetStepComplete(Spawn,SCQCitizen,4)
+	    elseif HasQuest(Spawn,WWQCitizen) then
+ 	    SetStepComplete(Spawn,WWQCitizen,4)
+ 	    end    
+    end
+    end
+    end
+    end
 end
 
 function FailureExit(NPC,Spawn)

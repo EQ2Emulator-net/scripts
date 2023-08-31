@@ -66,6 +66,6 @@ function Leave(NPC,Player)
        
     else
         SQ_Net = GetZone("southqeynos")
-       Zone(SQ_Net,Spawn,680.79, -20.56, 270.90, 297.71)
+       Zone(SQ_Net,Player,680.79, -20.56, 270.90, 297.71)
     end
 end

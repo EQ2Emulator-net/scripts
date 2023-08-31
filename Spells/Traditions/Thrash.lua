@@ -42,13 +42,11 @@ function tick(Caster, Target, DmgType, Minval, MaxVal)
     MinDmg = MinVal + math.floor(DmgBonus)
     
     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
-
 end
 
 
 function remove(Caster, Target)
     RemoveControlEffect(Target, 2)
-
 end
 
 

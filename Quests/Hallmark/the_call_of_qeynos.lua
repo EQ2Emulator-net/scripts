@@ -30,7 +30,7 @@ Race = GetRace(Player)
     UpdateQuestZone(Quest, "Nettleville")
 
     -- Erudite
-    elseif Race == 3 then
+    elseif Race == 3 or Race == 20 then
 	AddQuestStepChat(Quest, 2, "I must find the Steward in Starcrest Commune", 1, "I must find the Steward in Starcrest Commune", 11, 2340166)
     UpdateQuestZone(Quest, "Starcrest")
 
@@ -57,6 +57,11 @@ Race = GetRace(Player)
     elseif Race == 5 or Race == 7 then
 	AddQuestStepChat(Quest, 2, "I must find the Steward in The Baubbleshire", 1, "I must find the Steward in The Baubbleshire", 11, 2380173)
     UpdateQuestZone(Quest, "Baubbleshire")
+    
+     else
+	AddQuestStepChat(Quest, 2, "I must find the Steward in Nettleville Hovel", 1, "I must find the Steward in Nettleville Hovel", 11, 2330170)
+    UpdateQuestZone(Quest, "Nettleville")   
+    
 end
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
