@@ -201,15 +201,3 @@ function dlg_2_4(NPC, Spawn)
 	AddConversationOption(conversation, "That's enough for now, thanks.")
 	StartConversation(conversation, NPC, Spawn, "Many different kinds of housing are available in the city of Qeynos.  As a show of appreciation, Antonia Bayle has awarded you a one bedroom house for free at this time.")
 	end
-
-
-
---[[
-	PlayFlavor(NPC, "innkeeper_uglar_splinterthumb/qey_village04/innkeeper001.mp3", "", "", 1553251638, 3978555092)
-	AddConversationOption(conversation, "How can I place an item in my house?", "dlg_7_1")
-	AddConversationOption(conversation, "What kind of housing is available to me?")
-	AddConversationOption(conversation, "What is the marketboard for?")
-	AddConversationOption(conversation, "What is my house for?")
-	AddConversationOption(conversation, "Nothing right now.")
-	StartConversation(conversation, NPC, Spawn, "Hello there" .. GetName(Spawn) .. ". what can I help you with?")
-	--]]

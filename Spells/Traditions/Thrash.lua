@@ -22,7 +22,7 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal)
     MinDmg = MinVal + math.floor(DmgBonus)
     
     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
-    AddControlEffect(Target, 2)
+    --AddControlEffect(Target, 2)
    end
 
 
@@ -46,7 +46,7 @@ end
 
 
 function remove(Caster, Target)
-    RemoveControlEffect(Target, 2)
+    --RemoveControlEffect(Target, 2)
 end
 
 
