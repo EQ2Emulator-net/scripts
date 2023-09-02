@@ -53,7 +53,7 @@ function Discord(NPC,Spawn)
     AddConversationOption(con, "[ Content Status ]", "ContentStatus")
     AddConversationOption(con, "[ Report a Bug? ]", "Bugs")
     AddConversationOption(con, "[ Exit ]","CloseConvo")
-    StartDialogConversation(con, 1, NPC, Spawn, "Goal: The ability to take what is developed here and apply it to a custom server.  Content across the EMU is focused from Classic to Altar of Malice (AoM) in various states. A future server opporator can take the EQ2EMU tools and apply their own rulesets with the content foundation here.\n\n Currently, the AOM client has had the most stability work completed, but other clients, such as Desert of Flames (DoF) have some minor support until they recieve additional attention.")
+    StartDialogConversation(con, 1, NPC, Spawn, "Goal: The ability to take what is developed here and apply it to a custom server.  Content across the EMU is focused from Classic to Altar of Malice (AoM) in various states. A future server oporator can take the EQ2EMU tools and apply their own rulesets with the content foundation here.\n\n Currently, the AOM client has had the most stability work completed, but other clients, such as Desert of Flames (DoF) have some minor support until they receive additional attention.")
  end   
  
 function CurrentStatus(NPC,Spawn)

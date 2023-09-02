@@ -108,6 +108,10 @@ function Step1Complete(Quest, QuestGiver, Player)
     elseif Race == 5 or Race == 7 then
 	AddQuestStepChat(Quest, 2, "I must find the Steward", 1, "I have been instructed to seek out the Steward when I arrive in Qeynos.  I should ring the bell on the docks to book passage to the city.", 11, 2380173)
     UpdateQuestZone(Quest, "Baubbleshire")
+    else
+	AddQuestStepChat(Quest, 2, "I must find the Steward", 1, "I have been instructed to seek out the Steward when I arrive in Qeynos.  I should ring the bell on the docks to book passage to the city.", 11, 2330170)
+    UpdateQuestZone(Quest, "Nettleville")
+
 end
 
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
