@@ -26,7 +26,7 @@ function Accepted(Quest, QuestGiver, Player)
 	Dialog.Start()
 
 if GetQuestStep(Player,5880)==1 then
-    QuestStepIsComplete(Player,5880,1)
+    SetStepComplete(Player,5880,1)
 end
 end
 

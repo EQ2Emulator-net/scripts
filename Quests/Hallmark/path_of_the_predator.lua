@@ -25,7 +25,7 @@ function Accepted(Quest, QuestGiver, Player)
     Dialog.AddOption("This does sound like a worthy task. My hunt begins.")	
 	Dialog.Start()
 if GetQuestStep(Player,5880)==1 then
-    QuestStepIsComplete(Player,5880,1)
+    SetStepComplete(Player,5880,1)
 end
 end
 

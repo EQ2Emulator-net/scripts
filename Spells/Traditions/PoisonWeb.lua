@@ -22,11 +22,11 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal)
     MinDmg = MinVal + math.floor(DmgBonus)
     
     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
-    --AddControlEffect(Target, 5)
+    AddControlEffect(Target, 5)
 end
 
 
-function tick(Caster, Target, DmgType, Minval, MaxVal)
+function tick(Caster, Target, DmgType, MinVal, MaxVal)
     Level = GetLevel(Caster)
     SpellLevel = 1
     Mastery = SpellLevel + 50
@@ -46,7 +46,7 @@ end
 
 
 function remove(Caster, Target)
-    --RemoveControlEffect(Target, 5)
+    RemoveControlEffect(Target, 5)
 
 end
 

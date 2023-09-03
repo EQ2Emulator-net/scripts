@@ -30,7 +30,7 @@ function Accepted(Quest, QuestGiver, Player)
     Dialog.AddOption("Thank you, Dagorel.  I won't forget your lessons.")	
 	Dialog.Start()
 if GetQuestStep(Player,5878)==1 then
-    QuestStepIsComplete(Player,5878,1)
+    SetStepComplete(Player,5878,1)
 end
 end
 

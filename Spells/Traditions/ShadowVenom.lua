@@ -26,7 +26,7 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal)
 end
 
 
-function tick(Caster, Target, DmgType, Minval, MaxVal)
+function tick(Caster, Target, DmgType, MinVal, MaxVal)
     Level = GetLevel(Caster)
     SpellLevel = 1
     Mastery = SpellLevel + 50
