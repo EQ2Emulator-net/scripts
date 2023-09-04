@@ -560,10 +560,6 @@ if not HasSkill(Spawn, 2638198038) then -- Focus
 end
 
 --WEAPON SKILLS
-if not HasSkill(Spawn, 4037812502) then -- Buckler
-    AddSkill(Spawn, 4037812502,1,level)
-    SendMessage(Spawn, "You are now more proficient with a Buckler")
-end
 if not HasSkill(Spawn, 545043066) then -- Symbol
     AddSkill(Spawn, 545043066,1,level)
     SendMessage(Spawn, "You are now more proficient with a Symbol")

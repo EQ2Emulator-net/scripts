@@ -112,7 +112,7 @@ end
     AddSkill(Player, 2897193374,1,level)
     SendMessage(Player, "You are now more proficient with Light Armor")
 end
-if HasSkill(Player, 2246237129) then -- Medium Armor
+if not HasSkill(Player, 2246237129) then -- Medium Armor
     AddSkill(Player, 2246237129,1,level)
     SendMessage(Player, "You are now more proficient with Medium Armor")
 end
