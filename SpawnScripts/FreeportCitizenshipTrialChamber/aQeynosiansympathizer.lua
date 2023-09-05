@@ -102,11 +102,11 @@ function aggro(NPC,Spawn)
 end
 
 function death(NPC,Spawn)
-    if GetSpawn(NPC,1640001) == nil or not IsAlive(NPC,1640001) == false and
-    GetSpawn(NPC,1640002) == nil or not IsAlive(NPC,1640002) == false and
-    GetSpawn(NPC,1640018) == nil or not IsAlive(NPC,1640018) == false and
-    GetSpawn(NPC,1640021) == nil or not IsAlive(NPC,1640021) == false 
-    then
+    if GetSpawn(NPC,1640001) == nil or not IsAlive(NPC,1640001) == false then
+    if GetSpawn(NPC,1640002) == nil or not IsAlive(NPC,1640002) == false then
+    if GetSpawn(NPC,1640018) == nil or not IsAlive(NPC,1640018) == false then
+    if GetSpawn(NPC,1640021) == nil or not IsAlive(NPC,1640021) == false then
+    
         if HasQuest(Spawn,BQCitizen) then
 	SetStepComplete(Spawn,BQCitizen,4)
 	elseif HasQuest(Spawn,CVQCitizen) then
@@ -119,8 +119,11 @@ function death(NPC,Spawn)
  	SetStepComplete(Spawn,SCQCitizen,4)
 	elseif HasQuest(Spawn,WWQCitizen) then
  	SetStepComplete(Spawn,WWQCitizen,4)
- 	end    
-end
+ 	    end   
+    end
+    end
+    end
+    end
 end
 
 function victory(NPC,Spawn)

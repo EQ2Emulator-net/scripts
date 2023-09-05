@@ -6,7 +6,7 @@
                    : 
 --]]
 
-local Welcome = 5863
+local Welcome = 5861
 
 require "SpawnScripts/Generic/DialogModule"
 local CalloutTimer = false

@@ -68,6 +68,31 @@ function victory(NPC,Spawn)
     AddTimer(NPC,2500,"FailureExit",1,Spawn)
 end   
 
+function death(NPC,Spawn)
+    if GetSpawn(NPC,1640001) == nil or not IsAlive(NPC,1640001) == false then
+    if GetSpawn(NPC,1640002) == nil or not IsAlive(NPC,1640002) == false then
+    if GetSpawn(NPC,1640018) == nil or not IsAlive(NPC,1640018) == false then
+    if GetSpawn(NPC,1640021) == nil or not IsAlive(NPC,1640021) == false then
+    
+        if HasQuest(Spawn,BQCitizen) then
+	SetStepComplete(Spawn,BQCitizen,4)
+	elseif HasQuest(Spawn,CVQCitizen) then
+ 	SetStepComplete(Spawn,CVQCitizen,4)
+	elseif HasQuest(Spawn,GQCitizen) then
+ 	SetStepComplete(Spawn,GQCitizen,4)
+	elseif HasQuest(Spawn,NQCitizen) then
+ 	SetStepComplete(Spawn,NQCitizen,4)
+	elseif HasQuest(Spawn,SCQCitizen) then
+ 	SetStepComplete(Spawn,SCQCitizen,4)
+	elseif HasQuest(Spawn,WWQCitizen) then
+ 	SetStepComplete(Spawn,WWQCitizen,4)
+ 	    end   
+    end
+    end
+    end
+    end
+end
+
 function FailureExit(NPC,Spawn)
     CloseConversation(NPC,Spawn)
       Race = GetRace(Spawn)
