@@ -11,7 +11,7 @@
 --]]
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Hunt white spiders in the Caves for undamaged venom sacs.", 3, 60, "I need to go to the Caves by mariner bell within the City of Qeynos and slay spiders for their venom sacs, but I must be careful not to damage them.", 109, 1970012,8260019)
+	AddQuestStepKill(Quest, 1, "Hunt white spiders in the Caves for undamaged venom sacs.", 3, 66, "I need to go to the Caves by mariner bell within the City of Qeynos and slay spiders for their venom sacs, but I must be careful not to damage them.", 109, 1970012,8260019)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
     UpdateQuestZone(Quest,"Caves")
 end

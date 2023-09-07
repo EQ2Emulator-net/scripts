@@ -8,7 +8,7 @@
 
 
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
-  local StrBonus = GetStr(Caster) / 10
+  local StrBonus = math.floor(GetStr(Caster) / 10)
   local MinDmg = MinVal + StrBonus
   local MaxDmg = MaxVal + StrBonus
   
