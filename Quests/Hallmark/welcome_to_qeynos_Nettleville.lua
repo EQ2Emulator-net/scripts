@@ -123,7 +123,7 @@ end
 function Step13Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 13, "I've spoken with Marshal Glorfel and have been told how to become a citizen.")
 	UpdateQuestTaskGroupDescription(Quest, 13, "I've spoken with Marshal Glorfel and have been told how to become a citizen.")
-	AddQuestStepChat(Quest, 14, "Judge the traitors individually and prove your loyalty to Qeynos.", 1, 100,"Marshal Glorfel has tasked me with rendering judgment upon some treasonous residents in order to gain citizenship.  He has pointed out that there are those who would betray our great city to that wretch Lucan.  To prove myself, I will have to render final judgment on all of them.",11,22101350)
+	AddQuestStepChat(Quest, 14, "Judge the traitors individually and prove your loyalty to Qeynos.", 1,"Marshal Glorfel has tasked me with rendering judgment upon some treasonous residents in order to gain citizenship.  He has pointed out that there are those who would betray our great city to that wretch Lucan.  To prove myself, I will have to render final judgment on all of them.",11,22101350)
 	AddQuestStepCompleteAction(Quest, 14, "QuestComplete")   
 end
 

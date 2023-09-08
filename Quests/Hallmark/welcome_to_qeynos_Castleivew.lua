@@ -102,7 +102,7 @@ end
 function Step10Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 10, "I've visited the inner city gates but was not allowed access.")
 	UpdateQuestTaskGroupDescription(Quest, 10, "I've visisted all four locations Ms. Fairlee has told me about.")
-	AddQuestStepChat(Quest, 11, "I need to return to my room and ask Ms. Fairlee why I can't enter the city.", 1, 100, "I should return back to my room and ask Ms. Fairlee why the guard didn't allow me to enter into the city.  Hopefully she might know why.",11,2230785)
+	AddQuestStepChat(Quest, 11, "I need to return to my room and ask Ms. Fairlee why I can't enter the city.", 1, "I should return back to my room and ask Ms. Fairlee why the guard didn't allow me to enter into the city.  Hopefully she might know why.",11,2230785)
 	AddQuestStepCompleteAction(Quest, 11, "Step11Complete")   
 end
 
@@ -123,7 +123,7 @@ end
 function Step13Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 13, "I've spoken with Marshal Glorfel and have been told how to become a citizen.")
 	UpdateQuestTaskGroupDescription(Quest, 13, "I've spoken with Marshal Glorfel and have been told how to become a citizen.")
-	AddQuestStepChat(Quest, 14, "Judge the traitors individually and prove your loyalty to Qeynos.", 1, 100,"Marshal Glorfel has tasked me with rendering judgment upon some treasonous residents in order to gain citizenship.  He has pointed out that there are those who would betray our great city to that wretch Lucan.  To prove myself, I will have to render final judgment on all of them.",11,22101350)
+	AddQuestStepChat(Quest, 14, "Judge the traitors individually and prove your loyalty to Qeynos.", 1,  "Marshal Glorfel has tasked me with rendering judgment upon some treasonous residents in order to gain citizenship.  He has pointed out that there are those who would betray our great city to that wretch Lucan.  To prove myself, I will have to render final judgment on all of them.",11,22101350)
 	AddQuestStepCompleteAction(Quest, 14, "QuestComplete")   
 end
 

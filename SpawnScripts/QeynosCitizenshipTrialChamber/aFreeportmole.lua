@@ -62,10 +62,10 @@ end
 end
 
 function death(NPC,Spawn)
-    if GetSpawn(NPC,8250011) == nil or IsAlive(NPC,8250011) == false then
-    if GetSpawn(NPC,8250012) == nil or IsAlive(NPC,8250012) == false then
-    if GetSpawn(NPC,8250013) == nil or IsAlive(NPC,8250013) == false then
-    if GetSpawn(NPC,8250014) == nil or IsAlive(NPC,8250014) == false then
+    if GetSpawn(NPC,8250011) == nil or not IsAlive(NPC,8250011) then
+        if GetSpawn(NPC,8250012) == nil or not IsAlive(NPC,8250012) then
+            if GetSpawn(NPC,8250013) == nil or not IsAlive(NPC,8250013) then
+                if GetSpawn(NPC,8250014) == nil or not IsAlive(NPC,8250014) then
             if HasQuest(Spawn,BQCitizen) then
 	        SetStepComplete(Spawn,BQCitizen,4)
 	        elseif HasQuest(Spawn,CVQCitizen) then
@@ -79,15 +79,16 @@ function death(NPC,Spawn)
 	        elseif HasQuest(Spawn,WWQCitizen) then
     	    SetStepComplete(Spawn,WWQCitizen,4)
  	        end 
+
+    end
+    end
+    end
+    end
         if GetGender(NPC)== 2 then 
         PlayFlavor(NPC, "voiceover/english/optional3/halfelf_base_1/ft/halfelf/halfelf_base_1_1_death_gf_610c650e.mp3", "You must flee!  I'll try to hold them.", "", 1612338229, 10301262, Spawn, 0)
         else
 	    PlayFlavor(NPC, "voiceover/english/halfelf_base_1/ft/halfelf/halfelf_base_1_1_death_gm_610c650e.mp3", "You must flee!  I'll try to hold them.", "", 3580386891, 3023137994, Spawn, 0)
         end 
-    end
-    end
-    end
-    end
 end
 
 function waypoints(NPC)
