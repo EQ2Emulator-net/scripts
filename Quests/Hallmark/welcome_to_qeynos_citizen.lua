@@ -70,8 +70,14 @@ end
 
 
 function CheckProgress(Quest, QuestGiver, Player)
-    if QuestStepIsComplete(Player, 5766, 1) and QuestStepIsComplete(Player, 5766, 2)  and QuestStepIsComplete(Player, 5766, 3) and 
-    QuestStepIsComplete(Player, 5766, 4) and QuestStepIsComplete(Player, 5766, 5)  and QuestStepIsComplete(Player, 5766, 6) and QuestStepIsComplete(Player, 5766, 7)then
+    if QuestStepIsComplete(Player, 5766, 1) and 
+    QuestStepIsComplete(Player, 5766, 2) and 
+    QuestStepIsComplete(Player, 5766, 3) and 
+    QuestStepIsComplete(Player, 5766, 4) and 
+    QuestStepIsComplete(Player, 5766, 5) and 
+    QuestStepIsComplete(Player, 5766, 6) and 
+    QuestStepIsComplete(Player, 5766, 7) then
+        
 	UpdateQuestTaskGroupDescription(Quest, 1, "I should read the Conclusion of the booklet.")
 	AddQuestStep(Quest, 8, "I've one last page to read in my citizenship book.", 1,100, "I've enjoyed reading about different ways I may be useful to Qeynos.",2500)
     AddQuestStepCompleteAction(Quest, 8, "QuestComplete")

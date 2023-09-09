@@ -42,7 +42,7 @@ function Step2Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 2, "I've entered the citizenship trial.")
 	UpdateQuestTaskGroupDescription(Quest, 2, "I've entered the citizenship trial.")
     UpdateQuestZone(Quest,"Citizenship Trial Chamber")
-	AddQuestStepChat(Quest, 3, "I need to speak with Marshal Glorfel regarding my Citizenship Trial.", 1, "I need to speak with Marshal Glorfel regarding my Citizenship Trial", 1350, 22101350)
+	AddQuestStepChat(Quest, 3, "I need to speak with Marshal Glorfel regarding my Citizenship Trial.", 1, "I need to speak with Marshal Glorfel regarding my Citizenship Trial", 1350, 	8250009)
 	AddQuestStepCompleteAction(Quest, 3, "Step3Complete")   
 end
 
@@ -58,7 +58,7 @@ end
 function Step4Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 4, "I've judged the traitors.")
 	UpdateQuestTaskGroupDescription(Quest, 4, "I have dealt with the traitors")
-	AddQuestStepChat(Quest, 5, "I need to return to Marshal Glorfel.", 1, "I must return to Marshal Glorfel to let him know the deed is done.",0, 22101350)
+	AddQuestStepChat(Quest, 5, "I need to return to Marshal Glorfel.", 1, "I must return to Marshal Glorfel to let him know the deed is done.",0, 8250009)
     AddQuestStepCompleteAction(Quest, 5, "QuestComplete")
 end
 

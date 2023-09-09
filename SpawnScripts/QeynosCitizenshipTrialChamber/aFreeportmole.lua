@@ -62,10 +62,15 @@ end
 end
 
 function death(NPC,Spawn)
-    if GetSpawn(NPC,8250011) == nil or not IsAlive(NPC,8250011) then
-        if GetSpawn(NPC,8250012) == nil or not IsAlive(NPC,8250012) then
-            if GetSpawn(NPC,8250013) == nil or not IsAlive(NPC,8250013) then
-                if GetSpawn(NPC,8250014) == nil or not IsAlive(NPC,8250014) then
+local Mole = GetSpawn(NPC,8250011) 
+local Refu = GetSpawn(NPC,8250012) 
+local Part = GetSpawn(NPC,8250013) 
+local Tavi = GetSpawn(NPC,8250014) 
+    
+    if Mole == nil or not IsAlive(Mole) then
+        if Refu == nil or not IsAlive(Refu) then
+            if Part == nil or not IsAlive(Part) then
+                if Tavi == nil or not IsAlive(Tavi) then
             if HasQuest(Spawn,BQCitizen) then
 	        SetStepComplete(Spawn,BQCitizen,4)
 	        elseif HasQuest(Spawn,CVQCitizen) then

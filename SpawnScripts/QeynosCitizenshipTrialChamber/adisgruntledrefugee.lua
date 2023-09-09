@@ -81,30 +81,38 @@ function death(NPC,Spawn)
 Update(NPC,Spawn)
 end
  
- function Update(NPC,Spawn)
-    if GetSpawn(NPC,8250011) == nil or IsAlive(NPC,8250011) == false then
-    if GetSpawn(NPC,8250012) == nil or IsAlive(NPC,8250012) == false then
-    if GetSpawn(NPC,8250013) == nil or IsAlive(NPC,8250013) == false then
-    if GetSpawn(NPC,8250014) == nil or IsAlive(NPC,8250014) == false then
+function Update(NPC,Spawn)
+local Mole = GetSpawn(NPC,8250011) 
+local Refu = GetSpawn(NPC,8250012) 
+local Part = GetSpawn(NPC,8250013) 
+local Tavi = GetSpawn(NPC,8250014) 
+    
+    if Mole == nil or not IsAlive(Mole) then
+        if Refu == nil or not IsAlive(Refu) then
+            if Part == nil or not IsAlive(Part) then
+                if Tavi == nil or not IsAlive(Tavi) then
+            if HasQuest(Spawn,BQCitizen) then
+	        SetStepComplete(Spawn,BQCitizen,4)
+	        elseif HasQuest(Spawn,CVQCitizen) then
+ 	        SetStepComplete(Spawn,CVQCitizen,4)
+	        elseif HasQuest(Spawn,GQCitizen) then
+ 	        SetStepComplete(Spawn,GQCitizen,4)
+	        elseif HasQuest(Spawn,NQCitizen) then
+ 	        SetStepComplete(Spawn,NQCitizen,4)
+	        elseif HasQuest(Spawn,SCQCitizen) then
+ 	        SetStepComplete(Spawn,SCQCitizen,4)
+	        elseif HasQuest(Spawn,WWQCitizen) then
+    	    SetStepComplete(Spawn,WWQCitizen,4)
+ 	        end 
 
-        if HasQuest(Spawn,BQCitizen) then
-	    SetStepComplete(Spawn,BQCitizen,4)
-	    elseif HasQuest(Spawn,CVQCitizen) then
- 	    SetStepComplete(Spawn,CVQCitizen,4)
-	    elseif HasQuest(Spawn,GQCitizen) then
- 	    SetStepComplete(Spawn,GQCitizen,4)
-	    elseif HasQuest(Spawn,NQCitizen) then
- 	    SetStepComplete(Spawn,NQCitizen,4)
-	    elseif HasQuest(Spawn,SCQCitizen) then
- 	    SetStepComplete(Spawn,SCQCitizen,4)
-	    elseif HasQuest(Spawn,WWQCitizen) then
- 	    SetStepComplete(Spawn,WWQCitizen,4)
- 	    end    
-    end
     end
     end
     end
 end
+end
+
+
+
 
 function Leave(NPC)
     Despawn(NPC)

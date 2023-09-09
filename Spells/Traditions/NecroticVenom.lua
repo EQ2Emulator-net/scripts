@@ -18,6 +18,11 @@ function cast(Caster, Target, MainVal, DoTVal)
 
     TotalDmg = MainVal + LvlBonus
     SpellDamage(Target, 2, TotalDmg, TotalDmg)
+    if IsPlayer(Target) and GetClientVersion(Target) <= 526 then
+    SpawnSet(Target,"visual_state",2774)
+    else
+    SpawnSet(Target,"visual_state",2774)
+    end   
 end
 
 
@@ -33,5 +38,14 @@ function tick(Caster, Target, MainVal, DoTVal)
 
     PowerDrain = 0 - DoTVal - LvlBonus
     ModifyPower(Target, PowerDrain)
+    --Emote(Caster, "'s Necrotic Venom poisons"...Target..."draining"...PowerDrain..."points of power.")
+    if IsPlayer(Target) and GetClientVersion(Target) <= 526 then
+    SpawnSet(Target,"visual_state",2774)
+    else
+    SpawnSet(Target,"visual_state",2774)
+    end   
+end
 
+function remove(Caster, Target)
+    SpawnSet(Target,"visual_state",35542)
 end

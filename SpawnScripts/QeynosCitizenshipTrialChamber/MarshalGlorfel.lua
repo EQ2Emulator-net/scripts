@@ -210,7 +210,7 @@ function Dialog2(NPC,Spawn)
 	SetStepComplete(Spawn,BQCitizen,5)
         AddSpellBookEntry(Spawn, 8057, 1) --CALL TO QEYNOS
         AddTimer(NPC,500,"Citizen",1,Spawn)
-	elseif HasQuest(Spawn,CVQCitizen) and GetQuestStep(Spawn,CVCitizen)==5 then
+	elseif HasQuest(Spawn,CVQCitizen) and GetQuestStep(Spawn,CVQCitizen)==5 then
  	SetStepComplete(Spawn,CVQCitizen,5)
         AddSpellBookEntry(Spawn, 8057, 1) --CALL TO QEYNOS
         AddTimer(NPC,500,"Citizen",1,Spawn)

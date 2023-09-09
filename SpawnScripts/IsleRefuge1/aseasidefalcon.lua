@@ -19,6 +19,10 @@ function respawn(NPC)
 	spawn(NPC)
 end
 
+function death(NPC,Spawn)
+    PlayFlavor(NPC,"","","result_feather_explosion",0,0)
+end
+
 function Waypoints(NPC)
    if GetSpawnLocationID(NPC)== 133776637 then
     MovementLoopAddLocation(NPC, 58.02, 2.98, 215.83, 2, 0)

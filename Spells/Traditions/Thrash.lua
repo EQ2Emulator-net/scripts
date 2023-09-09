@@ -40,13 +40,18 @@ function tick(Caster, Target, DmgType, MinVal, MaxVal)
     DmgBonus = LvlBonus + StatBonus
     MaxDmg = MaxVal + math.floor(DmgBonus)
     MinDmg = MinVal + math.floor(DmgBonus)
-    
+    if IsPlayer(Target) and GetClientVersion(Target) <= 526 then
+    SpawnSet(Target,"visual_state",2790)
+    else
+    SpawnSet(Target,"visual_state",2790)
+    end   
     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
 end
 
 
 function remove(Caster, Target)
     RemoveControlEffect(Target, 2)
+    SpawnSet(Target,"visual_state",35558)
 end
 
 

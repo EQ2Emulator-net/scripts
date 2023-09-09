@@ -6,12 +6,12 @@
                    : 
 --]]
 require "SpawnScripts/Generic/DialogModule"
-local BQCitizen = 5866 --Big Bend
-local CVQCitizen = 5867 --Beggar's Court
-local GQCitizen = 5868 --Longshadow Alley
-local NQCitizen = 5869 -- Scale Yard
-local SCQCitizen = 5870 --Stonestair Byway
-local WWQCitizen = 5871 --Temple St
+local BBCitizen = 5866 --Big Bend
+local BCCitizen = 5867 --Beggar's Court
+local LACitizen = 5868 --Longshadow Alley
+local SYCitizen = 5869 -- Scale Yard
+local SBCitizen = 5870 --Stonestair Byway
+local TSCitizen = 5871 --Temple St
 
 function spawn(NPC)
 	SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")
@@ -147,23 +147,28 @@ function aggro(NPC,Spawn)
 end
 
 function death(NPC,Spawn)
-    if GetSpawn(NPC,1640001) == nil or not IsAlive(NPC,1640001) == false then
-    if GetSpawn(NPC,1640002) == nil or not IsAlive(NPC,1640002) == false then
-    if GetSpawn(NPC,1640018) == nil or not IsAlive(NPC,1640018) == false then
-    if GetSpawn(NPC,1640021) == nil or not IsAlive(NPC,1640021) == false then
+
+local Traitor1 = GetSpawn(NPC,1640001) 
+local Traitor2 = GetSpawn(NPC,1640002) 
+local Traitor3 = GetSpawn(NPC,1640018) 
+local Traitor3 = GetSpawn(NPC,1640021) 
     
-        if HasQuest(Spawn,BQCitizen) then
-	SetStepComplete(Spawn,BQCitizen,4)
-	elseif HasQuest(Spawn,CVQCitizen) then
- 	SetStepComplete(Spawn,CVQCitizen,4)
-	elseif HasQuest(Spawn,GQCitizen) then
- 	SetStepComplete(Spawn,GQCitizen,4)
-	elseif HasQuest(Spawn,NQCitizen) then
- 	SetStepComplete(Spawn,NQCitizen,4)
-	elseif HasQuest(Spawn,SCQCitizen) then
- 	SetStepComplete(Spawn,SCQCitizen,4)
-	elseif HasQuest(Spawn,WWQCitizen) then
- 	SetStepComplete(Spawn,WWQCitizen,4)
+    if Traitor1 == nil or not IsAlive(Traitor1) then
+        if Traitor2 == nil or not IsAlive(Traitor2) then
+            if Traitor3 == nil or not IsAlive(Traitor3) then
+                if Traitor3 == nil or not IsAlive(Traitor3) then    
+        if HasQuest(Spawn,BBCitizen) then
+	SetStepComplete(Spawn,BBCitizen,4)
+	elseif HasQuest(Spawn,BCCitizen) then
+ 	SetStepComplete(Spawn,BCCitizen,4)
+	elseif HasQuest(Spawn,LACitizen) then
+ 	SetStepComplete(Spawn,LACitizen,4)
+	elseif HasQuest(Spawn,SYCitizen) then
+ 	SetStepComplete(Spawn,SYCitizen,4)
+	elseif HasQuest(Spawn,SBCitizen) then
+ 	SetStepComplete(Spawn,SBCitizen,4)
+	elseif HasQuest(Spawn,TSCitizen) then
+ 	SetStepComplete(Spawn,TSCitizen,4)
  	    end   
     end
     end

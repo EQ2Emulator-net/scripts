@@ -22,7 +22,7 @@ end
 
 
 function tick(Caster, Target, MainVal, DoTVal)
-    SetInfoStructString(Caster, "visual_state", "result_poison_rain_damage")
+    SetInfoStructString(Target, "visual_state", "result_poison_rain_damage")
     Level = GetLevel(Caster)
     SpellLevel = 4
     Mastery = SpellLevel + 3
@@ -34,10 +34,15 @@ function tick(Caster, Target, MainVal, DoTVal)
 
     PowerDrain = 0 - DoTVal - LvlBonus
     ModifyPower(Target, PowerDrain)
-    --SpellHeal("Power", PowerDrain, PowerDrain, Target)
+    if IsPlayer(Target) and GetClientVersion(Target) <= 526 then
+    SpawnSet(Target,"visual_state",3227)
+    else
+    SpawnSet(Target,"visual_state",3227)
+    end    
+
+   --SpellHeal("Power", PowerDrain, PowerDrain, Target)
 end
 
 function remove(Caster, Target, DoTType, MinVal, MaxVal)
-    SetInfoStructString(Caster, "action_state", "0")
-     SpawnSet(Caster,"action_state",0)
+     SpawnSet(Target,"visual_state",0)
 end
