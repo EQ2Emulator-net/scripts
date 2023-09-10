@@ -9,5 +9,5 @@
 
 function cast(Caster, Target)
     Name = GetName(Target)
-    SendMessage(Caster, "Currently targeting " .. Name .. "...", "white")
+    SendMessage(Caster, "Currently attempting to catalogue " .. Name .. "...", "white")
 end

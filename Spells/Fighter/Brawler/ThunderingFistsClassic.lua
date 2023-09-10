@@ -14,10 +14,15 @@ While active, this combat art grants the brawler a small chance to briefly stun 
 
 
 function cast(Caster, Target, Chance)
-    AddProc()
+    AddProc(Caster, 3, Chance)
 end
 
+function proc(Caster, Target, Type)
+    if Type == 3 then
+        CastSpell(Target, 5510, GetSpellTier())
+        end
+end
 
 function remove(Caster, Target)
-    RemoveProc()
+    RemoveProc(Caster)
 end
