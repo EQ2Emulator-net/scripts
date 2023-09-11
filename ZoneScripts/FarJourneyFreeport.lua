@@ -13,7 +13,6 @@ function player_entry(Zone, player)
 end
 
 function init_zone_script(Zone)
-SetRain(0.2)
 end    
 
 

@@ -12,6 +12,7 @@ function spawn(NPC)
 ChooseMovement(NPC)
 end
 
+
 function ChooseMovement(NPC)
 	local route = math.random(1,4)
 	if route == 1 then

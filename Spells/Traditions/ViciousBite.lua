@@ -6,7 +6,7 @@
                    : 
 --]]
 
-function cast(Caster, Target, DmgType, MinVal, MaxVal)
+function cast(Caster, Target, DmgType, MainDmg, DoTDmg)
     Level = GetLevel(Caster)
     SpellLevel = 1
     Mastery = SpellLevel + 50
@@ -18,14 +18,14 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal)
     end
     
     DmgBonus = LvlBonus + StatBonus
-    MaxDmg = MaxVal + math.floor(DmgBonus)
-    MinDmg = MinVal + math.floor(DmgBonus)
+    TotalDmg = MainDmg + math.floor(DmgBonus)
     
-    SpellDamage(Target, DmgType, MinDmg, MaxDmg)
+    
+    SpellDamage(Target, DmgType, MainDmg, MainDmg)
 end
 
 
-function tick(Caster, Target, DmgType, MinVal, MaxVal)
+function tick(Caster, Target, DmgType, MainDmg, DoTDmg)
     Level = GetLevel(Caster)
     SpellLevel = 1
     Mastery = SpellLevel + 50
@@ -37,10 +37,10 @@ function tick(Caster, Target, DmgType, MinVal, MaxVal)
     end
     
     DmgBonus = LvlBonus + StatBonus
-    MaxDmg = MaxVal + math.floor(DmgBonus)
-    MinDmg = MinVal + math.floor(DmgBonus)
+    TotalDoT = DoTDmg + math.floor(DmgBonus)
     
-    SpellDamage(Target, DmgType, MinDmg, MaxDmg)
+    
+    SpellDamage(Target, DmgType, TotalDoT, TotalDoT)
 end
 
 

@@ -9,5 +9,6 @@
 
 function cast(Caster, Target)
     Name = GetName(Target)
+    PlayFlavor(Caster,"","","peer",0,0)
     SendMessage(Caster, "Currently attempting to catalogue " .. Name .. "...", "white")
 end

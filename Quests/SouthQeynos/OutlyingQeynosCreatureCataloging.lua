@@ -37,7 +37,6 @@ local A_BOG_FAERIE_ID_4 = 1980052
 local Catalogue = 2550196
 
 function Init(Quest)
-    AddSpellBookEntry(Player, 2550196, 1) --CREATURE CATALOGUE
     
     UpdateQuestZone(Quest,"Multiple Zones")
 	AddQuestStep (Quest, 1, "I must find an Oakmyst fairy.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
@@ -64,21 +63,32 @@ function Init(Quest)
 	AddQuestStep(Quest, 8, "I must find a Dustpaw guard.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
 	AddQuestStepCompleteAction(Quest, 8, "Step8Complete")
 	
-	AddQuestStep(Quest, 9, "I must find an albino python.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, AN_ALBINO_PYTHON_ID)
+	AddQuestStep(Quest, 9, "I must find an albino python.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
 	AddQuestStepCompleteAction(Quest, 9, "Step9Complete")
 	
-	AddQuestStep(Quest, 10, "I must find a bog sludge.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, A_BOG_SLUDGE_ID)
+	AddQuestStep(Quest, 10, "I must find a bog sludge.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
 	AddQuestStepCompleteAction(Quest, 10, "Step10Complete")
 	
-	AddQuestStep(Quest, 11, "I must find a marsh hatchling.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, A_MARSH_HATCHLING_ID)
+	AddQuestStep(Quest, 11, "I must find a marsh hatchling.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
 	AddQuestStepCompleteAction(Quest, 11, "Step11Complete")
 	
-	AddQuestStep(Quest, 12, "I must find a bog faerie.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, A_BOG_FAERIE_ID, A_BOG_FAERIE_ID_2, A_BOG_FAERIE_ID_3, A_BOG_FAERIE_ID_4)
+	AddQuestStep(Quest, 12, "I must find a bog faerie.", 1, 100, "I am tracking down several creatures and cataloging them.", 11,Catalogue)
 	AddQuestStepCompleteAction(Quest, 12, "Step12Complete")
 end
 
 function CheckProgress(Quest, QuestGiver, Player)
-	if QuestStepIsComplete(Player, THIS_QUEST_ID, 1) and QuestStepIsComplete(Player, THIS_QUEST_ID, 2) and QuestStepIsComplete(Player, THIS_QUEST_ID, 3) and QuestStepIsComplete(Player, THIS_QUEST_ID, 4) and QuestStepIsComplete(Player, THIS_QUEST_ID, 5) and QuestStepIsComplete(Player, THIS_QUEST_ID, 6) and QuestStepIsComplete(Player, THIS_QUEST_ID, 7) and QuestStepIsComplete(Player, THIS_QUEST_ID, 8) and QuestStepIsComplete(Player, THIS_QUEST_ID, 9) and QuestStepIsComplete(Player, THIS_QUEST_ID, 10) and QuestStepIsComplete(Player, THIS_QUEST_ID, 11) then
+	if QuestStepIsComplete(Player, THIS_QUEST_ID, 1) and
+	QuestStepIsComplete(Player, THIS_QUEST_ID, 2) and
+	QuestStepIsComplete(Player, THIS_QUEST_ID, 3) and
+	QuestStepIsComplete(Player, THIS_QUEST_ID, 4) and
+	QuestStepIsComplete(Player, THIS_QUEST_ID, 5) and
+	QuestStepIsComplete(Player, THIS_QUEST_ID, 6) and
+	QuestStepIsComplete(Player, THIS_QUEST_ID, 7) and
+	QuestStepIsComplete(Player, THIS_QUEST_ID, 8) and
+	QuestStepIsComplete(Player, THIS_QUEST_ID, 9) and
+	QuestStepIsComplete(Player, THIS_QUEST_ID, 10) and
+	QuestStepIsComplete(Player, THIS_QUEST_ID, 11) and
+	QuestStepIsComplete(Player, THIS_QUEST_ID, 12) then
 		-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
 		UpdateQuestTaskGroupDescription(Quest, 1, "I have located all of the creatures I was looking for.")
 
@@ -180,7 +190,7 @@ function Reload(Quest, QuestGiver, Player, Step)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+    AddSpellBookEntry(Player, 2550196, 1) --CREATURE CATALOGUE
 end
 
 function Declined(Quest, QuestGiver, Player)

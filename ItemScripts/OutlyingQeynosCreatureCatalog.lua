@@ -14,6 +14,8 @@ AddConversationOption(conversation, "Put the catalogue away.","CloseItemConversa
 StartDialogConversation(conversation, 2, Item, Player, "Just beyond the city's walls one will find areas which are considered part of Qeynos and yet remain wild. Residents of Qeynos' villages are very familiar with these areas as they usually border on one or more of the residential neighborhoods. Though close to the city, they are by no means a walk in the park.")
 end
 
+
+
 function Page1(Item, Player)
 conversation = CreateConversation()
 AddConversationOption(conversation, "Turn to the next section.","Page2")
@@ -40,7 +42,7 @@ end
 
 function Page4(Item, Player)
 conversation = CreateConversation()
-if not HasQuest(Player,SunWolf) and not HasCompletedQuest(Player,Catalogue)then
+if not HasQuest(Player,Catalogue) and not HasCompletedQuest(Player,Catalogue)then
 AddConversationOption(conversation, "Record the depicted creatures in your journal.","QuestStart")
 end
 AddConversationOption(conversation, "Turn back to previous section.","Page3")

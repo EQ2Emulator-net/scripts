@@ -160,7 +160,7 @@ function Dialog5(NPC, Spawn)
 	    AddConversationOption(con, ""..GetName(Spawn).."", "Dialog6")
         end
         AddConversationOption(con, "On second thought, I need to reconsider.","CloseConversation")
-        StartDialogConversation(con, 1, NPC, Spawn, "OFFICIAL QEYNOS DOCUMENTATION:\n-----------------------------------------\nI \""..GetName(Spawn).."\" pledge myself to \nthe City of Qeynos and to it's ruler,\nQueen Antnoica Bayle. \n\nI will strive to uphold it's ideals of honor and good will for all citizens of Qeynos.\n\nSigned,")
+        StartDialogConversation(con, 1, NPC, Spawn, "OFFICIAL QEYNOS DOCUMENTATION:\n-----------------------------------------\nI \""..GetName(Spawn).."\" pledge myself to \nthe City of Qeynos and its ruler,\nQueen Antonia Bayle. \n\nI will strive to uphold its ideals of honor and goodwill for all citizens of Qeynos.\n\nSigned,")
 	else
 	window = CreateOptionWindow();
 	AddOptionWindowOption(window, " Pledge allegiance to Qeynos", "Dedicate yourself to the City of Qeynos and to its leader,           Queen Antonia Bayle.                                                                                [This decision is final!]", 2, 16, "Dialog6")
