@@ -94,8 +94,8 @@ function CheckProgress(Quest, QuestGiver, Player)
 
 		UpdateQuestDescription(Quest, "I've successfully catalogued all the creatures in the Outlying Qeynos creature guide.")
 		GiveQuestReward(Quest, Player)
-		if HasItem(Player,21267) then
-		    RemoveItem(Player,21267,1)
+		if HasItem(Player,1001109) then
+		    RemoveItem(Player,1001109,1)
 		end
 	end
 end

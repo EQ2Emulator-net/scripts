@@ -5,6 +5,8 @@
 	Script Date	: 2013.5.16
 	Script Notes	: If the coords are out of bounds then the spawn will still go there.
 --]]
+dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
+
 function spawn(NPC)
     SetInfoStructUInt(NPC, "hp_regen_override", 1)
     SetInfoStructSInt(NPC, "hp_regen", 0)

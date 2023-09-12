@@ -6,7 +6,7 @@
                    : 
 --]]
 
-local Catalogue = 519
+dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
 
 function spawn(NPC)
 
@@ -19,12 +19,3 @@ function respawn(NPC)
 	spawn(NPC)
 end
 
-function casted_on(NPC, Spawn, Message)
-    if Message == "Catalogue Creature" then
-		if HasQuest(Spawn, Catalogue) and GetQuestStepProgress(Spawn,Catalogue,2) == 0 then
-			SetStepComplete(Spawn, Catalogue, 2)
-			        local con = CreateConversation()
-        AddConversationOption(con, "Close the entry.")
-        StartDialogConversation(con, 1, NPC, Spawn, "Sunshimmer Sprite\n\n \"Sprites are a newer addition to the Oakmyst since The Cataclysm. Supposedly hailing from more enchanted waters, they were swept in from the torrential winds. It is hard to say what terms they have made with the resident fairies. Unlike the fairies here in Oakmyst, sprites are known to be true to their word.\"\n\n-Tracker Kelnis")        end
-end
-end

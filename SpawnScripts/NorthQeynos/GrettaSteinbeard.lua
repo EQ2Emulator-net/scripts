@@ -30,7 +30,7 @@ function hailed(NPC, Spawn)
         PlayFlavor(NPC, "voiceover/english/gretta_steinbeard/qey_north/grettasteinbeard_x1.mp3", "", "hello", 35615365, 1303938108, Spawn)
 	    local conversation = CreateConversation()
             if GetQuestStep(Spawn,fish)==2 then
-        	AddConversationOption(conversation, "Here are your fish!  You didn't warn me the smell would nearly knock me out.", "Delivered")
+        	AddConversationOption(conversation, "Here's your fish, take them before they make me pale with disgust!", "Delivered")
         	end
 	    	if not HasQuest(Spawn,fish) and not HasCompletedQuest(Spawn, fish) then
         	AddConversationOption(conversation, "You do have quite a nice place here.", "Work")
@@ -74,7 +74,7 @@ function Delivered(NPC, Spawn)
     local conversation = CreateConversation()
 	AddConversationOption(conversation, "Thanks.", "FinishQuest")
 	AddConversationOption(conversation, "Great.  Now have I have to get rid of this fish smell.", "Chuckle")
-	StartConversation(conversation, NPC, Spawn, "That last comment aside, I thank you.  And some of the mudglub tavern patrons who don't have the courage to face that shell-skinned Umli and yet complain about the turnip stew!  Well, here's some coin for your pocket.  You have no idea how valuable your service has been.")
+	StartConversation(conversation, NPC, Spawn, "That last comment aside, I thank ye, and so will the mudglud tavern patrons who don't have the courage to face that shale-skin Umli, and yet, complain about the turnip stew! Well, here's some coin for your pocket. You have no idea how valuable your service has been.")
 end	
 
 function Chuckle(NPC,Spawn)

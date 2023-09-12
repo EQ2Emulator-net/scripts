@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/Oakmyst_Classic/aStaticBadgerl.lua
+    Script Name    : SpawnScripts/Caves_Classic/analbinopython.lua
     Script Author  : Dorbin
-    Script Date    : 2022.10.21 01:10:23
+    Script Date    : 2023.09.11 01:09:40
     Script Purpose : 
                    : 
 --]]
@@ -11,8 +11,6 @@ function spawn(NPC)
 
 end
 
-function hailed(NPC, Spawn)
-end
 
 function respawn(NPC)
 	spawn(NPC)

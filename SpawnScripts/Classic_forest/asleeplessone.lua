@@ -6,6 +6,7 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/SkeletonSleepless1.lua")
+dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
 
 function spawn(NPC)
     SetSpawnAnimation(NPC, 13016)

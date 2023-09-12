@@ -6,6 +6,7 @@
 	Script Notes	: 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/BaseGolem1.lua")
+dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
 
 
 

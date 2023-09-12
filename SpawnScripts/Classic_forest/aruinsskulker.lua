@@ -5,6 +5,7 @@
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
 
 function spawn(NPC)
     AddTimer(NPC,math.random (2000,6000),"EmoteLoop")

@@ -1,18 +1,17 @@
 --[[
-    Script Name    : SpawnScripts/Oakmyst_Classic/aStaticBadgerl.lua
+    Script Name    : SpawnScripts/Peatbog_Classic/amarshhatchling.lua
     Script Author  : Dorbin
-    Script Date    : 2022.10.21 01:10:23
+    Script Date    : 2023.09.11 02:09:24
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/random_pattern_small_med_delay.lua")
 dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
 
 function spawn(NPC)
 
 end
 
-function hailed(NPC, Spawn)
-end
 
 function respawn(NPC)
 	spawn(NPC)

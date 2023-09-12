@@ -6,3 +6,4 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/Fairy_PeatBog.lua")
+dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")

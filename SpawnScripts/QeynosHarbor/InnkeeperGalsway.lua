@@ -60,6 +60,7 @@ function Dialog3(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/innkeeper_galsway/qey_harbor/qst_innkeepergalsway000.mp3", 2510257560, 588326201)
 	Dialog.AddOption("Alright.  I'll ask around the harbor market for you.", "QuestStart")
 	Dialog.AddOption("Not sure what I expected coming from a place called \"Fish's Alehouse and Inn\" but I'm not interested in this sorty of fishy business.")
+	Dialog.AddOption("No thanks. I'm not going to run all over the place to check on your fish.")
 	Dialog.Start()
 end
 

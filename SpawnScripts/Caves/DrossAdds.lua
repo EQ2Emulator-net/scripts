@@ -6,6 +6,7 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/BaseGolem1.lua")
+dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
 
 function spawn(NPC)
     AddTimer(NPC,math.random(2500,6000),"AttackRocks")
