@@ -39,6 +39,8 @@ function Step1_Complete_KilledRotweed(Quest, QuestGiver, Player)
 end
 
 function QuestComplete(Quest, QuestGiver, Player)
+	UpdateQuestStepDescription(Quest, 2, "I have spoken to Empress Anassa.")
+	UpdateQuestStepDescription(Quest, 2, "I have spoken to returned to Empress Anassa victorious.")
 	UpdateQuestDescription(Quest, "I encountered and defeated the twisted plant fiend Rotweed. Empress Anassa of the Oakmyst dryads was very appreciative.")
 	GiveQuestReward(Quest, Player)
 end

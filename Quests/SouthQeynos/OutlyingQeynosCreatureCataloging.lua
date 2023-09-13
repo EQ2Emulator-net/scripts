@@ -34,46 +34,48 @@ local A_BOG_FAERIE_ID = 1980007
 local A_BOG_FAERIE_ID_2 = 1980008
 local A_BOG_FAERIE_ID_3 = 1980010
 local A_BOG_FAERIE_ID_4 = 1980052
-local Catalogue = 2550196
+local Catalogue = 42 --2550196
+local Catalogue2 = 2550196 --
 
 function Init(Quest)
     
     UpdateQuestZone(Quest,"Multiple Zones")
-	AddQuestStep (Quest, 1, "I must find an Oakmyst fairy.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
+	AddQuestStep (Quest, 1, "I must find an Oakmyst fairy.", 1, 100, "I am tracking down several creatures and cataloging them.", 11)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 	
-	AddQuestStep(Quest, 2, "I must find a sunshimmer sprite.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
+	AddQuestStep(Quest, 2, "I must find a sunshimmer sprite.", 1, 100, "I am tracking down several creatures and cataloging them.", 11)
 	AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
 	
-	AddQuestStep(Quest, 3, "I must find a badger cub.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
+	AddQuestStep(Quest, 3, "I must find a badger cub.", 1, 100, "I am tracking down several creatures and cataloging them.", 11)
 	AddQuestStepCompleteAction(Quest, 3, "Step3Complete")
 	
-	AddQuestStep(Quest, 4, "I must find a ruins skulker.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
+	AddQuestStep(Quest, 4, "I must find a ruins skulker.", 1, 100, "I am tracking down several creatures and cataloging them.", 11)
 	AddQuestStepCompleteAction(Quest, 4, "Step4Complete")
 	
-	AddQuestStep(Quest, 5, "I must find a Flamepaw loyalist.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
+	AddQuestStep(Quest, 5, "I must find a Flamepaw loyalist.", 1, 100, "I am tracking down several creatures and cataloging them.", 11)
 	AddQuestStepCompleteAction(Quest, 5, "Step5Complete")
 	
-	AddQuestStep(Quest, 6, "I must find a sleepless one.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
+	AddQuestStep(Quest, 6, "I must find a sleepless one.", 1, 100, "I am tracking down several creatures and cataloging them.", 11)
 	AddQuestStepCompleteAction(Quest, 6, "Step6Complete")
 	
-	AddQuestStep(Quest, 7, "I must find an alabaster golem.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
+	AddQuestStep(Quest, 7, "I must find an alabaster golem.", 1, 100, "I am tracking down several creatures and cataloging them.", 11)
 	AddQuestStepCompleteAction(Quest, 7, "Step7Complete")
 	
-	AddQuestStep(Quest, 8, "I must find a Dustpaw guard.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
+	AddQuestStep(Quest, 8, "I must find a Dustpaw guard.", 1, 100, "I am tracking down several creatures and cataloging them.", 11)
 	AddQuestStepCompleteAction(Quest, 8, "Step8Complete")
 	
-	AddQuestStep(Quest, 9, "I must find an albino python.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
+	AddQuestStep(Quest, 9, "I must find an albino python.", 1, 100, "I am tracking down several creatures and cataloging them.", 11)
 	AddQuestStepCompleteAction(Quest, 9, "Step9Complete")
 	
-	AddQuestStep(Quest, 10, "I must find a bog sludge.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
+	AddQuestStep(Quest, 10, "I must find a bog sludge.", 1, 100, "I am tracking down several creatures and cataloging them.", 11)
 	AddQuestStepCompleteAction(Quest, 10, "Step10Complete")
 	
-	AddQuestStep(Quest, 11, "I must find a marsh hatchling.", 1, 100, "I am tracking down several creatures and cataloging them.", 11, Catalogue)
+	AddQuestStep(Quest, 11, "I must find a marsh hatchling.", 1, 100, "I am tracking down several creatures and cataloging them.", 11)
 	AddQuestStepCompleteAction(Quest, 11, "Step11Complete")
 	
-	AddQuestStep(Quest, 12, "I must find a bog faerie.", 1, 100, "I am tracking down several creatures and cataloging them.", 11,Catalogue)
+	AddQuestStep(Quest, 12, "I must find a bog faerie.", 1, 100, "I am tracking down several creatures and cataloging them.", 11)
 	AddQuestStepCompleteAction(Quest, 12, "Step12Complete")
+
 end
 
 function CheckProgress(Quest, QuestGiver, Player)

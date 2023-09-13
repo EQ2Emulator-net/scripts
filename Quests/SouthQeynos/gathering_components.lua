@@ -59,7 +59,7 @@ function CheckProgress(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 3, "I've gathered the components Khalil'Mun needs for his potion.")
     UpdateQuestZone(Quest,"South Qeynos")
 	AddQuestStepChat(Quest, 4, "I need return to Khalil'Mun.", 1, "Khalil'Mun is waiting for these ingredients in his shop in South Qeynos.", 10, 2310048)
-	AddQuestStepCompleteAction(Quest, 4, "Step4Complete")
+	AddQuestStepCompleteAction(Quest, 4, "QuestComplete")
     end
 end
 

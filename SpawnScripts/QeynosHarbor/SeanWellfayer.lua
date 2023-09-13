@@ -65,7 +65,7 @@ function Dialog1(NPC, Spawn)
 	Dialog.AddOption("How are the fish biting today?", "Dialog2")
     end
     if GetQuestStep(Spawn,bait)==3 then
-	Dialog.AddOption("I've brought the fairy wings and slug meat you were looking for.", "Dialog3")
+	Dialog.AddOption("I've brought the fairy wings and slug meat you were looking for.", "JobDone")
     end
     Dialog.AddOption("Not interested right now.  Good luck on your next catch.")
 	Dialog.Start()

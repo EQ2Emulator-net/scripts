@@ -5,6 +5,7 @@
 	Script Date		:	05/15/2020 12:27:03 PM
 	Script Notes	:	Locations collected from Live
 --]]
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseSkeleton2.lua")
 
 function spawn(NPC)
     local Level = GetLevel(NPC)

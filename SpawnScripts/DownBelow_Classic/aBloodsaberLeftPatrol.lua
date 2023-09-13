@@ -5,6 +5,13 @@
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/MonsterCallouts/BloodSabers.lua")
+
+function aggro(NPC,Spawn)
+    if not HasLanguage(Spawn,26) then
+        Garbled(NPC,Spawn)
+    end
+end
 
 function spawn(NPC)
 

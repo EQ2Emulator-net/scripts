@@ -9,7 +9,7 @@
 local DefiledDremDrem = 5367
 
 function spawn(NPC)
-SetPlayerProximityFunction(NPC, 10, "InRange", Spawn)
+SetPlayerProximityFunction(NPC, 12, "InRange", Spawn)
 end
 
 function casted_on(NPC, Spawn, SpellName)
@@ -27,8 +27,8 @@ function offer(NPC, Spawn)
      AddConversationOption(con, "I should find the bones.")
       AddConversationOption(con, "exit")
  StartDialogConversation(con, 1, NPC, Spawn, "Upon opening the coffin, you notice that it is empty.  This coffin has been defiled!")
-        SetAccessToEntityCommand(Spawn,NPC,"examine coffin", 0)
-     SpawnSet(NPC, "show_command_icon", 0)
+    SetAccessToEntityCommand(Spawn,NPC,"examine coffin", 0)
+    SpawnSet(NPC, "show_command_icon", 0)
     SpawnSet(NPC, "display_hand_icon", 0)
     AddTimer(NPC, 10000, "check", 1, Spawn)
 end

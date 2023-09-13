@@ -82,7 +82,7 @@ function hailed(NPC, Spawn)
 	        if GetQuestStep(Spawn, Slime)==2 then
 	           Dialog.AddOption("I have collected your substance extract.", "DoneSlime")
 	        end
-            if GetQuestStep(Spawn,Mage1)==3 then
+            if HasQuest(Spawn,Mage1) and GetQuestStepProgress(Spawn,Mage1,3) == 0 then
 	           Dialog.AddOption("The Magister suggested I asked you about what you use your sorcery for.", "MageTraining1")
             end                
 	        

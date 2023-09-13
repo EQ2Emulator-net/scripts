@@ -9,6 +9,7 @@
         Preceded by: None
         Followed by: 
 --]]
+require "SpawnScripts/Generic/DialogModule"
 
 
 function Init(Quest)
@@ -40,11 +41,12 @@ function Init(Quest)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-    FaceTarget(QuestGiver, Player)
-	local conversation = CreateConversation()
-	PlayFlavor(NPC, "voiceover/english/merchant_adair_barnes/qey_catacomb01/merchant_barnes/merchant_barnes003.mp3", "", "", 800334803, 2767782322, Spawn)
-	AddConversationOption(conversation, "Got it.")
-	StartConversation(conversation, QuestGiver, Player, "Good. Let me write down in your journal what I need you to get.  Now hurry up, this stuff needs to stay fresh, got it?")
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("Good. Let me write down in your journal what I need you to get.  Now hurry up, this stuff needs to stay fresh, got it?")
+	Dialog.AddVoiceover("voiceover/english/merchant_adair_barnes/qey_catacomb01/merchant_barnes/merchant_barnes003.mp3", 800334803, 2767782322)
+	Dialog.AddOption("Got it.")
+	Dialog.Start()
 end
 
 function Declined(Quest, QuestGiver, Player)
