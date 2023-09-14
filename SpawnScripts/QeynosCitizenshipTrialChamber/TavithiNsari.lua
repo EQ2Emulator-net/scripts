@@ -16,6 +16,8 @@ local WWQCitizen = 5723
 
 function spawn(NPC)
 SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")
+    SpawnSet(NPC,"model_type",79)
+    SpawnSet(NPC,"soga_model_type",4973)
 end
 
 function InRange(NPC, Spawn)
@@ -72,11 +74,25 @@ function Dialog4(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/tavithi_n_sari/qey_catacomb_epic01/tavithinsari003.mp3", 3211336740, 2450849190)
     PlayFlavor(NPC,"","","cackle",0,0,Spawn)
     SpawnSet(NPC,"mood_state",11852)
-	Dialog.AddOption("...", "AttackTimer")
+    AddTimer(NPC,4000,"Shimmer",1,Spawn)
+    AddTimer(NPC,6000,"Poof",1,Spawn)
+    AddTimer(NPC,8700,"AttackTimer",1,Spawn)
+	Dialog.AddOption("...")
 	Dialog.Start()
 end
 
+function Shimmer(NPC,Spawn)
+    PlayFlavor(NPC,"","","result_colored_forced_shader",0,0)
+end
+
+function Poof(NPC,Spawn)
+    PlayFlavor(NPC,"","","result_smoke_sphere",0,0)
+end
+
 function AttackTimer(NPC,Spawn)
+    CloseConversation(NPC,Spawn)
+    SpawnSet(NPC,"model_type",116)
+    SpawnSet(NPC,"soga_model_type",4965)
     SpawnSet(NPC,"attackable",1)
     SpawnSet(NPC,"show_level",1)
     AddPrimaryEntityCommand(Spawn,NPC,"",0,"")
@@ -102,6 +118,10 @@ local Mole = GetSpawn(NPC,8250011)
 local Refu = GetSpawn(NPC,8250012) 
 local Part = GetSpawn(NPC,8250013) 
 local Tavi = GetSpawn(NPC,8250014) 
+if not HasLanguage(Spawn,2) then
+	  PlayFlavor(NPC, "voiceover/english/optional3/darkelf_base_2/ft/darkelf/darkelf_base_2_1_garbled_gf_810a3ce3.mp3", "Dark in body and soul! Hah!", "", 1604363761, 647045676, Spawn, 2)
+end   
+
     
     if Mole == nil or not IsAlive(Mole) then
         if Refu == nil or not IsAlive(Refu) then

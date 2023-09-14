@@ -60,6 +60,7 @@ function NoWork(NPC,Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Word gets around quickly down here; so don't think about trying to pull one over on me.  I won't have you working for me while you're doing work for Barnes, got it!?")
 	Dialog.AddVoiceover("voiceover/english/merchant_falin_shaloon/qey_catacomb01/merchant_shaloon/merchant_shaloon006.mp3", 176112027, 123486081)
+    PlayFlavor(NPC, "", "", "glare", 0, 0, Spawn)
 	Dialog.AddOption("Maybe I'll come back when I'm through.")
 	Dialog.Start()
 end

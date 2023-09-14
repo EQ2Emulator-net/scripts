@@ -15,7 +15,7 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-if HasQuest(Spawn,5766) and not QuestStepIsComplete(Spawn,5766,3)then --WELCOME TO QEYNOS,CITIZEN
+if HasQuest(Spawn,5766) and GetQuestStepProgress(Spawn,5766,3) == 0 then --WELCOME TO QEYNOS,CITIZEN
     SetStepComplete(Spawn,5766,3)
 end
 Dialog1(NPC, Spawn)

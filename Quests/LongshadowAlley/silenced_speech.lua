@@ -14,7 +14,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Slay Dervish crooks in the Sprawl until Kirs' signet ring is found.", 1, 20, " I need to find out which one of the Dervish crooks is Kirs. I'll need to slay all of the crooks until I find something indentifying him... or her.", 596, 1260000)
+	AddQuestStepKill(Quest, 1, "Slay Dervish crooks in the Sprawl until Kirs' signet ring is found.", 1, 30, " I need to find out which one of the Dervish crooks is Kirs. I'll need to slay all of the crooks until I find something indentifying him... or her.", 596, 1260000)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
     UpdateQuestZone(Quest,"Sprawl")
 end

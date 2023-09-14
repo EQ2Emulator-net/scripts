@@ -22,7 +22,7 @@ end
 
 function hailed(NPC, Spawn)
     local count = GetQuestCompleteCount(Spawn, QeynosianCivilService)
-    if HasQuest(Spawn,5766) and not QuestStepIsComplete(Spawn,5766,7)then --WELCOME TO QEYNOS,CITIZEN
+    if HasQuest(Spawn,5766) and GetQuestStepProgress(Spawn,5766,7) ==0 then --WELCOME TO QEYNOS,CITIZEN
     SetStepComplete(Spawn,5766,7)
     end
 
@@ -31,7 +31,7 @@ function hailed(NPC, Spawn)
 	Dialog.AddDialog("You may not enter the citadel at this time.  You'll find better adventuring elsewhere.")
     Dialog.AddVoiceover("voiceover/english/sir_alesso/qey_north/sir_alesso000.mp3",3475003342, 4075821182)
     if not HasQuest(Spawn, QeynosianCivilService) and count <= 5 then
-     AddConversationOption(conversation, "Yes, but where?", "dlg_1_1")
+     Dialog.AddOption("Yes, but where?", "dlg_1_1")
     elseif GetQuestStep(Spawn, QeynosianCivilService) == 4 then
     Dialog.AddOption("I've completed my service to Qeynos", "dlg1_2") 
      end

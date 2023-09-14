@@ -161,7 +161,7 @@ function Dialog2(NPC,Spawn)
     PlayFlavor(NPC, "","","sniff",0,0, Spawn)
 	Dialog.AddOption("I see... as you were.", "Dialog2a")
 	Dialog.Start()
-    if GetQuestStepProgress(Spawn, SilencedSpeech)==2 then
+    if GetQuestStep(Spawn, SilencedSpeech)==2 then
     SetStepComplete(Spawn, SilencedSpeech, 2)
     end
 end

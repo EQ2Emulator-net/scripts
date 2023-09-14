@@ -11,6 +11,7 @@
 	Followed by		:	None
 --]]
 
+require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
 	SetQuestFeatherColor(Quest, 3)
