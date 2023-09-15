@@ -77,16 +77,22 @@ function Dialog4(NPC, Spawn)
     AddTimer(NPC,4000,"Shimmer",1,Spawn)
     AddTimer(NPC,6000,"Poof",1,Spawn)
     AddTimer(NPC,8700,"AttackTimer",1,Spawn)
+    AddTimer(NPC,9100,"Poof2",1,Spawn)
 	Dialog.AddOption("...")
 	Dialog.Start()
 end
 
 function Shimmer(NPC,Spawn)
-    PlayFlavor(NPC,"","","result_colored_forced_shader",0,0)
+    PlayFlavor(NPC,"","","result_teleport_sparkle",0,0)
+
 end
 
 function Poof(NPC,Spawn)
-    PlayFlavor(NPC,"","","result_smoke_sphere",0,0)
+    PlayFlavor(NPC,"","","result_teleport_appear",0,0)
+end
+
+function Poof2(NPC,Spawn)
+    PlayFlavor(NPC,"","","result_dispell1_out",0,0)
 end
 
 function AttackTimer(NPC,Spawn)

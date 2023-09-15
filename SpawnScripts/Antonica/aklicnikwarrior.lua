@@ -1,13 +1,14 @@
 --[[
-    Script Name    : SpawnScripts/Antonica/atimberclawgnoll.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2022.07.09 01:07:44
+    Script Name    : SpawnScripts/Antonica/aklicnikwarrior.lua
+    Script Author  : Dorbin
+    Script Date    : 2023.09.15 04:09:30
     Script Purpose : 
                    : 
 --]]
 dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
 
 function spawn(NPC)
+
 end
 
 

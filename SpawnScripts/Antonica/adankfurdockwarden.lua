@@ -5,6 +5,7 @@
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
 
 local QUEST_3 = 5561
 

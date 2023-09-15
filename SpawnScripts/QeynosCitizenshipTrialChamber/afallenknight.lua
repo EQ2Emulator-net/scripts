@@ -13,7 +13,7 @@ function spawn(NPC)
 end
 
 function InRange(NPC, Spawn)
-    if GetQuestStep(Spawn, 5718) >=4 or GetQuestStep(Spawn, 5719) >=4 or GetQuestStep(Spawn, 5720) >=4 or GetQuestStep(Spawn, 5721) >=4 or GetQuestStep(Spawn, 5722) >=4 or GetQuestStep(Spawn, 5723) >=4 then
+    if GetQuestStep(Spawn, 5718) >=4 or GetQuestStep(Spawn, 5719) >=4 or GetQuestStep(Spawn, 5720) >=4 or GetQuestStep(Spawn, 5721) >=4 or GetQuestStep(Spawn, 5722) >=4 or GetQuestStep(Spawn, 5723) >=4 or GetFactionAmount(Spawn,11) >=30000  then
     DoorCheck(NPC,Spawn) 
 end
 end

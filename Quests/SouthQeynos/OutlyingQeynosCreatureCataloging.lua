@@ -3,7 +3,7 @@
 	Script Purpose	:	Handles the quest, "Outlying Qeynos Creature Cataloging"
 	Script Author	:	Shatou
 	Script Date		:	1/9/2020
-	Script Notes	:	
+	Script Notes	:	Updated for skill use and updates - Dorbin 9/12/2023
 
 	Zone			:	Catalog
 	Quest Giver		:	Outlying Qeynos Creature Catalog from Sage Indis Surion

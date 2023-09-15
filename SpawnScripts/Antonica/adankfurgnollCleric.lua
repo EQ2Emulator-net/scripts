@@ -5,7 +5,7 @@
     Script Purpose : 
                    : 
 --]]
-
+dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
 dofile("SpawnScripts/Generic/MonsterCallouts/DarkpawGnoll1.lua")
 
 function spawn(NPC)
