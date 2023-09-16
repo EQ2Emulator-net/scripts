@@ -38,6 +38,9 @@ function Class(Item, Player)
     StartDialogConversation(conversation, 2, Item, Player, "You are now known as \n\n"..GetName(Player).." the Brawler.")
  	if GetClass(Player)== 1 or GetClass(Player)== 0 then
     SetAdventureClass(Player,5)   
+ 
+    RemoveSpellBookEntry(Player, 2550401)
+
    local level = GetLevel(Player)*5
 
 if not HasSkill(Player, 1408356869) then -- Martial
@@ -78,7 +81,7 @@ end
     AddSkill(Player, 2897193374,1,level)
     SendMessage(Player, "You are now more proficient with Light Armor")
 end
-if HasSkill(Player, 3177806075) then -- Fists
+if not HasSkill(Player, 3177806075) then -- Fists
     AddSkill(Player, 3177806075,1,level)
     SendMessage(Player, "You are now more proficient with your Fists")
 end

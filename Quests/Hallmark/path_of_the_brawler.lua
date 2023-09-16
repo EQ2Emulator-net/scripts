@@ -84,6 +84,8 @@ function QuestComplete(Quest, QuestGiver, Player)
     SendPopUpMessage(Player, "Congratulations! You are a Brawler.",250,250,200)
     ApplySpellVisual(Player, 324)
     PlaySound(Player, "sounds/test/endquest.wav", GetX(Player), GetY(Player), GetZ(Player), Player)
+
+    RemoveSpellBookEntry(Player, 2550401)
     
    local level = GetLevel(Player)*5
 if not HasSkill(Player, 1408356869) then -- Martial
@@ -124,13 +126,13 @@ end
     AddSkill(Player, 2897193374,1,level)
     SendMessage(Player, "You are now more proficient with Light Armor")
 end
-if HasSkill(Player, 3177806075) then -- Fists
+if not HasSkill(Player, 3177806075) then -- Fists
     AddSkill(Player, 3177806075,1,level)
     SendMessage(Player, "You are now more proficient with your Fists")
 end
 if not HasSkill(Player, 4037812502) then -- Buckler
     AddSkill(Player, 4037812502,1,level)
-    SendMessage(Player, "You are now more proficient with a Buckler")
+   SendMessage(Player, "You are now more proficient with a Buckler")
 end
 if not HasSkill(Player, 770311065) then -- Mace
     AddSkill(Player, 770311065,1,level)

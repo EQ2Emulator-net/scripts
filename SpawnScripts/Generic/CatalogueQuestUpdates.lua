@@ -7,9 +7,14 @@
                    : 
 --]]
 local OutlyingQeynos = 519
+local Antonica = 5885
+
 
 function casted_on(NPC, Spawn, Message)
     if Message == "Catalogue Creature" then
+
+ --OUTLYING QEYNOS GUIDE-------------------------------------------------------  
+
         if HasQuest(Spawn, OutlyingQeynos) then 
 
     --OAKMYST FAIRIES        
@@ -124,6 +129,108 @@ function casted_on(NPC, Spawn, Message)
 
 
             end
+ 
+ 
+ --ANTONICA GUIDE-------------------------------------------------------  
+
+        elseif HasQuest(Spawn, Antonica) then 
+
+   --YOUNG KODIAK       
+            if GetSpawnID(NPC) == 120294 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,1) == 0 then
+			        SetStepComplete(Spawn, Antonica, 1)
+                    end
+    --GRIZZLED BADGER                
+            elseif GetSpawnID(NPC) == 120014 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,2) == 0 then
+			        SetStepComplete(Spawn, Antonica, 2)
+                    end
+    --LOWLAND VIPER               
+            elseif GetSpawnID(NPC) == 120068 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,3) == 0 then
+			        SetStepComplete(Spawn, Antonica, 3)
+                   end
+    --COLDWIND OCTOPUS               
+            elseif GetSpawnID(NPC) == 120032  or GetSpawnID(NPC) == 120193 or GetSpawnID(NPC) == 120085 or GetSpawnID(NPC) == 120194 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,4) == 0 then
+			        SetStepComplete(Spawn, Antonica, 4)
+                    end 
+    --SONIC SHRIEKER                
+            elseif GetSpawnID(NPC) == 120297 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,5) == 0 then
+			        SetStepComplete(Spawn, Antonica, 5)
+                  end
+                    
+    --KLICNIK WARRIOR               
+            elseif GetSpawnID(NPC) == 120253  or GetSpawnID(NPC) == 120367 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,6) == 0 then
+			        SetStepComplete(Spawn, Antonica, 6)
+                   end 
+    --TIMBERCLAW GNOLL                
+            elseif GetSpawnID(NPC) == 120296 or GetSpawnID(NPC) == 120295 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,7) == 0 then
+			        SetStepComplete(Spawn, Antonica, 7)
+                    end 
+    --DANKFUR GNOLL               
+            elseif GetSpawnID(NPC) == 121482 or GetSpawnID(NPC) == 120420 or GetSpawnID(NPC) == 120340 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,8) == 0 then
+			        SetStepComplete(Spawn, Antonica, 8)
+                    end 
+    --POND BEAVER               
+            elseif GetSpawnID(NPC) == 120415 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,9) == 0 then
+			        SetStepComplete(Spawn, Antonica, 9)
+                    end 
+    --SOGBONE SKELETON               
+            elseif GetSpawnID(NPC) == 120261 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,10) == 0 then
+			        SetStepComplete(Spawn, Antonica, 10)
+                    end 
+    --KODIAK               
+            elseif GetSpawnID(NPC) == 120105 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,11) == 0 then
+			        SetStepComplete(Spawn, Antonica, 11)
+                   end 
+    --TIDEWALKER BEHEMOTH              
+            elseif GetSpawnID(NPC) == 120243 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,12) == 0 then
+			        SetStepComplete(Spawn, Antonica, 12)
+                    end 
+    --ROOT STRANGLER            
+            elseif GetSpawnID(NPC) == 120475 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,13) == 0 then
+			        SetStepComplete(Spawn, Antonica, 13)
+                    end 
+    --EARTHEN BURROWER             
+            elseif GetSpawnID(NPC) == 120157 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,14) == 0 then
+			        SetStepComplete(Spawn, Antonica, 14)
+                    end 
+    --WANDERING BAT            
+            elseif GetSpawnID(NPC) == 120210 then         
+    
+		            if  GetQuestStepProgress(Spawn,Antonica,15) == 0 then
+			        SetStepComplete(Spawn, Antonica, 15)
+                end 
+            
+            end
+    
+   
+   
     end
 end
 end

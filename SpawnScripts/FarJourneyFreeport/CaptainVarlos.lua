@@ -197,13 +197,20 @@ function drop_anchor(NPC, player)
 	Dialog.AddOption("[Continue]", "hailed")
 	Dialog.Start()
 		MovementLoopAddLocation(GetSpawn(NPC, 270001), 4.21, -2.07, 3.72, 4,0)
-		MovementLoopAddLocation(GetSpawn(NPC, 270001), 1.97, 0.59, 16.73, 4,0)
-		MovementLoopAddLocation(GetSpawn(NPC, 270001), 1.07, 0.66, 18.69, 4,20)
-		MovementLoopAddLocation(GetSpawn(NPC, 270001), 1.07, 0.66, 18.69, 2,0)
+		MovementLoopAddLocation(GetSpawn(NPC, 270001), 1.97, 0.63, 16.73, 4,0)
+		MovementLoopAddLocation(GetSpawn(NPC, 270001), 2.22, 0.66, 18.76, 4,0)
+		MovementLoopAddLocation(GetSpawn(NPC, 270001), 2.22, 0.66, 18.76, 4,2,"Head")
+		MovementLoopAddLocation(GetSpawn(NPC, 270001), 2.22, 0.66, 18.76, 4,120)
+		MovementLoopAddLocation(GetSpawn(NPC, 270001), 2.22, 0.66, 18.76, 4,0)
 		MovementLoopAddLocation(GetSpawn(NPC, 270001), 1.97, 0.59, 16.73, 2,0)
 		MovementLoopAddLocation(GetSpawn(NPC, 270001), 4.21, -2.07, 3.72, 2,0)
 		MovementLoopAddLocation(GetSpawn(NPC, 270001), 2.91, -2.07, -3.61, 2,120)
 	end
+
+function Head(NPC)
+    SetHeading(GetSpawn(NPC, 270001),220)
+end
+
 
 function ready_to_go_ashore(NPC, player)
 	Dialog.New(NPC, player)
@@ -246,7 +253,7 @@ end
 function quest_step_9b(NPC, player)
 	FaceTarget(NPC, GetSpawn(NPC, 270013))
 	PlayFlavor(NPC, "voiceover/english/captain_varlos/boat_06p_tutorial02_fvo_017.mp3", "Wait. Tis that a... No, it cain' be!", "", 1253231512, 1752159147)
-	AddTimer(NPC, 4000, "quest_step_9c", 1, player)	
+	AddTimer(NPC, 5000, "quest_step_9c", 1, player)	
 	GenerateStateDefines(player)
 	SendStateCommand(GetSpawn(NPC, 270005), VSTATE_DOUBLETAKE)	
 end
@@ -265,7 +272,7 @@ function quest_step_9c(NPC, player)
 	
 	GenerateStateDefines(player)
 	SendStateCommand(Anikra, VSTATE_POINT)
-	SendStateCommand(Valik, VSTATE_POINT)
+	SendStateCommand(Valik, VSTATE_SQUEAL)
 	SendStateCommand(Geredo, VSTATE_POINT)
 	
 	SendStateCommand(GetSpawn(NPC, 270001), VSTATE_CROUCH_ENTER)

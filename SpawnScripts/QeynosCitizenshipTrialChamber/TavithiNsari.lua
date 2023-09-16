@@ -18,6 +18,7 @@ function spawn(NPC)
 SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")
     SpawnSet(NPC,"model_type",79)
     SpawnSet(NPC,"soga_model_type",4973)
+    SetTempVariable(NPC,"HailTimer",nil)
 end
 
 function InRange(NPC, Spawn)
@@ -27,7 +28,9 @@ end
 end
 
 function hailed(NPC, Spawn)
+if GetTempVariable(NPC,"HailTimer")==nil then
 Dialog1(NPC, Spawn)
+end
 end
 
 function respawn(NPC)
@@ -68,6 +71,7 @@ function Dialog3(NPC, Spawn)
 end
 
 function Dialog4(NPC, Spawn)
+    SetTempVariable(NPC,"HailTimer",1)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("You fool!  You should've let me go when you had the chance!  Prepare to be a stain on the floor of Innoruuk's realm!")
