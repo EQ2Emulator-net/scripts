@@ -64,6 +64,7 @@ function  QuestCheck(Quest, QuestGiver, Player)
     UpdateQuestTaskGroupDescription(Quest, 1, "I have ventured into the house in South Qeynos and subdued the spirits within.")
 	if GetClass(Player)== 11 then
 	SetAdventureClass(Player,18)
+	SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Shaman.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Shaman.",250,250,200)
     ApplySpellVisual(Player, 324)

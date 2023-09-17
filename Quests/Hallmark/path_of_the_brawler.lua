@@ -80,6 +80,7 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 2, "I have passed the trial and become a brawler.")
 	if GetClass(Player)== 1 then
 	SetAdventureClass(Player,5)
+	SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Brawler.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Brawler.",250,250,200)
     ApplySpellVisual(Player, 324)

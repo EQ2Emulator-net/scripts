@@ -44,6 +44,7 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've saved the other bard from the angry crowd.")
 	if GetClass(Player)== 31 then
 	SetAdventureClass(Player,35)
+	SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Bard.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Bard.",250,250,200)
     ApplySpellVisual(Player, 324)

@@ -28,9 +28,9 @@ end
 function hailed(NPC, Spawn)
     if GetLevel(Spawn) ==7 and  HasCompletedQuest(Spawn,Mage1) then
     DoneToday(NPC,Spawn)   
-    elseif GetLevel(Spawn) ==8 and HasCompletedQuest(Spawn,Mage2) then
+    elseif GetLevel(Spawn) >=8 and HasCompletedQuest(Spawn,Mage2) then
     DoneToday(NPC,Spawn)   
-    elseif GetLevel(Spawn) ==9 and HasCompletedQuest(Spawn,Mage2) and GetClass(Spawn)==21 and not HasQuest(Spawn, Ench) and not HasQuest(Spawn, Sorc) and not HasQuest(Spawn, Summ) then
+    elseif GetLevel(Spawn) >=9 and HasCompletedQuest(Spawn,Mage2) and GetClass(Spawn)==21 and not HasQuest(Spawn, Ench) and not HasQuest(Spawn, Sorc) and not HasQuest(Spawn, Summ) then
     FinalClassTest(NPC,Spawn)
     else
     FaceTarget(NPC, Spawn)
@@ -262,7 +262,7 @@ function Dialog6(NPC,Spawn)
  	Dialog.AddDialog("Let me see it.  Wonderful!  This is the perfect size for pickling. Mmmm ... nothing's better than a pickled Klicnik eye sandwich with mustard and mayonnaise.  Oh, drat!  I dropped my sandwich on my formula!  And that was my only copy! I can't recreate it either! Oh well... the formula would never work anyway. As for you, it's time you make a choice.")
 	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel020.mp3", 538297903, 4048671950)
     PlayFlavor(NPC, "", "", "happy", 0, 0, Spawn)
-    if GetLevel(Spawn)== 8 then
+    if GetLevel(Spawn)<= 8 then
     Dialog.AddOption("Am I ready now?","DoneToday")	
     elseif GetLevel(Spawn) >8 then
     Dialog.AddOption("That task was simple enough. What must I do to advance?","FinalClassTest")	

@@ -51,6 +51,7 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 2, "I have taken care of the disturbance for Niksel and proven myself as an enchanter.")
 	if GetClass(Player)== 21 then
 	SetAdventureClass(Player,25)
+	SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are an Enchanter.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are an Enchanter.",250,250,200)
     ApplySpellVisual(Player, 324)

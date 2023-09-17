@@ -48,7 +48,7 @@ function hailed(NPC, Spawn)
     Dialog.AddOption("I've killed the gnoll pup","Dialog6")	
     end   
  
-    if HasCompletedQuest(Spawn,Quest2) and not HasQuest(Spawn,Crusader) and not HasQuest(Spawn,Brawler) and not HasQuest(Spawn,Warrior) and GetClass(Spawn)==1 then
+    if HasCompletedQuest(Spawn,Quest2) and not HasQuest(Spawn,Crusader) and not HasQuest(Spawn,Brawler) and not HasQuest(Spawn,Warrior) and GetClass(Spawn)==1 and GetLevel(Spawn) >=9 then
     Dialog.AddOption("I've proven myself. I'm ready for any other test you can give.","Decide")	
     end  
     
@@ -88,7 +88,7 @@ function Dialog1b(NPC,Spawn)
     PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
     Dialog.AddOption("I tackled a few goblins on the Isle of Refuge before coming here.","Dialog1c1")	
     if HasCompletedQuest(Spawn, 5751)then --ISLE OF REFUGE ORC LEADER QUEST
-    Dialog.AddOption("I toppled the invading leadership on the Isle of Refuge by taking out the orc leader, Grimgash.","Dialog1c1a")
+    Dialog.AddOption("I toppled the invading goblins on the Isle of Refuge by taking out thier orc leader, Grimgash.","Dialog1c1a")
     end
     Dialog.AddOption("I took out some traitors to Qeynos. Proving my loyalty to Qeynos.","Dialog1c2")	
     Dialog.AddOption("This and that- just some good ol' rough and tumble.","Dialog1c3")	
@@ -347,8 +347,15 @@ function Dialog6(NPC,Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("Aye, aye.  The watchmen informed me. They say you held your own. That's what I want to hear! You had to prove your fightin' skills--I don't want anyone accusing ol' Dagorel of sending ill-equipped kids off to their deaths. You proved you got what it takes, kid. Good work.")
     PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
+    if GetLevel(Spawn) >=9 then
     Dialog.AddOption("I'm glad to have had the chance to prove myself.","Decide")
+    else
+    Dialog.AddOption("I hate to admit it, but I need a rest after that. I'll return once I'm ready.")
+    end
 	Dialog.Start()
+    if HasQuest(Spawn,Quest2) and GetQuestStep(Spawn,Quest2) ==6 then
+    SetStepComplete(Spawn,Quest2,6)
+    end
 end
 
 --CLASS SELECTION 

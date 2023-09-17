@@ -43,6 +43,7 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed the leader of the assassins.")
 	if GetClass(Player)== 31 then
 	SetAdventureClass(Player,38)
+	SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Predator.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Predator.",250,250,200)
     ApplySpellVisual(Player, 324)

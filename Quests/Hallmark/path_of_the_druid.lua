@@ -43,6 +43,7 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've completed Aldalad's trial by defeating the fire elemental and become a druid.")
 	if GetClass(Player)== 11 then
 	SetAdventureClass(Player,15)
+	SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Druid.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Druid.",250,250,200)
     ApplySpellVisual(Player, 324)

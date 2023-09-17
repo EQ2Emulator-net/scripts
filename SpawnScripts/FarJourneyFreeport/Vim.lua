@@ -28,13 +28,18 @@ function hailed(NPC, player)
 		PlayFlavor(NPC, "voiceover/english/merchant_vim/boat_06p_tutorial02_fvo_005.mp3", "The Far Journey's a beautiful ship, ain't she?", "",3585442471, 604828909)
 	end
 	if GetTutorialStep(player) == 24 then
-		InstructionWindow(player, -1.0, "This is the merchant screen where all buying and selling takes place. Money comes in four denominations: copper, silver, gold, and platinum. Each type of coin is worth 100 times more than the previous one. For example, 100 copper pieces equals 1 silver piece. But right now, as this display shows, you have no money, so left click on the sell tab.", "voiceover/english/narrator/boat_06p_tutorial02/narrator_021_6c80e66e.mp3", 1226703760, 969427050, "tutorial_stage_25", "Click on the 'Sell' tab in the merchant window.", "pane Merchant Sell")
+    AddTimer(NPC,2500,"Next",1,player)	
+    end
+end
+
+function Next(NPC,player)
+        InstructionWindow(player, -1.0, "This is the merchant screen where all buying and selling takes place. Money comes in four denominations: copper, silver, gold, and platinum. Each type of coin is worth 100 times more than the previous one. For example, 100 copper pieces equals 1 silver piece. But right now, as this display shows, you have no money, so left click on the sell tab.", "voiceover/english/narrator/boat_06p_tutorial02/narrator_021_6c80e66e.mp3", 1226703760, 969427050, "tutorial_stage_25", "Click on the 'Sell' tab in the merchant window.", "pane Merchant Sell")
 		FlashWindow(player, "Inventory.Merchant.PlatinumCoinIcon", 8.0)
 		FlashWindow(player, "Inventory.Merchant.GoldCoinIcon", 8.0)
 		FlashWindow(player, "Inventory.Merchant.SilverCoinIcon", 8.0)
 		FlashWindow(player, "Inventory.Merchant.CopperCoinIcon", 8.0)
 	end
-end
+
 
 function respawn(NPC)
 

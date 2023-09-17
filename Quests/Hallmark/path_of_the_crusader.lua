@@ -43,6 +43,7 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've defeated the thugs holding the villager hostage and set her free.")
 	if GetClass(Player)== 1 then
 	SetAdventureClass(Player,8)
+	SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Crusader.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Crusader.",250,250,200)
     ApplySpellVisual(Player, 324)

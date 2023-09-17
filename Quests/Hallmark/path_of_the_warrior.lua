@@ -65,6 +65,7 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 2, "I've declared my victory.")
 	if GetClass(Player)== 1 then
 	SetAdventureClass(Player,2)
+	SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Warrior.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Warrior.",250,250,200)
     ApplySpellVisual(Player, 324)

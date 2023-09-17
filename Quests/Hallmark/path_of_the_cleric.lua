@@ -50,6 +50,7 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've completed Aldalad's trial and become a cleric.")
 	if GetClass(Player)== 11 then
 	SetAdventureClass(Player,12)
+	SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Cleric.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Cleric.",250,250,200)
     ApplySpellVisual(Player, 324)

@@ -43,6 +43,7 @@ function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've passed Magister Niksel's trial.")
 	if GetClass(Player)== 21 then
 	SetAdventureClass(Player,22)
+	SetPlayerLevel(Player,10)
     SendMessage(Player, "Congratulations! You are a Sorcerer.","yellow")
     SendPopUpMessage(Player, "Congratulations! You are a Sorcerer.",250,250,200)
     ApplySpellVisual(Player, 324)

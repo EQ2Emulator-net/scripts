@@ -47,7 +47,7 @@ function hailed(NPC, Spawn)
     if HasQuest(Spawn,Quest2) and GetQuestStep(Spawn,Quest2)==4 then 
     Dialog.AddOption("I gave the guard the message. [Tell Vemerik what the guard said] ","Dialog6")	
     end
-    if HasCompletedQuest(Spawn,Quest2) and not HasQuest(Spawn,Bard) and not HasQuest(Spawn,Rogue) and not HasQuest(Spawn,Predator) and GetClass(Spawn)==31 then
+    if HasCompletedQuest(Spawn,Quest2) and not HasQuest(Spawn,Bard) and not HasQuest(Spawn,Rogue) and not HasQuest(Spawn,Predator) and GetClass(Spawn)==31 and GetLevel(Spawn) >= 9 then
     Dialog.AddOption("I think I understand what you're saying.  Sooo... any more advice?","Decide")	
     end       
     if HasQuest(Spawn,Rogue) and GetQuestStep(Spawn,Rogue)==2 then 
@@ -182,7 +182,9 @@ function DoneToday(NPC,Spawn)
     PlayFlavor(NPC, "", "", "no", 0, 0, Spawn)
     if GetClass(Spawn)== 31 and GetLevel(Spawn)>=8 and not HasQuest(Spawn,Quest2) and not HasCompletedQuest(Spawn,Quest2) and HasCompletedQuest(Spawn,Quest1) then
     Dialog.AddOption("Please, I am ready for more advice... if you have some!","Dialog4")	
-    end  
+    elseif HasCompletedQuest(Spawn,Quest2) and not HasQuest(Spawn,Bard) and not HasQuest(Spawn,Rogue) and not HasQuest(Spawn,Predator) and GetClass(Spawn)==31 and GetLevel(Spawn) >= 9 then
+    Dialog.AddOption("I think I understand what you're saying.  Sooo... any more advice?","Decide")	
+   end  
     Dialog.AddOption("Thank you. I'll return soon for more advice.")	
     Dialog.Start()
 end
@@ -297,7 +299,11 @@ function Dialog6b(NPC,Spawn)
  	Dialog.AddDialog("I can neither confirm nor deny that, adventurer.  I will, though, offer you the most important piece of advice you need to know.  Any amateur can look at something, but only a pro can see what they're looking at.  How and where you use your talents is all that counts in the end.  Remember that and you will go far.")
 	Dialog.AddVoiceover("voiceover/english/counselor_vemerik/qey_north/counselor_vemerik022.mp3", 2592596707, 887568372)
     PlayFlavor(NPC, "", "", "shrug", 0, 0, Spawn)
+    if GetLevel(Spawn) <9 then
+    Dialog.AddOption("I think I understand what you're saying.  Sooo... any more advice?","DoneToday")	
+    else
     Dialog.AddOption("I think I understand what you're saying.  Sooo... any more advice?","Decide")	
+    end
 	Dialog.Start()
 end
 
