@@ -10,10 +10,11 @@ require "SpawnScripts/Generic/DialogModule"
 function spawn(NPC)
     AddTimer(NPC, math.random(2000,5000), "EmoteLoop")
     SetTempVariable(NPC,"Talking","false")
+	SetTempVariable(NPC,"Reset",nil)
 end
 
 function hailed(NPC, Spawn)
-    if HasQuest(Spawn,5790) and GetQuestStep(Spawn,5790)>=1 and GetQuestStep(Spawn,5790)<=4 and not QuestStepIsComplete(Spawn,5790,2) then
+    if HasQuest(Spawn,5790) and  GetQuestStepProgress(Spawn,5790,2)==0 then
     SetTempVariable(NPC,"Talking","true")
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
@@ -39,6 +40,14 @@ function attack(NPC,Spawn)
 end
 
 function aggro(NPC,Spawn)
+    if GetTempVariable(NPC,"Reset")== nil then
+    else
+        ClearHate(NPC, Spawn)
+        SetInCombat(Spawn, false)
+        SetInCombat(NPC, false)
+        ClearEncounter(NPC)
+        SetTarget(Spawn,nil)
+    end
 end
 
 function healthchanged(NPC, Spawn)  
@@ -46,6 +55,7 @@ function healthchanged(NPC, Spawn)
     SpawnSet(NPC,"attackable",0)
     SpawnSet(NPC,"show_level",0)    
 --   if IsInCombat(NPC,Spawn) then
+	    SetTempVariable(NPC,"Reset",1)
         ClearHate(NPC, Spawn)
         SetInCombat(Spawn, false)
         SetInCombat(NPC, false)
@@ -89,7 +99,15 @@ if GetTempVariable(NPC,"Talking")== "false"then
   SpawnSet(NPC, "action_state", 0)
     local zone = GetZone(NPC)
     local dummy = GetSpawnByLocationID(zone,133781317)
-    PlayAnimation(NPC,(MakeRandomInt(1243,1245)))
+    local choice = MakeRandomInt(1,3)
+    if choice == 1 then
+    PlayFlavor(NPC,"","","dual_wield_attack")
+    elseif choice == 2 then    
+    PlayFlavor(NPC,"","","dual_wield_attack01")
+    elseif choice == 3 then    
+    PlayFlavor(NPC,"","","dual_wield_attack02")
+    end
+    PlayFlavor(dummy,"","","result_dust_fall")
     SpawnSet(dummy, "visual_state", 2083)
 end
     AddTimer(NPC, 2550, "Idle")
@@ -117,4 +135,8 @@ end
 function death(NPC,Spawn)
     Despawn(NPC)
 end
-        
+
+function victory(NPC)
+	SetTempVariable(NPC,"Reset",nil)
+	SetTempVariable(NPC,"Talking","false")
+end          

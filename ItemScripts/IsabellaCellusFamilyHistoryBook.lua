@@ -66,7 +66,7 @@ end
 function Page2(Item, Player)
 conversation = CreateConversation()
 if GetQuestStep(Player,Quest)==2 then
-    QuestStepIsComplete(Player,Quest,2)
+    SetStepComplete(Player,Quest,2)
 end
 if GetQuestStep(Player,Quest) >=4 then
 AddConversationOption(conversation, "Entry Three","Page3")
@@ -79,7 +79,7 @@ end
 function Page3(Item, Player)
 conversation = CreateConversation()
 if GetQuestStep(Player,Quest)==4 then
-    QuestStepIsComplete(Player,Quest,4)
+    SetStepComplete(Player,Quest,4)
 end
 if GetQuestStep(Player,Quest) >=6 then
 AddConversationOption(conversation, "Entry Four","Page4")
@@ -92,7 +92,7 @@ end
 function Page4(Item, Player)
 conversation = CreateConversation()
 if GetQuestStep(Player,Quest)==6 then
-    QuestStepIsComplete(Player,Quest,6)
+    SetStepComplete(Player,Quest,6)
 end
 if GetQuestStep(Player,Quest) >=8 then
 AddConversationOption(conversation, "Entry Five","Page5")
@@ -105,7 +105,7 @@ end
 function Page5(Item, Player)
 conversation = CreateConversation()
 if GetQuestStep(Player,Quest)==8 then
-    QuestStepIsComplete(Player,Quest,8)
+    SetStepComplete(Player,Quest,8)
 end
 if GetQuestStep(Player,Quest) >=10 then
 AddConversationOption(conversation, "Entry Six","Page6")
@@ -118,7 +118,7 @@ end
 function Page6(Item, Player)
 conversation = CreateConversation()
 if GetQuestStep(Player,Quest)==10 then
-    QuestStepIsComplete(Player,Quest,10)
+    SetStepComplete(Player,Quest,10)
 end
 if GetQuestStep(Player,Quest) >=12 then
 AddConversationOption(conversation, "Entry Seven","Page7")
@@ -131,7 +131,7 @@ end
 function Page7(Item, Player)
 conversation = CreateConversation()
 if GetQuestStep(Player,Quest)==12 then
-    QuestStepIsComplete(Player,Quest,12)
+    SetStepComplete(Player,Quest,12)
 end
 if GetQuestStep(Player,Quest) >=14 then
 AddConversationOption(conversation, "Entry Eight","Page8")
@@ -144,7 +144,7 @@ end
 function Page8(Item, Player)
 conversation = CreateConversation()
 if GetQuestStep(Player,Quest)==14 then
-    QuestStepIsComplete(Player,Quest,14)
+    SetStepComplete(Player,Quest,14)
 end
 if GetQuestStep(Player,Quest) >=16 then
 AddConversationOption(conversation, "Entry Nine","Page9")
@@ -157,7 +157,7 @@ end
 function Page9(Item, Player)
 conversation = CreateConversation()
 if GetQuestStep(Player,Quest)==16 then
-    QuestStepIsComplete(Player,Quest,16)
+    SetStepComplete(Player,Quest,16)
 end
 if GetQuestStep(Player,Quest) >=18 then
 AddConversationOption(conversation, "Entry Ten","Page10")
@@ -170,7 +170,7 @@ end
 function Page10(Item, Player)
 conversation = CreateConversation()
 if GetQuestStep(Player,Quest)==18 then
-    QuestStepIsComplete(Player,Quest,18)
+    SetStepComplete(Player,Quest,18)
 end
 AddConversationOption(conversation, "Turn back to previous entry.","Page9")
 AddConversationOption(conversation, "Close the book.","CloseItemConversation")

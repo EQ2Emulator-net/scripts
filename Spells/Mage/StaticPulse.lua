@@ -29,7 +29,6 @@ function tick(Caster, Target, DoTType, MinVal, MaxVal, SpellLevel)
     Level = GetLevel(Caster)
     Mastery = SpellLevel + 10
     StatBonus = GetInt(Caster) / 10
-    SetInfoStructString(Target, "visual_state", "spell_placeholder")
     SpawnSet(Target,"visual_state",626)
     if Level < Mastery then
         LvlBonus = Level - SpellLevel

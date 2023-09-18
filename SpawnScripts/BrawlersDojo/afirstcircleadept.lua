@@ -10,10 +10,11 @@ require "SpawnScripts/Generic/DialogModule"
 function spawn(NPC)
     AddTimer(NPC, math.random(2000,5000), "EmoteLoop")
     SetTempVariable(NPC,"Talking","false")
+	SetTempVariable(NPC,"Reset",nil)
 end
 
 function hailed(NPC, Spawn)
-    if HasQuest(Spawn,5790) and GetQuestStep(Spawn,5790)>=1 and GetQuestStep(Spawn,5790)<=4 and not QuestStepIsComplete(Spawn,5790,3) then
+    if HasQuest(Spawn,5790) and  GetQuestStepProgress(Spawn,5790,3)==0 then
     SpawnSet(NPC,"mood_state",0)
     SpawnSet(NPC,"visual_state",0)
     PlayAnimation(NPC,10871)
@@ -41,6 +42,14 @@ function attack(NPC,Spawn)
 end
 
 function aggro(NPC,Spawn)
+    if GetTempVariable(NPC,"Reset")== nil then
+    else
+        ClearHate(NPC, Spawn)
+        SetInCombat(Spawn, false)
+        SetInCombat(NPC, false)
+        ClearEncounter(NPC)
+        SetTarget(Spawn,nil)
+    end
 end
 
 function healthchanged(NPC, Spawn)  
@@ -48,6 +57,7 @@ function healthchanged(NPC, Spawn)
     SpawnSet(NPC,"attackable",0)
     SpawnSet(NPC,"show_level",0)    
 --   if IsInCombat(NPC,Spawn) then
+	    SetTempVariable(NPC,"Reset",1)
         ClearHate(NPC, Spawn)
         SetInCombat(Spawn, false)
         SetInCombat(NPC, false)
@@ -89,25 +99,25 @@ function EmoteLoop(NPC)
     local choice = MakeRandomInt(1,10)
 
         if choice == 1 then
-            PlayAnimation(NPC, 1966)
+            PlayFlavor(NPC,"","","bostaff_attack")
             AddTimer(NPC, 2100, "Idle")
         elseif choice == 2 then
-            PlayAnimation(NPC, 1967)
+            PlayFlavor(NPC,"","","bostaff_attack01")
             AddTimer(NPC, 1700, "Idle")
         elseif choice == 3 then
-            PlayAnimation(NPC, 1968)
+            PlayFlavor(NPC,"","","bostaff_attack02")
             AddTimer(NPC, 2400, "Idle")
         elseif choice == 4 then
-             PlayAnimation(NPC, 1969)
+            PlayFlavor(NPC,"","","bostaff_attack03")
             AddTimer(NPC, 3200, "Idle")
         elseif choice == 5 then
-            PlayAnimation(NPC, 2953)
+            PlayFlavor(NPC,"","","bostaff_kick")
             AddTimer(NPC, 3700, "Idle")
         elseif choice == 6 then
-            PlayAnimation(NPC, 10868)
+            PlayFlavor(NPC,"","","bostaff_dodge_forehand")
             AddTimer(NPC, 1500, "Idle")
         else
-            PlayAnimation(NPC, 10889)
+            PlayFlavor(NPC,"","","bostaff_taunt_combat_art")
             AddTimer(NPC, 3500, "Idle")
         end
 else
@@ -128,3 +138,8 @@ end
 function death(NPC,Spawn)
     Despawn(NPC)
 end
+
+function victory(NPC)
+	SetTempVariable(NPC,"Reset",nil)
+	SetTempVariable(NPC,"Talking","false")
+end    

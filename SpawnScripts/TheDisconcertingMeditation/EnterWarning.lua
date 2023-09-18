@@ -18,7 +18,14 @@ if GetTempVariable(NPC,"Enter")=="true" then
 AddTimer(NPC,15000,"FirstWarning",1,Spawn)
 AddTimer(NPC,60000,"SecondWarning",1,Spawn)
 AddTimer(NPC,75000,"ThirdWarning",1,Spawn)
+AddTimer(NPC,80000,"Shake",1,Spawn)
+AddTimer(NPC,84000,"Shake",1,Spawn)
+AddTimer(NPC,86000,"Shake",1,Spawn)
+AddTimer(NPC,88000,"Shake",1,Spawn)
 AddTimer(NPC,90000,"FourthWarning",1,Spawn)
+AddTimer(NPC,90300,"Shake",1,Spawn)
+AddTimer(NPC,90600,"Shake",1,Spawn)
+AddTimer(NPC,90900,"Shake",1,Spawn)
 AddTimer(NPC,91000,"Ending",1,Spawn)
 end
 end
@@ -43,14 +50,19 @@ function SecondWarning(Zone,Spawn)
 end
 
 function ThirdWarning(Zone,Spawn)
-    SendMessage(Spawn, "Only a short time remains before you return to your body...","yellow")
-    SendPopUpMessage(Spawn, "Only a short time remains before you return to your body...",250,250,250)
+    SendMessage(Spawn, "Your concentration is starting to slip...","yellow")
+    SendPopUpMessage(Spawn, "Your concentration is starting to slip...",250,250,250)
 	PerformCameraShake(Spawn, 0.699999988079071)
     zone = GetZone(Spawn)
     SpawnByLocationID(zone,133780779)
     SpawnByLocationID(zone,133780780)
     PlaySound(Spawn,"sounds/ui/ui_warning.wav", GetX(Spawn), GetY(Spawn), GetZ(Spawn))
 end
+
+function Shake(Zone,Spawn)
+	PerformCameraShake(Spawn, 0.699999988079071)
+end
+
 
 function FourthWarning(Zone,Spawn)
     SendMessage(Spawn, "The mediation ends.","yellow")

@@ -10,10 +10,12 @@ require "SpawnScripts/Generic/DialogModule"
 
 function spawn(NPC)
     AddTimer(NPC, math.random(2000,5000), "EmoteLoop")
+    SetTempVariable(NPC,"Talking","false")
+	SetTempVariable(NPC,"Reset",nil)
 end
 
 function hailed(NPC, Spawn)
-    if HasQuest(Spawn,5790) and GetQuestStep(Spawn,5790)>=1 and GetQuestStep(Spawn,5790)<=4 and not QuestStepIsComplete(Spawn,5790,1) then
+    if HasQuest(Spawn,5790) and GetQuestStepProgress(Spawn,5790,1)==0 then
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("If your brain were half as good as your brawn, you'd be a quarter the warrior I am!")
@@ -38,6 +40,14 @@ function attack(NPC,Spawn)
 end
 
 function aggro(NPC,Spawn)
+    if GetTempVariable(NPC,"Reset")== nil then
+    else
+        ClearHate(NPC, Spawn)
+        SetInCombat(Spawn, false)
+        SetInCombat(NPC, false)
+        ClearEncounter(NPC)
+        SetTarget(Spawn,nil)
+    end
 end
 
 function healthchanged(NPC, Spawn)  
@@ -45,6 +55,7 @@ function healthchanged(NPC, Spawn)
     SpawnSet(NPC,"attackable",0)
     SpawnSet(NPC,"show_level",0)    
 --   if IsInCombat(NPC,Spawn) then
+	SetTempVariable(NPC,"Reset",1)
         ClearHate(NPC, Spawn)
         SetInCombat(Spawn, false)
         SetInCombat(NPC, false)
@@ -82,3 +93,9 @@ end
 function death(NPC,Spawn)
     Despawn(NPC)
 end
+
+function victory(NPC)
+	SetTempVariable(NPC,"Reset",nil)
+	SetTempVariable(NPC,"Talking","false")
+end   
+   

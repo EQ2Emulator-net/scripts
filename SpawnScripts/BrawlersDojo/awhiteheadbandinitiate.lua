@@ -10,10 +10,11 @@ require "SpawnScripts/Generic/DialogModule"
 function spawn(NPC)
     AddTimer(NPC, math.random(2000,5000), "EmoteLoop")
     SetTempVariable(NPC,"Talking","false")
+	SetTempVariable(NPC,"Reset",nil)
 end
 
 function hailed(NPC, Spawn)
-    if HasQuest(Spawn,5790) and GetQuestStep(Spawn,5790)>=1 and GetQuestStep(Spawn,5790)<=4 and not QuestStepIsComplete(Spawn,5790,4) then
+    if HasQuest(Spawn,5790) and GetQuestStepProgress(Spawn,5790,4)==0 then
     SpawnSet(NPC,"mood_state",0)
     SpawnSet(NPC,"visual_state",0)
 --  PlayAnimation(NPC,10871)
@@ -41,12 +42,21 @@ function attack(NPC,Spawn)
 end
 
 function aggro(NPC,Spawn)
+    if GetTempVariable(NPC,"Reset")== nil then
+    else
+        ClearHate(NPC, Spawn)
+        SetInCombat(Spawn, false)
+        SetInCombat(NPC, false)
+        ClearEncounter(NPC)
+        SetTarget(Spawn,nil)
+    end
 end
 
 function healthchanged(NPC, Spawn)  
     if GetHP(NPC) < GetMaxHP(NPC) * 0.26  then
     SpawnSet(NPC,"attackable",0)
     SpawnSet(NPC,"show_level",0)    
+	SetTempVariable(NPC,"Reset",1)
         ClearHate(NPC, Spawn)
         SetInCombat(Spawn, false)
         SetInCombat(NPC, false)
@@ -92,36 +102,36 @@ function EmoteLoop(NPC)
     local zone = GetZone(NPC)
     local dummy = GetSpawnByLocationID(zone,133781308)
         if choice == 1 then
-            PlayAnimation(NPC, 1644)
-      SpawnSet(dummy, "visual_state", 2083)
+        PlayFlavor(NPC,"","","pugilist_attack")
+        PlayFlavor(dummy,"","","result_dust_fall")
           AddTimer(NPC, 2550, "Idle")
         elseif choice == 2 then
-            PlayAnimation(NPC, 1646)
-      SpawnSet(dummy, "visual_state", 2083)
+        PlayFlavor(NPC,"","","pugilist_attack02")
+        PlayFlavor(dummy,"","","result_dust_fall")
           AddTimer(NPC, 3100, "Idle")
         elseif choice == 3 then
-            PlayAnimation(NPC, 1284)
-      SpawnSet(dummy, "visual_state", 2083)
+        PlayFlavor(NPC,"","","monk_attack02")
+        PlayFlavor(dummy,"","","result_dust_fall")
           AddTimer(NPC, 3050, "Idle")
         elseif choice == 4 then
-            PlayAnimation(NPC, 3021)
-    SpawnSet(dummy, "visual_state", 2083)
+        PlayFlavor(NPC,"","","monk_wild_swing")
+        PlayFlavor(dummy,"","","result_dust_fall")
             AddTimer(NPC, 3100, "Idle")
         elseif choice == 5 then
-            PlayAnimation(NPC, 1201)
-    SpawnSet(dummy, "visual_state", 2083)
+        PlayFlavor(NPC,"","","monk_attack01")
+        PlayFlavor(dummy,"","","result_dust_fall")
             AddTimer(NPC, 2450, "Idle")
         elseif choice == 6 then
-            PlayAnimation(NPC, 1181)
-    SpawnSet(dummy, "visual_state", 2083)
+        PlayFlavor(NPC,"","","monk_attack")
+        PlayFlavor(dummy,"","","result_dust_fall")
             AddTimer(NPC, 2550, "Idle")
         elseif choice == 7 then
-            PlayAnimation(NPC, 4506)
-    SpawnSet(dummy, "visual_state", 2083)
+        PlayFlavor(NPC,"","","monk_attack03")
+        PlayFlavor(dummy,"","","result_dust_fall")
             AddTimer(NPC, 4400, "Idle")
         else
-            PlayAnimation(NPC, 3037)
-    SpawnSet(dummy, "visual_state", 2083)
+        PlayFlavor(NPC,"","","pugilist_wild_swing")
+        PlayFlavor(dummy,"","","result_dust_fall")
             AddTimer(NPC, 3300, "Idle")
         end
     else
@@ -151,4 +161,9 @@ end
 function death(NPC,Spawn)
     Despawn(NPC)
 end
+
+function victory(NPC)
+	SetTempVariable(NPC,"Reset",nil)
+	SetTempVariable(NPC,"Talking","false")
+end   
    
