@@ -11,9 +11,6 @@ function spawn(NPC)
 	AddTimer(NPC, 6000, "waypoints")
 end
 
-function hailed(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
-end
 
 function respawn(NPC)
 end

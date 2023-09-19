@@ -21,9 +21,9 @@ function hailed(NPC, Spawn)
 	elseif choice == 2 then
 	PlayFlavor(NPC, "", "The townsfolk aren't as pleasant as they were during my last visit.", "", 0, 0, Spawn)
 	elseif choice == 3 then
-	PlayFlavor(NPC, "Buy me a drink, and I'll sing you a song.", "", 0, 0, Spawn)
+	PlayFlavor(NPC, "", "Buy me a drink, and I'll sing you a song.", 0, 0, Spawn)
 	elseif choice == 4 then
-	PlayFlavor(NPC, "I always stop in to have some of Lanice's delightful ale.", "", 0, 0, Spawn)
+	PlayFlavor(NPC, "", "I always stop in to have some of Lanice's delightful ale.", 0, 0, Spawn)
 end
 end
 

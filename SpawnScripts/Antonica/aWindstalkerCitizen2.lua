@@ -31,6 +31,28 @@ function hailed(NPC, Spawn)
 	elseif choice == 2 then
 	PlayFlavor(NPC, "", "I know, I know. You already told me.", "", 0, 0, Spawn)
 	end
+else
+    if GetClass(Spawn) >= 15 and GetClass(Spawn) <= 17 or GetClass(Spawn)==39 then
+    	local choice = MakeRandomInt(1, 2)
+    	if choice == 1 then
+        SendMessage(Spawn,"The Windstalker Citizen eyes you approvingly.","white")
+        elseif choice == 2 then
+       SendMessage(Spawn,"The Windstalker Citizen gives you a friendly nod of acknowledgement.","white")
+    	PlayFlavor(NPC, "", "", "nod", 0, 0, Spawn)
+    	end	
+    else
+        local choice = MakeRandomInt(1, 3)
+    	if choice == 1 then
+        SendMessage(Spawn,"The Windstalker Citizen eyes closely in a disapproving manner.","white")
+     	PlayFlavor(NPC, "", "", "glare", 0, 0, Spawn)
+       elseif choice == 2 then
+       SendMessage(Spawn,"The Windstalker Citizen does not want to engage with you.","white")
+    	PlayFlavor(NPC, "", "", "sniff", 0, 0, Spawn)
+       elseif choice == 3 then
+       SendMessage(Spawn,"The Windstalker Citizen stares sniffs the air around you.","white")
+    	PlayFlavor(NPC, "", "", "peer", 0, 0, Spawn)
+    	end	
+    end    
 end
    end
 

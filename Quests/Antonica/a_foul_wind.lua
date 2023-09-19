@@ -13,7 +13,8 @@
 function Init(Quest)
 	SetQuestFeatherColor(Quest, 3)
 	SetQuestRepeatable(Quest)
-	AddQuestStep(Quest, 1, "I need to seek out Firemyst Gully in the center of Antonica.", 1, 100, "I need to seek out Lord Nalin at Firemyst Gully in eastern Antonica.", 2183)
+	UpdateQuestZone(Quest,"Firemyst Gully: A Foul Wind")
+	AddQuestStepZoneLoc(Quest, 1, "I need to seek out Firemyst Gully in the center of Antonica.", 10, "I need to seek out Lord Nalin at Firemyst Gully in eastern Antonica.", 2183, -1188.04, -13.62, 706.57,14)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

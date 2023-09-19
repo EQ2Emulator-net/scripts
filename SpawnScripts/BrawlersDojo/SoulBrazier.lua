@@ -8,7 +8,6 @@
 
 function spawn(NPC)
     SetRequiredQuest(NPC,5790,5,0,0,1)
-    SetInfoStructString(NPC, "action_state", "result_steam")
 end
 
 

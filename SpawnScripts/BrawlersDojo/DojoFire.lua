@@ -7,7 +7,6 @@
 --]]
 
 function spawn(NPC)
-    SetInfoStructString(NPC, "action_state", "result_fire_object")
 end
 
 function respawn(NPC)
