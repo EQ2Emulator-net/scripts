@@ -101,7 +101,7 @@ function Step10Init(Quest, QuestGiver, Player)
 end
 
 function CurrentStep(Quest, QuestGiver, Player)
-	if GetQuestStep(Player, 524) == 2 then
+	if GetQuestStepProgress(Player, 524,2) == 0 and GetQuestStep(Player, 524) == 2 then
 		i = 1
 		spawns = GetSpawnListBySpawnID(Player, 270010)
 		repeat
@@ -114,7 +114,10 @@ function CurrentStep(Quest, QuestGiver, Player)
 			i = i + 1
 		until spawn == Nil
 		InstructionWindow(Player, -1.0, "You completed the first part of the quest. As you complete quests and defeat enemies, you earn experience points. This is represented in your experience point display. Filling your experience point display is always a requirement to gain your next level. As you gain levels, you will gain access to more powerful skills and abilities.", "voiceover/english/narrator/boat_06p_tutorial02/narrator_011_f16aa848.mp3", 1702963584, 3318288731, "tutorial_stage_15", "", "continue")
-		FlashWindow(Player, "MainHUD.Experience", 15.0)			
+--		InstructionWindow(Player, -1.0, "You completed the first part of the quest. As you complete quests and defeat enemies, you earn experience points. This is represented in your experience point display. Filling your experience point display is always a requirement to gain your next level. As you gain levels, you will gain access to more powerful skills and abilities.", "voiceover/english/narrator/boat_06p_tutorial02/narrator_011_f16aa848.mp3", 1702963584, 3318288731, "", "", "continue")
+        if GetClientVersion(Player)<=546 then
+		FlashWindow(Player, "MainHUD.Experience", 15.0)	
+		end
 		SetTutorialStep(Player, 14)
 		AddPrimaryEntityCommandAllSpawns(Player, 270010, "open", 10, "open")
 		chest = GetRandomSpawnByID(Player, 270010)

@@ -13,7 +13,7 @@
 function Init(Quest)
 	AddQuestStepChat(Quest, 1, "Renny Parvat will tell me about collecting objects in Norrath.", 1, "I'd better read the booklet from the Overlord.", 11, 1280039)
 	AddQuestStepZoneLoc(Quest, 2, "I must see The Execution Plaza.",10, "I'd better read the booklet from the Overlord.", 11,103.81, -22.44, 44.12,168)
-	AddQuestStepChat(Quest, 3, "I must see Sage Navarius Orvalis in North Freeport.", 10, "I'd better read the booklet from the Overlord.", 11, 1440031)
+	AddQuestStepChat(Quest, 3, "I must see Sage Navarius Orvalis in North Freeport.", 1, "I'd better read the booklet from the Overlord.", 11, 1440031)
 	AddQuestStepZoneLoc(Quest, 4, "I should look among the scattered bones of the Siege Lands in the Commonlands.",10, "I'd better read the booklet from the Overlord.", 11,-1327.83, -79.81, -274.91,33)
 	AddQuestStepChat(Quest, 5, "I should speak with Taskmaster's Assistant Koz'ma at the Crossroads in the Commonlands.", 1, "I'd better read the booklet from the Overlord.", 11, 330260)
 	AddQuestStepChat(Quest, 6, "I must speak with Cannix Silverflame in the Commonlands.", 1, "I'd better read the booklet from the Overlord.", 11, 330175)

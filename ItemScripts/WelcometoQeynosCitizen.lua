@@ -86,7 +86,7 @@ end
 
 function Page10(Item, Player)
 if CanReceiveQuest(Player,5766) then
-    OfferQuest(Item,Player,5766)
+    OfferQuest(nil,Player,5766)
 elseif GetQuestStep(Player,5766) ==8 then    
 AddConversationOption(conversation, "Next Page","Page11")
 end

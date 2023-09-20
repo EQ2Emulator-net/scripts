@@ -9,8 +9,9 @@
 local legacy = true -- Client check.  True == DoF or Classic
 
 function spawn(NPC)
---	AddTimer(NPC, 5000, "idle_loop")
-CageCollision(NPC)
+    CageCollision(NPC)
+    SetInfoStructUInt(NPC, "hp_regen_override", 1)
+    SetInfoStructSInt(NPC, "hp_regen", 0)
 end
 
 function hailed(NPC, player)

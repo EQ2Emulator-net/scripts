@@ -49,7 +49,7 @@ function Armor(NPC, Spawn)
 	conversation = CreateConversation()
 
 	PlayFlavor(NPC, "voiceover/english/armorsmith_snowboot/qey_village03/armorsmithsnowboot000.mp3", "", "", 2002270290, 3759394726, Spawn)
-	AddConversationOption(conversation, "Fiercecry is apart of the Graystone Watch. Don't you want him protected?","Armor2")
+	AddConversationOption(conversation, "Fiercecry is a part of the Graystone Watch. Don't you want him protected?","Armor2")
 	AddConversationOption(conversation, "Please? I am just trying to do a job.","Armor3")
 	AddConversationOption(conversation, "I'm sure 'Old Snowboot' helps those who helps others.","Armor2")
 	StartConversation(conversation, NPC, Spawn, "Oh, ya are, are you? Why should I believe you? I can't let every last soul run off with me full suit of armor just because they say they are here to pick it up for someone!  Go on! Give me a reason! Why should I give it to you?! Out with it already! Why?!")
@@ -59,7 +59,7 @@ function Armor2(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	conversation = CreateConversation()
 
-	PlayFlavor(NPC, "voiceover/english/armorsmith_snowboot/qey_village03/armorsmithsnowboot001.mp3", "", "", 3372293691, 3262827310, Spawn)
+	PlayFlavor(NPC, "voiceover/english/armorsmith_snowboot/qey_village03/armorsmithsnowboot001.mp3", "", "grumble", 3372293691, 3262827310, Spawn)
 	AddConversationOption(conversation, "I'll deliver it right away.","ArmorDone")
 	StartConversation(conversation, NPC, Spawn, "Blast my good nature!  Alright! Just a momment while I get it for ya. Now, don't let me hear about this suit going missing!")
 end

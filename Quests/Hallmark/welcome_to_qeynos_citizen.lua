@@ -14,18 +14,18 @@
 function Init(Quest)
 	AddQuestStepChat(Quest, 1, "Mervos Stadrin in North Qeynos will tell me about collecting objects in Norrath.", 1, "I should read through my Qeynos' citizenship booklet.", 11, 2220015)
 	AddQuestStepZoneLoc(Quest, 2, "I should pay my respects at the Claymore Plaza in North Qeynos.",10, "I should read through my Qeynos' citizenship booklet.", 11,292.73, -18.10, -20.88,222)
-	AddQuestStepChat(Quest, 3, "I must see Sage Indis Surion in South Qeynos.", 10, "I should read through my Qeynos' citizenship booklet.", 11, 2310067)
+	AddQuestStepChat(Quest, 3, "I must see Sage Indis Surion in South Qeynos.", 1, "I should read through my Qeynos' citizenship booklet.", 11, 2310067)
 	AddQuestStepZoneLoc(Quest, 4, "I should look inside the Tower of Vhalen in Antonica.",10, "I should read through my Qeynos' citizenship booklet.", 11,-1300, 38, 45,12)
 	AddQuestStepChat(Quest, 5, "I should speak with Taskmaster Lynette in the lighthouse at Coldwind Point in Antonica.", 1, "I should read through my Qeynos' citizenship booklet.", 11, 121256)
 	AddQuestStepChat(Quest, 6, "I must speak with Hwal Rucksif, a dwarf in Antonica.", 1, "I should read through my Qeynos' citizenship booklet.", 11, 120197)
 	AddQuestStepChat(Quest, 7, "I should speak with Knight-Lieutenant Alesso near the castle in North Qeynos.", 1, "I should read through my Qeynos' citizenship booklet.", 11, 120083)
-	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
-	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
-	AddQuestStepCompleteAction(Quest, 3, "QuestComplete")
-	AddQuestStepCompleteAction(Quest, 4, "QuestComplete")
-	AddQuestStepCompleteAction(Quest, 5, "QuestComplete")
-	AddQuestStepCompleteAction(Quest, 6, "QuestComplete")
-	AddQuestStepCompleteAction(Quest, 7, "QuestComplete")
+	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
+	AddQuestStepCompleteAction(Quest, 3, "Step3Complete")
+	AddQuestStepCompleteAction(Quest, 4, "Step4Complete")
+	AddQuestStepCompleteAction(Quest, 5, "Step5Complete")
+	AddQuestStepCompleteAction(Quest, 6, "Step6Complete")
+	AddQuestStepCompleteAction(Quest, 7, "Step7Complete")
 end
 	
 	
@@ -70,13 +70,7 @@ end
 
 
 function CheckProgress(Quest, QuestGiver, Player)
-    if QuestStepIsComplete(Player, 5766, 1) and 
-    QuestStepIsComplete(Player, 5766, 2) and 
-    QuestStepIsComplete(Player, 5766, 3) and 
-    QuestStepIsComplete(Player, 5766, 4) and 
-    QuestStepIsComplete(Player, 5766, 5) and 
-    QuestStepIsComplete(Player, 5766, 6) and 
-    QuestStepIsComplete(Player, 5766, 7) then
+    if QuestStepIsComplete(Player, 5766, 1) and QuestStepIsComplete(Player, 5766, 2) and QuestStepIsComplete(Player, 5766, 3) and QuestStepIsComplete(Player, 5766, 4) and QuestStepIsComplete(Player, 5766, 5) and QuestStepIsComplete(Player, 5766, 6) and QuestStepIsComplete(Player, 5766, 7) then
         
 	UpdateQuestTaskGroupDescription(Quest, 1, "I should read the Conclusion of the booklet.")
 	AddQuestStep(Quest, 8, "I've one last page to read in my citizenship book.", 1,100, "I've enjoyed reading about different ways I may be useful to Qeynos.",2500)
