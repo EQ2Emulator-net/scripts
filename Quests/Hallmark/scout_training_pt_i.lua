@@ -22,7 +22,7 @@ function Accepted(Quest, QuestGiver, Player)
  	Dialog.AddDialog("How about the Ruins, hmmm? Why don't you try sneaking up on the rock adders that haunt that old place?  Unless your skills aren't up to it, which I'd understand.")
 	Dialog.AddVoiceover("voiceover/english/counselor_vemerik/qey_north/counselor_vemerik004.mp3", 34105284, 2609408402)
     PlayFlavor(QuestGiver, "", "", "agree", 0, 0, Player)
-    Dialog.AddOption("I'm MORE than up to it! I'll return once its done and show you!")	
+    Dialog.AddOption("I'm MORE than up to it! I'll return once i'ts done and show you!")	
 	Dialog.Start()
 
 if GetQuestStep(Player,5880)==1 then

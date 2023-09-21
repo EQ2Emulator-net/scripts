@@ -8,25 +8,15 @@
 
 globalMod = 1.0 -- Global Damage Multiplier- make global adjustments to all NPC autoattack damage.
 globalStatMod = 1.0 --  Adjust this multiplier to adjust NPC attributes
-level = GetLevel(NPC) --NPC level
-difficulty = FunctionToBeDetermined(NPC) --NPC difficulty tier
 
-    --[[
-        NPC Difficulty Tier Reference
-        1-3 = vvv
-        4 = vv
-        5 = v 
-        6 = Standard
-        7 = ^
-        8 = ^^
-        9 = ^^^- Not used in Classic.
-        10+ = Epic.  Epic NPCs should be tuned manually, this module does not support these difficulties.                   : 
-    --]]
-
-
+function  combatModule(NPC, Spawn) 
+     levelSwitch()
+     core()
+end
 
 --Determine damage function based on NPC level.
 function levelSwitch(NPC, Spawn)
+    level = GetLevel(NPC) --NPC level
     if  level  <= 3 then
         TierOneA()
     elseif level >= 4 and level  <= 5 then
@@ -47,7 +37,9 @@ end
 
 
 -- Set attributes based on NPC level and difficulty
-function calculateAttributes(NPC,  Spawn)
+function attributes(NPC, Spawn)
+    difficulty = TBD(NPC) -- NPC Difficulty
+    -- Calculate attributes
     if  level <= 4 then
         baseStat = 19 else
             baseStat = level + 15
@@ -67,13 +59,6 @@ function calculateAttributes(NPC,  Spawn)
     sevenStat = math.floor(seven * globalStatMod)
     eightStat = math.floor(eight * globalStatMod)
     nineStat = math.floor(nine * globalStatMod)
-    
-    return
-   
-end
-
-function attributes(NPC, Spawn)
-    calculateAttributes()
     
     -- Determine attribute by difficulty
     if difficulty <= 3 then
@@ -107,36 +92,71 @@ end
 function core(NPC, Spawn)
     
     -- In-combat health regeneration
-    SetInfoStructUInt(NPC, "hp_regen_override", 1)
-    SetInfoStructSInt(NPC, "hp_regen", 0) --Set Regen Ammount. Default 0
+    SetInfoStructUInt(NPC, "hp_regen_override", 1) --Set to  0 to disable and allow the server to set the regen rate.
+    SetInfoStructSInt(NPC, "hp_regen", 0) --Set Regen Amount. Default 0
     
     -- In-combat power regeneration
-    SetInfoStructUInt(NPC, "pw_regen_override", 1)
-    SetInfoStructSInt(NPC, "pw_regen", 0) --Set Regen Ammount. Default 0
+    SetInfoStructUInt(NPC, "pw_regen_override", 1) --Set to  0 to disable and allow the server to set the regen rate.
+    SetInfoStructSInt(NPC, "pw_regen", 0) --Set Regen Amount. Default 0
     
     -- In-combat run speed.
 
 end
 
 
-
 --Damage functions based on NPC level range.
 
 --Level 1-3
 function TierOneA(NPC, Spawn)
--- 0-1 damage
+    -- 0-1 damage- Dif 1-9
+    lowDmg = 0
+    highDmg = 1
+    SetInfoStructUInt(NPC, "override_primary_weapon", 1) --Enables override of server autoattack damage. Set to 0 to  allow server to set damage.
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
 end
 
 
 --Level 4-5
 function TierOneB(NPC, Spawn)
- -- 2-4 damage
+    -- 0-2 dif 1-4
+    -- 1-3 dif 5
+    -- 2-4 damage- Dif 6-9
+    if difficulty <=4 then
+        lowDmg = 0 
+        highDmg =2 
+    elseif difficulty == 5 then
+        lowDmg = 1 
+        highDmg = 3
+    elseif difficulty >=6 and difficulty <=9 then
+        lowDmg = 2 
+        highDmg = 4
+    end
+    SetInfoStructUInt(NPC, "override_primary_weapon", 1) --Enables override of server autoattack damage. Set to 0 to  allow server to set damage.
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
 end
 
 
 --Level 6-9
 function TierOneC(NPC, Spawn)
- -- 2-7 damage
+    -- 1-3 dif 1-4
+    -- 2-4 dif 5
+    -- 2-7 damage- Dif 6-9
+    if difficulty <=4 then
+        lowDmg = 1  
+        highDmg =3 
+    elseif difficulty == 5 then
+        lowDmg = 2  
+        highDmg = 4
+    elseif difficulty >=6 and difficulty <=9 then
+        lowDmg = 2 
+        highDmg = 7
+    end
+    
+    SetInfoStructUInt(NPC, "override_primary_weapon", 1) --Enables override of server autoattack damage. Set to 0 to  allow server to set damage.
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
 end
 
 

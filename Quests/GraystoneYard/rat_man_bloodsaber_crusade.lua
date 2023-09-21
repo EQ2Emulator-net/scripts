@@ -9,6 +9,7 @@
 	Preceded by		:	None
 	Followed by		:	None
 --]]
+require "SpawnScripts/Generic/DialogModule"
 
 
 function Init(Quest)
@@ -26,7 +27,13 @@ function Step1Complete(Quest,QuestGiver,Player)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+	FaceTarget(QuestGiver, Player)
+	Dialog.New(QuestGiver, Player)
+	Dialog.AddDialog("Then seek out the catacombs! You must slay the Bloodsabers in the caverns. May your faith in the righteous bring you victory, or welcome you in the afterlife. The gods are watching!")
+	Dialog.AddVoiceover("voiceover/english/watcher_curmogliel_kar_thal/qey_village03/watchercurmogliel002", 1937849354, 1911529851)
+    PlayFlavor(QuestGiver, "","","agree",0,0,Player)
+    Dialog.AddOption("I will prove myself. I will be back.")
+    Dialog.Start()
 end
 
 function Declined(Quest, QuestGiver, Player)

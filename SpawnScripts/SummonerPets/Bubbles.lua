@@ -6,8 +6,13 @@
                    : 
 --]]
 
-function spawn(NPC)
-    
+dofile("SpawnScripts/Generic/CombatModule.lua")
+
+
+function spawn(NPC, Spawn)
+mob  = GetSpawnByLocationID
+combatModule(mob)
+
 end
 
 function attacked(NPC)

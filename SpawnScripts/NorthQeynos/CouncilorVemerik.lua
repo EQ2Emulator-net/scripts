@@ -79,7 +79,7 @@ function Dialog1a(NPC,Spawn)
  	Dialog.AddDialog("You think you're a sneaky little scamp, but there's always someone out there who's better than you.  The only way to rise out of mediocrity is to find what you do best ... and do it better.  That includes hiding in plain sight, tracking your quarry, or captivating an audience with tales of your prowess ... on the battlefield, that is.")
 	Dialog.AddVoiceover("voiceover/english/counselor_vemerik/qey_north/counselor_vemerik002.mp3", 867957619, 293298057)
     PlayFlavor(NPC, "", "", "glare", 0, 0, Spawn)
-    Dialog.AddOption("Well, I that does sound like what I'm looking for! What must I do?","Dialog1b")	
+    Dialog.AddOption("Well, that does sound like what I'm looking for! What must I do?","Dialog1b")	
     Dialog.AddOption("Better than me?! Bah! Off with you! I don't need any of your silly advice!","smirk")	
 	Dialog.Start()
 end
