@@ -18,6 +18,7 @@ end
 
 function Accepted(Quest, QuestGiver, Player)
  	PlayFlavor(QuestGiver, "", "", "thanks", 0,0 , Player)
+ 	CloseConversation(QuestGiver,Player)
 end
 
 function Declined(Quest, QuestGiver, Player)

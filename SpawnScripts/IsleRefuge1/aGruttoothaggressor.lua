@@ -7,7 +7,11 @@
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/BaseGoblin1.lua")
 
-function spawn(NPC)
+require "SpawnScripts/Generic/CombatModule"
+
+
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     local Level = GetLevel(NPC)
     local level1 = 3
     local level2 = 4
@@ -27,8 +31,7 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
-    SetInfoStructUInt(NPC, "hp_regen_override", 1)
-    SetInfoStructSInt(NPC, "hp_regen", 0)
+
 EmoteLoop(NPC,Spawn)
 SetTempVariable(NPC,"Update","false")
 end

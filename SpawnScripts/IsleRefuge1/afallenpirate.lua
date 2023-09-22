@@ -8,7 +8,11 @@
 
 dofile("SpawnScripts/Generic/MonsterCallouts/BaseSkeleton1.lua")
 
-function spawn(NPC)
+require "SpawnScripts/Generic/CombatModule"
+
+
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     local Level = GetLevel(NPC)
     local level1 = 4
     local level2 = 5
@@ -29,8 +33,7 @@ function spawn(NPC)
     SpawnSet(NPC, "power", power2)
     end
     SetSpawnAnimation(NPC, 13016)
-    SetInfoStructUInt(NPC, "hp_regen_override", 1)
-    SetInfoStructSInt(NPC, "hp_regen", 0)    
+  
 end
 
 function hailed(NPC, Spawn)

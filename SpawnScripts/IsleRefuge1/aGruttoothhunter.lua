@@ -7,10 +7,12 @@
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/BaseGoblin1.lua")
 
-function spawn(NPC)
-    SetInfoStructUInt(NPC, "hp_regen_override", 1)
-    SetInfoStructSInt(NPC, "hp_regen", 0)
-ChooseMovement(NPC)
+require "SpawnScripts/Generic/CombatModule"
+
+
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+    ChooseMovement(NPC)
 end
 
 function ChooseMovement(NPC)

@@ -7,6 +7,14 @@
 --]]
 
 function spawn(NPC)
+    local dmgMod = GetStr(NPC)/10
+    SetInfoStructUInt(NPC, "override_primary_weapon", 1)
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", 3 + dmgMod) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", 7 + dmgMod)
+    SetInfoStructUInt(NPC, "hp_regen_override", 1) 
+    SetInfoStructSInt(NPC, "hp_regen", 0) 
+    SetInfoStructUInt(NPC, "pw_regen_override", 1) 
+    SetInfoStructSInt(NPC, "pw_regen", 0) 
 
 ChooseMovement(NPC)
 end

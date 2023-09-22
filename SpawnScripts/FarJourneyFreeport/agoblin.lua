@@ -7,11 +7,12 @@
     Script Notes   : Created client versioning & added interactions between NPCs.  MISSING INGRED CHASE AROUND BOAT, but not necessary. - Dorbin 08.14.22  
 --]]
 local legacy = true -- Client check.  True == DoF or Classic
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     CageCollision(NPC)
-    SetInfoStructUInt(NPC, "hp_regen_override", 1)
-    SetInfoStructSInt(NPC, "hp_regen", 0)
+
 end
 
 function hailed(NPC, player)

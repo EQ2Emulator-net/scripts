@@ -6,12 +6,11 @@
                    : 
 --]]
 
-dofile("SpawnScripts/Generic/CombatModule.lua")
+require "SpawnScripts/Generic/CombatModule"
 
 
 function spawn(NPC, Spawn)
-mob  = GetSpawnByLocationID
-combatModule(mob)
+combatModule(NPC, Spawn)
 
 end
 

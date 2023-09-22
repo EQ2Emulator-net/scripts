@@ -7,7 +7,11 @@
 --]]
  
 
-function spawn(NPC)
+require "SpawnScripts/Generic/CombatModule"
+
+
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
    local Level = GetLevel(NPC)
     local level1 = 2
     local level2 = 3
@@ -30,8 +34,7 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
-    SetInfoStructUInt(NPC, "hp_regen_override", 1)
-    SetInfoStructUInt(NPC, "hp_regen", 1)
+
     SetInfoStructUInt(NPC, "friendly_target_npc", 1)
     Diseased(NPC)   
     ChooseMovement(NPC)
