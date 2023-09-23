@@ -6,6 +6,7 @@
                    : 
 --]]
 require "SpawnScripts/Generic/DialogModule"
+require "SpawnScripts/Generic/CombatModule"
 
 local BQCitizen = 5718
 local CVQCitizen = 5719
@@ -14,7 +15,10 @@ local NQCitizen = 5721
 local SCQCitizen = 5722
 local WWQCitizen = 5723
 
-function spawn(NPC)
+
+
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
 	SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")
     SetTempVariable(NPC,"HailTimer",nil)
 end

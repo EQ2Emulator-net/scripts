@@ -6,8 +6,10 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/BaseSkeleton2.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     local Level = GetLevel(NPC)
     local level1 = 9
     local level2 = 10

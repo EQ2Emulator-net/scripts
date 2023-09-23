@@ -10,7 +10,7 @@ require "SpawnScripts/Generic/DialogModule"
 local Taneran = 5459
 
 function spawn(NPC)
-
+    SetInfoStructString(NPC, "action_state", "artificing_idle")
 end
 
 function hailed(NPC, Spawn)

@@ -10,6 +10,7 @@ require "SpawnScripts/Generic/DialogModule"
 function spawn(NPC)
 	SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")
 	ProvidesQuest(NPC, 5498)
+    SetInfoStructString(NPC, "action_state", "alchemy_idle")
 end
 
 function respawn(NPC)

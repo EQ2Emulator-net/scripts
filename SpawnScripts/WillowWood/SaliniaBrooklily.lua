@@ -13,6 +13,7 @@ local Rats = 5478
 function spawn(NPC)
 ProvidesQuest(NPC,Rats)
 SetPlayerProximityFunction(NPC, 6, "InRange", "LeaveRange")
+    SetInfoStructString(NPC, "action_state", "ponder")
 end
 
 function respawn(NPC)

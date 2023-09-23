@@ -11,6 +11,7 @@ local HailCheck = false
 function spawn(NPC)
 AddTimer(NPC, 5000, "EmoteLoop")
 ProvidesQuest(NPC,243)
+    SetInfoStructString(NPC, "action_state", "mood_afraid")
 end
 
 function respawn(NPC)

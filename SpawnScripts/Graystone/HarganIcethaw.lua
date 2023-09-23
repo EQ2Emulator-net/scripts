@@ -9,6 +9,7 @@ require "SpawnScripts/Generic/DialogModule"
 local Quest1 = 5787
 
 function spawn(NPC)
+    SetInfoStructString(NPC, "action_state", "mining_digging")
 end
 
 function respawn(NPC)

@@ -6,8 +6,10 @@
                    : 
 --]]
 dofile ("SpawnScripts/Generic/MonsterCallouts/BaseWaterElemental1.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     local Level = GetLevel(NPC)
     local level1 = 10
     local level2 = 11
@@ -27,6 +29,7 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
+    SetSeeHide(NPC,1)
 
 waypoints(NPC)
 end

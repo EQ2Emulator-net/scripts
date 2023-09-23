@@ -17,6 +17,7 @@ function spawn(NPC)
 	SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")
     ProvidesQuest(NPC,potion)
     ProvidesQuest(NPC,wings)
+    SetInfoStructString(NPC, "action_state", "alchemy_idle")
 end
 
 function respawn(NPC)

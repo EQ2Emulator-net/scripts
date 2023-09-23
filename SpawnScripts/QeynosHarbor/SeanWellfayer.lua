@@ -14,6 +14,7 @@ require "SpawnScripts/Generic/DialogModule"
 function spawn(NPC)
 	SetPlayerProximityFunction(NPC, 8, "InRange", "LeaveRange")
     ProvidesQuest(NPC,bait)
+    SetInfoStructString(NPC, "action_state", "fishing_fight")
 end
 
 

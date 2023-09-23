@@ -32,6 +32,7 @@ function spawn(NPC, Spawn)
     end
 
     SetSeeHide(NPC,1)
+    SetSeeInvis(NPC, 1)
 
  ChooseMovement(NPC)
 end

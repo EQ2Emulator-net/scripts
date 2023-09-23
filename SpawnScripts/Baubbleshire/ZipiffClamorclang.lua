@@ -11,6 +11,7 @@ local Delivery = 5446
 local Mage1 = 5767
 
 function spawn(NPC)
+    SetInfoStructString(NPC, "action_state", "artificing_idle")
 end
 
 function respawn(NPC)

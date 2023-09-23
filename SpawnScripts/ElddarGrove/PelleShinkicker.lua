@@ -12,6 +12,7 @@ local BookDelivery = 5514
 function spawn(NPC)
 ProvidesQuest(NPC,BookDelivery)    
 SetPlayerProximityFunction(NPC, 9, "InRange", "LeaveRange")
+    SetInfoStructString(NPC, "action_state", "fishing_fight")
 end
 
 function InRange(NPC, Spawn)

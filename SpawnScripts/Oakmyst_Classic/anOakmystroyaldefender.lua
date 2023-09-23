@@ -5,8 +5,10 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     SetSpawnAnimation(NPC, 13016)
     local Level = GetLevel(NPC)
     local level1 = 8

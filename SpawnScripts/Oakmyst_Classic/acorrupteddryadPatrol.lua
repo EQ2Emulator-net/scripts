@@ -6,8 +6,10 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/Dryad_Corrupt1.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
 waypoints(NPC)
 end
 

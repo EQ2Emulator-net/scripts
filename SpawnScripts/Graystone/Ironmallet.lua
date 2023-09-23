@@ -9,6 +9,7 @@ local Daggers = 5462
 local Tongs = 5482
 
 function spawn(NPC)
+    SetInfoStructString(NPC, "action_state", "metalworking_idle")
 end
 
 function respawn(NPC)

@@ -17,6 +17,7 @@ function spawn(NPC)
 SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")
 ProvidesQuest(NPC, Badgers)
 ProvidesQuest(NPC, Slime)
+    SetInfoStructString(NPC, "action_state", "alchemy_idle")
 end
 
 function respawn(NPC)

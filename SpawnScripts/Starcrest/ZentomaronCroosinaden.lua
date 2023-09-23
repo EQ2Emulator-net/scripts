@@ -10,6 +10,7 @@ require "SpawnScripts/Generic/DialogModule"
 function spawn(NPC)
     SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")		
     ProvidesQuest(NPC,5604)
+    SetInfoStructString(NPC, "action_state", "mood_angry")
 end
 
 function respawn(NPC)

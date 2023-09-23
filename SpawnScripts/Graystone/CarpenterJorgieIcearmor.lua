@@ -9,6 +9,7 @@ require "SpawnScripts/Generic/DialogModule"
 local Priest1 = 5772
 
 function spawn(NPC)
+    SetInfoStructString(NPC, "action_state", "woodworking_idle")
 end
 
 function respawn(NPC)

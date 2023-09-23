@@ -5,6 +5,7 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/CombatModule"
 local BQCitizen = 5718
 local CVQCitizen = 5719
 local GQCitizen = 5720
@@ -12,7 +13,8 @@ local NQCitizen = 5721
 local SCQCitizen = 5722
 local WWQCitizen = 5723
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     local Level = GetLevel(NPC)
     local level1 = 5
     local level2 = 6

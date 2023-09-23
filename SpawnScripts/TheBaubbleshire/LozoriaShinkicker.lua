@@ -14,6 +14,7 @@ local OroRoots = 5438
 function spawn(NPC)
 	SetPlayerProximityFunction(NPC, 4, "InRange", "LeaveRange")
 	    ProvidesQuest(NPC, OroRoots)
+    SetInfoStructString(NPC, "action_state", "drinking_idle")
 end
 
 function respawn(NPC)

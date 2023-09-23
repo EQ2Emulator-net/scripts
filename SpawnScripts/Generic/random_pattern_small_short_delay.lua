@@ -6,10 +6,10 @@
 	Script Notes	: If the coords are out of bounds then the spawn will still go there.
 --]]
 dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
-    SetInfoStructUInt(NPC, "hp_regen_override", 1)
-    SetInfoStructSInt(NPC, "hp_regen", 0)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     AddTimer(NPC, 6000,  "ChooseMovement")
 end
 

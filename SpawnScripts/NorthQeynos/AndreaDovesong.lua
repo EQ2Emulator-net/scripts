@@ -16,6 +16,7 @@ function spawn(NPC)
 SetPlayerProximityFunction(NPC, 6, "InRange", "LeaveRange")		
 ProvidesQuest(NPC, claymore)
 ProvidesQuest(NPC, papers)
+    SetInfoStructString(NPC, "action_state", "orate")
 end
 
 

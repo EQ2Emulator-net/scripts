@@ -6,8 +6,10 @@
                    : 
 --]]
 require "SpawnScripts/Generic/DialogModule"
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     AddTimer(NPC, math.random(2000,5000), "EmoteLoop")
     SetTempVariable(NPC,"Talking","false")
 	SetTempVariable(NPC,"Reset",nil)

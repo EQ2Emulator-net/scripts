@@ -6,8 +6,10 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/BloodSabers.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function aggro(NPC,Spawn)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     if not HasLanguage(Spawn,26) then
         Garbled(NPC,Spawn)
     end

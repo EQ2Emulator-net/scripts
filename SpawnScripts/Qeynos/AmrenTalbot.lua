@@ -11,7 +11,7 @@ local ACrumpledNote = 5374 -- A Crumpled Note Mages Version
 local spellbookFrags = 5485
 
 function spawn(NPC)
-
+    SetInfoStructString(NPC, "action_state", "cast_priest_buff_01")
 end
 
 function respawn(NPC)

@@ -14,7 +14,7 @@ local Bats = 5463
 function spawn(NPC)
 SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")
 ProvidesQuest(NPC, Rats)
-
+    SetInfoStructString(NPC, "action_state", "tapfoot")
 end
 
 function respawn(NPC)

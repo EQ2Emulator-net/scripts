@@ -9,6 +9,7 @@ require "SpawnScripts/Generic/DialogModule"
 local Mage2 = 5768
 
 function spawn(NPC)
+    SetInfoStructString(NPC, "action_state", "ponder")
 end
 
 function respawn(NPC)
