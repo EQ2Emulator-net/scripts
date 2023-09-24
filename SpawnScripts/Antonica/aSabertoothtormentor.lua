@@ -7,7 +7,10 @@
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/SabertoothGnoll3.lua")
 
-function spawn(NPC)
+require "SpawnScripts/Generic/CombatModule"
+
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     local Level = GetLevel(NPC)
     local level1 = 18
     local level2 = 19

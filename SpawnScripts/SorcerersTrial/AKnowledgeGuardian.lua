@@ -7,8 +7,11 @@
 --]]
 
 dofile("SpawnScripts/SorcerersTrial/dpoinvisiblecube.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
 
 end
 

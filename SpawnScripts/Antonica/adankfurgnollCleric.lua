@@ -7,8 +7,10 @@
 --]]
 dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
 dofile("SpawnScripts/Generic/MonsterCallouts/DarkpawGnoll1.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     local Level = GetLevel(NPC)
     local level1 = 13
     local level2 = 14

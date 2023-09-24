@@ -5,7 +5,11 @@
     Script Purpose : 
                    : 
 --]]
-function spawn(NPC)
+require "SpawnScripts/Generic/CombatModule"
+
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
 AddTimer(NPC,MakeRandomInt(2000,5000),"EmoteLoop")
 end
 

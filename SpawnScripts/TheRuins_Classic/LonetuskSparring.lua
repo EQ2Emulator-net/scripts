@@ -6,8 +6,11 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/LoneTusk2.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
     SpawnSet(NPC, "heroic", 1)
   --SetInfoStructString(NPC, "action_state", "pugilist_idle")
     AddTimer(NPC, MakeRandomInt(2500,4000), "AttackAnim")

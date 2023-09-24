@@ -5,7 +5,11 @@
     Script Purpose : 
                    : 
 --]]
-function spawn(NPC)
+require "SpawnScripts/Generic/CombatModule"
+
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
 AddTimer(NPC,MakeRandomInt(2000,5000),"EmoteLoop")
 end
 
@@ -47,17 +51,19 @@ end
 
 function Dialog1(NPC,Spawn)
     FaceTarget(NPC,Spawn)   
-    choice = MakeRandomInt(1,5)
+    choice = MakeRandomInt(1,6)
     if choice ==1 then
-    PlayFlavor(NPC,"","Please! Don't hurt me!","squeal",0,0)
+    PlayFlavor(NPC,"","Please! Don't hurt me!","squeal",0,0,Spawn)
     elseif choice ==2 then
-    PlayFlavor(NPC,"","I don't know what happened! Everyone just started acting all crazy!","wince",0,0)
+    PlayFlavor(NPC,"","I don't know what happened! Everyone just started acting all crazy!","wince",0,0,Spawn)
     elseif choice ==3 then
-    PlayFlavor(NPC,"","I hear strange cackling coming from the near supplies... and it's not from one of this lot!","listen",0,0)        
+    PlayFlavor(NPC,"","I hear strange laughing coming from the near supplies... and it's not from one of this lot!","listen",0,0,Spawn)        
     elseif choice ==4 then
-    PlayFlavor(NPC,"","Not in the face! Please!","cringe",0,0)   
+    PlayFlavor(NPC,"","Not in the face! Please!","cringe",0,0,Spawn)   
     elseif choice ==5 then
-    PlayFlavor(NPC,"","Save me from this madness!","beg",0,0) 
+    PlayFlavor(NPC,"","Save me from this madness!","beg",0,0,Spawn) 
+    elseif choice ==6 then
+    PlayFlavor(NPC,"","I heard something from behind the crates a moment ago...","listen",0,0,Spawn)        
     end
 end
 

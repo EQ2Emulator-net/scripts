@@ -5,7 +5,7 @@
     Script Purpose : 
                    : 
 --]]
-
+require "SpawnScripts/Generic/CombatModule"
 require "SpawnScripts/Generic/DialogModule"
 
 function hailed(NPC, Spawn)
@@ -34,25 +34,41 @@ end
 
 
 function BeDone(NPC,Spawn)
-FaceTarget(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Something has got them all riled up. It happened so suddenly, perhaps its the ale or some sort of magic!")
 	PlayFlavor(NPC, "", "", "thanks", 0, 0, Spawn)
+	Dialog.AddOption("Anything else I should know?","SomethingElse")
+	Dialog.AddOption("Perhaps a round of drinks will calm their nerves?","Round")
+	Dialog.AddOption("This is my kind of party!","Boot")
+	Dialog.AddOption("I'll see what I can do.")
+	Dialog.Start()
+end
+
+function SomethingElse(NPC,Spawn)
+    FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("Now that you mention it... I've heard someone cackling, but it sure isn't coming from someone I can see!")
+	PlayFlavor(NPC, "", "", "shrug", 0, 0, Spawn)
+	Dialog.AddOption("Perhaps a round of drinks will calm their nerves?","Round")
+	Dialog.AddOption("This is my kind of party!","Boot")
 	Dialog.AddOption("I'll see what I can do.")
 	Dialog.Start()
 end
 
 function Round(NPC,Spawn)
-FaceTarget(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("I already tried that! They just threw the mugs at eachother. Please, you must do something!")
 	PlayFlavor(NPC, "", "", "heckno", 0, 0, Spawn)
+	Dialog.AddOption("I'm here to see what there is to be done.","BeDone")
+	Dialog.AddOption("This is my kind of party!","Boot")
 	Dialog.AddOption("Alright.")
 	Dialog.Start()
 end
 
 function Boot(NPC,Spawn)
-    SendPopUpMessage(Spawn,"You have kicked out!",255,0,0)
+    SendPopUpMessage(Spawn,"You have been kicked out!",255,0,0)
     PlaySound(Spawn,"sounds/ui/ui_warning.wav", GetX(NPC), GetY(NPC), GetZ(NPC))
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
@@ -60,7 +76,7 @@ function Boot(NPC,Spawn)
 	PlayFlavor(NPC, "", "", "shakefist", 0, 0, Spawn)
 	Dialog.AddOption("Noo!  I want to join the fun!")
 	Dialog.Start()
-	AddTimer(NPC,3500,"Kick",1,Spawn)
+	AddTimer(NPC,4000,"Kick",1,Spawn)
 end
 
 function Kick(NPC,Spawn)
@@ -75,7 +91,10 @@ end
 
 
 
-function spawn(NPC)
+
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
 AddTimer(NPC,MakeRandomInt(2000,5000),"EmoteLoop")
 end
 

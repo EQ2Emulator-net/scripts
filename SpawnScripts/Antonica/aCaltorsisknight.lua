@@ -6,9 +6,10 @@
                    : 
 --]]
 
-function spawn(NPC)
+require "SpawnScripts/Generic/CombatModule"
 
-ChooseMovement(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
 end
 
 function ChooseMovement(NPC)

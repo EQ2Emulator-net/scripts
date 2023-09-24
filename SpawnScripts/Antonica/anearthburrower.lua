@@ -6,10 +6,11 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
-   
-ChooseMovement(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+    ChooseMovement(NPC)
 end
 
 function ChooseMovement(NPC)

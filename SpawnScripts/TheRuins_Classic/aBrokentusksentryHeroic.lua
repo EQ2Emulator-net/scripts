@@ -7,8 +7,11 @@
 --]]
 
 dofile("SpawnScripts/Generic/MonsterCallouts/BrokenTusk1.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
     SpawnSet(NPC, "heroic", 1)
     AddTimer(NPC,MakeRandomInt(10000,15000),"EmoteLoop")
 end

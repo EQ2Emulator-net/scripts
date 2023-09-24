@@ -35,7 +35,10 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp3)
     SpawnSet(NPC, "power", power3)
     end
-
+    dmgMod = GetStr(NPC)/10
+    SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(30 + dmgMod)) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(60 + dmgMod))
 waypoints(NPC)
 end
 

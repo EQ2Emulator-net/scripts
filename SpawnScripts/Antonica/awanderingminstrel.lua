@@ -6,8 +6,10 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/Windstalkers.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
 --State(NPC)
 --   SetInfoStructString(NPC, "action_state", "cast_bard_stringed_persist")
    SpawnSet(NPC,"visual_state,","cast_bard_stringed_persist")

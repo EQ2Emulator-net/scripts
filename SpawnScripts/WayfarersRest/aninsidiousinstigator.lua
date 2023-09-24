@@ -5,15 +5,120 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/DialogModule"
+require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC)
-AddTimer(NPC,MakeRandomInt(2000,5000),"EmoteLoop")
+    AddTimer(NPC,MakeRandomInt(2000,5000),"EmoteLoop")
+    SpawnSet(NPC,"model_type",78)
+    SpawnSet(NPC,"soga_model_type",4979)
+    SetTempVariable(NPC,"HailTimer",nil)
+    SetTempVariable(NPC,"Hail",nil)
+    SpawnSet(NPC,"name","a suspicious patron")
+end
+
+function hailed(NPC, Spawn)
+if GetTempVariable(NPC,"HailTimer")==nil then
+Dialog1(NPC, Spawn)
+end
+end
+
+
+function Dialog1(NPC, Spawn)
+    SetTempVariable(NPC,"Hail",1)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("...")
+	Dialog.AddOption("Oh, sorry to bother you.")
+	Dialog.AddOption("What are you doing back here?", "Dialog2")
+	Dialog.Start()
+end
+
+function Dialog2(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("Move along citizen, I've a lot on my mind.")
+	Dialog.AddVoiceover("voiceover/english/rion_rolana/qey_south/rionrolana000.mp3", 1315960700, 959375423)
+    PlayFlavor(NPC,"","","glare",0,0,Spawn)
+	Dialog.AddOption("Alright.")
+	Dialog.AddOption("These patrons are out of their minds! Explain yourself!", "Dialog3")
+	Dialog.Start()
+end
+
+function Dialog3(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("...")
+	Dialog.AddOption("Fine! I'm going.")
+    if GetTempVariable(NPC,"Aura")==nil then	
+	Dialog.AddOption("[Attempt to sense magic in the area]", "Dialog3_1")
+    elseif GetTempVariable(NPC,"Aura")=="1"then
+	Dialog.AddOption("[Attempt to pierce the enchantment]", "Dialog4")
+	end
+	Dialog.Start()
+end
+
+function Dialog3_1(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+    PlayFlavor(Spawn,"","","stare",0,0,NPC)
+    PlayFlavor(NPC,"","","whome",0,0,Spawn)
+    AddTimer(NPC,2200,"Accuse",1,Spawn)
+    SetTempVariable(NPC,"Aura",1)
+    Dialog3(NPC, Spawn)
+ end
+
+function Accuse(NPC,Spawn)
+     SendMessage(Spawn,"Magic clings to the elf cloaking his appearance.","white")
+    SendPopUpMessage(Spawn,"Magic clings to the elf cloaking his appearance.",0,100,175)
+    PlayFlavor(NPC,"","","aura_mage",0,0)
+	PerformCameraShake(Spawn, 0.30000001192092896)
+end
+
+function Dialog4(NPC, Spawn)
+    PlayFlavor(Spawn,"","","point",0,0,NPC)
+    SpawnSet(NPC,"name","an insidious instigator")
+    SetTempVariable(NPC,"HailTimer",1)
+    PlayFlavor(NPC,"","","cackle",0,0,Spawn)
+    SpawnSet(NPC,"mood_state",11852)
+    AddTimer(NPC,1500,"Shimmer",1,Spawn)
+    AddTimer(NPC,4000,"Poof",1,Spawn)
+    AddTimer(NPC,6700,"AttackTimer",1,Spawn)
+    AddTimer(NPC,7500,"Poof2",1,Spawn)
+end
+
+function Shimmer(NPC,Spawn)
+    PlayFlavor(NPC,"","","result_teleport_sparkle",0,0)
+
+end
+
+function Poof(NPC,Spawn)
+    PlayFlavor(NPC,"","","result_teleport_appear",0,0)
+end
+
+function Poof2(NPC,Spawn)
+    PlayFlavor(NPC,"","","result_dispell1_out",0,0)
+end
+
+function AttackTimer(NPC,Spawn)
+    CloseConversation(NPC,Spawn)
+    SpawnSet(NPC,"model_type",115)
+    SpawnSet(NPC,"soga_model_type",4966)
+    SpawnSet(NPC,"attackable",1)
+    SpawnSet(NPC,"show_level",1)
+    AddPrimaryEntityCommand(Spawn,NPC,"",0,"")
+    AddPrimaryEntityCommand(Spawn,NPC,"attack",10000,"attack")
+    SendUpdateDefaultCommand(NPC,10000,"attack")
+    AddTimer(NPC,1200,"Attacking",1,Spawn)
+end
+
+function Attacking(NPC,Spawn)
+    Attack(NPC,Spawn)
 end
 
 function EmoteLoop(NPC)
 local zone = GetZone(NPC)
 local Darkelf = GetSpawnByLocationID(zone, 133780688)   
-if not IsInCombat(NPC) and IsAlive(NPC)then
+if not IsInCombat(NPC) and IsAlive(NPC) and GetTempVariable(NPC,"Hail")==nil then
 if IsAlive(Darkelf) then
     SpawnSet(NPC,"mood_state",11852)
     choice = MakeRandomInt(1,5)

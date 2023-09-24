@@ -5,7 +5,10 @@
     Script Purpose : 
                    : 
 --]]
-function spawn(NPC)
+require "SpawnScripts/Generic/CombatModule"
+
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     SetSpawnAnimation(NPC, 13016)
 AddTimer(NPC,MakeRandomInt(1000,3500),"ChooseMovement")
 end

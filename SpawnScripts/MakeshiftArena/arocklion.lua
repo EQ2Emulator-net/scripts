@@ -5,8 +5,11 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
     AddTimer(NPC,9000,"Doors",1,Spawn)
     AddTimer(NPC,12000,"Pop")
     SpawnSet(NPC,"show_name",0)

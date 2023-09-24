@@ -25,13 +25,13 @@ SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")
 end
 
 function InRange(NPC, Spawn)
-if not IsInCombat(NPC) then
+if not IsInCombat(NPC) and GetTempVariable(NPC,"HailTimer")=="nil" then
 PlayFlavor(NPC, "","No!  Please don't hurt me!", "cringe", 0,0, Spawn)
 end
 end
 
 function hailed(NPC, Spawn)
-if GetTempVariable(NPC,"HailTimer")==nil then
+if GetTempVariable(NPC,"HailTimer")=="nil" then
 Dialog1(NPC, Spawn)
 end
 end

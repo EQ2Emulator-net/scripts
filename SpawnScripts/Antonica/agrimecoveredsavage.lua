@@ -6,8 +6,10 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/HighwaymanAntonica.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
     local RaceCheck = MakeRandomInt(1,2)
     local GenderCheck = MakeRandomInt(1,2)
     if GenderCheck == 1 then

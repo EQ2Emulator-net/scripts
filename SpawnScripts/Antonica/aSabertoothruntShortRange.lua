@@ -5,9 +5,11 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
-     local Level = GetLevel(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+    local Level = GetLevel(NPC)
     local level1 = 10
     local level2 = 11
     local difficulty1 = 6

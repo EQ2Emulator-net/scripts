@@ -8,8 +8,10 @@
 dofile("SpawnScripts/Generic/MonsterCallouts/Windstalkers.lua")
 
 local LichaDancingQueen = 5342
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
    
 SetTempVariable(NPC, "QUEST_HAILED", "false")
 end

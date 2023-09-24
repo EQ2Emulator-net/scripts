@@ -6,8 +6,11 @@
                    : 
 --]]
 require "SpawnScripts/Generic/DialogModule"
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
 SpawnSet(NPC,"name","a terrified victim")
 end
 

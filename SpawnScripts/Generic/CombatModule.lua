@@ -11,13 +11,12 @@ globalStatMod = 1.0     -- Global Attribute Multiplier- make global adjustments 
   
 
 function  combatModule(NPC, Spawn) 
-    level = GetLevel(NPC)   -- NPC Level
-    difficulty = 6          -- NPC Difficulty || Function not yet implemented, set to 6 for testing purposes.
-    dmgMod =GetStr(NPC)/10  -- Strength-based damage bonus for autoattack damage.
-    
+    level = GetLevel(NPC)           -- NPC Level
+    difficulty = GetDifficulty(NPC) -- NPC Difficulty || Function in testing phase, default to 6 if necessary.
     levelSwitch(NPC)
-    core(NPC)
+    regen(NPC)
     attributes(NPC)
+    
 end
 
 --Determine damage function based on NPC level.
@@ -28,9 +27,9 @@ function levelSwitch(NPC, Spawn)
         TierOneB(NPC)
     elseif level >= 6 and level  <= 9 then
         TierOneC(NPC)
-    elseif level >= 10 and level <= 14 then
+    elseif level >= 10 and level <= 15 then
         TierTwoA(NPC)
-    elseif level >= 15 and level <= 19 then
+    elseif level >= 16 and level <= 19 then
         TierTwoB(NPC)
     elseif level >= 20 and level <= 14 then
         TierThreeA(NPC)
@@ -97,8 +96,8 @@ end
 
 
 
---Basic shared stats and abilities
-function core(NPC, Spawn)
+--Health and power regeneration rates
+function regen(NPC, Spawn)
     
     -- In-combat health regeneration
     SetInfoStructUInt(NPC, "hp_regen_override", 1)  -- Set to  0 to disable and allow the server to set the regen rate.
@@ -108,9 +107,6 @@ function core(NPC, Spawn)
     SetInfoStructUInt(NPC, "pw_regen_override", 1)  -- Set to  0 to disable and allow the server to set the regen rate.
     SetInfoStructSInt(NPC, "pw_regen", 0)           -- Set Regen Amount. Default 0
     
-    -- In-combat run speed.
-    --SetSpeed(NPC, 6.0)
-
 end
 
 
@@ -118,8 +114,8 @@ end
 
 --Level 1-3
 function TierOneA(NPC, Spawn)
-    -- 0-1 damage- Dif 1-9
-    lowDmg = math.floor(1 * GlobalDmgMod + dmgMod)
+    local dmgMod =GetStr(NPC)/10          -- Strength-based damage bonus for autoattack damage.
+    lowDmg = math.floor(0 * GlobalDmgMod + dmgMod)
     highDmg = math.floor(2 * GlobalDmgMod + dmgMod)
     SetInfoStructUInt(NPC, "override_primary_weapon", 1)        -- Enables override of server autoattack damage. Set to 0 to  allow server to set damage.
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
@@ -129,6 +125,7 @@ end
 
 --Level 4-5
 function TierOneB(NPC, Spawn)
+    local dmgMod =GetStr(NPC)/10
     if difficulty <=4 then -- 
         lowDmg = math.floor(1 * GlobalDmgMod + dmgMod)
         highDmg =math.floor(2 * GlobalDmgMod + dmgMod)
@@ -147,6 +144,7 @@ end
 
 --Level 6-9
 function TierOneC(NPC, Spawn)
+    local dmgMod =GetStr(NPC)/10
     if difficulty <=4 then  -- 1-3 dif 1-4
         lowDmg = math.floor(1 * GlobalDmgMod + dmgMod) 
         highDmg =math.floor(3 * GlobalDmgMod + dmgMod)
@@ -164,8 +162,9 @@ function TierOneC(NPC, Spawn)
 end
 
 
---Level 10-14
+--Level 10-15
 function TierTwoA(NPC, Spawn)
+    local dmgMod =GetStr(NPC)/10
     if difficulty <=4 then 
         lowDmg = math.floor(2 * GlobalDmgMod + dmgMod) 
         highDmg =math.floor(4 * GlobalDmgMod + dmgMod)
@@ -177,9 +176,9 @@ function TierTwoA(NPC, Spawn)
         highDmg = math.floor(15 * GlobalDmgMod + dmgMod)
     elseif difficulty == 7 then
         lowDmg = math.floor(8 * GlobalDmgMod + dmgMod)
-        highDmg = math.floor(22 * GlobalDmgMod + dmgMod)
+        highDmg = math.floor(17 * GlobalDmgMod + dmgMod)
     elseif difficulty >= 8 then
-        lowDmg = math.floo(12 * GlobalDmgMod + dmgMod)
+        lowDmg = math.floor(12 * GlobalDmgMod + dmgMod)
         highDmg = math.floor(24 * GlobalDmgMod + dmgMod)
     end
     
@@ -189,8 +188,29 @@ function TierTwoA(NPC, Spawn)
 end
 
 
---Level 15-19
+--Level 16-19
 function TierTwoB(NPC, Spawn)
+        local dmgMod =GetStr(NPC)/10
+    if difficulty <=4 then 
+        lowDmg = math.floor(2 * GlobalDmgMod + dmgMod) 
+        highDmg =math.floor(7 * GlobalDmgMod + dmgMod)
+    elseif difficulty == 5 then 
+        lowDmg = math.floor(6 * GlobalDmgMod + dmgMod) 
+        highDmg = math.floor(15 * GlobalDmgMod + dmgMod)
+    elseif difficulty ==6 then 
+        lowDmg = math.floor(12 * GlobalDmgMod + dmgMod)
+        highDmg = math.floor(24 * GlobalDmgMod + dmgMod)
+    elseif difficulty == 7 then
+        lowDmg = math.floor(18 * GlobalDmgMod + dmgMod)
+        highDmg = math.floor(32 * GlobalDmgMod + dmgMod)
+    elseif difficulty >= 8 then
+        lowDmg = math.floor(25 * GlobalDmgMod + dmgMod)
+        highDmg = math.floor(55 * GlobalDmgMod + dmgMod)
+    end
+    
+    SetInfoStructUInt(NPC, "override_primary_weapon", 1)
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
 
 end
 

@@ -6,8 +6,10 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/DarkpawGnoll1.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
 if GetSpawnLocationID(NPC)==  133785089 or GetSpawnLocationID(NPC)==   133785090 then
 AddTimer(NPC,MakeRandomInt(1000,3500),"Run")
 end

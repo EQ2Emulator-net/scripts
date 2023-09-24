@@ -6,8 +6,11 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/BaseFireElemental1.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
 AddTimer(NPC,7500,"Visual2")
 AddTimer(NPC,6500,"Visual1a")
 AddTimer(NPC,4000,"Visual1")

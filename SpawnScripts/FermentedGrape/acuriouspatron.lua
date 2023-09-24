@@ -6,7 +6,11 @@
                    : 
 --]]
 
-function spawn(NPC)
+require "SpawnScripts/Generic/CombatModule"
+
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
 
 end
 

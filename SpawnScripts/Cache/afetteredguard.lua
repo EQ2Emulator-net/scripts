@@ -5,7 +5,11 @@
     Script Purpose : 
                    : 
 --]]
-function spawn(NPC)
+require "SpawnScripts/Generic/CombatModule"
+
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
 --	SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")
 	SetTempVariable(NPC, "OnGuard", "true")  
     SetSeeHide(NPC,1)

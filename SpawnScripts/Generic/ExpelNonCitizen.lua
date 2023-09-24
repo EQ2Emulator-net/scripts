@@ -44,7 +44,7 @@ end
 	    not HasCompletedQuest(Spawn,5721) and
 	    not HasCompletedQuest(Spawn,5722) and
 	    not HasCompletedQuest(Spawn,5723) then
-        if GetClass(Spawn) ==1 or GetClass(Spawn)==11 or GetClass(Spawn)==21 or GetClass(Spawn)==31 then --CLASS(Archetype) CHECK.
+        if GetClass(Spawn) ==1 or GetClass(Spawn)==11 or GetClass(Spawn)==21 or GetClass(Spawn)==31 then --CLASS(Archetype) CHECK. THESE ARE POSSIBLE REFUGEES.
  
         SetInfoStructUInt(NPC, "override_primary_weapon", 1)        -- Enables override of server autoattack damage. Set to 0 to  allow server to set damage.
         SetInfoStructUInt(NPC, "primary_weapon_damage_low", 0) 
@@ -56,7 +56,7 @@ end
         PlaySound(Spawn,"sounds/ui/ui_warning.wav", GetX(NPC), GetY(NPC), GetZ(NPC))
         end
         end
-        elseif GOOD and GetFactionAmount(Spawn,11)<1000 and invul == false then
+        elseif GOOD and GetFactionAmount(Spawn,11)<1000 and invul == false then  --NON CITIZENS
         SetInfoStructUInt(NPC, "override_primary_weapon", 0)        -- Enables override of server autoattack damage. Set to 0 to  allow server to set damage.
         Attack(NPC,Spawn)
         AddTimer(NPC,500,"ExpelOtherFaction",1,Spawn)
@@ -71,7 +71,7 @@ function Expel(NPC,Spawn)
     local invul = IsInvulnerable(Spawn)
     if IsInCombat(NPC) then
     AddTimer(NPC,500,"Expel",1,Spawn)
-    if invul == false and GetDistance(Spawn,NPC) <=6 then
+    if invul == false and GetDistance(Spawn,NPC) <=4 then
         CastSpell(NPC,1225)
         PlayAnimation(Spawn,11764)
         ExpeltoHood(NPC,Spawn)
@@ -98,7 +98,7 @@ end
 function ExpelOtherFaction(NPC,Spawn)
     local invul = IsInvulnerable(Spawn)
     if IsInCombat(NPC) then
-    if invul == false and GetDistance(Spawn,NPC) <=9 then
+    if invul == false and GetDistance(Spawn,NPC) <=5 then
         CastSpell(NPC,1225)
         PlayAnimation(Spawn,11764)
         ExpeltoOutofCity(NPC,Spawn)
@@ -114,7 +114,7 @@ end
 
 function ExpeltoOutofCity(NPC,Spawn)
         ZoneRef = GetZone("Antonica")
-        Zone(ZoneRef,Spawn,-2223.67, -29.19, 607.59, 275.37)
+        Zone(ZoneRef,Spawn,-130.85, -15.10, -77.62, 137.28)
 end
 
 

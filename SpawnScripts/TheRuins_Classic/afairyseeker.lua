@@ -6,8 +6,11 @@
                    : 
 --]]
 
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
 local zone = GetZone(NPC)
 local SpawnLocation = GetSpawnLocationID(NPC)
 if SpawnLocation == 133785610 or  SpawnLocation == 133785611 then

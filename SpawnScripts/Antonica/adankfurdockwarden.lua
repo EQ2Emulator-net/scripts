@@ -8,8 +8,10 @@
 dofile("SpawnScripts/Generic/CatalogueQuestUpdates.lua")
 
 local QUEST_3 = 5561
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
 
 end
 

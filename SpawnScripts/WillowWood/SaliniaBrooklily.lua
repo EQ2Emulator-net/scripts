@@ -11,8 +11,8 @@ require "SpawnScripts/Generic/DialogModule"
 local Rats = 5478
 
 function spawn(NPC)
-ProvidesQuest(NPC,Rats)
-SetPlayerProximityFunction(NPC, 6, "InRange", "LeaveRange")
+    ProvidesQuest(NPC,Rats)
+    SetPlayerProximityFunction(NPC, 6, "InRange", "LeaveRange")
     SetInfoStructString(NPC, "action_state", "ponder")
 end
 
@@ -44,7 +44,7 @@ function hailed(NPC, Spawn)
 	 end
 end
 
-function 
+function Dialog1(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Welcome to my little scribe shop, adventurer.  Are you interested in the wondrous magic of nature per chance?  I may have something here that would be of use to you.")

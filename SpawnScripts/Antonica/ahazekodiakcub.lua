@@ -5,8 +5,10 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
 if GetSpawnLocationID(NPC)~=194535 then
 AddTimer(NPC,MakeRandomInt(1000,3500),"ChooseMovement")
 end
