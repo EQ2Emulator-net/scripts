@@ -54,7 +54,7 @@ end
 require "SpawnScripts/Generic/DialogModule"
 
 function spawn(NPC)
-
+SetTempVariable(NPC,"SetStep9",nil)
 end
 
 function get_attention_init(NPC, player)
@@ -247,12 +247,15 @@ function zone_to_isle(NPC, player)
 end
 
 function quest_step_9(NPC, player)	
+if GetTempVariable(NPC,"SetStep9")== "nil"then
+    SetTempVariable(NPC,"SetStep9",1)
     if GetClientVersion(player)<= 546 then
 	AddTimer(GetSpawn(NPC, 270013), 100, "attack")
 	else
 	AddTimer(GetSpawn(NPC, 270013), 100, "NonDoFattack")
     end	    
 	AddTimer(NPC, 1000, "quest_step_9b", 1, player)	
+end
 end
 
 function quest_step_9b(NPC, player)

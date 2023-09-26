@@ -1,14 +1,14 @@
 --[[
-    Script Name    : Spells/Traditions/SnakePoison.lua
+    Script Name    : Spells/Traditions/SpiderPoison.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.09.24 11:09:36
+    Script Date    : 2023.09.25 03:09:44
     Script Purpose : 
                    : 
 --]]
 
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
     Level = GetLevel(Caster)
-    SpellLevel = 7
+    SpellLevel = 10
     Mastery = SpellLevel + 50
     StatBonus = GetStr(Caster) / 10
         
@@ -17,7 +17,7 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal)
         else LvlBonus = Mastery - SpellLevel
     end
     
-    DmgBonus = LvlBonus * 2 + StatBonus
+    DmgBonus = LvlBonus + StatBonus
     MaxDmg = MaxVal + math.floor(DmgBonus)
     MinDmg = MinVal + math.floor(DmgBonus)
     
@@ -28,7 +28,7 @@ end
 
 function tick(Caster, Target, DmgType, MinVal, MaxVal)
     Level = GetLevel(Caster)
-    SpellLevel = 7
+    SpellLevel = 10
     Mastery = SpellLevel + 50
     StatBonus = GetStr(Caster) / 10
         
@@ -43,4 +43,3 @@ function tick(Caster, Target, DmgType, MinVal, MaxVal)
     
     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
 end
-

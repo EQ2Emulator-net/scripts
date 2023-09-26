@@ -1,17 +1,9 @@
 --[[
-    Script Name    : Spells/Traditions/LashingTongue.lua
-    Script Author  : neatz09
-    Script Date    : 2022.05.21 05:05:40
+    Script Name    : Spells/Traditions/PulverizeRock.lua
+    Script Author  : LordPazuzu
+    Script Date    : 2023.09.26 03:09:22
     Script Purpose : 
                    : 
---]]
-
-
---[[ *Inflicts 7 - 9 crushing damage on target
-*Stuns target
-*Epic targets gain an immunity to Stun effects of 3.7 seconds and duration is reduced to 0.4 seconds.
-*Resistibility increases against targets higher than level 29.
-
 --]]
 
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
@@ -30,11 +22,5 @@ function cast(Caster, Target, DmgType, MinVal, MaxVal)
     MinDmg = MinVal + math.floor(DmgBonus)
     
     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
-    AddControlEffect(Target, 4)
-   end
-   
-  function remove(Caster, Target)
-    RemoveControlEffect(Target, 4)
-
+ 
 end
-
