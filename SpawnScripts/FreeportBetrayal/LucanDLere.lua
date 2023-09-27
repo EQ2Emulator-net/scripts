@@ -17,6 +17,7 @@ if GetTempVariable(NPC,"Step1")~= "nil" and GetTempVariable(NPC,"Step2")== "nil"
 Speech1(NPC,Spawn)
 elseif GetTempVariable(NPC,"Step2")== "nil" then   
 Speech2(NPC,Spawn)
+else
 end
 end
 

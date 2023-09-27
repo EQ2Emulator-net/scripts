@@ -17,16 +17,18 @@ local Lucan = GetSpawn(NPC,8450000)
     FaceTarget(NPC, Lucan)
 	AddTimer(NPC,2500,"Moving",1,Spawn)
 	AddTimer(NPC,7000,"Face",1,Spawn)
-	AddTimer(NPC,10000,"Attacking",1,Spawn)
+    AddTimer(NPC,10000,"Attacking",1,Spawn)
 	AddTimer(NPC,12500,"Attacking2",1,Spawn)
 	AddTimer(NPC,16500,"Salute2",1,Spawn)
-	AddTimer(NPC,18000,"Moving2",1,Spawn)
 	AddTimer(NPC,20000,"Face2",1,Spawn)
 end
 
 function Moving(NPC,Spawn)
-    MoveToLocation(NPC,1.45, -1.21, -32.58,2,"",true)
-    MoveToLocation(NPC,1.45, -1.21, -32.58,2,"",false)
+    MovementLoopAddLocation(NPC,1.45, -1.21, -32.58,2,1)
+    MovementLoopAddLocation(NPC,1.45, -1.21, -32.58,2,12,"Attacking")
+    MovementLoopAddLocation(NPC,1.45, -1.21, -32.58,2,1)
+    MovementLoopAddLocation(NPC,3.67, -1.21, -37.71,2,1)
+    MovementLoopAddLocation(NPC,3.67, -1.21, -37.71,2,99999,"Face2")
     SetTarget(NPC, Spawn)
 end
 
@@ -36,7 +38,15 @@ end
 
 
 function Attacking(NPC,Spawn)
-    CastSpell(Spawn,2550426,1,NPC)
+if IsAlive(Spawn)== true then
+CastSpell(Spawn,2550426,1,NPC)
+Attack(NPC,Spawn)
+AddTimer(NPC,2700,"Attacking2",1,Spawn)
+else
+local Lucan = GetSpawn(NPC,8450000)
+    SetTarget(NPC, Lucan)
+    FaceTarget(NPC, Lucan)
+end
 end
 
 function Attacking2(NPC,Spawn)
@@ -56,6 +66,12 @@ end
 
 function Moving2(NPC,Spawn)
     MoveToLocation(NPC,3.67, -1.21, -37.71,2,false)
+end
+
+function victory(NPC,Spawn)
+local Lucan = GetSpawn(NPC,8450000)
+    SetTarget(NPC, Lucan)
+    FaceTarget(NPC, Lucan)
 end
 
 function Face2(NPC,Spawn)

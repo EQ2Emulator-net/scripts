@@ -14,7 +14,7 @@ require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
 	AddQuestStep(Quest, 1, "I need to reach the official before it's too late.", 1, 100, "I need to find the official in the mansion and put a stop to him.  I only hope I can reach him in time.", 11)
-	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
+	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
 function Accepted(Quest, QuestGiver, Player)
@@ -44,13 +44,18 @@ function Declined(Quest, QuestGiver, Player)
 end
 
 function Deleted(Quest, QuestGiver, Player)
-	-- Remove any quest specific items here when the quest is deleted
+end
+
+function Step1Complete(Quest)
+	UpdateQuestStepDescription(Quest, 1, "I fought my way to the room where the official awaited me.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I've reached the official, only to find out he was waiting for me... along with my fellow 'conspirators'.")
+	AddQuestStepZoneLoc(Quest, 2, "I need to await judgement.", 15, "I've been tricked, but I'm still intent on leaving Freeport. I must await judgement.", 11-1341.61, -69.51, 333.4,33)
+	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 
 function QuestComplete(Quest, QuestGiver, Player)
-	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
-	UpdateQuestStepDescription(Quest, 1, "I fought my way to the room where the official awaited me.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I've reached the official, only to find out he was waiting for me... along with my fellow &quot;conspirators&quot;.")
+	UpdateQuestStepDescription(Quest, 2, "I have been judged as a traitor to Freeport.")
+	UpdateQuestTaskGroupDescription(Quest, 2, "I have been banished from Freeport, but I am still alive for some reason.")
 
 	UpdateQuestDescription(Quest, "I am the victim of a cruel and elaborate hoax intended to coerce people into betraying Freeport, all for the amusement of the Overlord himself.  In the end, I still believed in what I said and accepted my fate.  For some reason... I'm still alive. <br> <br>")
 	GiveQuestReward(Quest, Player)
@@ -58,6 +63,8 @@ end
 
 function Reload(Quest, QuestGiver, Player, Step)
 	if Step == 1 then
+		Step1Complete(Quest, QuestGiver, Player)
+	elseif Step == 1 then
 		QuestComplete(Quest, QuestGiver, Player)
 	end
 end

@@ -18,3 +18,5 @@ end
 function respawn(NPC)
 	spawn(NPC)
 end
+
+--Pay attention, for I only have time to say it once.  The rare poison coating my axe preserved you long enough for me to revive you.  It may be a very long time before you fully recover from the poison.  I believed your words, friend.

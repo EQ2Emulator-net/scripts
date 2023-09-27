@@ -134,8 +134,8 @@ function Option5(NPC, Spawn)
 	Dialog.AddDialog("Anything interesting?  The last reports were hardly worth waiting for, but a good soldier never lets his guard down -- ever!")
  	Dialog.AddVoiceover("voiceover/english/ignar_steadirt/antonica/quests/firemyst/ignar_steadirt_007.mp3", 2410599990, 3294676277)
    if GetQuestStep(Spawn, LordGrimrotsScythe) == 4 then
-	Dialog.AddOption("The gnolls have Lord Grimrot's war scythe and are using it to resurrect him for a new undead battle against Qeynos.", "Dialog22")
-	Dialog.AddOption("Morte's a human! You didn't tell me that!", "Dialog29")
+	Dialog.AddOption("The gnolls have Lord Grimrot's war scythe and are using it to resurrect him for a new undead battle against Qeynos.", "Option7")
+	Dialog.AddOption("Morte's a human! You didn't tell me that!", "Option6")
     end
     Dialog.AddOption("I'll be right back.")
 	Dialog.Start()
@@ -235,12 +235,10 @@ function Quest_Completed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("I keep telling myself this is an important part of the battle -- to stay here and gather data.  Ah, well.  I appreciate your visits.")
-    PlayFlavor(NPC,"","","greetingsTable", 0, 0,Spawn)
-	PlayAnimation(NPC, 121)
+    PlayFlavor(NPC,"","","nod", 0, 0,Spawn)
 	Dialog.AddOption("Farewell.")
 	Dialog.Start()
 end
-
 
 
 

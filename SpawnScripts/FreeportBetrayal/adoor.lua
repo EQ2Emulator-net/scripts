@@ -89,6 +89,9 @@ function Chains1 (NPC,Spawn)
 local Tayil = GetSpawn(NPC,8450001)
     PlayFlavor(Tayil,"","","cast_enthralling_fetters_circling_ghostly",0,0)
     SetTarget(Tayil,Spawn)
+    if GetQuestStep(Target,5890)==1 then
+        SetStepComplete(Target,5890,1)
+    end
 end
 
 
@@ -98,8 +101,8 @@ local Lucan = GetSpawn(NPC,8450000)
     PlayFlavor(Lucan,"voiceover/english/overlord_lucan_d_lere/fprt_ph_3r03/quest_betrayal_f_lucan_betrayal_callout1_5002277b.mp3","Excellent!  The entertainment has arrived.  I can't remember the last time someone managed to get this far.  I congratulate you on picking this one, Kenjedeau.","",365186407,3843156497)
 
 local Tayil = GetSpawn(NPC,8450001)
+local Lucan = GetSpawn(NPC,8450000)
     PlayFlavor(Tayil,"","","kill_cast_enthralling_fetters_circling_ghostly",0,0)
-    
     SetTarget(Spawn,Lucan)
 end
 
