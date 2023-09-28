@@ -31,7 +31,7 @@ function levelSwitch(NPC, Spawn)
         TierTwoA(NPC)
     elseif level >= 16 and level <= 19 then
         TierTwoB(NPC)
-    elseif level >= 20 and level <= 14 then
+    elseif level >= 20 and level <= 24 then
         TierThreeA(NPC)
     elseif level >= 25 and level  <= 29 then
         TierThreeB(NPC)
@@ -216,11 +216,53 @@ end
 
 --Level 20-24
 function TierThreeA(NPC, Spawn)
+        local dmgMod =GetStr(NPC)/10
+    if difficulty <=4 then 
+        lowDmg = math.floor(2 * GlobalDmgMod + dmgMod) 
+        highDmg =math.floor(7 * GlobalDmgMod + dmgMod)
+    elseif difficulty == 5 then 
+        lowDmg = math.floor(6 * GlobalDmgMod + dmgMod) 
+        highDmg = math.floor(15 * GlobalDmgMod + dmgMod)
+    elseif difficulty ==6 then 
+        lowDmg = math.floor(12 * GlobalDmgMod + dmgMod)
+        highDmg = math.floor(24 * GlobalDmgMod + dmgMod)
+    elseif difficulty == 7 then
+        lowDmg = math.floor(18 * GlobalDmgMod + dmgMod)
+        highDmg = math.floor(32 * GlobalDmgMod + dmgMod)
+    elseif difficulty >= 8 then
+        lowDmg = math.floor(25 * GlobalDmgMod + dmgMod)
+        highDmg = math.floor(55 * GlobalDmgMod + dmgMod)
+    end
+    
+    SetInfoStructUInt(NPC, "override_primary_weapon", 1)
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
  
 end
 
 --Level 25-29
 function TierThreeB(NPC, Spawn)
+        local dmgMod =GetStr(NPC)/10
+    if difficulty <=4 then 
+        lowDmg = math.floor(6 * GlobalDmgMod + dmgMod) 
+        highDmg =math.floor(15 * GlobalDmgMod + dmgMod)
+    elseif difficulty == 5 then 
+        lowDmg = math.floor(12 * GlobalDmgMod + dmgMod) 
+        highDmg = math.floor(24 * GlobalDmgMod + dmgMod)
+    elseif difficulty ==6 then 
+        lowDmg = math.floor(20 * GlobalDmgMod + dmgMod)
+        highDmg = math.floor(35 * GlobalDmgMod + dmgMod)
+    elseif difficulty == 7 then
+        lowDmg = math.floor(18 * GlobalDmgMod + dmgMod)
+        highDmg = math.floor(32 * GlobalDmgMod + dmgMod)
+    elseif difficulty >= 8 then
+        lowDmg = math.floor(35 * GlobalDmgMod + dmgMod)
+        highDmg = math.floor(75 * GlobalDmgMod + dmgMod)
+    end
+    
+    SetInfoStructUInt(NPC, "override_primary_weapon", 1)
+    SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
+    SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
 
 end
 

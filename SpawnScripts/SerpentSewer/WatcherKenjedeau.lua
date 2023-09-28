@@ -33,10 +33,17 @@ function Dialog1(NPC, Spawn)
  	Dialog.AddDialog("Blast these wretched sewers! Why do I have to lookout for alligators. I don't even know what an alligator LOOKS like!")
 	Dialog.AddVoiceover("voiceover/english/watcher_kenjedeau/fprt_sewer02/watcher_kenjedeau001.mp3", 2265669441, 2172159195)
     PlayFlavor(NPC, "", "", "grumble", 0, 0, Spawn)
-    Dialog.AddOption("Nobility comes from personal sacrifice, friend.","Dialog2")	
+    if HasQuest(Spawn,Part1) or HasCompletedQuest(Spawn,Part1) then
+    if GetLevel(Spawn)<18 and not HasQuest(Spawn,Part2) and not HasCompletedQuest(Spawn,Part2) then
+    Dialog.AddOption("Nobility comes from personal sacrifice, friend.","Dialog2")
+    elseif HasQuest(Spawn,Part2) and not HasCompletedQuest(Spawn,Part2) then
+    Dialog.AddOption("I need to get to that meeting!","Retry")
+    end
+    end
     Dialog.AddOption("I have no time for this. Get out of the way!")	
 	Dialog.Start()
 end
+
 
 function Dialog2(NPC, Spawn)
 	FaceTarget(NPC, Spawn)

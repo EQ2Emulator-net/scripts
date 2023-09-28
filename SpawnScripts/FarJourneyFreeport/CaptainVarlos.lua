@@ -247,7 +247,7 @@ function zone_to_isle(NPC, player)
 end
 
 function quest_step_9(NPC, player)	
-if GetTempVariable(NPC,"SetStep9")== "nil"then
+if GetTempVariable(NPC,"SetStep9")~= "1"then
     SetTempVariable(NPC,"SetStep9",1)
     if GetClientVersion(player)<= 546 then
 	AddTimer(GetSpawn(NPC, 270013), 100, "attack")

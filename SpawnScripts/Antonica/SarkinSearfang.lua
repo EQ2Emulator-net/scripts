@@ -1,11 +1,10 @@
 --[[
-    Script Name    : SpawnScripts/Antonica/TarkSearfang.lua
-    Script Author  : Dorbin
-    Script Date    : 2022.07.15 07:07:09
+    Script Name    : SpawnScripts/Antonica/SarkinSearfang.lua
+    Script Author  : LordPazuzu
+    Script Date    : 2023.09.28 12:09:36
     Script Purpose : 
                    : 
 --]]
-dofile("SpawnScripts/Generic/MonsterCallouts/DarkpawGnoll1.lua")
 
 function spawn(NPC)
     dmgMod = GetStr(NPC)/10
@@ -16,6 +15,7 @@ function spawn(NPC)
 end
 
 function hailed(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
 end
 
 function respawn(NPC)

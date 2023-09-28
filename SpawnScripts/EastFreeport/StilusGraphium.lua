@@ -26,24 +26,68 @@ function respawn(NPC)
 	spawn(NPC)
 end
 
+
 function Dialog1(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("Hail, hail, and all that.  I'm very busy right now.  I must get today's edition out by at least tomorrow.  If you want to chat, try the guards.  They're always up for good banter.")
 	Dialog.AddVoiceover("voiceover/english/stilus_graphium/fprt_east/qst_stilusgraphium.mp3", 626338698, 3291446303)
     PlayFlavor(NPC, "", "", "sniff", 0, 0, Spawn)
+    Dialog.AddOption("I'm looking for more than gossip. Surely this place has more to offer.","Intro1")	
     Dialog.AddOption("Fine. I was just leaving.")	
-    Dialog.AddOption("Whose side are you on, anyway?","Dialog2")	
 	Dialog.Start()
 end
+
+function Intro1(NPC,Spawn)
+    FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)   
+ 	Dialog.AddDialog("The Observer has been here for generations.  No matter which way the wind blows at the time, people hunger for the truth.  As the editor of the Observer, I give the people the REAL truth, not the kind the Quintet would have you hear.")
+	Dialog.AddVoiceover("voiceover/english/stilus_graphium/fprt_east/quests/stilusgraphium/stilus_x1_finish.mp3", 3836403748, 1513651252)
+    Dialog.AddOption("I get around. Have any leads I can help with?","Intro1A")	
+    Dialog.AddOption("What kind of truth does the Quintet supply?","Intro2")	
+    Dialog.AddOption("Well, unless I do something amazing leave me out of it!")	
+	Dialog.Start()
+end
+
+function Intro1A(NPC,Spawn)
+    FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)   
+ 	Dialog.AddDialog("The Overlord and the Quintet detest freelancers. If you want real power in this city, the only place to find it is in the arms of the Quintet.")
+ 	Dialog.AddVoiceover("voiceover/english/stilus_graphium/fprt_east/quests/stilusgraphium/stilus_x1_finish3.mp3", 4067542453, 3603700039)
+   PlayFlavor(NPC, "", "", "no", 0, 0, Spawn)
+    Dialog.AddOption("What kind of truth does the Quintet supply?","Intro2")	
+    Dialog.AddOption("Well, I've lost interest anyway.")	
+	Dialog.Start()
+end
+
+function Intro2(NPC,Spawn)
+    FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)   
+ 	Dialog.AddDialog("Their usual fare of propaganda - \"We're your only hope\", \"The Overlord likes us more than the other four\", \"Join us or die\".  Well, they're right about that last one, at least.  Anyone who's someone has to choose a side one of these days.")
+	Dialog.AddVoiceover("voiceover/english/stilus_graphium/fprt_east/quests/stilusgraphium/stilus_x1_finish2.mp3", 2443543125, 1280249851)
+    PlayFlavor(NPC, "", "", "tapfoot", 0, 0, Spawn)
+    Dialog.AddOption("That all sounds like my kind of news!")	
+    Dialog.AddOption("What if I don't want to choose a side?","Dialog2")	
+	Dialog.Start()
+end
+
+
+
+
 
 function Dialog2(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("People who don't choose a side end up breathing dirt in some fitlhy alley. This is the one thing the Quintet agree on. Choose a side when they tell you, or die.  Then again, there is another way...")
 	Dialog.AddVoiceover("voiceover/english/stilus_graphium/fprt_east/qst_stilusgraphium000.mp3", 343230773, 2344751061)
-    Dialog.AddOption("I don't like where this is going. I'm leaving.")	
-    Dialog.AddOption("What other side are you talking about?","Dialog3")	
+    if GetLevel(Spawn)<18 then
+    Dialog.AddOption("My side is the best side. Leave me out of yours!")
+    if CanReceiveQuest(Spawn,Part1) then
+    Dialog.AddOption("Whose side are you on, anyway?","Dialog3")
+    end
+    elseif GetLevel(Spawn)>=18 then
+    Dialog.AddOption("I've picked my side. I want NOTHING to do with yours!")	
+    end
 	Dialog.Start()
 end
 
@@ -105,7 +149,7 @@ function Betray1(NPC,Spawn)
  	Dialog.AddDialog("You must understand that just speaking these words makes you a traitor.  You know what the Overlord does to traitors, right? Do you believe in your heart that following the path of goodwill to  Qeynos is for you?")
 	Dialog.AddVoiceover("voiceover/english/stilus_graphium/fprt_east/qst_stilusgraphium006.mp3", 730354074, 1124651336)
     Dialog.AddOption("What was I thinking?!  I would never choose to leave Freeport!  TRAITOR!","Dialog5")	
-    Dialog.AddOption("Yes.  I wish to forsake evil by helping Qeynos in their struggle!","Betray2")	
+    Dialog.AddOption("Yes.  I wish to forsake evil by helping Qeynos in their struggle!","Offer")	
 	Dialog.Start()
 end
 
@@ -113,4 +157,3 @@ function Offer(NPC,Spawn)
     OfferQuest(NPC,Spawn,Part1)
 end
 
---I have a list of names here, if you'd like to record this in your journal.  You should speak with these people and then make a choice as to which side you want to join.  Make sure you think well before you choose.  Once you pick a side, you can never work for the other members of the Quintet.

@@ -25,13 +25,13 @@ SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")
 end
 
 function InRange(NPC, Spawn)
-if not IsInCombat(NPC) and GetTempVariable(NPC,"HailTimer")=="nil" then
+if not IsInCombat(NPC) and GetTempVariable(NPC,"HailTimer")~="1" then
 PlayFlavor(NPC, "","No!  Please don't hurt me!", "cringe", 0,0, Spawn)
 end
 end
 
 function hailed(NPC, Spawn)
-if GetTempVariable(NPC,"HailTimer")=="nil" then
+if GetTempVariable(NPC,"HailTimer")~="1" then
 Dialog1(NPC, Spawn)
 end
 end
@@ -85,8 +85,11 @@ function Dialog4(NPC, Spawn)
     AddTimer(NPC,6000,"Poof",1,Spawn)
     AddTimer(NPC,8700,"AttackTimer",1,Spawn)
     AddTimer(NPC,9100,"Poof2",1,Spawn)
-	Dialog.AddOption("...")
+	Dialog.AddOption("...","Continue")
 	Dialog.Start()
+end
+
+function Continue(NPC,Spawn)
 end
 
 function Shimmer(NPC,Spawn)

@@ -37,7 +37,7 @@ Halas = GetFactionAmount(Player, 16)
 Gorowyn = GetFactionAmount(Player, 17)
 alignment = GetAlignment(Player)
 
-if GetRace(Player) == 0 or GetRace(Player) == 3 or GetRace(Player) == 5 or GetRace(Player) == 6 or GetRace(Player) == 9 or GetRace(Player) == 11 or GetRace(Player) == 20 then
+if alignment ~= 0 then
 SetAlignment(Player, 0)
 end
 

@@ -8,8 +8,9 @@
 
 -- Inflicts 45 - 84 cold damage on target
 
-function cast(Caster, Target, DmgType, MinVal, MaxVal, SpellLevel)
+function cast(Caster, Target, DmgType, MinVal, MaxVal, NotUsed)
     Level = GetLevel(Caster)
+    SpellLevel = 15
     Mastery = SpellLevel + 10
     StatBonus = GetInt(Caster) / 10
     

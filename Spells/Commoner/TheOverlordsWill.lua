@@ -13,18 +13,19 @@
 
 
 function cast(Caster, Target)
-    if GetQuestStep(Target,5890)==1 then
+    if GetQuestStep(Target,5890)>=1 then
         SetStepComplete(Target,5890,1)
-    end
 local Alignment = GetAlignment(Target)
 if Alignment == 0 then
     SetAlignment(Target,2)
-    RemoveSpellBookEntry(Target, 2550019)
-end
+end    
+     RemoveSpellBookEntry(Target, 2550019)
 local Freeport = GetFactionAmount(Target, 12)
 if Freeport >0 then 
     ChangeFaction(Target, 12, -100000)
 end
+end
+
 
 local hp = GetHP(Target)
 local damage = GetMaxHP(Target) *1.5

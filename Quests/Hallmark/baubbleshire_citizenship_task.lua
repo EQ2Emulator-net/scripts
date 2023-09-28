@@ -71,6 +71,11 @@ function QuestComplete(Quest, QuestGiver, Player)
 
 	UpdateQuestDescription(Quest, "The task list is completed and you may now apply to become a citizen of the city of Qeynos.")
 	GiveQuestReward(Quest, Player)
+alignment = GetAlignment(Player)
+
+if alignment ~= 1 then
+SetAlignment(Player, 1)
+end
 end
 
 

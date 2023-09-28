@@ -70,6 +70,9 @@ function Porting1(NPC,Spawn)
 local Tayil = GetSpawn(NPC,8450001)
     ApplySpellVisual(Spawn,18)
     CastSpell(Spawn,2550422,1,1,Tayil)
+    if GetQuestStep(Spawn,5890)==1 then
+        SetStepComplete(Spawn,5890,1)
+    end
 end
 
 function Porting2(NPC,Spawn)
