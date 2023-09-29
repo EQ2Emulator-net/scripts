@@ -128,12 +128,14 @@ function hailed(NPC, player)
 	elseif HasQuest(player, 524) and GetQuestStep(player, 524) == 10 then
 		PlayFlavor(NPC, "voiceover/english/captain_varlos/boat_06p_tutorial02_fvo_023.mp3", "You still need to kill that landlubber of a goblin! Get to it mate!", "", 3269557913, 3104212801,player)
 	elseif HasQuest(player, 524) and GetQuestStep(player, 524) == 9 then
+if GetTempVariable(NPC,"SetStep9")~= "1" then
 		SetTutorialStep(player, 51)
 		Dialog.New(NPC, player)
 		Dialog.AddDialog("Ya' made quick work of them vermin.")
 		Dialog.AddVoiceover("voiceover/english/captain_varlos/boat_06p_tutorial02/varlos_0_016.mp3", 1130776869, 4119313971)
 		Dialog.AddOption("Thanks.", "quest_step_9")
 		Dialog.Start()
+end
 	elseif HasCompletedQuest(player, 524) and not seen_quest_praise then
 		seen_quest_praise = true
 		Dialog.New(NPC, player)
@@ -247,7 +249,6 @@ function zone_to_isle(NPC, player)
 end
 
 function quest_step_9(NPC, player)	
-if GetTempVariable(NPC,"SetStep9")~= "1"then
     SetTempVariable(NPC,"SetStep9",1)
     if GetClientVersion(player)<= 546 then
 	AddTimer(GetSpawn(NPC, 270013), 100, "attack")
@@ -256,7 +257,7 @@ if GetTempVariable(NPC,"SetStep9")~= "1"then
     end	    
 	AddTimer(NPC, 1000, "quest_step_9b", 1, player)	
 end
-end
+
 
 function quest_step_9b(NPC, player)
 	FaceTarget(NPC, GetSpawn(NPC, 270013))

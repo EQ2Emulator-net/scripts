@@ -64,15 +64,15 @@ function Next(NPC,Spawn)
 end
 end
 
-function InRange(NPC,Player)
+function InRange(NPC,Spawn)
 if GetTempVariable(NPC,"Starting","Checking") then
-    SetTempVariable(NPC, "Staring", "Done")
-    AddTimer(NPC, 30000, "WalkToGeredo",1,Player)
+    SetTempVariable(NPC, "Starting", "Done")
+    AddTimer(NPC, 30000, "WalkToGeredo",1,Spawn)
     end
 end
 
-function WalkToGeredo(NPC, Player)
-	playerhasquest = HasQuest(Player, 524)
+function WalkToGeredo(NPC, Spawn)
+	playerhasquest = HasQuest(Spawn, 524)
 	if playerhasquest == true then
 	MoveToLocation(NPC, 2.35, -2.07, -3.34, 5, nil, false)
 	else
@@ -334,7 +334,7 @@ function thanks_for_getting_shard(NPC, Spawn)
     SetStepComplete(Spawn, 524, 6)
     RemoveItem(Spawn, ShardOfLuclin)
     AddCoin(Spawn, 10)
-    DisplayText(Spawn, 34, "You receive 10 Copper.")
+    SendMessage(Spawn, "You receive 10 Copper.")
 end
 
 function respawn(NPC)

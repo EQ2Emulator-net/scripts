@@ -5,12 +5,6 @@
     Script Purpose : 
                    : 
 --]]
-local BQCitizen = 5871
-local CVQCitizen = 5866
-local GQCitizen = 5867
-local NQCitizen = 5868
-local SCQCitizen = 5869
-local WWQCitizen = 5870
 
 function spawn(NPC)
 end
@@ -20,14 +14,14 @@ function respawn(NPC)
 end
 
 function casted_on(NPC, Player,SpellName)
- if SpellName == 'Enter Qeynos' then  
+ if SpellName == 'Enter Freeport' then  
     local con = CreateConversation()
-if not HasCompletedQuest(Player,BQCitizen) and
-not HasCompletedQuest(Player,CVQCitizen) and
-not HasCompletedQuest(Player,GQCitizen) and
-not HasCompletedQuest(Player,NQCitizen) and
-not HasCompletedQuest(Player,SCQCitizen) and
-not HasCompletedQuest(Player,WWQCitizen) then
+if not HasCompletedQuest(Player,5866) and
+not HasCompletedQuest(Player,5867) and
+not HasCompletedQuest(Player,5868) and
+not HasCompletedQuest(Player,5869) and
+not HasCompletedQuest(Player,5870) and
+not HasCompletedQuest(Player,5871) then
     SendMessage(Player,"You must be a citizen to enter the city.")
     SendPopUpMessage(Player,"You must be a citizen to enter the city.",255,255,255)
     PlaySound(Spawn,"sounds/ui/ui_warning.wav", GetX(NPC), GetY(NPC), GetZ(NPC))

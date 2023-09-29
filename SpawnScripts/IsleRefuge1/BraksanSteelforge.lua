@@ -128,8 +128,8 @@ function Interested(NPC,Spawn)
 	Dialog.Start()
 end
 
-function Quest3Start(NPC,Player)
-    OfferQuest(NPC,Player,Fighter3)
+function Quest3Start(NPC,Spawn)
+    OfferQuest(NPC,Spawn,Fighter3)
     FaceTarget(NPC, Spawn)
 end
 

@@ -70,7 +70,7 @@ function Step6Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 6, "I've placed the mirror and spoken with the slumlord.")
 	UpdateQuestTaskGroupDescription(Quest, 6, "I've placed the mirror and spoken with the slumlord.")
     UpdateQuestZone(Quest,"Graveyard")
-	AddQuestStepZoneLoc(Quest, 7, "I need to go through the gates to the Graveyard.",8,"\"The more daring of you bold, courageous adventurer types tend to make a living by killing things in the Graveyard.  If you venture there, try not to get hurt too much.  This is where you can find the gates to the Graveyard.  I'll show you a few other places after you take a look at the gates.\" - Valthun", 11,-69.95, -12.85, 119.34,125)
+	AddQuestStepZoneLoc(Quest, 7, "I need to go through the gates to the Graveyard.",8,"\"The more daring of you bold, courageous adventurer types tend to make a living by killing things in the Graveyard.  If you venture there, try not to get hurt too much.  This is where you can find the gates to the Graveyard.  I'll show you a few other places after you take a look at the gates.\" - Valthun", 11,-69.95, -12.85, 119.34,839)
 	AddQuestStepCompleteAction(Quest, 7, "Step7Complete")   
 end
 

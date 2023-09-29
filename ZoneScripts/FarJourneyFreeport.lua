@@ -224,7 +224,7 @@ function signal_changed(zone, player, signal)
 	end	
 	if signal == "tutorial_stage_50" then
 		SetTutorialStep(player, 50)
-		InstructionWindow(player, -1.0, "Notice that your experience point display is now empty, and your maximum health and power have increased.", "voiceover/english/narrator/boat_06p_tutorial02/narrator_047_5c382a71.mp3", 1130515024, 564825664, "tutorial_stage_51", "", "continue")
+		InstructionWindow(player, -1.0, "Notice that your experience point display is now empty, and your maximum health and power have increased.", "voiceover/english/narrator/boat_06p_tutorial02/narrator_047_5c382a71.mp3", 1130515024, 564825664, "", "", "continue")
 		FlashWindow(player, "MainHUD.Player.HealthBarBkg", 6.0)
 		FlashWindow(player, "MainHUD.Player.ManaBarBkg", 6.0)
 		FlashWindow(player, "MainHUD.Player.Name", 6.0)

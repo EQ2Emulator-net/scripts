@@ -103,7 +103,7 @@ function LeaveIslandQ(NPC, Spawn)
     
     
     --  Kerra
-    if Race == 11 then
+    if Race == 11 or Race == 19 then
   --      AddSpellBookEntry(Spawn, 8057, 1)	
         ZoneRef = GetZone("Nettleville")
         Zone(ZoneRef,Spawn)
