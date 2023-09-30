@@ -31,6 +31,8 @@ function cast(Caster, Target, PRegen, HRegen)
     Charm(Caster, Target)
     AddSpellBonus(Target, 601, PRegen)
     AddSpellBonus(Target, 600, HRegen)
+    class = GetClass(Target)
+
     
 end
 

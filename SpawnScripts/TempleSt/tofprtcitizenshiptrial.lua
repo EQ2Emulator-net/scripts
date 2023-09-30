@@ -7,11 +7,11 @@
 --]]
 
 function spawn(NPC)
-SetRequiredQuest(NPC, 5862, 13)
-SetRequiredQuest(NPC, 5868, 2)
-SetRequiredQuest(NPC, 5868, 3)
-SetRequiredQuest(NPC, 5868, 4)
-SetRequiredQuest(NPC, 5868, 5)
+SetRequiredQuest(NPC, 5864, 13)
+SetRequiredQuest(NPC, 5871, 2)
+SetRequiredQuest(NPC, 5871, 3)
+SetRequiredQuest(NPC, 5871, 4)
+SetRequiredQuest(NPC, 5871, 5)
 end
 
 

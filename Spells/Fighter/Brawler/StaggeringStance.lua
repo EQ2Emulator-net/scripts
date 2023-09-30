@@ -6,9 +6,19 @@
                    : 
 --]]
 --Note: Need to replace deflection with agility
-function cast(Caster, Target, Chance, Def)
-        AddSkillBonus(Caster, GetSkillIDByName("Deflection"), Def)
-        AddProc(Target, 4, Chance)
+function cast(Caster, Target, Chance, Agi)
+    Level = GetLevel(Caster)
+    SpellLevel = 18
+    Mastery = SpellLevel + 10
+
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
+    end
+    TotalAgi= LvlBonus * .5 + Agi
+    
+    AddSpellBonus(Caster, 2, TotalAgi)
+    --AddProc(Target, 4, Chance)
 
 end
 

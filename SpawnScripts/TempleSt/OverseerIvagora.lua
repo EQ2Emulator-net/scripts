@@ -50,7 +50,7 @@ if GetRace(Spawn)== 5 or GetRace(Spawn) ==13 then
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("You are to talk to me, because I am the overseer of the refugees!  You will listen to me, understand?  I am telling you what you need to do now that you are owned by Freeport!  You will listen, you got it?!")
-	Dialog.AddVoiceover("voiceover/english/overseer_ivagora/fprt_hood03/overseer_ivagora001.mp3", 2177122562, 2434125400)
+	Dialog.AddVoiceover("voiceover/english/overseer_ivagora/fprt_hood03/overseer_ivagora001.mp3", 697563957, 4075827788)
     PlayFlavor(NPC,"","","smirk",0,0,Spawn)
 	Dialog.AddOption("What do I need to do?","Dialog1")
 	Dialog.AddOption("I... must be going!")

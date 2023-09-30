@@ -1,7 +1,7 @@
 --[[
-    Script Name    : Quests/Hallmark/freeport_to_qeynos__acceptance.lua
+    Script Name    : Quests/Hallmark/qeynos_to_freeport__acceptance.lua
     Script Author  : Dorbin
-    Script Date    : 2023.09.28 08:09:23
+    Script Date    : 2023.09.30 03:09:17
     Script Purpose : 
 
         Zone       : Hallmark
@@ -12,7 +12,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddStepZoneLoc(Quest, 1, "Travel to the inn and sign the registry.", 10, "\"Your new home awaits within the walls of Qeynos. I have arranged for a room to be made yours to house you. Sign the book and start your new life. Good luck, friend.\"", 11, 1)
+	AddStepZoneLoc(Quest, 1, "Travel to the inn and sign the registry.", 10, "\"Your new home awaits within the walls of Freeport.  I have arranged for a room to be made yours to house you.  Sign the book on the dotted line and the room will be yours.\"", 11, 1)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 
@@ -36,9 +36,9 @@ end
 function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
 	UpdateQuestStepDescription(Quest, 1, "I have found the registry.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I have found my new residence within Qeynos.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I have found my new residence within Freeport.")
 
-	UpdateQuestDescription(Quest, "I have begun my new life in Qeynos with the help of my mentor, Vishra. No longer will I blindly turn away from the evils around me. Perhaps others will follow my example and do the same. If so, I will offer my help to them as others have helped me.")
+	UpdateQuestDescription(Quest, "I have begun a new life in Freeport with the help of my mentor, Matthias.  No longer will this world keep from me what is rightfully mine.  Those that stand against me will show themselves to be my enemies.   ...May the gods grant them the mercy that I can not...")
 	GiveQuestReward(Quest, Player)
 end
 

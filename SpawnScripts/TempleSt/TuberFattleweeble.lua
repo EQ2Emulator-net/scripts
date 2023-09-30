@@ -71,7 +71,7 @@ if GetTradeskillLevel(Spawn) <2  then
 end
 
 function Dialog1(NPC,Spawn)
-    SetStepComplete(Spawn,5862,8)
+    SetStepComplete(Spawn,5864,8)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	PlayFlavor(NPC, "", "", "hello", 0, 0, Spawn)

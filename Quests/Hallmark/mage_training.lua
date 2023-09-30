@@ -9,14 +9,21 @@
         Preceded by: None
         Followed by: 
 --]]
---[[
+
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must collect some usable sewer slime.", 5, 100, "The Arcanist has directed me to the Thieves Way sewers below Freeport to collect five usable Slimes. The best way to approach this will be to harness the primal arcane energies to destroy them.", 343, 1)
+    UpdateQuestZone(Quest,"Thieves' Way")
+	AddQuestStepKill(Quest, 1, "I must collect some usable sewer slime.", 5, 100, "The Arcanist has directed me to the Thieves Way sewers below Freeport to collect five usable Slimes. The best way to approach this will be to harness the primal arcane energies to destroy them.", 343, 8430030)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+    FaceTarget(QuestGiver, Player)
+	Dialog.New(QuestGiver, Player)   
+ 	Dialog.AddDialog("You need that attitude to control the secrets of the universe.  Your first test is mastering your sorcery skills.  Harness the primal power of the arcane energies, and command these energies to snuff the life from the Slimes in the sewers.  After you destroy the Slimes, collect samples of their flesh and bring them to me.  This shall be the first of many lessons.")
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius003.mp3",  574179385, 379662539)
+    PlayFlavor(QuestGiver, "", "", "agree", 0, 0, Player)
+    Dialog.AddOption("It shall be done.")	
+	Dialog.Start()
 end
 
 function Declined(Quest, QuestGiver, Player)
@@ -30,6 +37,7 @@ end
 function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have collected some usable sewer slime.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I have collected five usable Slimes using everything in my arsenal and have gathered samples of what would be considered their flesh.")
+    UpdateQuestZone(Quest,"North Freeport")
 
 	AddQuestStepChat(Quest, 2, "I need to speak with the Arcanist", 1, "I should bring these samples to the Arcanist as she asked so that I may complete this lesson.", 11, 1)
 	AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
@@ -39,13 +47,14 @@ function Step2Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 2, "I have spoken with the Arcanist")
 	UpdateQuestTaskGroupDescription(Quest, 2, "The Arcanist has taught me the lesson that knowledge comes before everything else.")
 
-	AddQuestStepChat(Quest, 3, "I need to speak with Aulus Crispian and have the price of ink lowered.", 1, "The Arcanist has instructed me to speak with Aulus Crispian and have the price of ink lowered for her. I should approach this in the manner an Enchanter would.", 11, 1)
+	AddQuestStepChat(Quest, 3, "I need to speak with Aulus Crispian and have the price of ink lowered.", 1, "The Arcanist has instructed me to speak with Aulus Crispian and have the price of ink lowered for her. I should approach this in the manner an Enchanter would.", 11, 1440010)
 	AddQuestStepCompleteAction(Quest, 3, "Step3Complete")
 end
 
 function Step3Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 3, "I have spoken with Aulus Crispian.")
 	UpdateQuestTaskGroupDescription(Quest, 3, "I have lowered the price of ink by playing on Aulus Crispian's greed. Beguiling a person as an Enchanter doesn't seem to be too hard. With spells at my command, it would be even easier.")
+    UpdateQuestZone(Quest,"North Freeport")
 
 	AddQuestStepChat(Quest, 4, "I need to speak with the Arcanist", 1, "I should inform the Arcanist that I have completed my lesson.", 11, 1)
 	AddQuestStepCompleteAction(Quest, 4, "Step4Complete")
@@ -54,31 +63,38 @@ end
 function Step4Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 4, "I have spoken with Arcanist Sonius")
 	UpdateQuestTaskGroupDescription(Quest, 4, "Arcanist Sonius was rather pleased by the deal I worked out. She has agreed to teach me more concerning the arcane arts.")
-
-	AddQuestStepChat(Quest, 5, "I need to speak with Molg, the ogress who sells her wares on the streets of Big Bend.", 1, "I need to speak with some people in the Districts regarding an incident involving a rogue summoning. The Arcanist has given me a list of who saw the event.", 11, 1)
+    UpdateQuestZone(Quest,"Multiple Zones")
+	AddQuestStepChat(Quest, 5, "I need to speak with Molg, the ogress who sells her wares on the streets of Big Bend.", 1, "I need to speak with some people in the Districts regarding an incident involving a rogue summoning. The Arcanist has given me a list of who saw the event.", 11, 1340021	)
+	AddQuestStepChat(Quest, 6, "I need to speak with Reana Astia, a lonely merchant in Beggar's Court.", 1, "I need to speak with some people in the Districts regarding an incident involving a rogue summoning. The Arcanist has given me a list of who saw the event.", 11, 1370007)
+	AddQuestStepChat(Quest, 7, "I need to speak with Skal Vethiz, a person caught up in nostalgia in Scale Yard.", 1, "I need to speak with some people in the Districts regarding an incident involving a rogue summoning. The Arcanist has given me a list of who saw the event.", 11, 1390012)
 	AddQuestStepCompleteAction(Quest, 5, "Step5Complete")
+	AddQuestStepCompleteAction(Quest, 6, "Step6Complete")
+	AddQuestStepCompleteAction(Quest, 7, "Step7Complete")
 end
 
 function Step5Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 5, "Molg claimed to have been draped in a sheet of leather.")
-
-	AddQuestStepChat(Quest, 6, "I need to speak with Reana Astia, a lonely merchant in Beggar's Court.", 1, "I need to speak with some people in the Districts regarding an incident involving a rogue summoning. The Arcanist has given me a list of who saw the event.", 11, 1)
-	AddQuestStepCompleteAction(Quest, 6, "Step6Complete")
+    CheckProgress(Quest, QuestGiver, Player)
 end
 
 function Step6Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 6, "Reana claims to have been stuck with a spear.")
-
-	AddQuestStepChat(Quest, 7, "I need to speak with Skal Vethiz, a person caught up in nostalgia in Scale Yard.", 1, "I need to speak with some people in the Districts regarding an incident involving a rogue summoning. The Arcanist has given me a list of who saw the event.", 11, 1)
-	AddQuestStepCompleteAction(Quest, 7, "Step7Complete")
+    CheckProgress(Quest, QuestGiver, Player)
 end
 
 function Step7Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 7, "Skal claims to have been attacked by a snake.")
-	UpdateQuestTaskGroupDescription(Quest, 5, "I have collected the information on what was summoned. It looks like three different things were summoned into existence.")
+CheckProgress(Quest, QuestGiver, Player)	
+end
 
+function CheckProgress(Quest, QuestGiver, Player)
+    if QuestStepIsComplete(Player, 5902, 5) and QuestStepIsComplete(Player, 5902, 6)  and QuestStepIsComplete(Player, 5902, 7)then
+	
+	UpdateQuestTaskGroupDescription(Quest, 5, "I have collected the information on what was summoned. It looks like three different things were summoned into existence.")
+    UpdateQuestZone(Quest,"North Freeport")
 	AddQuestStepChat(Quest, 8, "I need to speak with the Arcanist.", 1, "I should let the Arcanist know what I have learned.", 11, 1)
 	AddQuestStepCompleteAction(Quest, 8, "QuestComplete")
+end
 end
 
 function QuestComplete(Quest, QuestGiver, Player)

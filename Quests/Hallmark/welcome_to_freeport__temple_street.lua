@@ -22,7 +22,7 @@ function Accepted(Quest, QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)
 	Dialog.AddDialog("You are very smart to take the house.  The landlord is waiting for you in your house, so you need to scurry there real fast.  The landlord is very nice.  Yes, he is very nice!  We love the Overlord and we love the Freeport!  Welcome to your new home!")
     PlayFlavor(QuestGiver,"","","applaud",0,0,Player)
-	Dialog.AddVoiceover("voiceover/english/overseer_ivagora/fprt_hood03/overseer_ivagora004.mp3", 697563957, 4075827788) 
+	Dialog.AddVoiceover("voiceover/english/overseer_ivagora/fprt_hood03/overseer_ivagora004.mp3", 1123497400, 2405553191) 
 	Dialog.AddOption("Thank you, Overseer.")
 	Dialog.Start()
 	if HasQuest(Player,5758) and GetQuestStep(Player, 5758)==2 then
@@ -85,7 +85,7 @@ end
 function Step8Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 8, "I've met with the district crafting trainer.")
 	UpdateQuestTaskGroupDescription(Quest, 8, "I've visisted two of four locations Valthun has told me about.")
-	AddQuestStepZoneLoc(Quest, 9, "I need to locate the grate to the Thieve's Way.",6,"\"Though most of the people who venture down into the sewers are nothing more than filthy, worthless, good-for-nothing vagabonds, I'm sure you have good reasons for traveling there yourself.  You can find the grate leading down to them if you take a close look.  After that, I'll show you one more place.\" - Valthun", 0,53.41, 3.84, 43.56, 302.78,136)
+	AddQuestStepZoneLoc(Quest, 9, "I need to locate the grate to the Thieve's Way.",6,"\"Though most of the people who venture down into the sewers are nothing more than filthy, worthless, good-for-nothing vagabonds, I'm sure you have good reasons for traveling there yourself.  You can find the grate leading down to them if you take a close look.  After that, I'll show you one more place.\" - Valthun", 0,53.41, 3.84, 43.56,136)
 	AddQuestStepCompleteAction(Quest, 9, "Step9Complete")   
 end
 
