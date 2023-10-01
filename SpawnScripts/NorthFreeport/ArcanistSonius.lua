@@ -7,6 +7,7 @@
 --]]
 
 require "SpawnScripts/Generic/DialogModule"
+
 local Mage1 = 5902
 local Sorc = 5904
 local Summ = 5905
@@ -19,7 +20,7 @@ function spawn(NPC)
     ProvidesQuest(NPC, Ench)
 end
 
-
+--The Arcanist sent you to me?  She's made my promotion to sorcerer so easy!	
 function respawn(NPC)
 	spawn(NPC)
 end
@@ -27,9 +28,7 @@ end
 function hailed(NPC, Spawn)
     if GetLevel(Spawn) ==7 and  HasCompletedQuest(Spawn,Mage1) then
     DoneToday(NPC,Spawn)   
-    elseif GetLevel(Spawn) >=8 and HasCompletedQuest(Spawn,Mage2) then
-    DoneToday(NPC,Spawn)   
-    elseif GetLevel(Spawn) >=9 and HasCompletedQuest(Spawn,Mage2) and GetClass(Spawn)==21 and not HasQuest(Spawn, Ench) and not HasQuest(Spawn, Sorc) and not HasQuest(Spawn, Summ) then
+    elseif GetLevel(Spawn) >=9 and HasCompletedQuest(Spawn,Mage1) and GetClass(Spawn)==21 and not HasQuest(Spawn, Ench) and not HasQuest(Spawn, Sorc) and not HasQuest(Spawn, Summ) then
     FinalClassTest(NPC,Spawn)
     else
     FaceTarget(NPC, Spawn)
@@ -46,30 +45,32 @@ function hailed(NPC, Spawn)
     if HasQuest(Spawn,Mage1) and GetQuestStep(Spawn,Mage1)==4 then 
     Dialog.AddOption("He's written up a contract for forty bottles at five silver pieces each.","Dialog3")	
     end  
-    if GetClass(Spawn)== 21 and GetLevel(Spawn)>=8 and not HasQuest(Spawn,Mage2) and not HasCompletedQuest(Spawn,Mage2) and HasCompletedQuest(Spawn,Mage1) then
-    Dialog.AddOption("Do you have time to continue my training today?","Dialog4")	
-    end  
-    if HasQuest(Spawn,Mage2) and GetQuestStep(Spawn,Mage2)==2 then 
-    Dialog.AddOption("I've \"convinced\" Willim to have a little more confidence.","Dialog5")	
-    end  
-    if HasQuest(Spawn,Mage2) and GetQuestStep(Spawn,Mage2)==4 then 
-    Dialog.AddOption("I've brought you an eyeball from a Klicnik.","Dialog6")	
-    end  
+    if GetClass(Spawn)== 21 and GetLevel(Spawn)>=8 and GetQuestStep(Spawn,Mage1)==5 then
+    Dialog.AddOption("I would like to continue my lessons, Arcanist.","Dialog4")
+    elseif GetClass(Spawn)== 21 and GetLevel(Spawn)< 8 and GetQuestStep(Spawn,Mage1)==5 then
+     Dialog.AddOption("I will return once I've reviewed my studies, Arcanist.")
+   end  
+    if HasQuest(Spawn,Mage1) and GetQuestStep(Spawn,Mage1)==9 then 
+    Dialog.AddOption("I have collected the information on what was summoned. It looks like three different things were summoned into existence.","Dialog5")	
+    end
     if HasCompletedQuest(Spawn,Ench) or HasCompletedQuest(Spawn,Sorc) or HasCompletedQuest(Spawn,Summ) then
-    Dialog.AddOption("Still at it Niksel? Just wanted to say hello.")	
+    Dialog.AddOption("Arcanist. I still reflect on your lessons. Thank you.")	
+    end
+    if GetLevel(Spawn) <9 and HasCompletedQuest(Spawn,Mage1) and GetClass(Spawn)==21 and not HasQuest(Spawn, Ench) and not HasQuest(Spawn, Sorc) and not HasQuest(Spawn, Summ) then
+    Dialog.AddOption("I will return for my final exam once I've reviewed my studies, Arcanist.")
     end
     Dialog.AddOption("In that case, I'll let you get back to work.  Goodbye.")	
     Dialog.Start()
 end
 end
 
-
+--Precisely!  The mage summoned an elephant!  One witness felt its ears drape her head, another ran into its tusks, and the last witness felt the elephant's trunk wrap around his neck.  Even though each witness experienced something different, there is only one reality.  A summoner can identify this reality and change it to suit his needs. I know who is responsible for summoning the elephant, but this is not your concern. You completed your lessons, my apt pupil. Now it is time for your final exam.
 --I do not have time to speak to you unless you are seriously devoted to academic research. This is not something to take lightly, for true research does not just happen all by itself. You must devote your life to unlocking the secrets of arcane powers. Therefore, the lazy need not apply. 
 function Dialog1(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("Or so you say... Many people dabble in the arcane for the promise of great power.  Yet, when the time comes, they're too lazy to wrest secrets from the grasp of mystery.  How far will you go to unlock the power that knowledge can grant you?")
-	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius001.mp3",  2674482409, 809985473)
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius002.mp3",  2674482409, 809985473)
     Dialog.AddOption("I will wield powers yet to be seen in this world!","OfferMage1")	
     Dialog.AddOption("I... should be going.")	
 	Dialog.Start()
@@ -81,14 +82,14 @@ function OfferMage1(NPC,Spawn)
     FaceTarget(NPC,Spawn)
 end
 
-
+--I would like to continue my lessons, Arcanist.
 function Dialog2(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("Hmmm ... you return and in a timely manner.  You may be a prize pupil after all.  Even though you can't see it, these Slime specimens contain residue of the life force that animated them.  You will learn that life is a never-ending resource that surrounds us.  Knowledge, on the other hand, is far more difficult to obtain. Thus, the lesson learned is knowledge is far more precious than life. Remember this.")
 	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius004.mp3",  3551708297, 2303353482)
     PlayFlavor(NPC, "", "", "ponder", 0, 0, Spawn)
-    Dialog.AddOption("Well, at least I was able to take care of some of the lost creatures.","Dialog2a")	
+    Dialog.AddOption("I see. So my path to knowing will be paved by the bodies before me.","Dialog2a")	
 	Dialog.Start()
 end
 
@@ -96,7 +97,7 @@ function Dialog2a(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("Next, I shall teach you how to avoid letting other people's concerns disrupt your research.  The Coalition of Tradesfolke raised the price of ink this morning.  This is unacceptable.  Go speak with Aulus in Torlig's Shop.  Convince him that the price increase of ink shouldn't apply to someone of my stature.")
-	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius005.mp3",  3551708297, 2303353482)
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius005.mp3",  4176304101, 1577206553)
     PlayFlavor(NPC, "", "", "nod", 0, 0, Spawn)
     Dialog.AddOption("How would I do that?","Dialog2b")	
 	Dialog.Start()
@@ -113,24 +114,32 @@ function Dialog2b(NPC,Spawn)
 end
 
 function Dialog3(NPC,Spawn)
-    SetStepComplete(Spawn,Mage1,6)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("Amazing!  He charges ten gold pieces for a bottle and you lowered it to five silver pieces?  Well, my pupil, I think you have what it takes to be an enchanter.")
 	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius007.mp3",  1459390682, 2672790255)
     PlayFlavor(NPC, "", "", "boggle", 0, 0, Spawn)
-    Dialog.AddOption("It was enlightening to hear how elemental magics can be destructive, but also have utility.","DoneToday")	
+    if GetClass(Spawn)== 21 and GetLevel(Spawn)>=8 and GetQuestStep(Spawn,Mage1)==5 then
+    Dialog.AddOption("I rather enjoyed manipulating the conversation to my desire...","Dialog4")   
+    elseif GetClass(Spawn)== 21 and GetLevel(Spawn)< 8 and GetQuestStep(Spawn,Mage1)==5 then
+    Dialog.AddOption("I rather enjoyed manipulating the conversation to my desire...","DoneToday")   
+   end  
 	Dialog.Start()
 end
 
 function DoneToday(NPC,Spawn)
+    if GetQuestStep(Spawn,Mage1)==4 then
+    SetStepComplete(Spawn,Mage1,4)
+    end
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("I'm pleased with your progress. Unfortunately, today's lesson is over. I must write this postulate before I forget it. Please study what I taught you thus far. We can continue your lessons at another time.")
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius008.mp3",  0, 0)
     PlayFlavor(NPC, "", "", "no", 0, 0, Spawn)
-    Dialog.AddOption("Thank you. I'll return soon for more lessons.")	
     if GetClass(Spawn)== 21 and GetLevel(Spawn)>=8 then
-    Dialog.AddOption("Please, I can't wait! I am eager to keep learning from more from your lessons if you have time.","Dialog4")	
+    Dialog.AddOption("I would like to continue my lessons, Arcanist. I'm eager to start","Dialog4")	
+    else
+    Dialog.AddOption("Thank you. I'll return soon for more lessons.")	
     end  
     Dialog.Start()
 end
@@ -140,118 +149,103 @@ end
 function Dialog4(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("For you? Of course I do! Your last visit inspired me to solve my Theory of Elementary--perhaps you can help me work on it a bit later. Now, if you recall, in our last lesson, you learned the skills of a sorcerer and a summoner. Today, you shall learn the skills of an enchanter. Shall we begin?")
-	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel011.mp3", 3711475963, 1487434543)
+ 	Dialog.AddDialog("Excellent! I noticed that one of my students dropped out of my course and is attempting home schooling. Without my signature of academic achievement, I cannot tolerate this. I don't know who this dropout is, but I need you to find out. In turn, you will learn the skills of a summoner.")
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius009.mp3",  3430145629, 2951724267)
     PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-    Dialog.AddOption("Yes, I am ready.","Dialog4a")	
+    Dialog.AddOption("What does a dropout have to do with summoning?","Dialog4a")	
 	Dialog.Start()
 end
 
 function Dialog4a(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Let's pick up where we left off.  I can summarize an enchanter's philosophy in one phrase: \"I think, therefore you should too.\"")
-	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel012.mp3", 1678627858, 4071988215)
+ 	Dialog.AddDialog("I heard that earlier today several people in the districts witnessed the summoning of some kind of creature.  Go question these witnesses.  After interviewing them, identify the summoned creature.  Let me know when you solve this mystery.  When I find out who is responsible, I shall kill him for his disobedience! Let me have your journal. I'll write down the names of the witnesses.")
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius010.mp3",  1221218294, 850810550)
     PlayFlavor(NPC, "", "", "nod", 0, 0, Spawn)
-    Dialog.AddOption("[Listen]","Dialog4b")	
+    Dialog.AddOption("Here is my journal. I will get to the bottom of this.","OfferMage2")	
 	Dialog.Start()
 end
 
-function Dialog4b(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("This means if you understand how a person thinks, then that person is more likely to work with you and not against you. Add a little magic to the equation and presto -- instant obfuscation!")
-	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel013.mp3", 1799784542, 2411177016)
-    PlayFlavor(NPC, "", "", "orate", 0, 0, Spawn)
-    Dialog.AddOption("[Listen]","Dialog4c")	
-    Dialog.AddOption("So, enchanters influence thought?","Dialog4c")	
-	Dialog.Start()
-end
 
-function Dialog4c(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Enchanters use their magic to affect the minds of others.  Before you try casting an enchantment spell, you must learn how to enchant without magic. How can I show you this?  Hmmm...")
-	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel014.mp3", 1243742435, 942352584)
-    PlayFlavor(NPC, "", "", "ponder", 0, 0, Spawn)
-    Dialog.AddOption("[Wait patiently]","OfferMage2")	
-	Dialog.Start()
-end
 
 function OfferMage2(NPC,Spawn)
-    OfferQuest(NPC,Spawn,Mage2)
-    FaceTarget(NPC,Spawn)
+     SetStepComplete(Spawn,Mage1,5)
+   FaceTarget(NPC,Spawn)
 end
 
 function Dialog5(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Oh, you did?  What transpired during your conversation?")
-	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel016.mp3", 1372935476, 2342843498)
-    PlayFlavor(NPC, "", "", "ponder", 0, 0, Spawn)
-    Dialog.AddOption("I gave him a magic charm that built his confidence.","Dialog5a")	
+ 	Dialog.AddDialog("You have a list?  Let me see it. ... One person was draped in a sheet of leather, another was impaled by a stake, and another felt a snake ... this is rubbish!  A novice summoner could never summon three objects at once! From this list, I can tell what that delinquent student summoned. To pass this test, you must understand that people's realities differ. Three objects weren't summoned today, only one was. What was it?")
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius011.mp3",  1663368472, 4059713499)
+    PlayFlavor(NPC, "", "", "tapfoot", 0, 0, Spawn)
+    Dialog.AddOption("a goblin","Wrong")	
+    Dialog.AddOption("a really big snake","Wrong")	
+    Dialog.AddOption("an orc","Wrong")	
+    Dialog.AddOption("a sewer slime","Wrong")	
+    Dialog.AddOption("Lucan D'lere","WrongLucan")	
+    Dialog.AddOption("an elephant","Correct")	
+    Dialog.AddOption("a coat-wearing snake wielding spears?","WrongSnake")	
 	Dialog.Start()
 end
 
-function Dialog5a(NPC,Spawn)
+function Wrong(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("You did?  That's odd ... I didn't know you had enchanting skills ... Oh! I see! Good show, friend! Well, you aced all your lessons. Now it's time for a final test.")
-	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel017.mp3", 1446574979, 1771976575)
-    PlayFlavor(NPC, "", "", "boggle", 0, 0, Spawn)
-    Dialog.AddOption("I'd be willing to be tested.","Dialog5b")	
+ 	Dialog.AddDialog("Sadly, you fail. Using the facts you presented me, your answer is ridiculous; you obviously put no thought into it. If you continue at this rate, you will never be anything more than a simple mage. Review the clues again, and speak with me when you have the correct answer.")
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius012.mp3",  2718680677, 1828842152)
+    PlayFlavor(NPC, "", "", "no", 0, 0, Spawn)
+    Dialog.AddOption("I'll consider my list again...","Dialog5")	
 	Dialog.Start()
 end
 
-function Dialog5b(NPC,Spawn)
+function WrongLucan(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Of course your test!  I can't teach you without evaluating your progress. You're quite gifted, indeed, but you must apply your lessons.  And I need some time to write out a magical formula.")
-	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel018.mp3", 2726943196, 3101869542)
+	Dialog.AddDialog("Fool! The Overlord is watching you as we speak.")
+	Dialog.AddVoiceover("voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_notcitizen_gf_e5838bd0.mp3", 644059683, 1813641447)
+	Dialog.AddVoiceover("voiceover/english/human_eco_evil_1/ft/human/human_eco_evil_1_notcitizen_gf_e5838bd0.mp3", 3487310419, 1932819422)
+    PlayFlavor(NPC, "", "", "cringe", 0, 0, Spawn)
+    Dialog.AddOption("Err...")	
+	Dialog.Start()
+end
+
+function WrongSnake(NPC,Spawn)
+    FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)   
+	Dialog.AddDialog("...")
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius012.mp3",  0, 0)
+    PlayFlavor(NPC, "", "", "stare", 0, 0, Spawn)
+    Dialog.AddOption("Uhhh... Only kidding.","Wrong")	
+	Dialog.Start()
+end
+
+function Correct(NPC,Spawn)
+     SetStepComplete(Spawn,Mage1,9)
+    FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)   
+ 	Dialog.AddDialog("Precisely!  The mage summoned an elephant!  One witness felt its ears drape her head, another ran into its tusks, and the last witness felt the elephant's trunk wrap around his neck.  Even though each witness experienced something different, there is only one reality.  A summoner can identify this reality and change it to suit his needs. I know who is responsible for summoning the elephant, but this is not your concern. You completed your lessons, my apt pupil. Now it is time for your final exam.")
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius013.mp3",  1007657081, 1911291450)
     PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-    Dialog.AddOption("What must I do?","Dialog5c")	
+    Dialog.AddOption("A final exam? What must I do?","FinalClassTest")	
 	Dialog.Start()
 end
 
-function Dialog5c(NPC,Spawn)
-    SetStepComplete(Spawn,Mage2,2)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("It's a test that was given to me during my early years of research. Travel to Antonica and bring me an eyeball from a Klicnik Mite.  Now, if I abbreviate Elemental to the letter E, then an equal sign...")
-	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel019.mp3", 654990311, 3534891739)
-    PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-    Dialog.AddOption("Alright. I'll be back shortly!")	
-	Dialog.Start()
-end
 
-function Dialog6(NPC,Spawn)
-    SetStepComplete(Spawn,Mage2,4)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Let me see it.  Wonderful!  This is the perfect size for pickling. Mmmm ... nothing's better than a pickled Klicnik eye sandwich with mustard and mayonnaise.  Oh, drat!  I dropped my sandwich on my formula!  And that was my only copy! I can't recreate it either! Oh well... the formula would never work anyway. As for you, it's time you make a choice.")
-	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel020.mp3", 538297903, 4048671950)
-    PlayFlavor(NPC, "", "", "happy", 0, 0, Spawn)
-    if GetLevel(Spawn)<= 8 then
-    Dialog.AddOption("Am I ready now?","DoneToday")	
-    elseif GetLevel(Spawn) >8 then
-    Dialog.AddOption("That task was simple enough. What must I do to advance?","FinalClassTest")	
-    end
-	Dialog.Start()
-end
 
 --FINAL Test
 function FinalClassTest(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("What field of arcane studies do you want to pursue? You showed great aptitude in all three schools, but you must focus your studies.  So what's your choice?")
-	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel021.mp3", 167518160, 503095515)
+ 	Dialog.AddDialog("I taught you three different methods of exploring the secrets of mystical power. Now you must dedicate your arcane studies to one discipline... Which shall it be?")
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius014.mp3",  196403467, 3470342687)
     PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-    Dialog.AddOption("Enchanting","Enchanter")	
-    Dialog.AddOption("Sorcery","Sorcery")	
-    Dialog.AddOption("Summoning","Summoner")	
+    Dialog.AddOption("The complex weaves of enchantment are compelling. I will study to be an enchanter.","Enchanter")	
+    Dialog.AddOption("I feel the destructive arts are to my liking. I shall study to be a sorcerer.","Sorcery")	
+    Dialog.AddOption("Bending truths to create something from nothing is intriguing. I will be a summoner.","Summoner")	
 	Dialog.Start()
 end
---I feel the destructive arts are to my liking. I shall study to be a sorcerer.
+
 function Summoner(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   

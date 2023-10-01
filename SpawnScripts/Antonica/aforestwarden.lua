@@ -10,7 +10,7 @@ require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
-    ChooseMovement(NPC)
+    AddTimer(NPC, 6000, "ChooseMovement")
 end
 
 function respawn(NPC, Spawn)

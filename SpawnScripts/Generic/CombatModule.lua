@@ -52,8 +52,8 @@ function attributes(NPC, Spawn)
     local four = baseStat - 10  -- Difficulty 4 vv
     local five = baseStat - 5   -- Difficulty 5 v
     local seven = baseStat + 10 -- Difficulty 7 ^
-    local eight = baseStat + 20 -- Difficulty 8 ^^
-    local nine = baseStat + 30  -- Difficulty 9 ^^^
+    local eight = baseStat + 15 -- Difficulty 8 ^^
+    local nine = baseStat + 20  -- Difficulty 9 ^^^
     
     lowStat = math.floor(low * globalStatMod)
     fourStat = math.floor(four * globalStatMod)
