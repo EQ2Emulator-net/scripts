@@ -11,7 +11,7 @@ require "SpawnScripts/Generic/DialogModule"
 local Mage1 = 5902
 local Sorc = 5904
 local Summ = 5905
-local Ench = 5901
+local Ench = 5903
 
 function spawn(NPC)
     ProvidesQuest(NPC, Mage1)
@@ -63,6 +63,8 @@ function hailed(NPC, Spawn)
     Dialog.Start()
 end
 end
+
+--I convinced Bulz the troll to defeat a couple of Seafuries for me.  I handled the first mate myself.
 
 --Precisely!  The mage summoned an elephant!  One witness felt its ears drape her head, another ran into its tusks, and the last witness felt the elephant's trunk wrap around his neck.  Even though each witness experienced something different, there is only one reality.  A summoner can identify this reality and change it to suit his needs. I know who is responsible for summoning the elephant, but this is not your concern. You completed your lessons, my apt pupil. Now it is time for your final exam.
 --I do not have time to speak to you unless you are seriously devoted to academic research. This is not something to take lightly, for true research does not just happen all by itself. You must devote your life to unlocking the secrets of arcane powers. Therefore, the lazy need not apply. 
@@ -239,49 +241,33 @@ function FinalClassTest(NPC,Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("I taught you three different methods of exploring the secrets of mystical power. Now you must dedicate your arcane studies to one discipline... Which shall it be?")
 	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius014.mp3",  196403467, 3470342687)
-    PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-    Dialog.AddOption("The complex weaves of enchantment are compelling. I will study to be an enchanter.","Enchanter")	
+    PlayFlavor(NPC, "", "", "sniff", 0, 0, Spawn)
     Dialog.AddOption("I feel the destructive arts are to my liking. I shall study to be a sorcerer.","Sorcery")	
+    Dialog.AddOption("The complex weaves of enchantment are compelling. I will study to be an enchanter.","Enchanter")	
     Dialog.AddOption("Bending truths to create something from nothing is intriguing. I will be a summoner.","Summoner")	
 	Dialog.Start()
 end
 
+
+
 function Summoner(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("By peering into the unseen, summoners use magic to create matter from nothing. A summoner never wants for anything -- companions, food, or even a nice fluffy pillow to snuggle up with when it gets cold at night ... er, where was I? Ah, yes, do you want to study summoning?")
-	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel023.mp3", 990225084, 344110692)
-    PlayFlavor(NPC, "", "", "orate", 0, 0, Spawn)
-    Dialog.AddOption("I will never again be without anything I need.  I am a summoner.","Summoner2")	
-    Dialog.AddOption("Actually, I better rethink this.","FinalClassTest")	
-	Dialog.Start()
-end
-
-function Summoner2(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Soon you will be ... yes ... I can see it now ... but no, first you must prove to me that you can handle things that you summon.  Do you think that I will simply let you move on without the wisdom to temper the knowledge of summoning?")
-	Dialog.AddVoiceover("voiceover/english/magister_niksel/qey_south/magister_niksel029.mp3", 3974213015, 2576820907)
-    PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-    Dialog.AddOption("Then I must prove my skill.","Summoner2a")	
-    Dialog.AddOption("On second thought, what were my options again?","FinalClassTest")	
-	Dialog.Start()
-end
-
-function Summoner2a(NPC,Spawn)
     FaceTarget(NPC, Spawn)
     OfferQuest(NPC,Spawn,Summ)
 end
 
+
 function Sorcery(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("A sorcerer taps into the mana flow and draws the hidden energies that swirl within that maelstrom of forces.  By taking these energies, sorcerers simplify their lives, and make their opponent's lives a heck of a lot harder. But along with sorcery's incredible power, comes incredible responsibility. Can you handle this?")
-    PlayFlavor(NPC, "", "", "orate", 0, 0, Spawn)
-    Dialog.AddOption("The forces of the arcane will be at my beck and call.  I am a sorcerer.","Sorcery2")	
-    Dialog.AddOption("Actually, I better rethink this.","FinalClassTest")	
+ 	Dialog.AddDialog("Craving such immense power is tempting, but beware, others crave it too. They will destroy you in the blink of an eye to obtain even a small portion of your power. Students of the arcane arts must learn to combat these power plays by testing their skills. Now it is your time to test your skills and face your first opponent.")
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius018.mp3",  2784462451, 4251950023)
+    PlayFlavor(NPC, "", "", "shakefist", 0, 0, Spawn)
+    Dialog.AddOption("I am ready. Who will I be testing my skills on?","Sorcery2")	
+    Dialog.AddOption("Perhaps I should reconsider this...","FinalClassTest")	
 	Dialog.Start()
 end
+
+
 
 function Sorcery2(NPC,Spawn)
     FaceTarget(NPC, Spawn)
@@ -291,9 +277,10 @@ end
 function Enchanter(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Enchanters love hearing people say, \"I'll believe it when I see it.\"  Using their magic, enchanters make people believe in all matter of things! Illusionary dragons are just as threatening as real ones to the common enemy, if you \"see\" what I'm saying.  So, will you focus your studies on enchanting?")
-    PlayFlavor(NPC, "", "", "orate", 0, 0, Spawn)
-    Dialog.AddOption("I prefer to see what is real and what isn't.  I am an enchanter.","Enchanter2")	
+ 	Dialog.AddDialog("You'll be an enchanter... yes... perhaps ... First, let's see how you deal with an angry crowd.  Not everyone is cut out to deal with the thought required behind this choice ... we need to make sure that you are.")
+    PlayFlavor(NPC, "", "", "sniff", 0, 0, Spawn)
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius012.mp3",  0, 0)
+    Dialog.AddOption("If it is like my lesson before, I can handle a crowd.","Enchanter2")	
     Dialog.AddOption("Actually, I better rethink this.","FinalClassTest")	
 	Dialog.Start()
 end
@@ -322,5 +309,3 @@ function GoodbyeEnch(NPC,Spawn)
     Dialog.AddOption("Thank you Magister Niksel.")	
 	Dialog.Start()
 end
---Now, now, there's no one thing that gives you the power to become a sorcerer, but this should help you get a better grasp on how to use your sorcery power. No need to return to me afterwards, I've taught you as much as I can.
---You'll be an enchanter... yes... perhaps ... First, let's see how you deal with an angry crowd.  Not everyone is cut out to deal with the thought required behind this choice ... we need to make sure that you are.

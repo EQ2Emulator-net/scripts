@@ -6,8 +6,11 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/BaseGolem1.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
     local Level = GetLevel(NPC)
     local level1 = 10
     local level2 = 11

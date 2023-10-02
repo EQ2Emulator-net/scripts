@@ -5,10 +5,12 @@
     Script Purpose : 
                    : 
 --]]
-dofile("SpawnScripts/Generic/MonsterCallouts/BaseZombie1.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
-     local Level = GetLevel(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+
+    local Level = GetLevel(NPC)
     local level1 = 8
     local level2 = 9
     local level3 = 10
@@ -36,7 +38,7 @@ function spawn(NPC)
     SpawnSet(NPC, "hp", hp3)
     SpawnSet(NPC, "power", power3)
     end
-    SetSpawnAnimation(NPC, 13016)
+
 ChooseMovement(NPC)
 end
 

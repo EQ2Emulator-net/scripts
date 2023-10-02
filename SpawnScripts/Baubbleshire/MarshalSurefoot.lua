@@ -109,7 +109,7 @@ end
 function Begin(NPC, Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Stand stout! You'd make a fine deputy.")
+	Dialog.AddDialog("Stand stout!  You'd make a fine deputy.  Unfortunately, we can't handle new recruits. Please move along, adventurer.")
 	Dialog.AddVoiceover("voiceover/english/marshal_surefoot/qey_village06/marshalsurefoot000.mp3", 3898086374, 2053590783)
     PlayFlavor(NPC, "", "", "salute", 0, 0, Spawn)
 	if GetLevel(Spawn) <= 4 then

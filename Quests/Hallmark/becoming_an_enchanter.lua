@@ -9,14 +9,19 @@
         Preceded by: None
         Followed by: 
 --]]
+require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepChat(Quest, 1, "I need to make an example of the Seafuries.", 1, "I need to find these Seafuries and make an example of them.  I should look for a way to do this without directly involving myself.", 11, 1)
+	AddQuestStep(Quest, 1, "I need to make an example of the Seafuries.", 1,100, "I need to find these Seafuries and make an example of them.  I should look for a way to do this without directly involving myself.", 11)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+    FaceTarget(QuestGiver, Player)
+	Dialog.New(QuestGiver, Player)   
+ 	Dialog.AddDialog("The Seafuries are Lucan's  private navy.  At least that's how they present themselves. But everyone knows they're ar nothing more than a bunch of pirates.  In between smuggling operations, those swashbucklers manage to keep the seas safe from orcs and the Qeynosians, and perhaps even more.  When they're not out at sea, they're based out of the Back Alley Brewhouse.  Talk to Thuddfoot. He'll tell you more.")
+    Dialog.AddOption("It will be done, Arcanist.")	
+	Dialog.Start()
 end
 
 function Declined(Quest, QuestGiver, Player)

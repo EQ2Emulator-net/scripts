@@ -1,16 +1,14 @@
 --[[
-    Script Name    : SpawnScripts/TheGraveyard_Classic/anundeadlancer.lua
+    Script Name    : SpawnScripts/BuccaneersRest/aSpicerunnergalebringer.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.08.14 04:08:45
+    Script Date    : 2023.10.02 05:10:08
     Script Purpose : 
                    : 
 --]]
-dofile("SpawnScripts/Generic/MonsterCallouts/BaseSkeleton2.lua")
 require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
-    SetSpawnAnimation(NPC, 13016)
 end
 
 function hailed(NPC, Spawn)

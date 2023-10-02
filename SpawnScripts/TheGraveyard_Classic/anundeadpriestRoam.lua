@@ -6,10 +6,11 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/BaseSkeleton1.lua")
+require "SpawnScripts/Generic/CombatModule"
 
-function spawn(NPC)
-
-ChooseMovement(NPC)
+function spawn(NPC, Spawn)
+    combatModule(NPC, Spawn)
+    ChooseMovement(NPC)
 end
 
 function ChooseMovement(NPC)

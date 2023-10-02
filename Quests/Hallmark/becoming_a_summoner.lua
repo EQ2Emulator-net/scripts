@@ -1,7 +1,7 @@
 --[[
-    Script Name    : Quests/Hallmark/becoming_a_sorcerer.lua
+    Script Name    : Quests/Hallmark/becoming_a_summoner.lua
     Script Author  : Dorbin
-    Script Date    : 2023.09.29 03:09:49
+    Script Date    : 2023.10.01 01:10:01
     Script Purpose : 
 
         Zone       : Hallmark
@@ -11,17 +11,18 @@
 --]]
 require "SpawnScripts/Generic/DialogModule"
 
+
 function Init(Quest)
-	AddQuestStep(Quest, 1, "I need to duel Dasicar T'Lys.", 1, 100,"I need to seek out Dasicar T'Lys in the Academy dueling room to have our duel.", 611)
+	AddQuestStep(Quest, 1, "I need to destroy an Earth Elemental of my own creation.", 1, 100, "I need to create and destroy an Earth Elemental while inside the Academy chamber.", 10)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
 function Accepted(Quest, QuestGiver, Player)
     FaceTarget(QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)   
- 	Dialog.AddDialog("You will face a fellow student, Dasicar T'Lys, in a battle of the arcane arts. The victor of this battle shall acquire the right to be called a sorcerer of Freeport. Make your way inside and enter the dueling chamber. If you win the battle, return to me.")
-	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius019.mp3",  861072118, 1987867443)
-    Dialog.AddOption("I will return victorious!")	
+ 	Dialog.AddDialog("Make your way to the prepared chamber in the academy and find an apprentice's manual. In the manual, find a method for summoning minions from the earth. Create an elemental and then destroy it.  Do this and you will prove you are worthy of the title summoner.")
+	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius026.mp3",  2862344835, 755954330)
+    Dialog.AddOption("Thank you, Arcanist. I will return.")	
 	Dialog.Start()
 end
 
@@ -34,10 +35,10 @@ function Deleted(Quest, QuestGiver, Player)
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
-	UpdateQuestStepDescription(Quest, 1, "I defeated Dasicar T'Lys.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I defeated Dasicar T'Lys in a duel.")
+	UpdateQuestStepDescription(Quest, 1, "I defeated my Earth Elemental.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I defeated my Earth Elemental creation.")
 
-	AddQuestStepChat(Quest, 2, "I need to speak with the Arcanist.", 1, "I need to return to Arcanist Sonius and let her know I was the victor.", 11,1)
+	AddQuestStepChat(Quest, 2, "I need to speak with the Arcanist.", 1, "I need to report back to Arcanist Sonius.", 11,1440463)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 
