@@ -11,7 +11,7 @@ local RustySymbolOfMarr = 584
 local DeathCert = 5872
 
 function spawn(NPC)
-OfferQuest(NPC,DeathCert)
+ProvidesQuest(NPC,DeathCert)
 end
 
 function hailed(NPC, Spawn)

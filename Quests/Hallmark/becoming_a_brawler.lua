@@ -10,7 +10,7 @@
         Followed by: 
 --]]
 
---[[
+
 function Init(Quest)
 	AddQuestStepChat(Quest, 1, "I need to find Korong Shatterjaw near the arena.", 1, "I need to find Korong Shatterjaw near the arena.", 11, 1)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
@@ -72,4 +72,3 @@ function Reload(Quest, QuestGiver, Player, Step)
 		QuestComplete(Quest, QuestGiver, Player)
 	end
 end
---]]

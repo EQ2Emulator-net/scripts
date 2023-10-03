@@ -257,7 +257,7 @@ end
     PlayFlavor(NPC, "", "", "nod", 0, 0, Spawn)
     Dialog.AddOption("My faith is more important than anything to me.  I ... I will be a cleric!","Cleric1")	
     Dialog.AddOption("I feel the forces of nature surrounding me. I believe I am a druid.","Druid1")	
-    Dialog.AddOption("I hear the call of the spirits. I believe I am a shaman.","Shaman1")	
+    Dialog.AddOption("Benevolent spirits will guide me until I finally join them.  I think I am called to become a shaman. ","Shaman1")	
 	Dialog.Start()
 end
 

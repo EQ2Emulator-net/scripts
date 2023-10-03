@@ -29,9 +29,27 @@ function Dialog1(NPC, Spawn)
     if HasQuest(Spawn,Mage1) and GetQuestStep(Spawn,Mage1) == 3 then
 	Dialog.AddOption("Arcanist Sonius is concerned with the price increases on research supplies.", "Dialog3")
     end
+    if HasQuest(Spawn,5906) and GetQuestStep(Spawn,5906) == 3 then
+	Dialog.AddOption("Have you been selling any type of foreign plant?", "Plant")
+    end        
 	Dialog.AddOption("Do you know how to handle them properly?", "Dialog2")
 	Dialog.Start()
 end
+
+
+
+
+function Plant(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	PlayFlavor(NPC, "","", "heckno", 0, 0, Spawn)
+	Dialog.AddVoiceover("voiceover/english/alchemist_aulus_crispian/fprt_north/mer_auluscrispian000.mp3", 0, 0)
+    Dialog.AddDialog("I will NOT expose my suppliers to the likes of you! So, unless you have an order from the Overlord, take up your questions with Torlig.")
+	Dialog.AddOption("Fine! Sorry.")
+	Dialog.Start()
+end
+
+
 
 function Dialog2(NPC, Spawn)
 	FaceTarget(NPC, Spawn)

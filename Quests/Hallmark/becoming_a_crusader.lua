@@ -9,7 +9,7 @@
         Preceded by: None
         Followed by: 
 --]]
---[[
+
 function Init(Quest)
 	AddQuestStepChat(Quest, 1, "I need to find the defectors.", 1, "I need to find where the defectors are hiding before they leave the city.", 11, 1)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
@@ -81,4 +81,3 @@ function Reload(Quest, QuestGiver, Player, Step)
 		QuestComplete(Quest, QuestGiver, Player)
 	end
 end
---]]

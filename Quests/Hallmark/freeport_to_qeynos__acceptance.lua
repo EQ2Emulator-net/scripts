@@ -12,7 +12,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddStepZoneLoc(Quest, 1, "Travel to the inn and sign the registry.", 10, "\"Your new home awaits within the walls of Qeynos. I have arranged for a room to be made yours to house you. Sign the book and start your new life. Good luck, friend.\"", 11, 1)
+--	AddStepZoneLoc(Quest, 1, "Travel to the inn and sign the registry.", 10, "\"Your new home awaits within the walls of Qeynos. I have arranged for a room to be made yours to house you. Sign the book and start your new life. Good luck, friend.\"", 11, 1)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
 end
 

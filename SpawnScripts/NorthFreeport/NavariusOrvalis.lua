@@ -25,6 +25,18 @@ function Dialog1(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Search for the relics of the past Age of Turmoil.  Their discovery will gain you great power and prestige!")
-	Dialog.AddOption("Thanks for the information, I just might do that.")
+    if HasQuest(Spawn,5906) and GetQuestStep(Spawn,5906) == 3 then
+	Dialog.AddOption("Have you been selling any type of foreign plant?", "Plant")
+    end        
+    Dialog.AddOption("Thanks for the information, I just might do that.")
+	Dialog.Start()
+end
+
+function Plant(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	PlayFlavor(NPC, "","", "stare", 0, 0, Spawn)
+    Dialog.AddDialog("Look around. What do you see? Plants?... No. I have no plants for you - only knowledge.")
+    Dialog.AddOption("Fine! Sorry.")
 	Dialog.Start()
 end

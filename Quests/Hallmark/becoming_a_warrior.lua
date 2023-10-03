@@ -9,7 +9,7 @@
         Preceded by: None
         Followed by: 
 --]]
---[[
+
 
 function Init(Quest)
 	AddQuestStepLocation(Quest, 1, "I need to find the man that is helping the Cutthroats.", 1, "I need to find out who is providing a safehouse for the Dervish Cutthroats in the city.  The Commandant said to start my search in the City of Freeport.  I should check the taverns, he has to be providing food to them somehow.", 11, 1)
@@ -62,5 +62,3 @@ function Reload(Quest, QuestGiver, Player, Step)
 		QuestComplete(Quest, QuestGiver, Player)
 	end
 end
-
--]]

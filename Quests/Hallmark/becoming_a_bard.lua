@@ -1,7 +1,7 @@
 --[[
-    Script Name    : Quests/Hallmark/becoming_a_druid.lua
+    Script Name    : Quests/Hallmark/becoming_a_bard.lua
     Script Author  : Dorbin
-    Script Date    : 2023.09.29 02:09:15
+    Script Date    : 2023.10.03 04:10:45
     Script Purpose : 
 
         Zone       : Hallmark
@@ -10,12 +10,12 @@
         Followed by: 
 --]]
 
+
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to destroy the plant beast.", 1, 100, "I need to find this monstrosity of nature and destroy it with my command of nature.", 11, 1)
+	AddQuestStep(Quest, 1, "I need to steal the Coalition's ledger.  I should direct the music to distract the leaders.", 1, 100, "I need to get to the merchant party at the Coalition's Headquarters and steal one of their ledger copies.  If I direct the band to player in a proper sequence then I will surely grab their attention.", 195)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
---It's just a plant, right?  I think I can handle that.
 function Accepted(Quest, QuestGiver, Player)
 	-- Add dialog here for when the quest is accepted
 end
@@ -29,19 +29,19 @@ function Deleted(Quest, QuestGiver, Player)
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
-	UpdateQuestStepDescription(Quest, 1, "I defeated the plant beast.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I defeated the plant beast.")
+	UpdateQuestStepDescription(Quest, 1, "I stole the ledger.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I stole one of the ledger copies.")
 
-	AddQuestStepChat(Quest, 2, "I need to report back to Kelian.", 1, "I need to report back to Priest Kelian.", 11, 1440466)
+	AddQuestStepChat(Quest, 2, "I need to give the ledger to Millia.", 1, "I need to get this ledger to Millia.", 11, 1440464)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 
 function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
-	UpdateQuestStepDescription(Quest, 2, "I spoke with Priest Kelian.")
-	UpdateQuestTaskGroupDescription(Quest, 2, "I spoke with Priest Kelian.")
+	UpdateQuestStepDescription(Quest, 2, "I gave the ledger to Millia.")
+	UpdateQuestTaskGroupDescription(Quest, 2, "I gave the ledger back to Millia.")
 
-	UpdateQuestDescription(Quest, "I defeated the plant beast that the mage failed to destroy after creating it.  I have demonstrated that the power of nature is greater than any mages creation.  I am now a Druid.")
+	UpdateQuestDescription(Quest, "I was able to entertain the merchants and distract them with my talents before I swiped the ledger out from under them.  Millia was quite impressed when I turned the ledger over to her.")
 	GiveQuestReward(Quest, Player)
 end
 

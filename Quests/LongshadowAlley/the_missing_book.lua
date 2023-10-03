@@ -23,12 +23,14 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I spoke to the Ratonga thief, Chrna.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I found the Ratonga, but she didn't have the book.")
     UpdateQuestZone(Quest,"Longshadow Ally")
-    AddQuestStepChat(Quest, 2, "I should return to Lotni.", 1, "I should return to Lotni in Longshadow Alley.", 11, 1380009)
+    AddQuestStepChat(Quest, 2, "I should return to Lotni.", 1, "I should tell Lotni K'Lria that Chrna doesn't have the book anymore.", 11, 1380009)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 
 function QuestComplete(Quest, QuestGiver, Player)
 	UpdateQuestDescription(Quest, "Lotni claims she already spoke to the mastermind behind the theft. Unfortunately,she already killed him when his answers were not satisfactory. I doubt she will ever get her book back.")
+	UpdateQuestStepDescription(Quest, 2, "I have told Lotni about the fate of her book.")
+	UpdateQuestTaskGroupDescription(Quest, 2, "I have told Lotni about the fate of her book.")
 	GiveQuestReward(Quest, Player)
 end
 

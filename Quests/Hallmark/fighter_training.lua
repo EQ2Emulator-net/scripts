@@ -9,7 +9,7 @@
         Preceded by: None
         Followed by: 
 --]]
---[[
+
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I must kill some Dervish Crooks.", 5, 100, "The Commandant wants me to kill five (5) Guttersnipe Crooks in the Sprawl. If I can handle that many, I'll have shown I can hold my own as a Warrior.", 611,1)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
@@ -76,7 +76,7 @@ end
 function Step7Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 7, "I have persuaded Favonius Seneca in Beggar's Court.")
 
-	AddQuestStepChat(Quest, 8, "I need to speak with an Iksar named Savas Dranak in Scale Yard who doesn't treat his servants well.", 1, "The Commandant wants me to persuade some people in the districts that they should refrain from associating with the Guttersnipes. I should approach this in the way a Crusader would deal with these people.", 11, 1])
+	AddQuestStepChat(Quest, 8, "I need to speak with an Iksar named Savas Dranak in Scale Yard who doesn't treat his servants well.", 1, "The Commandant wants me to persuade some people in the districts that they should refrain from associating with the Guttersnipes. I should approach this in the way a Crusader would deal with these people.", 11, 1)
 	AddQuestStepCompleteAction(Quest, 8, "Step8Complete")
 end
 
@@ -127,4 +127,3 @@ function Reload(Quest, QuestGiver, Player, Step)
 		QuestComplete(Quest, QuestGiver, Player)
 	end
 end
---]]
