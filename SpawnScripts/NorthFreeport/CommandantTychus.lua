@@ -28,9 +28,9 @@ function hailed(NPC, Spawn)
     Dialog.AddOption("Sir, I want to increase my fighting skills, sir!","Dialog1")	
     end
     if HasQuest(Spawn,Quest1) and GetQuestStep(Spawn,Quest1)==2 then 
-    Dialog.AddOption("I was victorious against the spiders!","Dialog2")	
+    Dialog.AddOption("Sir, the Guttersnipe Crooks are dead, sir!","Dialog2")	
     end
-    if HasQuest(Spawn,Quest1) and GetQuestStep(Spawn,Quest1)==5 then 
+    if HasQuest(Spawn,Quest1) and GetQuestStep(Spawn,Quest1)==6 then 
     Dialog.AddOption("I've been given tips on brawling... and a little more, too.","Dialog3")	
     end
  
@@ -39,7 +39,9 @@ function hailed(NPC, Spawn)
     end  
     
     Dialog.AddOption("I was just leaving... Sir!")
+    if not HasQuest(Spawn,Quest1) and not HasCompletedQuest(Spawn, Quest1) then
     Dialog.AddOption("No one is telling ME what to do, fool!","Uhoh1")
+    end
 	Dialog.Start()
 end
 
@@ -92,88 +94,20 @@ function Dialog1(NPC,Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("Just looking at you I can tell you don't know the first thing about fighting.  Look at those pitiful arms, those knobby knees, and that stupid look on your face.  You're a complete waste of time. Get out of my face!")
     PlayFlavor(NPC, "", "", "no", 0, 0, Spawn)
-    Dialog.AddOption("Sir, I didn't ask for your opinion, sir. I was telling you I wanted training. Sir!","Dialog1a")	
+    Dialog.AddOption("Sir, I didn't ask for your opinion, sir. I was telling you I wanted training. Sir!","Quest1Offer")	
     Dialog.AddOption("I suppose I meant something else. Good luck on those bounties.")	
 	Dialog.Start()
 end
 
-function Dialog1a(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Well now, that's more like it! I have been resposible for training new recruits of the Qeynos Guard for an age- you look like the right material to take a few hits to the noggin and still get back up. Perhaps some pointers on your fighting style would be in Qeynos's favor...")
-    PlayFlavor(NPC, "", "", "happy", 0, 0, Spawn)
-    Dialog.AddOption("What sort of fighting styles do you mean?","Dialog1b")	
-	Dialog.Start()
-end
 
 function Dialog1b(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Many! Well, at least three in the city. First, I must know... what sort of combat have you seen?")
-    PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-    Dialog.AddOption("I tackled a few goblins on the Isle of Refuge before coming here.","Dialog1c1")	
-    if HasCompletedQuest(Spawn, 5751)then --ISLE OF REFUGE ORC LEADER QUEST
-    Dialog.AddOption("I toppled the invading goblins on the Isle of Refuge by taking out thier orc leader, Grimgash.","Dialog1c1a")
-    end
-    Dialog.AddOption("I took out some traitors to Qeynos. Proving my loyalty to Qeynos.","Dialog1c2")	
-    Dialog.AddOption("This and that- just some good ol' rough and tumble.","Dialog1c3")	
+ 	Dialog.AddDialog("You'll find trash called the Dervishes living there. Find the ones called the Crooks, and slaughter a few of them. If you make it back alive, I might continue your training...")
+    Dialog.AddOption("Yes sir!")	
 	Dialog.Start()
 end
 
-function Dialog1c1(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Ahh, yes. I the Isle is a true training ground if ya took advantage of it. The fact you made it here is a testament to their trainin'!")
-    PlayFlavor(NPC, "", "", "smile", 0, 0, Spawn)
-    Dialog.AddOption("Yea, being a fighter I handle myself pretty well.","Dialog1d")	
-	Dialog.Start()
-end
-
-function Dialog1c1a(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Blimey! That was you?! Well done, I must say! Well done! You do have the chops to be a fighter. You were right to come see me.")
-    PlayFlavor(NPC, "", "", "boggle", 0, 0, Spawn)
-    Dialog.AddOption("Yea, being a fighter I handle myself pretty well.","Dialog1d")	
-	Dialog.Start()
-end
-
-function Dialog1c2(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Those traitors got what was come'n to them, no doubt. I hope you chose wisely in their treatment. Justice is the cornerstone that seperates us from the likes of Freeport!")
-    PlayFlavor(NPC, "", "", "ponder", 0, 0, Spawn)
-    Dialog.AddOption("Yea, being a fighter I handled myself pretty well.","Dialog1d")	
-	Dialog.Start()
-end
-
-function Dialog1c3(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Well, you have a few scrapes and bruises... So, I can see you've had your fair share of action. Hopefully you've managed to stay concious for most of it! Haha!")
-    PlayFlavor(NPC, "", "", "chuckle", 0, 0, Spawn)
-    Dialog.AddOption("Yea, being a fighter I handle myself pretty well.","Dialog1d")	
-	Dialog.Start()
-end
-
-function Dialog1c1(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Ahh, yes. I the Isle is a true training ground if ya took advantage of it. The fact you made it here is a testament to their trainin'!")
-    PlayFlavor(NPC, "", "", "smile", 0, 0, Spawn)
-    Dialog.AddOption("Yea, being a fighter I handle myself pretty well.","Dialog1d")	
-	Dialog.Start()
-end
-
-function Dialog1d(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Well, then, the first thing you gotta know is that there's not just one way to fight.  S'matter of fact, you gotta discipline yourself in a style of fightin'.  I'll give you a taste of the fighting styles I've come across in me years of battle. Let's start with the fightin' style of a warrior...")
-    PlayFlavor(NPC, "", "", "orate", 0, 0, Spawn)
-    Dialog.AddOption("Tell me what I need to do! I'm ready to give something a beating!","Quest1Offer")	
-    Dialog.AddOption("Actually, I should begin this with you another time.")	
-	Dialog.Start()
-end
 
 function Quest1Offer(NPC,Spawn)
     FaceTarget(NPC, Spawn)
@@ -194,36 +128,27 @@ function Dialog2a(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("Well, you're still alive, so I guess my training helped. You taught those Guttersnipe crooks a lesson, but now those goons are getting sympathy from the trash living in the districts. If you want to continue your training, you must sharpen your words as you sharpen your sword.")
-    PlayFlavor(NPC, "", "", "sniff", 0, 0, Spawn)
-    Dialog.AddOption("Oh? You just said...","Dialog2b")	
+    Dialog.AddOption("Understood, sir! Who should I speak with, sir?","Dialog2b")	
 	Dialog.Start()
 end
 
 function Dialog2b(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Well, forget everythin' I said!  Yer' about to see how a brawler fights. Instead of using armor, brawlers use their bodies as weapons. They avoid gettin' hurt in combat by using a special trick.")
-    PlayFlavor(NPC, "", "", "heckno", 0, 0, Spawn)
-    Dialog.AddOption("How do they avoid attacks?","Dialog2c")	
+    SetStepComplete(Spawn,Quest1,2)  
+ 	Dialog.AddDialog("That won't stop them from breaking the law, fool! I want you to take care of the problem the way a brawler would. Go visit the tavern owners of the Seafarer's Roost, the Back Alley Brewhouse, and the Jade Tiger. Beat them up and let them know that the Overlord can give as much as he can take.")
+    PlayFlavor(NPC, "", "", "sniff", 0, 0, Spawn)
+    Dialog.AddOption("Sir, yes, sir!")	
 	Dialog.Start()
 end
 
-function Dialog2c(NPC,Spawn)
-    SetStepComplete(Spawn,Quest1,2)  
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("We'll see about that, whelp. In the districts, a few people have gained respect from the rest of the rubbish living there. I want you to tell these people that if they allow Guttersnipes into the slums the Lucanic Knights will be on them faster than they can blink. Show them a velvet glove, but make them fear your concealed steel gauntlet. Understand?")
-    PlayFlavor(NPC, "", "", "happy", 0, 0, Spawn)
-    Dialog.AddOption("Understood, Sir.")	
-	Dialog.Start()
-end
 
 function Dialog3(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Oh, is that so? Well let's put what ya learned to the test, shall we?")
+ 	Dialog.AddDialog("Well, you're still alive, so I guess my training helped. You taught those Guttersnipe crooks a lesson, but now those goons are getting sympathy from the trash living in the districts. If you want to continue your training, you must sharpen your words as you sharpen your sword.")
     PlayFlavor(NPC, "", "", "ponder", 0, 0, Spawn)
-    Dialog.AddOption("Alright.","Dialog3a")	
+    Dialog.AddOption("Sir, I'll take care of the rest of the Guttersnipes, sir!","Dialog3a")	
 	
 	Dialog.Start()
 end
@@ -232,54 +157,13 @@ end
 function Dialog3a(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("[Dagorel prepares up to punch you]")
-    PlayFlavor(NPC, "", "", "pugilist_idle", 0, 0, Spawn)
-    Dialog.AddOption("[Attempt to dodge]","Dodge")	
-    Dialog.AddOption("[Take the punch to your gut]","Gut")	
+    SetStepComplete(Spawn,Quest1,6)  
+ 	Dialog.AddDialog("We'll see about that, whelp. In the districts, a few people have gained respect from the rest of the rubbish living there. I want you to tell these people that if they allow Guttersnipes into the slums the Lucanic Knights will be on them faster than they can blink. Show them a velvet glove, but make them fear your concealed steel gauntlet. Understand?")
+    PlayFlavor(NPC, "", "", "sniff", 0, 0, Spawn)
+    Dialog.AddOption("Sir, I'll teach them a thing or two, sir!")	
 	Dialog.Start()
 end
 
-function Dodge(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("[Dagorel's punch grazes you]")
-    PlayFlavor(NPC, "", "", "pugilist_wild_swing", 0, 0, Spawn)
-    AddTimer(NPC,1300,"Dodge2",1,Spawn)
-    Dialog.AddOption("Ah, you still got me.","Dialog3c")	
-	Dialog.Start()
-end
-
-function Dodge2(NPC,Spawn)
-    PlayFlavor(Spawn, "", "", "1h_sword_dodge_backhand", 0, 0, NPC)
-end
-
-function Gut(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("...")
-    PlayFlavor(NPC, "", "", "pugilist_attack02", 0, 0, Spawn)
-    AddTimer(NPC,1300,"Gut2",1,Spawn)
-    Dialog.AddOption("Oof...","Dialog3b")	
-	Dialog.Start()
-end
-
-function Gut2(NPC,Spawn)
-    PlayFlavor(Spawn, "", "", "gutcramp", 0, 0, NPC)
-local invul = IsInvulnerable(Spawn)
-if invul == true then
-return 0
-end
-
-local hp = GetHP(Spawn)
-local damage = GetMaxHP(Spawn)*0.1
-local damageToTake = damage * 1
--- if we don't have enough HP make them die to pain and suffering not self
-if hp <= damageToTake then
-else
-DamageSpawn(Spawn, Spawn, 192, 3, damageToTake, damageToTake, "Dagorel's punch!", 0, 0, 1, 1)
-end
-
-end
 
 function Dialog3c(NPC,Spawn)
     SetStepComplete(Spawn,Quest1,5)  
