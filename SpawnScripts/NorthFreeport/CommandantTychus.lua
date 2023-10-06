@@ -7,8 +7,8 @@
 --]]
 require "SpawnScripts/Generic/DialogModule"
 local Quest1 = 5898
-local Crusader = 5899
-local Brawler = 5900
+local Crusader = 5900
+local Brawler = 5899
 local Warrior = 5901
 
 function spawn(NPC)
@@ -31,11 +31,16 @@ function hailed(NPC, Spawn)
     Dialog.AddOption("Sir, the Guttersnipe Crooks are dead, sir!","Dialog2")	
     end
     if HasQuest(Spawn,Quest1) and GetQuestStep(Spawn,Quest1)==6 then 
-    Dialog.AddOption("I've been given tips on brawling... and a little more, too.","Dialog3")	
+    Dialog.AddOption("Sir, the tavern owners have a new appreciation of the law, sir.","Dialog3")	
     end
  
+     if HasQuest(Spawn,Quest1) and GetQuestStep(Spawn,Quest1)==10 then 
+    Dialog.AddOption(" I've convinced the people in the districts to no longer associate with the Guttersnipes.","Dialog4")	
+    end
+
+ 
     if HasCompletedQuest(Spawn,Quest1) and not HasQuest(Spawn,Crusader) and not HasQuest(Spawn,Brawler) and not HasQuest(Spawn,Warrior) and GetClass(Spawn)==1 and GetLevel(Spawn) >=9 then
-    Dialog.AddOption("I've proven myself. I'm ready for any other test you can give.","Decide")	
+    Dialog.AddOption("I've proven myself. I'm ready for my final task, Sir.","Decide")	
     end  
     
     Dialog.AddOption("I was just leaving... Sir!")
@@ -120,7 +125,7 @@ function Dialog2(NPC,Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("Oh, really. I'm surprised you didn't run back to your momma the moment you saw the Guttersnipes. But you do look a bit scratched up, so maybe you did kill them. Okay, I'll continue your training. Those Guttersnipes are not only robbing the people, but more importantly, they're violating the laws of Freeport by visiting our fine city's taverns.")
     PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-    Dialog.AddOption("So, the heavier the armor the better? Alright!","Dialog2a")	
+    Dialog.AddOption("It is only a scratch, sir!","Dialog2a")	
 	Dialog.Start()
 end
 
@@ -137,7 +142,7 @@ function Dialog2b(NPC,Spawn)
 	Dialog.New(NPC, Spawn)   
     SetStepComplete(Spawn,Quest1,2)  
  	Dialog.AddDialog("That won't stop them from breaking the law, fool! I want you to take care of the problem the way a brawler would. Go visit the tavern owners of the Seafarer's Roost, the Back Alley Brewhouse, and the Jade Tiger. Beat them up and let them know that the Overlord can give as much as he can take.")
-    PlayFlavor(NPC, "", "", "sniff", 0, 0, Spawn)
+    PlayFlavor(NPC, "", "", "threaten", 0, 0, Spawn)
     Dialog.AddOption("Sir, yes, sir!")	
 	Dialog.Start()
 end
@@ -146,9 +151,9 @@ end
 function Dialog3(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Well, you're still alive, so I guess my training helped. You taught those Guttersnipe crooks a lesson, but now those goons are getting sympathy from the trash living in the districts. If you want to continue your training, you must sharpen your words as you sharpen your sword.")
+ 	Dialog.AddDialog("So it WAS you who instigated these guard reports. You may be puny... but let's see how you handle being a more calculated in your fury.")
     PlayFlavor(NPC, "", "", "ponder", 0, 0, Spawn)
-    Dialog.AddOption("Sir, I'll take care of the rest of the Guttersnipes, sir!","Dialog3a")	
+    Dialog.AddOption("What must I do, sir?","Dialog3a")	
 	
 	Dialog.Start()
 end
@@ -157,129 +162,64 @@ end
 function Dialog3a(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
-    SetStepComplete(Spawn,Quest1,6)  
- 	Dialog.AddDialog("We'll see about that, whelp. In the districts, a few people have gained respect from the rest of the rubbish living there. I want you to tell these people that if they allow Guttersnipes into the slums the Lucanic Knights will be on them faster than they can blink. Show them a velvet glove, but make them fear your concealed steel gauntlet. Understand?")
-    PlayFlavor(NPC, "", "", "sniff", 0, 0, Spawn)
-    Dialog.AddOption("Sir, I'll teach them a thing or two, sir!")	
+ 	Dialog.AddDialog("Though all warriors fight for a cause, none have as strong a conviction as a crusader. Crusaders live to fight another day ... and another ... and another... They never stop, for they know their next opponent waits to take everything they've earned.")
+    Dialog.AddOption("I can do that, sir!","Dialog3b")	
 	Dialog.Start()
 end
+
+
+--
+
+function Dialog3b(NPC,Spawn)
+    FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)   
+ 	Dialog.AddDialog("We'll see about that, whelp. In the districts, a few people have gained respect from the rest of the rubbish living there. I want you to tell these people that if they allow Guttersnipes into the slums the Lucanic Knights will be on them faster than they can blink. Show them a velvet glove, but make them fear your concealed steel gauntlet. Understand?")
+    PlayFlavor(NPC, "", "", "stare", 0, 0, Spawn)
+    Dialog.AddOption("Understood, sir! Who needs handling, sir?","Dialog3c")	
+	Dialog.Start()
+end
+
 
 
 function Dialog3c(NPC,Spawn)
-    SetStepComplete(Spawn,Quest1,5)  
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Not bad! You did learn a few things from Luvile, but there is always room for improvement. Perhaps a brawler is a path for you... Even so, you should rest up before we continue looking at other fighting styles. Come back to me after you've taken some time to catch your breath.")
-    PlayFlavor(NPC, "", "", "nod", 0, 0, Spawn)
-    Dialog.AddOption("I like the sounds of that. I'll rest for a while.")	
+    SetStepComplete(Spawn,Quest1,6)  
+ 	Dialog.AddDialog("Let's see ... A human in Beggar's Court leads a gang of three hoodlums, speak with him. In Scale Yard, find the iksar who starves his servants and straighten him out.  Finally, talk to the dark elf who runs the impromptu tavern in Longshadow Alley; she can spread the message from there.")
+    Dialog.AddOption("It will be done, sir!")	
 	Dialog.Start()
 end
-
-function Dialog3b(NPC,Spawn)
-    SetStepComplete(Spawn,Quest1,5)  
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Oi, if you're going to take a blow like that you should have thicker armor! You must have taken Hargan's lesson on brawling to heart, Haha!... Even so, you should rest up before we continue looking at other fighting styles. Come back to me after you've taken some time to catch your breath.")
-    PlayFlavor(NPC, "", "", "wince", 0, 0, Spawn)
-    Dialog.AddOption("I like the sounds of that. I'll rest for a while.")	
-	Dialog.Start()
-end
-
--- QUEST 2 --
 
 
 function Dialog4(NPC,Spawn)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Aye, it's high time we continue with your studies.  Time is tickin' away, and we're not gettin' any younger.  I showed you how a warrior and a brawler fight, and now I'll show you the way of a crusader.")
-    PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-    Dialog.AddOption("What makes someone a crusader?","Dialog4a")	
-	Dialog.Start()
-end
-
-function Dialog4a(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Crusaders fight for a cause.  I've battled beside a few in my years, and they're an impressive bunch. Everything they do has a purpose; you can see it on the battlefield and from the look in their eyes.")
-    PlayFlavor(NPC, "", "", "orate", 0, 0, Spawn)
-    Dialog.AddOption("As in a belief? What would you have me do?","Quest2Start")	
-    Dialog.AddOption("Interesting, but let's continue this conversation later.")	
-	Dialog.Start()
-end
-
-
-function Quest2Start(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-    OfferQuest(NPC,Spawn,Quest2)
-end 
-
-function Dialog5(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("That's good to hear! Our soldiers don't hear enough kind words as it is, but when you can get them to think back on why they decided to protect their city... They certainly start to light up!")
-    PlayFlavor(NPC, "", "", "happy", 0, 0, Spawn)
-    Dialog.AddOption("Most shared a sense of duty and honor in their work.","Dialog5a")	
-    Dialog.AddOption("Some mentioned it as just a job, but they also felt pride in protecting Qeynos.","Dialog5a")	
-	Dialog.Start()
-end
-
-function Dialog5a(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Aye, that sounds about right. Not everything about duty and honor is glamorous, but when you are responsible for that sort of \"passion\" to succeed... Your convicition will provide that power to accomplish the unthinkable.")
-    PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-    Dialog.AddOption("I see. What must I do to prove myself a protector?","Dialog5b")	
-	Dialog.Start()
-end
-
-function Dialog5b(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Ahhh... There is the question! Qeynos is under constant threat- even more so ever since the Sundering when the continents were pulled apart! Are you ready to perform a duty for Qeynos and prove yourself a frontline protector?")
-    PlayFlavor(NPC, "", "", "ponder", 0, 0, Spawn)
-    Dialog.AddOption("I am ready. Give me a mission!","Dialog5c")	
-	Dialog.Start()
-end
-
-function Dialog5c(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Qeynos thrives in this shattered world only through the efforts of its fine citizens.  Those nasty gnolls want us all dead, and it's our duty to protect our city from these fiends.  You must use your fighting skills to protect Qeynos.  Your first mission is to head out to Antonica and take care of the Darkpaws. Start with a pup and come back to me.")
-    PlayFlavor(NPC, "", "", "nod", 0, 0, Spawn)
-    Dialog.AddOption("I'll return when I'm victorious.")
-    SetStepComplete(Spawn,Quest2,4)
-	Dialog.Start()
-end
-
-function Dialog6(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("You didn't refer to me as sir, soldier. Next time, show some respect! Hmmm ... By the solid look in your eyes, I'd say it worked. Now the Guttersnipes won't find it as easy to -- quit looking at me like that, maggot! As I was saying, you learned the skills of a warrior, brawler, and a crusader.  Now it's time to test your knowledge.")
     PlayFlavor(NPC, "", "", "stare", 0, 0, Spawn)
     if GetLevel(Spawn) >=9 then
-    Dialog.AddOption("I'm glad to have had the chance to prove myself.","Decide")
+    Dialog.AddOption("I'm glad to have had the chance to prove myself, Sir.","Decide")
     else
-    Dialog.AddOption("I hate to admit it, but I need a rest after that. I'll return once I'm ready.")
+    Dialog.AddOption("I hate to admit it, but I need a rest after that. I'll return once I'm ready, sir.")
     end
 	Dialog.Start()
-    if HasQuest(Spawn,Quest2) and GetQuestStep(Spawn,Quest2) ==6 then
-    SetStepComplete(Spawn,Quest2,6)
+    if HasQuest(Spawn,Quest1) and GetQuestStep(Spawn,Quest1) ==10 then
+    SetStepComplete(Spawn,Quest1,10)
     end
 end
 
 --CLASS SELECTION 
 
 function Decide(NPC,Spawn)
-    if HasQuest(Spawn,Quest2) and GetQuestStep(Spawn,Quest2) ==6 then
-    SetStepComplete(Spawn,Quest2,6)
+    if HasQuest(Spawn,Quest1) and GetQuestStep(Spawn,Quest1) ==10 then
+    SetStepComplete(Spawn,Quest1,10)
     end
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Well, then, I showed you three different fighting styles--you know my preferred way of fighting--trusting a good axe and a breastplate. You experienced the raw fighting power of a brawler, and finally, you witnessed the dedication of a crusader. Now it's time to test your knowledge...")
+ 	Dialog.AddDialog("You have to make a choice!  You got potential, you do, and it would be a sore shame to see you waste it!  But you can't be a fighter your entire life. You gotta focus on one of the styles I showed you, if you wanna go places.  So what will it be, eh?")
     PlayFlavor(NPC, "", "", "nod", 0, 0, Spawn)
-    Dialog.AddOption("I feel naked without a weapon in my hand.  I believe I'm a warrior.","Warrior1")	
-    Dialog.AddOption("Through training, I can make my own body into a weapon.  I'm a brawler.","Brawler1")	
-    Dialog.AddOption("My burning conviction is the only weapon I need.  I know I am a crusader.","Crusader1")	
+    Dialog.AddOption("I like the intense fury of battle. I want to be a warrior.","Warrior1")	
+    Dialog.AddOption("I like relying on my fists in battle. I want to be a brawler.","Brawler1")	
+    Dialog.AddOption("I like having a commanding presence in battle. I want to be a crusader.","Crusader1")	
 	Dialog.Start()
 end
 
