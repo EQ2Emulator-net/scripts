@@ -23,7 +23,7 @@ function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("You dare address me in a casual manner, worm! Who do you think you are, you pathetic excuse for a dung beetle's lunch? From now on you will refer to me as \"sir,\" understand?")
-	Dialog.AddVoiceover("voiceover/english/voice_emotes/greetings/greetings_"..int.."_1004.mp3", 0, 0)
+	Dialog.AddVoiceover("voiceover/english/voice_emotes/greetings/greetings_"..int.."_1043.mp3", 0, 0)
     if GetClass(Spawn)== 1 and GetLevel(Spawn)>=7 and not HasQuest(Spawn,Quest1) and not HasCompletedQuest(Spawn,Quest1) then
     Dialog.AddOption("Sir, I want to increase my fighting skills, sir!","Dialog1")	
     end
@@ -40,7 +40,7 @@ function hailed(NPC, Spawn)
 
  
     if HasCompletedQuest(Spawn,Quest1) and not HasQuest(Spawn,Crusader) and not HasQuest(Spawn,Brawler) and not HasQuest(Spawn,Warrior) and GetClass(Spawn)==1 and GetLevel(Spawn) >=9 then
-    Dialog.AddOption("I've proven myself. I'm ready for my final task, Sir.","Decide")	
+    Dialog.AddOption("I've proven myself. I'm ready for my final task.","Dialog4")	
     end  
     
     Dialog.AddOption("I was just leaving... Sir!")
@@ -215,7 +215,7 @@ function Decide(NPC,Spawn)
     end
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("You have to make a choice!  You got potential, you do, and it would be a sore shame to see you waste it!  But you can't be a fighter your entire life. You gotta focus on one of the styles I showed you, if you wanna go places.  So what will it be, eh?")
+ 	Dialog.AddDialog("I mean, what do you want to do with your life? Eventually you must choose a path, and now is as good a time as any.  I taught you three different fighting skills, so make up your mind -- what type of fighter do you want to be?")
     PlayFlavor(NPC, "", "", "nod", 0, 0, Spawn)
     Dialog.AddOption("I like the intense fury of battle. I want to be a warrior.","Warrior1")	
     Dialog.AddOption("I like relying on my fists in battle. I want to be a brawler.","Brawler1")	

@@ -13,6 +13,7 @@
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I need to kill five small rust monsters.", 5, 100, "Emissary Millia wants me to go to the Sunken City and kill five small Rust Monsters. She claims that a Rogue always keeps open an avenue of escape.", 142, 1)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+    UpdateQuestZone(Quest,"Sunken City")
 end
 
 function Accepted(Quest, QuestGiver, Player)
@@ -30,6 +31,7 @@ end
 function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I killed five small rust monsters.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed five small Rust Monsters as Millia has asked. If I were a Rogue and needed to get out of the city really fast, that would definitely help.")
+    UpdateQuestZone(Quest,"North Freeport")
 
 	AddQuestStepChat(Quest, 2, "I need to speak with Emissary Millia", 1, "I should let Millia know that I've done what she suggested.", 11, 1440464)
 	AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
@@ -38,29 +40,39 @@ end
 function Step2Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 2, "I have spoken with Emissary Millia")
 	UpdateQuestTaskGroupDescription(Quest, 2, "Millia was pleased with the way I handled the situation.")
+    UpdateQuestZone(Quest,"Multiple Zones")
 
 	AddQuestStepChat(Quest, 3, "I should do some type of buffoonery in front of bartender Grum Zoomly of the Back Alley Brewhouse", 1, "Emissary Millia has now forced me to act the role of the fool in front of a couple bartenders here in the city.  I can't believe I'm about to do this....", 11,1)
+	AddQuestStepChat(Quest, 4, "I should sing my own special type of love song to bartender, Ranik Calman, of the Seafarer's Roost.", 1, "Emissary Millia has now forced me to act the role of the fool in front of a couple bartenders here in the city.  I can't believe I'm about to do this....", 11, 1)
 	AddQuestStepCompleteAction(Quest, 3, "Step3Complete")
+	AddQuestStepCompleteAction(Quest, 4, "Step4Complete")
 end
 
 function Step3Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 3, "I conned Grum Zoomly into thinking I am a fool.")
+    CheckProgress(Quest, QuestGiver, Player)
 
-	AddQuestStepChat(Quest, 4, "I should sing my own special type of love song to bartender, Ranik Calman, of the Seafarer's Roost.", 1, "Emissary Millia has now forced me to act the role of the fool in front of a couple bartenders here in the city.  I can't believe I'm about to do this....", 11, 1)
-	AddQuestStepCompleteAction(Quest, 4, "Step4Complete")
 end
 
 function Step4Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 4, "I've sang my song to Ranik Calman and also managed to swipe a gold coin for Millia.")
-	UpdateQuestTaskGroupDescription(Quest, 3, "I've convinced the bartenders I was an idiot, and in doing so they let their guard down. I could get away with murder being a Bard.")
+    CheckProgress(Quest, QuestGiver, Player)
+end	
+	
+function CheckProgress(Quest, QuestGiver, Player)
+    if QuestStepIsComplete(Player, 5910, 3) and QuestStepIsComplete(Player, 5910, 4)  then
+   	UpdateQuestTaskGroupDescription(Quest, 3, "I've convinced the bartenders I was an idiot, and in doing so they let their guard down. I could get away with murder being a Bard.")
+    UpdateQuestZone(Quest,"North Freeport")
 
 	AddQuestStepChat(Quest, 5, "I need to speak with Emissary Millia", 1, "I should return to Millia and also give her this gold coin I swiped when Barrius wasn't looking.", 11, 1440464)
 	AddQuestStepCompleteAction(Quest, 5, "Step5Complete")
+end
 end
 
 function Step5Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 5, "I have spoken with Emissary Millia")
 	UpdateQuestTaskGroupDescription(Quest, 4, "I told Millia about my buffoonery and she agreed that Bards are far more dangerous than they look.")
+    UpdateQuestZone(Quest,"Theives' Way")
 
 	AddQuestStepKill(Quest, 6, "I need to kill five Darkblade Scouts.", 5, 100, "Emissary Millia wants me to stalk the sewers for Darkblade Scouts and kill five of them.", 91, 1)
 	AddQuestStepCompleteAction(Quest, 6, "Step6Complete")
@@ -69,6 +81,7 @@ end
 function Step6Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 6, "I killed five Darkblade Scouts.")
 	UpdateQuestTaskGroupDescription(Quest, 5, "I've killed five Darkblade Scouts the way a Predator would take care of their victims.")
+    UpdateQuestZone(Quest,"North Freeport")
 
 	AddQuestStepChat(Quest, 7, "I need to speak with Emissary Millia.", 1, "I should return to Millia to let her know that I was able to take care of the competition.", 11, 1440464)
 	AddQuestStepCompleteAction(Quest, 7, "QuestComplete")
