@@ -9,6 +9,7 @@
         Preceded by: None
         Followed by: 
 --]]
+require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I need to kill five small rust monsters.", 5, 100, "Emissary Millia wants me to go to the Sunken City and kill five small Rust Monsters. She claims that a Rogue always keeps open an avenue of escape.", 142, 1)
@@ -17,7 +18,11 @@ function Init(Quest)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+    FaceTarget(QuestGiver, Player)
+	Dialog.New(QuestGiver, Player)   
+ 	Dialog.AddDialog("Let's see if you have the skills to go with that mouth of yours, eh? Being a scout doesn't take much, a couple of eyes, working limbs, that's about all can get out of a sticky situation. If you do, you'll go even further. For instance, a good rogue always has an escape route. Go into the Sunken City and clear an escape path. Kill several Rust Monsters, and then comes back. If you return in one piece, maybe I shows you a few more tricks.")
+    Dialog.AddOption("I won't need to escape when they're dead! I'll return shortly.")	
+	Dialog.Start()
 end
 
 function Declined(Quest, QuestGiver, Player)
