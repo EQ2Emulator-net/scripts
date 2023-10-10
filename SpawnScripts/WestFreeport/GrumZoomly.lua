@@ -7,6 +7,7 @@
 --]]
 require "SpawnScripts/Generic/DialogModule"
 local Fighter = 5898
+local Scout = 5910
 
 function spawn(NPC)
 end
@@ -19,6 +20,8 @@ function hailed(NPC, Spawn)
  Dialog1(NPC, Spawn)
  end
 
+
+--
 function Dialog1(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
@@ -26,6 +29,9 @@ function Dialog1(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/grum_zoomly/fprt_west/grumzoomly000.mp3", 894167480, 1838777111)
 	if HasQuest(Spawn,Fighter) and GetQuestStep(Spawn,Fighter)>=3 and  GetQuestStep(Spawn,Fighter)<=5  and GetQuestStepProgress(Spawn,Fighter,5)==0 then
 	Dialog.AddOption("Lucan is disappointed that you've been serving the Guttersnipes.","Dialog2")
+	end
+	if HasQuest(Spawn,Scout) and GetQuestStep(Spawn,Scout)>=3 and  GetQuestStep(Spawn,Scout)<=4  and GetQuestStepProgress(Spawn,Scout,3)==0 then
+	Dialog.AddOption("Hey, want to dance?! [Show off your moves]","Dialog2")
 	end
 	Dialog.AddOption("Got it.")
 	Dialog.Start()
@@ -63,5 +69,49 @@ function Dialog3(NPC, Spawn)
 	SetStepComplete(Spawn,Fighter,5)
 	Dialog.AddVoiceover("voiceover/english/grum_zoomly/fprt_west/grumzoomly002.mp3", 3096589689, 3928464974)
 	Dialog.AddOption("I'm glad we could come to an understanding.")
+	Dialog.Start()
+end
+
+function Dialog4(NPC, Spawn)
+	FaceTarget(Spawn, NPC)
+    PlayFlavor(Spawn, "", "", "dance", 0, 0, NPC)
+    AddTimer(NPC,1800,"Dialog4a",1,Spawn)
+end
+
+function Dialog4a(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("What in the heck are you doing, you idiot!?  Get out of here before I bash your head in!")
+    PlayFlavor(NPC, "", "", "boggle", 0, 0, Spawn)
+	Dialog.AddVoiceover("voiceover/english/grum_zoomly/fprt_west/grumzoomly003.mp3", 466250040, 3587098228)
+	Dialog.AddOption("I am an entertainer! I am always available to hire!","Dialog5")
+	Dialog.Start()
+end
+
+
+function Dialog5(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("Entertain? You're a moron! And soon you'll be a dead moron, I'll make sure of it!")
+    PlayFlavor(NPC, "", "", "stare", 0, 0, Spawn)
+	Dialog.AddVoiceover("voiceover/english/grum_zoomly/fprt_west/grumzoomly004.mp3", 415190010, 1464682173)
+	Dialog.AddOption("Think of all the extra coin you'll get if your patrons stick around! I'd only need a small bit and the rest is yours.","Dialog6")
+	Dialog.Start()
+end
+
+function Dialog6(NPC, Spawn)
+	FaceTarget(Spawn, NPC)
+    PlayFlavor(Spawn, "", "", "flirt", 0, 0, NPC)
+    AddTimer(NPC,1800,"Dialog6a",1,Spawn)
+end
+
+function Dialog6a(NPC, Spawn)
+	SetStepComplete(Spawn,Scout,3)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("You fool! You're going to kill yourself! Heck, I'll hire you just to see how long it takes! You'll have to wait till I'm done counting today's take. Stop by after I close, and we'll discuss payment.")
+    PlayFlavor(NPC, "", "", "scold", 0, 0, Spawn)
+	Dialog.AddVoiceover("voiceover/english/grum_zoomly/fprt_west/grumzoomly005.mp3", 4032144186, 3733276565)
+	Dialog.AddOption("Thank you, but my act must hit the road!")
 	Dialog.Start()
 end

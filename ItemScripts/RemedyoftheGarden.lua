@@ -19,6 +19,7 @@ end
 
 function used (Item, Player)
     Spell = GetSpell(2550435)
+    SetSpellData(Spell, "name", "Remedy of the Garden")
     SetSpellDataIndex(Spell, 0, 8)
     SetSpellDataIndex(Spell, 1, 8)
     CastCustomSpell(Spell, Player, Player)
