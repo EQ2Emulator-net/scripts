@@ -118,7 +118,7 @@ function Dialog3(NPC,Spawn)
 	Dialog.New(NPC, Spawn)   
  	Dialog.AddDialog("I'll take your word that you stole this from him. Well, since you pulled off the other tricks, I guess I teach you a few more. Instead of being a freelance rogue or a deceptive bard, you can also ply your trade as a hunter or a predator. After I show you the tricks they use, maybe you decide what kind of scout you wants to be.")
     PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-    Dialog.AddOption("What should I know about predators?.","Dialog3a")
+    Dialog.AddOption("What should I know about predators?","Dialog3a")
 	Dialog.Start()
 end
 
@@ -140,39 +140,18 @@ function Dialog3b(NPC,Spawn)
 	Dialog.Start()
 end
 
---QUEST 2 
-
 function Dialog4(NPC,Spawn)
+    SetStepComplete(Spawn,Quest1,7)
     FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Of course!  Early to bed and early to rise makes you a dull boy.  Never put your hand in a gift horse's mouth.  A copper saved is a copper not spent on a nip of sherry.  A bird in the hand is never as good as a bird in the ... ah, yes.  But I assume you're not here for this type of advice.  You're interested in more scoutly tips, right?")
-    PlayFlavor(NPC, "", "", "orate", 0, 0, Spawn)
-    Dialog.AddOption("You have quite the skill for going on and on, don't you?","Dialog4a")	
-    Dialog.AddOption("Nope. That is exactlly what I was looking for. I feel more counseled already!")	
-	Dialog.Start()
-end
-
-function Dialog4a(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("I'll take that as a compliment, thank you very much.  Very well ... you've had a taste of the skills rogues and bards use, but you haven't touched on those of the predator. Just like the rogue, the life of the predator is often misunderstood.  This is why many a predator leaves society for the quiet of the wilderness.")
-    PlayFlavor(NPC, "", "", "glare", 0, 0, Spawn)
-    Dialog.AddOption("Why would they want to remove themselves from society?","Dialog4b")	
-	Dialog.Start()
-end
-
-function Dialog4b(NPC,Spawn)
-    FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)   
- 	Dialog.AddDialog("Predators distill every ounce of patience and diligence from within their very being and direct that concentrate towards the quarry they tirelessly pursue. Just as if it was a precious jewel, nothing stops predators from acquiring their target.")
-	Dialog.AddVoiceover("voiceover/english/counselor_vemerik/qey_north/counselor_vemerik014.mp3", 252169765, 1039248114)
+ 	Dialog.AddDialog("Yes. yes. The Overlord will certainly be pleased to have a few less annoyances. Hopefully the hunt proved insightful enough to help you decide your next steps... A tavern will only take you so far.")
     PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-    Dialog.AddOption("Like a hunter stalking its prey? ","Quest2Offer")	
-    Dialog.AddOption("Like a spider and its web?","Quest2Offer")	
-    Dialog.AddOption("Like a loan collector?","Quest2Offer")	
-    Dialog.AddOption("Most interesting, but I'm in way over my head with all of this.")	
+    Dialog.AddOption("I could go for a drink right about now.","Decide")
+    Dialog.AddOption("A lie down sounds pretty nice right about now.","Decide")
+    Dialog.AddOption("Perhaps. I'd rather go make a bit of coin anyway.","Decide")
 	Dialog.Start()
 end
+
 
 function Decide(NPC,Spawn)
     if HasQuest(Spawn,Quest1) and GetQuestStep(Spawn,Quest1) ==7 then

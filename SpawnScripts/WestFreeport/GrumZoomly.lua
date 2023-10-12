@@ -31,7 +31,7 @@ function Dialog1(NPC, Spawn)
 	Dialog.AddOption("Lucan is disappointed that you've been serving the Guttersnipes.","Dialog2")
 	end
 	if HasQuest(Spawn,Scout) and GetQuestStep(Spawn,Scout)>=3 and  GetQuestStep(Spawn,Scout)<=4  and GetQuestStepProgress(Spawn,Scout,3)==0 then
-	Dialog.AddOption("Hey, want to dance?! [Show off your moves]","Dialog2")
+	Dialog.AddOption("Hey, want to dance?! [Show off your moves]","Dialog4")
 	end
 	Dialog.AddOption("Got it.")
 	Dialog.Start()
@@ -74,7 +74,7 @@ end
 
 function Dialog4(NPC, Spawn)
 	FaceTarget(Spawn, NPC)
-    PlayFlavor(Spawn, "", "", "dance", 0, 0, NPC)
+    PlayFlavor(Spawn, "", "", "dance", 0, 0)
     AddTimer(NPC,1800,"Dialog4a",1,Spawn)
 end
 

@@ -9,7 +9,7 @@
 
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
     SetSpellTriggerCount(100, 1)
-    AddProc(Caster, 3, 12)
+    AddProc(Caster, 3, 8)
 
 end
 
