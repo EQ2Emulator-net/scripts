@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/SunkenCity_Classic/abulkybrinesifter.lua
+    Script Name    : SpawnScripts/SunkenCity_Classic/arustmonster.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.10.12 04:10:04
+    Script Date    : 2023.10.12 04:10:48
     Script Purpose : 
                    : 
 --]]
@@ -10,14 +10,14 @@ require "SpawnScripts/Generic/CombatModule"
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
     local Level = GetLevel(NPC)
-    local level1 = 7
-    local level2 = 8
-    local difficulty1 = 8
-    local hp1 = 405
-    local power1 = 180
-    local difficulty2 = 8
-    local hp2 = 485
-    local power2 = 200
+    local level1 = 5
+    local level2 = 6
+    local difficulty1 = 6
+    local hp1 = 130
+    local power1 = 65
+    local difficulty2 = 6
+    local hp2 = 150
+    local power2 = 80
     if Level == level1 then
     SpawnSet(NPC, "difficulty", difficulty1)
     SpawnSet(NPC, "hp", hp1)

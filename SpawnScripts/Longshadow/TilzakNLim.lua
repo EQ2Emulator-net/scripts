@@ -1,9 +1,9 @@
 --[[
-	Script Name	: SpawnScripts/SunkenCity/TilzakNLim.lua
-	Script Purpose	: Tilzak N`Lim 
-	Script Author	: Neatz09
-	Script Date	: 12/31/2018
-	Script Notes	: Auto-Generated Conversation from PacketParser Data
+    Script Name    : SpawnScripts/Longshadow/TilzakNLim.lua
+    Script Author  : Dorbin
+    Script Date    : 2023.10.12 01:10:44
+    Script Purpose : 
+                   : 
 --]]
 require "SpawnScripts/Generic/DialogModule"
 
@@ -34,7 +34,6 @@ function Dialog1(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("These are my fish so you can't have them! Go... go find your own!")
 	Dialog.AddVoiceover("voiceover/english/optional5/standard_dark_elf_male/fprt_hood05/std_de_male_tilzak_nlim.mp3", 3205731528, 2249540299)
-	Dialog.AddOption("I have the shark fins you wanted.", "Dialog1")
     if CanReceiveQuest(Spawn,QUEST_1) then
 		Dialog.AddOption("I didn't know the Teir'Dal took mundane jobs like fishing.", "Dialog2")
     end
@@ -43,6 +42,9 @@ function Dialog1(NPC, Spawn)
 	end
 	Dialog.AddOption("Then I'll leave you to your fish.")
 	Dialog.Start()
+	if GetQuestStep(Spawn, InformationGatheringFromaFishmonger) == 1 then
+        SetStepComplete(Spawn, InformationGatheringFromaFishmonger, 1)
+    end
 end
 
 
