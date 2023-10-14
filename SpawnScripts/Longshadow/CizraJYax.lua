@@ -57,9 +57,7 @@ end
 
 function Talk(NPC, Spawn)
 local FP_MageFaction = GetFactionAmount(Spawn, 104)
-    if FP_MageFaction >=30000 then
-	local choice = math.random(1, 7)
-	elseif FP_MageFaction >=10000 then
+	if FP_MageFaction >=10000 then
 	local choice = math.random(1, 6)
     else
 	local choice = math.random(1, 5)
@@ -74,11 +72,19 @@ local FP_MageFaction = GetFactionAmount(Spawn, 104)
 	elseif choice == 5 then
         PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_arcanescientists/ft/eco/evil/darkelf_female_eco_evil_arcanescientists_hail_gf_1035b801.mp3", "The Dismal Rage is such a group of pure evil, that how can they be trusted to heal anyone?", "", 3091455674, 3623617426, Spawn)
 	elseif choice == 6 then
+	    if FP_MageFaction >=40000 then
     	FaceTarget(NPC, Spawn)
-		PlayFlavor(NPC, "voiceover/english/highelf_eco_good_concordium/ft/eco/good/highelf_eco_good_concordium_10_gf_f5fd7a50.mp3", "To aid the Concordium is to unleash the force for good that burns within us all!", "thank", 3469670242, 3251902799, Spawn)
-	elseif choice == 7 then
+		PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_arcanescientists/ft/eco/evil/darkelf_female_eco_evil_arcanescientists_40_gf_c38c736.mp3", "To aid the Academy of Arcane Science is to unleash the force for power that burns within us all!", "cheer", 0, 0, Spawn)
+	    elseif FP_MageFaction >=30000 then
 	    FaceTarget(NPC, Spawn)
-		PlayFlavor(NPC, "voiceover/english/highelf_eco_good_concordium/ft/eco/good/highelf_eco_good_concordium_30_gf_1e49a37f.mp3", "Your couragous actions have assisted the Concordium in its quest for all knowledge!", "cheer", 1170821333, 3893107670, Spawn)
+		PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_arcanescientists/ft/eco/evil/darkelf_female_eco_evil_arcanescientists_30_gf_130c3c71.mp3", "You have helped the Academy of Arcane Science rise in power and brought some invaluable assets within these walls.", "thank", 0, 0, Spawn)
+	    elseif FP_MageFaction >=20000 then
+	    FaceTarget(NPC, Spawn)
+		PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_arcanescientists/ft/eco/evil/darkelf_female_eco_evil_arcanescientists_20_gf_7b836853.mp3", "Your actions have assisted the Academy of Arcane Science in its quest for all knowledge!", "", 0, 0, Spawn)
+	    elseif FP_MageFaction >=10000 then
+	    FaceTarget(NPC, Spawn)
+		PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_arcanescientists/ft/eco/evil/darkelf_female_eco_evil_arcanescientists_10_gf_5547196e.mp3", "Your actions have done well for the Academy of Arcane Science, but there is always more to know.", "nod", 0, 0, Spawn)
 	    end
+    end
     end
 end

@@ -50,7 +50,6 @@ if GetRace(Spawn)== 9 or GetRace(Spawn) == 6  then --FABRICATED HAIL. MISSING VO
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("You've got the look of a drowned rat! I have nothing for you needy types. Be on your way before I summon the Malitia.")
---	Dialog.AddVoiceover("voiceover/english/overseer_travogg/fprt_hood1/overseer_travogg001.mp3", 2748948544, 618605369)
 	Dialog.AddVoiceover("voiceover/english/voice_emotes/greetings/greetings_3_1004.mp3", 0, 0)
     PlayFlavor(NPC,"","","no",0,0,Spawn)
 	Dialog.AddOption("I'm suppose to meet an Overseer here. Is that you?","Dialog1")
@@ -84,7 +83,6 @@ function Dialog1(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Let's cut to the chase, shall we?  I don't know you.  I don't want to know you, and come to think of it, I'd rather chew on glass than even talk to you.  Unfortunately, my position requires me to help you. So, refugee, welcome to Freeport, City of the Free.")
     PlayFlavor(NPC,"","","sniff",0,0,Spawn)
-	--Dialog.AddVoiceover("voiceover/english/overseer_travogg/fprt_hood1/overseer_travogg002.mp3", 3261798868, 2615741361)
 	Dialog.AddOption("I don't quite like your tone.", "Dialog2")
 	Dialog.Start()
 end
@@ -94,7 +92,6 @@ function Dialog2(NPC, Spawn) --
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("No one ever does.  Now shut up and listen to what I say; The Overlord, all praise him, has ordered that all new refugees receive a house.  In exchange, you are indebted to him.  Pray that he never asks you to pay him back, understand?")
     PlayFlavor(NPC,"","","no",0,0,Spawn)
-	Dialog.AddVoiceover("voiceover/english/overseer_travogg/fprt_hood1/overseer_travogg003.mp3", 2428117614, 1340985853)
 	Dialog.AddOption("A 'free' house? I'll take my chances.", "QuestStart")
 	Dialog.Start()
 end

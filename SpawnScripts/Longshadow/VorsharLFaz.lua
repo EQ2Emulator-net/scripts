@@ -57,9 +57,7 @@ end
 
 function Talk(NPC, Spawn)
 local FP_CrafterFaction = GetFactionAmount(Spawn, 101)
-    if FP_CrafterFaction >=30000 then
-	local choice = math.random(1, 7)
-	elseif FP_CrafterFaction >=20000 then
+    if FP_CrafterFaction >=10000 then
 	local choice = math.random(1, 6)
     else
 	local choice = math.random(1, 5)
@@ -74,11 +72,19 @@ local FP_CrafterFaction = GetFactionAmount(Spawn, 101)
 	elseif choice == 5 then
         PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_coalitionoftradesfolke/ft/eco/evil/darkelf_male_eco_evil_coalitionoftradesfolke_hail_gm_73c8a151.mp3", "There's nothing that the Coalition of Tradesfolke can't make a profit out of.", "", 1077955965, 3866305338, Spawn)
 	elseif choice == 6 then
+	    if FP_CrafterFaction >=40000 then
     	FaceTarget(NPC, Spawn)
-        PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_coalitionoftradesfolke/ft/eco/evil/darkelf_male_eco_evil_coalitionoftradesfolke_20_gm_376317f5.mp3", "Although you still have quite a distance to go, the reputation you have managed to achieve is nevertheless impressive.", "", 2535649617, 1724444157, Spawn)
-	elseif choice == 7 then
+        PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_coalitionoftradesfolke/ft/eco/evil/darkelf_male_eco_evil_coalitionoftradesfolke_40_gm_3397b8bb.mp3", "The Coalition is fortunate to have your dedication! The sway you wield with them is worthy of awe!", "cheer", 0, 0, Spawn)
+	    elseif FP_CrafterFaction >=30000 then
 	    FaceTarget(NPC, Spawn)
-		PlayFlavor(NPC, "voiceover/english/highelf_eco_good_concordium/ft/eco/good/highelf_eco_good_concordium_30_gf_1e49a37f.mp3", "Your couragous actions have assisted the Concordium in its quest for all knowledge!", "cheer", 1170821333, 3893107670, Spawn)
+        PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_coalitionoftradesfolke/ft/eco/evil/darkelf_male_eco_evil_coalitionoftradesfolke_30_gm_deefc882.mp3", "You have achieved quite a reputation for your work with the Coalition.", "", 0, 0, Spawn)
+	    elseif FP_CrafterFaction >=20000 then
+	    FaceTarget(NPC, Spawn)
+        PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_coalitionoftradesfolke/ft/eco/evil/darkelf_male_eco_evil_coalitionoftradesfolke_20_gm_376317f5.mp3", "Although you still have quite a distance to go, the reputation you have managed to achieve is nevertheless impressive.", "", 2535649617, 1724444157, Spawn)
+	    elseif FP_CrafterFaction >=10000 then
+	    FaceTarget(NPC, Spawn)
+        PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_coalitionoftradesfolke/ft/eco/evil/darkelf_male_eco_evil_coalitionoftradesfolke_10_gm_bda4135a.mp3", "Are you willing to sacrifice yourself for the glory of Freeport, and the profit of the Coalition? Are you willing to endure days locked within a leaky cellar, your fingers bleeding as you work the loom and the forge?", "", 0, 0, Spawn)
+	    end
 	    end
     end
 end

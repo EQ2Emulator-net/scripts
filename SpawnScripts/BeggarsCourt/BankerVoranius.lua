@@ -10,7 +10,7 @@ local DonationsfromtheBanker = 5657
 
 require "SpawnScripts/Generic/DialogModule"
 
-local Citizenship = 5863
+local Citizenship = 5861
 
 function spawn(NPC)
     SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")		
