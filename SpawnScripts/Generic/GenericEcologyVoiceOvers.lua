@@ -200,7 +200,7 @@ function GenericEcologyHail(NPC, Spawn, faction)
 			    	if FPfaction <0 then
                         FactionChecking(NPC, Spawn, faction)
 				    else
-	           local choice = math.random(1,5)
+	           local choice = math.random(1,6)
 
 	                if choice == 1 then
                     PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_1/ft/darkelf/darkelf_eco_evil_1_aoi_gf_e557f427.mp3", "Anyone who dares to disagree with me will feel the taste of my steel.", "threaten", 1814321919, 1558985390, Spawn)
@@ -210,6 +210,10 @@ function GenericEcologyHail(NPC, Spawn, faction)
                 	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_1/ft/darkelf/darkelf_eco_evil_1_hail_gf_269d3910.mp3", "How dare you speak to me as if I was nothing more than a dirty troll!", "glare", 708249483, 3464421673, Spawn)
                 	elseif choice == 4 then
                 	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_1/ft/darkelf/darkelf_eco_evil_1_aoi_gf_eb029bed.mp3", "I am sickened by the lack of amenities within this city.", "flustered", 2205842657, 1362436730, Spawn)
+                	elseif choice == 5 then
+	            	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_2/ft/darkelf/darkelf_eco_evil_2_hail_gf_eb029bed.mp3", "I am sickened by the lack of amenities within this city.", "flustered", 140632112, 1000708438, Spawn)
+                	elseif choice == 6 then
+	               	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_2/ft/darkelf/darkelf_eco_evil_2_hail_gf_18ec7845.mp3", "Do you honestly believe I would speak with someone like you?", "boggle", 2993277341, 1897394040, Spawn)
                     end
 	                end
 			    end
@@ -1430,12 +1434,12 @@ function GenericEcology2Hail(NPC, Spawn, faction)
 			    	if FPfaction <0 then
                     FactionChecking(NPC, Spawn, faction)
 				    else
-	            local choice = math.random(1,8)
+	            local choice = math.random(1,6)
 
 	                if choice == 1 then
-	            	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_2/ft/darkelf/darkelf_eco_evil_2_hail_gf_eb029bed.mp3", "I am sickened by the lack of amenities within this city.", "flustered", 140632112, 1000708438, Spawn)
+            		PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_hail_gf_7fee68f8.mp3", "Everyone knows the Teir'Dal are the true power within Freeport.", "lookaway", 3768775503, 2939885824, Spawn, 0)
 	                elseif choice == 2 then
-	               	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_2/ft/darkelf/darkelf_eco_evil_2_hail_gf_18ec7845.mp3", "Do you honestly believe I would speak with someone like you?", "boggle", 2993277341, 1897394040, Spawn)
+             		PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_aoi_gf_e9678442.mp3", "You may thank me now for gracing you with my presence.", "royalwave", 362766636, 249197304, Spawn, 0)
 	                elseif choice == 3 then
 	               	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_aoi_gf_e9678442.mp3", "You may thank me now for gracing you with my presence.", "nod", 362766636, 249197304, Spawn)
                     elseif choice == 4 then
@@ -1444,10 +1448,6 @@ function GenericEcology2Hail(NPC, Spawn, faction)
 		            PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_hail_gf_36e1a774.mp3", "Poisoning is always an effective way of winning a debate.", "wink", 84926788, 876892580, Spawn, 0)
                     elseif choice == 6 then
 	            	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_hail_gf_8a6fa526.mp3", "Who do those Iksar think they are?  There will be a reckoning one day, I swear.", "shakefist", 3978923373, 3424693067, Spawn, 0)
-                    elseif choice == 7 then
-             		PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_aoi_gf_e9678442.mp3", "You may thank me now for gracing you with my presence.", "royalwave", 362766636, 249197304, Spawn, 0)
-                    elseif choice == 8 then
-            		PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_hail_gf_7fee68f8.mp3", "Everyone knows the Teir'Dal are the true power within Freeport.", "lookaway", 3768775503, 2939885824, Spawn, 0)
 	                end
 	             end
 			  end
@@ -3606,7 +3606,7 @@ if race >= 0 and race <= 18 and gender >= 1 and gender <= 2 then        -- verif
                         CalloutTimeCheck = true
 			            FaceTarget(NPC,Spawn)
 			            AddTimer(NPC,30000,"ResetCalloutTimer") 				        
-	           local choice = math.random(1,5)
+	           local choice = math.random(1,6)
 
 	                if choice == 1 then
                     PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_1/ft/darkelf/darkelf_eco_evil_1_aoi_gf_e557f427.mp3", "Anyone who dares to disagree with me will feel the taste of my steel.", "threaten", 1814321919, 1558985390)
@@ -3616,6 +3616,10 @@ if race >= 0 and race <= 18 and gender >= 1 and gender <= 2 then        -- verif
                 	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_1/ft/darkelf/darkelf_eco_evil_1_hail_gf_269d3910.mp3", "How dare you speak to me as if I was nothing more than a dirty troll!", "glare", 708249483, 3464421673)
                 	elseif choice == 4 then
                 	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_1/ft/darkelf/darkelf_eco_evil_1_aoi_gf_eb029bed.mp3", "I am sickened by the lack of amenities within this city.", "flustered", 2205842657, 1362436730)
+                	elseif choice == 5 then
+	            	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_2/ft/darkelf/darkelf_eco_evil_2_hail_gf_eb029bed.mp3", "I am sickened by the lack of amenities within this city.", "flustered", 140632112, 1000708438)
+                	elseif choice == 6 then
+	               	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_2/ft/darkelf/darkelf_eco_evil_2_hail_gf_18ec7845.mp3", "Do you honestly believe I would speak with someone like you?", "boggle", 2993277341, 1897394040)
                     end
 	                end
 			    end
@@ -5199,12 +5203,12 @@ function GenericEcology2Callout(NPC, Spawn, faction)
                         CalloutTimeCheck = true
 			            FaceTarget(NPC,Spawn)
 			            AddTimer(NPC,30000,"ResetCalloutTimer")    				        
-	            local choice = math.random(1,8)
+	            local choice = math.random(1,6)
 
 	                if choice == 1 then
-	            	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_2/ft/darkelf/darkelf_eco_evil_2_hail_gf_eb029bed.mp3", "I am sickened by the lack of amenities within this city.", "flustered", 140632112, 1000708438)
+		            PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_hail_gf_8a6fa526.mp3", "Who do those Iksar think they are?  There will be a reckoning one day, I swear.", "shakefist", 3978923373, 3424693067)
 	                elseif choice == 2 then
-	               	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_2/ft/darkelf/darkelf_eco_evil_2_hail_gf_18ec7845.mp3", "Do you honestly believe I would speak with someone like you?", "boggle", 2993277341, 1897394040)
+            		PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_hail_gf_7fee68f8.mp3", "Everyone knows the Teir'Dal are the true power within Freeport.", "lookaway", 3768775503, 2939885824)
 	                elseif choice == 3 then
 	               	PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_aoi_gf_e9678442.mp3", "You may thank me now for gracing you with my presence.", "nod", 362766636, 249197304)
                     elseif choice == 4 then
@@ -5213,10 +5217,6 @@ function GenericEcology2Callout(NPC, Spawn, faction)
 		            PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_hail_gf_36e1a774.mp3", "Poisoning is always an effective way of winning a debate.", "wink", 84926788, 876892580)
                     elseif choice == 6 then
              		PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_aoi_gf_e9678442.mp3", "You may thank me now for gracing you with my presence.", "royalwave", 362766636, 249197304)
-                    elseif choice == 7 then
-		            PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_hail_gf_8a6fa526.mp3", "Who do those Iksar think they are?  There will be a reckoning one day, I swear.", "shakefist", 3978923373, 3424693067)
-                    elseif choice == 8 then
-            		PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_3/ft/darkelf/darkelf_eco_evil_3_hail_gf_7fee68f8.mp3", "Everyone knows the Teir'Dal are the true power within Freeport.", "lookaway", 3768775503, 2939885824)
 	                end
 	             end
 			  end

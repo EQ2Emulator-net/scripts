@@ -11,6 +11,7 @@ require "SpawnScripts/Generic/DialogModule"
 local BlindTasteTest = 5693
 
 function spawn(NPC)
+    SetInfoStructString(NPC, "action_state", "drinking_idle")
 end
 
 function respawn(NPC)
