@@ -121,6 +121,7 @@ function Dialog3(NPC,Spawn)
  	Dialog.AddDialog("Amazing!  He charges ten gold pieces for a bottle and you lowered it to five silver pieces?  Well, my pupil, I think you have what it takes to be an enchanter.")
 	Dialog.AddVoiceover("voiceover/english/arcanist_sonius/fprt_north/arcanistsonius007.mp3",  1459390682, 2672790255)
     PlayFlavor(NPC, "", "", "boggle", 0, 0, Spawn)
+    SetStepComplete(Spawn,Mage1,4)
     if GetClass(Spawn)== 21 and GetLevel(Spawn)>=8 and GetQuestStep(Spawn,Mage1)==5 then
     Dialog.AddOption("I rather enjoyed manipulating the conversation to my desire...","Dialog4")   
     elseif GetClass(Spawn)== 21 and GetLevel(Spawn)< 8 and GetQuestStep(Spawn,Mage1)==5 then

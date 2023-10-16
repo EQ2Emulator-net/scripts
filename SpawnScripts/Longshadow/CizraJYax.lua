@@ -1,9 +1,9 @@
 --[[
 	Script Name		: SpawnScripts/LongshadowAlley/CizraJYax.lua
 	Script Purpose	: Cizra J`Yax
-	Script Author	: torsten
-	Script Date		: 2022.07.20
-	Script Notes	: Auto-Generated Conversation from PacketParser Data
+	Script Author	: Dorbin
+	Script Date		: 2023.10.14
+	Script Notes	:
 --]]
 dofile("SpawnScripts/Generic/GenericEcologyVoiceOvers.lua")
 
@@ -20,7 +20,7 @@ function InRange(NPC, Spawn)
      	FaceTarget(NPC, Spawn)
         FactionChecking(NPC, Spawn, faction)
     else       
-        if MakeRandomInt(1, 100) <= 66 and CalloutTimeCheck == false then
+        if MakeRandomInt(1, 100) <= 50 and CalloutTimeCheck == false then
         CalloutTimeCheck = true
         FaceTarget(NPC, Spawn)			            
 	    AddTimer(NPC,50000,"ResetCalloutTimer")      

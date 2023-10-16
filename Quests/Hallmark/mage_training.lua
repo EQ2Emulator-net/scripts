@@ -66,7 +66,7 @@ function Step4Complete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 4, "Arcanist Sonius was rather pleased by the deal I worked out. She has agreed to teach me more concerning the arcane arts.")
     UpdateQuestZone(Quest,"North Freeport")
 
-	AddQuestStepChat(Quest, 5, "I need to make sure I'm powerful enough to continue with the Arcanist", 1, "Once I've had enough experience, I should speak with the Arcanist again.", 11, 1440463)
+	AddQuestStepChat(Quest, 5, "I should see what else the Arcanist needs", 1, "Once I'm ready, I should speak with the Arcanist again.", 11, 1440463)
 	AddQuestStepCompleteAction(Quest, 5, "Step5Complete")
 end
 

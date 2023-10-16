@@ -20,7 +20,7 @@ function InRange(NPC, Spawn)
      	FaceTarget(NPC, Spawn)
         FactionChecking(NPC, Spawn, faction)
     else       
-        if MakeRandomInt(1, 100) <= 66 and CalloutTimeCheck == false then
+        if MakeRandomInt(1, 100) <= 50 and CalloutTimeCheck == false then
         CalloutTimeCheck = true
         FaceTarget(NPC, Spawn)			            
 	    AddTimer(NPC,50000,"ResetCalloutTimer")      
