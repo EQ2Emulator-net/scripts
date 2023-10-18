@@ -10,7 +10,24 @@ require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
+    if GetSpawnLocationID(NPC) == 406177 or
+    GetSpawnLocationID(NPC) == 405853 or
+    GetSpawnLocationID(NPC) == 406036 or
+    GetSpawnLocationID(NPC) == 133787022 or
+    GetSpawnLocationID(NPC) == 133787023 or
+    GetSpawnLocationID(NPC) == 133787024 then
     AddTimer(NPC,MakeRandomInt(0,3500),"ChooseMovement")
+    elseif GetSpawnLocationID(NPC) == 405595 then
+        waypoints(NPC)
+    end
+end
+
+function waypoints(NPC)
+	MovementLoopAddLocation(NPC, -27.86, 4.13, 55.03, 6, math.random(11,20))
+	MovementLoopAddLocation(NPC, -21.53, 4.00, 48.61, 6,  math.random(10,20))
+	MovementLoopAddLocation(NPC, -26.84, 4.00, 47.38,6, math.random(10,20))
+	MovementLoopAddLocation(NPC, -24.00, 4.41, 54.65, 6, math.random(10,20))
+	MovementLoopAddLocation(NPC, -24.70, 4.00, 45.53, 6, math.random(10,20))
 end
 
 function ChooseMovement(NPC)
