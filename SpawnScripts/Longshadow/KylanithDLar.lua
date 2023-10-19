@@ -37,6 +37,7 @@ if GetFactionAmount(Spawn,12) <0 then
     PlayFlavor(NPC, "","","shakefist",0,0, Spawn)
 else  
     if not HasLanguage(Spawn,2)then
+	FaceTarget(NPC, Spawn)
     Garbled(NPC,Spawn)
     else
     Dialog1(NPC,Spawn)

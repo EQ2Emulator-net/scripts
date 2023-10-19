@@ -1,10 +1,12 @@
 --[[
 	Script Name		: SpawnScripts/LongshadowAlley/DivekLNarr.lua
 	Script Purpose	: Divek L`Narr
-	Script Author	: torsten
+	Script Author	: torsten\\Dorbin - Added Dialog (Mostly fabricated)
 	Script Date		: 2022.07.18
 	Script Notes	: 
 --]]
+require "SpawnScripts/Generic/DialogModule"
+dofile("SpawnScripts/Generic/UnknownLanguage.lua")
 
 local DeadManEyes = 5674
 
@@ -17,6 +19,19 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
+if GetFactionAmount(Spawn,12) <0 then
+	FaceTarget(NPC, Spawn)
+    PlayFlavor(NPC, "","","shakefist",0,0, Spawn)
+else  
+    if not HasLanguage(Spawn,2)then
+    Garbled(NPC,Spawn)
+    else
+    Dialog1(NPC,Spawn)
+    end
+    end
+end
+
+function Dialog1(NPC,Spawn)
     if HasLanguage(Spawn, 2) then --Thexian
         if not HasQuest(Spawn, DeadManEyes) and not HasCompletedQuest(Spawn, DeadManEyes) then
            OfferQuest(NPC, Spawn, DeadManEyes)

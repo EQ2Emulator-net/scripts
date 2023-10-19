@@ -85,9 +85,9 @@ end
 function Dialog2a(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Hmmm... perahps I could make use of you. Is your brain matter solid enough to make a deilvery and not break it? I have a plan to discover what happened here that requires this package be delievered in ONE piece... unlike these broken furniture pieces you see strewn about.")
+	Dialog.AddDialog("Hmmm... perahps I could make use of you. Is your brain matter solid enough to make a deilvery and not lose it? I have a plan to discover what happened here that requires this message to be delievered in ONE piece... unlike these broken furniture pieces you see strewn about.")
     if CanReceiveQuest(Spawn, OgreWatch) then 
-    Dialog.AddOption("I'm sure I can deliver your package in one piece.","Offer1")
+    Dialog.AddOption("I'm sure I can deliver your letter in one piece.","Offer1")
     end
     Dialog.AddOption("Nope. NO time for that.")
 	Dialog.Start()

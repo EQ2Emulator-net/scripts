@@ -21,12 +21,16 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have collected two zombie eyes")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I have found a pair of zombie eyes from two different zombies.")
     
-    AddQuestStepChat(Quest, 2, "I should return to Divek.", 1, "I should return to Divek.", 11, 1380029)
+    AddQuestStepChat(Quest, 2, "I should return to Divek.", 1, "I will need to now bring these eyes back to Divek for my payment.", 11, 1380029)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 
+
+
 function QuestComplete(Quest, QuestGiver, Player)
-	UpdateQuestDescription(Quest, "Divek has paid me for the eyes that he claims will be used to look for his brother's soul. I have been warned not to interrupt his ritual. At least I was paid for the job.")
+	UpdateQuestStepDescription(Quest, 2, "I've given Divek the two zombie eyes")
+	UpdateQuestTaskGroupDescription(Quest,2, "I have found a pair of zombie eyes from two different zombies.")
+    	UpdateQuestDescription(Quest, "Divek has paid me for the eyes that he claims will be used to look for his brother's soul. I have been warned not to interrupt his ritual. At least I was paid for the job.")
 	GiveQuestReward(Quest, Player)
 end
 
