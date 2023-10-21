@@ -23,12 +23,12 @@ if GetFactionAmount(Spawn,12) <0 then
 	FaceTarget(NPC, Spawn)
     PlayFlavor(NPC, "","","shakefist",0,0, Spawn)
 else  
---    if not HasLanguage(Spawn,2)then
---    Garbled(NPC,Spawn)
---else
+    if not HasLanguage(Spawn,2)then
+    Garbled(NPC,Spawn)
+else
     Dialog1(NPC,Spawn)
     end
- --   end
+    end
 end
 
 function Dialog1(NPC, Spawn)
@@ -43,28 +43,40 @@ function Dialog1(NPC, Spawn)
     end
 	Dialog.AddOption("Perhaps you should lock your door then!")
 	Dialog.Start()
-	
 end
 
---That advice is precisely what I'd expect from a lowborn such as yourself.  However, my methods are more subtle.  After years of tracking down the murderer, I've concluded that his secret indeed lies within the ancient ruins of Neriak.  If I can gain passage into its depths, I should be able to catch the murderer unaware and avenge my brother.
---You have an impertinent manner.  Still, I may be able to use you.  I have applied myself to the dark arts so that I may one day channel my departed brother's spirit for further clues.  There is a special reagent I need to perform the channeling ritual.  If you gather it for me, you will be handsomely paid.
---Allow me to inspect them ... yes, these will suffice.  Now, take your coin and go.  I must perform this ritual undisturbed.  If you hear any screams, do not attempt to interfere.  If you disrupt the delicate procedure, I will use you as my next source of Dead Man's Eyes.  Do you understand?
-function Dialog2(NPC,Spawn)
-    if HasLanguage(Spawn, 2) then --Thexian
-        if not HasQuest(Spawn, DeadManEyes) and not HasCompletedQuest(Spawn, DeadManEyes) then
-           OfferQuest(NPC, Spawn, DeadManEyes)
-        end
-        if GetQuestStep(Spawn, DeadManEyes) == 2 then
-            SetStepComplete(Spawn, DeadManEyes, 2)
-        end
-    end
-	RandomGreeting(NPC, Spawn)
+function Dialog2(NPC, Spawn)
+   Dialog.New(NPC, Spawn)
+   Dialog.AddDialog("You must be offering your soul, because there is no other reason you should be pestering me while I try to avenge my brother's death. Even after four centuries, his untimely murder still haunts my waking thoughts. I MUST have answers!")
+   Dialog.AddOption("Sitting in this filth won't help. Go dig him up!", "Dialog3")
+   Dialog.AddOption("You pathetic fool. Centuries?! Get over it!")
+   Dialog.Start()
 end
 
-function RandomGreeting(NPC, Spawn)
-	local choice = MakeRandomInt(1,1)
+function Dialog3(NPC, Spawn)
+   Dialog.New(NPC, Spawn)
+   Dialog.AddDialog("That advice is precisely what I'd expect from a lowborn such as yourself.  However, my methods are more subtle.  After years of tracking down the murderer, I've concluded that his secret indeed lies within the ancient ruins of Neriak.  If I can gain passage into its depths, I should be able to catch the murderer unaware and avenge my brother.")
+   Dialog.AddOption("So, crawl through the rubble and look for it rather than crying to me!", "Dialog4")
+   Dialog.AddOption("After all this time? Doubtful. You've wasted your life.")
+   Dialog.Start()
+end
 
-	if choice == 1 then
-		PlayVoice(NPC, "voiceover/english/voice_emotes/greetings/greetings_1_1052.mp3", 0, 0, Spawn)
-	end
+function Dialog4(NPC, Spawn)
+   Dialog.New(NPC, Spawn)
+   Dialog.AddDialog("You have an impertinent manner.  Still, I may be able to use you.  I have applied myself to the dark arts so that I may one day channel my departed brother's spirit for further clues.  There is a special reagent I need to perform the channeling ritual.  If you gather it for me, you will be handsomely paid.")
+   Dialog.AddOption("Dark arts? I'm intrigued. What do you need?", "Dialog3")
+   Dialog.AddOption("You pathetic fool. Centuries?! Get over it!")
+   Dialog.Start()
+end
+
+function Offer(NPC,Spawn)
+   OfferQuest(NPC, Spawn, DeadManEyes)
+end    
+
+function Dialog5(NPC, Spawn)
+    SetStepComplete(Spawn, DeadManEyes, 2)
+   Dialog.New(NPC, Spawn)
+   Dialog.AddDialog("Allow me to inspect them ... yes, these will suffice.  Now, take your coin and go.  I must perform this ritual undisturbed.  If you hear any screams, do not attempt to interfere.  If you disrupt the delicate procedure, I will use you as my next source of Dead Man's Eyes.  Do you understand?")
+   Dialog.AddOption("Thanks. Screams in the Alley? Sounds like a normal night to me.")
+   Dialog.Start()
 end

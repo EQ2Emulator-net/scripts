@@ -10,6 +10,7 @@
 	Preceded by		:	None
 	Followed by		:	None
 --]]
+require "SpawnScripts/Generic/DialogModule"
 
 
 function Init(Quest)
@@ -35,7 +36,11 @@ function QuestComplete(Quest, QuestGiver, Player)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+	FaceTarget(QuestGiver, Player)
+	Dialog.New(QuestGiver, Player)
+	Dialog.AddDialog("I need a pair of eyes from a zombie's skull.  The eyes will allow me to peer into the spirit realm and locate my brother's soul.  Go to the graveyard and extract one pair of zombie eyes.  They must be whole and intact, with minimal decay.")
+   Dialog.AddOption("Finding your brother's spirit better be worth it!")
+	Dialog.Start()
 end
 
 function Declined(Quest, QuestGiver, Player)
