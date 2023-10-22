@@ -267,13 +267,15 @@ function GenericGuardHail(NPC, Spawn, Faction)
 						PlayFlavor(NPC, "voiceover/english/ogre_eco_evil_1/ft/service/guard/ogre_guard_service_evil_1_hail_gm_edb196f8.mp3", "All praises to the Overlord. The Militia protects loyal citizens of Freeport.", "salute_freeport", 2290537918, 776957565, Spawn)
 					end
 				elseif gender == FEMALE then
-					local choice = math.random(1, 3)
+					local choice = math.random(1, 4)
 					if choice == 1 then
 						PlayFlavor(NPC, "voiceover/english/ogre_eco_evil_1/ft/service/guard/ogre_guard_service_evil_1_hail_gf_7fa14d4.mp3", "Do not challenge my authority citizen. In Freeport, the Overlord's word is law!", "scold", 2981239011, 830472688, Spawn)
 					elseif choice == 2 then
 						PlayFlavor(NPC, "voiceover/english/ogre_eco_evil_1/ft/service/guard/ogre_guard_service_evil_1_hail_gf_e6d19328.mp3", "The Overlord commands me to work the night shift and so I must accept.", "tapfoot", 3190713491, 83008289, Spawn)
 					elseif choice == 3 then
 						PlayFlavor(NPC, "voiceover/english/ogre_eco_evil_1/ft/service/guard/ogre_guard_service_evil_1_hail_gf_edb196f8.mp3", "All praises to the Overlord. The Militia protects loyal citizens of Freeport.", "salute_freeport", 2650311659, 1056157406, Spawn)
+					elseif choice == 4 then
+                        PlayFlavor(NPC, "voiceover/english/ogre_eco_evil_1/ft/service/guard/ogre_guard_service_evil_1_hail_gf_582205e1.mp3", "Do you have business with the Freeport Militia?", "glare", 317902417, 868225324, Spawn)
 					end
 				end
 			elseif race == RATONGA then
@@ -343,21 +345,22 @@ function aggro(NPC, Spawn, Faction)
 				if gender == MALE then
 						PlayFlavor(NPC, "voiceover/english/barbarian_eco_good_1/ft/service/guard/barbarian_guard_service_good_1_kill_gm_2b7f45ad.mp3", "For the glory of Qeynos!", "", 1804495775, 3807708128)
 				elseif gender == FEMALE then
-						PlayFlavor(NPC, "", "For the glory of Qeynos!", "", 565962733, 3617633467, Spawn)
+						PlayFlavor(NPC, "", "For the glory of Qeynos!", "", 565962733, 3617633467)
 				end
 				
 			elseif race == DARK_ELF then
 				if gender == MALE then
-					    PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_1/ft/service/guard/darkelf_guard_service_evil_1_kill_gm_1ec6eff4.mp3", "Death to the enemies of Lucan!", "", 4030922503, 1352663696, Spawn)
+					    PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_1/ft/service/guard/darkelf_guard_service_evil_1_kill_gm_1ec6eff4.mp3", "Death to the enemies of Lucan!", "", 4030922503, 1352663696)
 				elseif gender == FEMALE then
 					local choice = math.random(1, 4)
-					    PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_1/ft/service/guard/darkelf_guard_service_evil_1_kill_gf_1ec6eff4.mp3", "Death to the enemies of Lucan!", "", 4030922503, 1352663696, Spawn)
+					    PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_1/ft/service/guard/darkelf_guard_service_evil_1_kill_gf_1ec6eff4.mp3", "Death to the enemies of Lucan!", "", 4030922503, 1352663696)
 				end
 		
 		    elseif race == DWARF then
 				if gender == MALE then
 						PlayFlavor(NPC, "voiceover/english/dwarf_eco_good_1/ft/service/guard/dwarf_guard_service_good_1_kill_gm_2b7f45ad.mp3", "For the glory of Qeynos!", "", 1964289468, 4158765460)
 				elseif gender == FEMALE then
+						PlayFlavor(NPC, "voiceover/english/dwarf_eco_good_1/ft/service/guard/dwarf_guard_service_good_1_kill_gf_2b7f45ad.mp3", "For the glory of Qeynos!", "", 1964289468, 4158765460)
 				    end
 				    
 				    
@@ -365,11 +368,11 @@ function aggro(NPC, Spawn, Faction)
 				if gender == MALE then
 				local choice = math.random(1, 4)
 					local choice = math.random(1, 4)
-						PlayFlavor(NPC, "voiceover/english/highelf_eco_good_1/ft/service/guard/highelf_guard_service_good_1_hail_gm_76da37c9.mp3", "I hate working this shift! If the gnolls don't attack now, I may die of boredom.", "grumble", 3586563752, 1865874525, Spawn)
+						PlayFlavor(NPC, "", "For the glory of Qeynos!", "", 0, 0)
 
 				elseif gender == FEMALE then
 					local choice = math.random(1, 4)
-						PlayFlavor(NPC, "", "For the glory of Qeynos!", "", 0, 0, Spawn)
+						PlayFlavor(NPC, "", "For the glory of Qeynos!", "", 0, 0)
                 end
 			elseif race == FROGLOK then
 				if gender == MALE then
@@ -377,6 +380,7 @@ function aggro(NPC, Spawn, Faction)
 				end
 			elseif race == GNOME then
 				if gender == MALE then
+						PlayFlavor(NPC, "voiceover/english/dwarf_eco_good_1/ft/service/guard/gnome_guard_service_good_1_kill_gm_2b7f45ad.mp3", "For the glory of Qeynos!", "", 1964289468, 4158765460)
 				elseif gender == FEMALE then
 				end
 			elseif race == HALF_ELF then
@@ -399,7 +403,7 @@ function aggro(NPC, Spawn, Faction)
 				end
 			elseif race == HUMAN then
 				if gender == MALE then
-					if faction == 102 then   -- Freeport Militia
+					if faction == 12 then   -- Freeport Militia
 					    PlayFlavor(NPC, "", "Death to the enemies of Lucan!", "", 0, 0, Spawn)
 					else
 
@@ -407,7 +411,7 @@ function aggro(NPC, Spawn, Faction)
 
 					end
 				elseif gender == FEMALE then
-					if faction == 102 then   -- Freeport Militia
+					if faction == 12 then   -- Freeport Militia
 					    PlayFlavor(NPC, "voiceover/english/darkelf_eco_evil_1/ft/service/guard/darkelf_guard_service_evil_1_kill_gf_1ec6eff4.mp3", "Death to the enemies of Lucan!", "", 4030922503, 1352663696, Spawn)
 					else
 						PlayFlavor(NPC, "voiceover/english/human_eco_good_1/ft/service/guard/human_guard_service_good_1_kill_gf_2b7f45ad.mp3", "For the glory of Qeynos!", "", 2825851367, 3848266464, Spawn)

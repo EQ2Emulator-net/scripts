@@ -31,10 +31,9 @@ if GetFactionAmount(Spawn,12)<0 then
         if math.random(0,100)<40 then
      	FaceTarget(NPC, Spawn)
         Garbled(NPC,Spawn)
-        --PlayFlavor(NPC,"","","",0,0,Spawn)
         end
     else
-        GenericEcologyCallout(NPC, Spawn, faction)
+        GenericEcologyHail(NPC, Spawn, faction)
 end
 end
 end

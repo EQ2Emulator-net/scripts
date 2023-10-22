@@ -34,7 +34,7 @@ if GetFactionAmount(Spawn,12)<0 then
         --PlayFlavor(NPC,"","","",0,0,Spawn)
         end
     else
-    GenericEcology2Callout(NPC, Spawn, faction)
+    GenericEcology2Hail(NPC, Spawn, faction)
 end
 end
 end

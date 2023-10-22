@@ -79,19 +79,10 @@ end
 function Dialog1a(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Do you always pry into people's business?! WHY would I speak to YOU? Can't you see I'm busy planning my next move carefully?!... UGH! Why must I continually deal with these rediculous interruptions?!")
+	Dialog.AddDialog("Do you always pry into people's business?! Can't you see I'm busy planning my next move against my love?!... UGH! He is obviously seeing someone else... Inexcusable!")
  	PlayFlavor(NPC, "", "", "grumble", 0, 0, Spawn)
-    Dialog.AddOption("Look, I am looking for work and you are OBVIOUSLY dealing with something. Tell me.","Dialog1b")
+    Dialog.AddOption("Look, I want work and you are OBVIOUSLY needing something. Tell me what he did.","Dialog1b")
     Dialog.AddOption("With that, I'm done. Good luck with... whatever.")
-	Dialog.Start()
-end
-
-function Dialog1b(NPC,Spawn)
-	FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Fine, you persistent pest, my love has done something just the other day I can NOT forgive. I've just brainstormed an idea that could use someone who doesn't mind getting their hands dirty.  If you are successful... I could scrounge up a few coins for your assistance.")
-    Dialog.AddOption("I'm listening.","Dialog1c")
-    Dialog.AddOption("Nope! I don't like where this is going!")
 	Dialog.Start()
 end
 

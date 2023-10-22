@@ -5,7 +5,7 @@
 	Script Date		: 2022.07.20
 	Script Notes	: 
 --]]
-
+dofile("SpawnScripts/Generic/GenericGuardVoiceOvers.lua")
 require "SpawnScripts/Generic/DialogModule"
 
 local TheTruthisoutThere = 5684

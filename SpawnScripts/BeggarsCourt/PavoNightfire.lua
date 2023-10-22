@@ -27,14 +27,14 @@ function Dialog1(NPC, Spawn)
 	Dialog.AddDialog("The guards don't patrol for our protection they patrol to keep us in line. This part of the city is a holding cell; it's more of a prison than Freeport! Ah, Freeport, I hear its streets are paved with gold!")
 	Dialog.AddVoiceover("voiceover/english/pavo_nightfire/fprt_hood04/std_pavo_nightfire.mp3", 318731360, 4037507119)
     if GetQuestStep(Spawn, ADramaticPerformance) == 1 then
-    Dialog.AddOption("Maliz T'Raan says his 'friend was brought to tears by the acting troupe's performance'.","Dialog1")
+    Dialog.AddOption("Maliz T'Raan says his 'friend was brought to tears by the acting troupe's performance'.","Dialog2")
     end
     Dialog.AddOption("I highly doubt that.")
 	Dialog.Start()
 end
 
-function Dialog1(NPC,Spawn)
-        SetStepComplete(Spawn, ADramaticPerformance, 1)
+function Dialog2(NPC,Spawn)
+    SetStepComplete(Spawn, ADramaticPerformance, 1)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	PlayFlavor(NPC, "", "", "confused", 0, 0, Spawn)

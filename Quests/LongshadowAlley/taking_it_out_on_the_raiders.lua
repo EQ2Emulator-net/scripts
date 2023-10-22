@@ -37,7 +37,7 @@ function Accepted(Quest, QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)
 	Dialog.AddDialog("Why don't you go kill the Raiders? They don't deserve to breathe the same air as the Teir'Dal ... and killing one or two is not enough ... a real warrior would kill at least ten of them before calling it a day. And if you find their leader, kill that worthless traitor. Go now!  May you return with a blood-soaked blade!")
     PlayFlavor(QuestGiver,"","","ponder",0,0,Player)
-	Dialog.AddOption("Gladly. They'll soon taste death!")
+	Dialog.AddOption("If that is what it takes, gladly.")
 	Dialog.Start()
 end
 

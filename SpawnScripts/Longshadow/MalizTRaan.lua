@@ -36,7 +36,7 @@ elseif CanReceiveQuest(Spawn, ADramaticPerformance) then
 elseif HasQuest(Spawn, ADramaticPerformance)and GetQuestStep(Spawn,ADramaticPerformance) ==1   then  
     Dialog4 (NPC,Spawn)
 elseif HasQuest(Spawn, ADramaticPerformance)and GetQuestStep(Spawn,ADramaticPerformance) ==2   then  
-    Dialog5 (NPC,Spawn)
+    Dialog1 (NPC,Spawn)
 else     
      Dialog1(NPC,Spawn)
    end
@@ -58,10 +58,10 @@ function Dialog1(NPC,Spawn)
     Dialog.AddOption("Nothing right now.")
     end
     if CanReceiveQuest(Spawn, TakingitOutontheRaiders) then 
-    Dialog.AddOption("If you have such a problem here, then why haven't you left?","Dialog1a")
+    Dialog.AddOption("If you have such a problem here, then why haven't you moved out?","Dialog1a")
     end
     if CanReceiveQuest(Spawn, ADramaticPerformance) then 
-    Dialog.AddOption("You mentioned you had more work for me?","Dialog3a")
+    Dialog.AddOption("You mentioned you had more work for me?","Dialog3b")
     end
     if HasQuest(Spawn, TakingitOutontheRaiders) and GetQuestStep(Spawn,TakingitOutontheRaiders)==2 then 
     Dialog.AddOption("Have you noticed I've removed a number of raiders from the area?","Dialog3")
@@ -76,9 +76,9 @@ end
 function Dialog1a(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("What kind of stupid question is that? Move where? There IS nowhere to go, fool! Neriak is gone! GONE! We're forced to live like common overlanders ... worse yet, we must live WITH them! ARRRG!!! I want to rip something apart -- like those human marauders out in the Sunken City! That would calm me down.")
+	Dialog.AddDialog("What kind of stupid question is that? Move where? There IS nowhere to go, fool! Neriak is gone! GONE! We're forced to live like common overlanders ... worse yet, we must live WITH them! ARRRG!!! I want to rip something apart -- like those human raiders out in the Sunken City! That would calm me down.")
  	PlayFlavor(NPC, "", "", "grumble", 0, 0, Spawn)
-    Dialog.AddOption("If it would calm you down, I could do something about it.","Offer1")
+    Dialog.AddOption("If it would scilence your hollering, I will do something about it.","Offer1")
     Dialog.AddOption("No need to shout, fool! Enjoy living in refuse!")
 	Dialog.Start()
 end
@@ -105,23 +105,31 @@ function Dialog3(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	PlayFlavor(NPC, "", "", "happy", 0, 0, Spawn)
-	Dialog.AddDialog("Oh yes. Yes.  I knew you wouldn't let me down.  I could just tell that about you..about you.  Not like those useless marauders...untrustworthy pusses.  I'll never trust them again.")
+	Dialog.AddDialog("Oh yes. Yes.  I knew you wouldn't let me down.  I could just tell that about you..about you.  Not like those useless raiders...untrustworthy pusses.  I'll never trust them again.")
     Dialog.AddOption("So... How about some payment?","Dialog3a")
 	Dialog.Start()
 end
 
-function Dialoga3a(NPC,Spawn)
+function Dialog3a(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
     SetStepComplete(Spawn, TakingitOutontheRaiders, 2)
 	Dialog.New(NPC, Spawn)
 	PlayFlavor(NPC, "", "", "sniff", 0, 0, Spawn)
 	Dialog.AddDialog("I suppose your skills warrent something... Here. It is not much, but I could still use your help... This incedent with the raiders has been... unsettling. I can make it worth your while in the end!")
-    Dialog.AddOption("I could be persuaded.","Offer2")
+    Dialog.AddOption("I could be persuaded.","Dialog3b")
     Dialog.AddOption("I'd rather tickle an orc than do more for you!")
 	Dialog.Start()
 end
 
-
+function Dialog3b(NPC,Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
+	Dialog.AddDialog("You have calmed my nerves some, but my friend and I have recently been moved by a performance we witnessed earlier today. We can't shake what we've witnessed and need to express our emotions to the performers...")
+    Dialog.AddOption("I would be glad to help.","Offer2")
+    Dialog.AddOption("I'm no messanger. Find someone else.")
+	Dialog.Start()
+end
 
 function Dialog4(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
@@ -133,11 +141,12 @@ function Dialog4(NPC,Spawn)
 end
 
 function Dialog5(NPC,Spawn)
+    SetStepComplete(Spawn, ADramaticPerformance, 2)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn)
-	Dialog.AddDialog("Very good. We would hate to miss the next show... ")
-    Dialog.AddOption("He seemed honest enough?","Dialog4b")
+	Dialog.AddDialog("Good... Very good. We will certainly prepare for our next step. You, on the other hand, have proved to be quite useful. Take this, and if you're interested in more work speak to my friend here. He'll have one last opportunity for you before the 'show' reaches its climax.")
+    Dialog.AddOption("I might just do that.")
 	Dialog.Start()
 end
 

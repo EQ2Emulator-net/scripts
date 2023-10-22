@@ -37,9 +37,9 @@ end
 function Accepted(Quest, QuestGiver, Player)
 	FaceTarget(QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)
-	Dialog.AddDialog("I trust in your skills, therefore I will send word to Pavo to begin the transport of the treasure. Unfortunately, I cannot tell you anymore about the mission, but I promise that when our treasure is here, the Teir'Dal will no longer grovel before Lucan D'Lere. I may need your services later, but for now we best not speak to one another. Until then, farewell...")
+	Dialog.AddDialog("I'm not certain of your motives, but nonetheless, I will entrust you with this message. Go to the human's district and look for a man named Pavo. Tell him the acting troupe's performance brought my friend to tears. I need to know his response. For your sake, I hope you return quickly...")
     PlayFlavor(QuestGiver,"","","agree",0,0,Player)
-	Dialog.AddOption("You had me at treasure.")
+	Dialog.AddOption("Touching... I'll see he get's this.")
 	Dialog.Start()
 end
 

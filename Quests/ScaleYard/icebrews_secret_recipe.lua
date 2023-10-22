@@ -10,6 +10,7 @@
 	Preceded by		:	None
 	Followed by		:	Blind Taste Test
 --]]
+require "SpawnScripts/Generic/DialogModule"
 
 
 function Init(Quest)
@@ -26,12 +27,19 @@ function Step1Complete(Quest, QuestGiver, Player)
 end
 
 function QuestComplete(Quest, QuestGiver, Player)
-	UpdateQuestDescription(Quest, "Icebrew has given me my money and my free beer. I think I'll hold onto the beer for now... it seems more like a weapon than a drink.")
+	UpdateQuestStepDescription(Quest, 2, "I gave Icebrew the blood that I collected.")
+	UpdateQuestTaskGroupDescription(Quest, 2, "I gave Icebrew the blood that I collected.")
+ 	UpdateQuestDescription(Quest, "Icebrew has given me my money and my free beer. I think I'll hold onto the beer for now... it seems more like a weapon than a drink.")
 	GiveQuestReward(Quest, Player)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+	FaceTarget(QuestGiver, Player)
+	Dialog.New(QuestGiver, Player)
+	Dialog.AddDialog("Go to the Sunken City and slay the rust monsters that lurk there. Kill the beasts and squeeze them with all your might. Out of their bodies should pour about a jar's worth of pure, liquid rust. Come back with as many jars as you can, and we have a deal.")
+	Dialog.AddVoiceover("voiceover/english/bartender_icebrew/fprt_hood06/quests/bartendericebrew/icebrew_x1_accept.mp3", 2282916525, 4054783281)
+	Dialog.AddOption("I can do this.", "Dialog9")
+	Dialog.Start()
 end
 
 function Declined(Quest, QuestGiver, Player)
