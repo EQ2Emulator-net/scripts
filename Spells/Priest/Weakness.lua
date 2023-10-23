@@ -9,7 +9,7 @@
 
 function cast(Caster, Target, BasePenalty, SpellLevel)
     Level = GetLevel(Caster)
-    Mastery = SpellLevel + 7
+    Mastery = SpellLevel + 10
     
     if Level < Mastery then
         LvlBonus = Level - SpellLevel

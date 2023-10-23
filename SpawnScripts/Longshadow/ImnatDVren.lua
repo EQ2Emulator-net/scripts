@@ -40,7 +40,7 @@ function Dialog1(NPC,Spawn)
     PlayFlavor(NPC, "","","grumble",0,0, Spawn)
 	Dialog.AddVoiceover("voiceover/english/imnat_d_vren/fprt_hood05/100_std_de_male_imnat_dvren_callout_c7828a4.mp3",3649396705, 3766219054)
     if GetQuestStep(Spawn, TheTruthisoutThere)==1 then
-	Dialog.AddOption("I found out the culprit is Kirs G'viz, here in Longshadow Alley.", "Dialog2")
+	Dialog.AddOption("I'm here to investigate information for the Militia.", "Dialog2")
     end
     if CanReceiveQuest(Spawn, AShadyClearing) then
 	Dialog.AddOption("Maliz said that you might have some work for me?", "Dialog3")
@@ -62,8 +62,7 @@ function QuestCheck(NPC,Spawn)
 	Dialog.Start()
 end 
 
- --You arrive, asking about the Teir'Dal and snooping about. Then, after months of being incident free, we're attacked. It's hard not to draw a connection there!
- --
+
 function Dialog2(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)

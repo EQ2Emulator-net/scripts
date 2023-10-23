@@ -22,7 +22,7 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have had Modian K'Jarr taste the brew.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I found a Dark Elf by the name of Modian K'Jarr to drink the Wheat Rust Stout. He immediately went blind and I think he might have died.")
 
-    AddQuestStepChat(Quest, 2, "I should return to Bartender Icebrew.", 1, "I should return to Bartender Icebrew in Scale Yard.", 11, 1390051)
+    AddQuestStepChat(Quest, 2, "I should return to Bartender Icebrew.", 1, "I should tell Icebrew not to serve that drink. Well, except to his enemies, I guess.", 11, 1390051)
     AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 

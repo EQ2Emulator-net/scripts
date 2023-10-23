@@ -93,7 +93,7 @@ function Dialog1(NPC,Spawn)
     end
 
     if CanReceiveQuest(Spawn, SilencedSpeech) then
-	Dialog.AddOption("Have the Malitia dealt with the Thexian yet?", "Dialog1c")
+	Dialog.AddOption("Have the Militia dealt with the Thexian yet?", "Dialog1c")
     elseif GetQuestStep(Spawn, SilencedSpeech)==2 then
 	Dialog.AddOption("I've found a signet ring on who I believe to be Kirs.", "Dialog2")
     end
