@@ -55,7 +55,7 @@ function Dialog1(NPC,Spawn)
 	
     if CanReceiveQuest(Spawn, TheMissingBook) then
 	Dialog.AddOption("I didn't mean to bother you.", "Dialog1a")
-    elseif GetQuestStepProgress(Spawn, TheMissingBook)==2 then
+    elseif GetQuestStep(Spawn, TheMissingBook)==2 then
 	Dialog.AddOption("I found the Ratonga, but she didn't have the book.", "Dialog2")
     end
 

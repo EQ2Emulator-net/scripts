@@ -19,7 +19,9 @@ end
 function DespawnCheck(NPC)
     if GetSpawnLocationID(NPC) ==420362 then
         AddTimer(NPC,184000,"Despawning")
-    end
+    elseif GetSpawnLocationID(NPC) ==420349 then
+        AddTimer(NPC,123000,"Despawning")
+   end
 end
 
 function Despawning(NPC)
@@ -29,6 +31,8 @@ end
 function waypoints1(NPC)
     if GetSpawnLocationID(NPC) ==420362 then
     MoveToLocation(NPC,28.6, 3, 61.12, 1)
+    elseif GetSpawnLocationID(NPC) ==420349 then
+    MoveToLocation(NPC,33.31, 3.00, 71.43, 4)
 	elseif GetSpawnLocationID(NPC) ==420418 then --roamer
 	MovementLoopAddLocation(NPC, 50.22, 3, 60.54, 2, 0)
 	MovementLoopAddLocation(NPC, 46.6, 3, 54.03, 2, 0)
@@ -109,8 +113,20 @@ function waypoints2(NPC)
 	MovementLoopAddLocation(NPC, 34.5, 3, 68.86, 1, 0)
 	MovementLoopAddLocation(NPC, 36.18, 3, 64.02, 1, 0)
 	MovementLoopAddLocation(NPC, 36.18, 3, 64.02, 1, 4)
-	
-
+    elseif GetSpawnLocationID(NPC) ==420349 then
+	MovementLoopAddLocation(NPC, 30.93, 3, 69.23, 6, 0)
+	MovementLoopAddLocation(NPC, 28.76, 3, 61.79, 6, 0)
+	MovementLoopAddLocation(NPC, 24.7, 3, 61.78, 6, 0)
+	MovementLoopAddLocation(NPC, 21.63, 2.93, 66.95, 6, 0)
+	MovementLoopAddLocation(NPC, 17.96, 3.01, 72.13, 6, 0)
+	MovementLoopAddLocation(NPC, 5.76, 3, 67.83, 6, 0)
+	MovementLoopAddLocation(NPC, -2.09, 3, 61.88, 6, 0)
+	MovementLoopAddLocation(NPC, -1.3, 3, 57.67, 6, 0)
+	MovementLoopAddLocation(NPC, -5.37, 3, 56.58, 6, 0)
+	MovementLoopAddLocation(NPC, -6.35, 3, 58.17, 6, 0)
+	MovementLoopAddLocation(NPC, -6.35, 3, 58.17, 6, 10)	
+	MovementLoopAddLocation(NPC, -0.77, 3.00, 57.48, 1, 0)	
+	MovementLoopAddLocation(NPC, 4.15, 3.00, 52.91, 6, 999)	
 end
 end
 

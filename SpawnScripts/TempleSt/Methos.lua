@@ -5,11 +5,59 @@
     Script Purpose : 
                    : 
 --]]
-
-
 function spawn(NPC)
-	waypoints(NPC)
+AddTimer(NPC,MakeRandomInt(3000,6000),"ChefCheck")
+waypoints(NPC)
 end
+
+function ChefCheck(NPC,Spawn)
+    if IsAlive(NPC) then
+        AddTimer(NPC,MakeRandomInt(4000,7000),"ChefCheck")
+
+        if not IsInCombat(NPC) then
+        local zone = GetZone(NPC)
+        local Chef = GetSpawnByLocationID(zone,420550)
+        local Distance = GetDistance(NPC,Chef,1)
+        if Distance <=4 then
+            Attack(Chef,NPC)
+            Attack(NPC,Chef)
+            local x = GetX(Chef)
+            local y = GetY(Chef)
+            local z = GetZ(Chef)
+            SetFollowTarget(Chef,NPC)
+            SetFollowTarget(NPC,Chef)
+            ToggleFollow(Chef)
+            ToggleFollow(NPC)
+            SetTarget(Chef,NPC)
+            FaceTarget(Chef,NPC)
+            FaceTarget(NPC,Chef)
+            PlayFlavor(NPC,"","","attack",0,0)
+            AddTimer(NPC,MakeRandomInt(2500,4500),"kill",1,Spawn)
+      end
+    end
+end
+end
+
+function kill (NPC,Spawn)
+    local zone = GetZone(NPC)
+    local Chef = GetSpawnByLocationID(zone,420550)
+    PlayFlavor(Chef,"","","1h_sword_attack",0,0)
+    KillSpawn(NPC)
+    AddTimer(Chef,2500,"scoop")
+    AddTimer(NPC,3000,"Despawning")
+end
+
+function Despawning(NPC,Spawn)
+    Despawn(NPC)
+end
+
+function scoop(NPC,Spawn)
+    local zone = GetZone(NPC)
+    local Chef = GetSpawnByLocationID(zone,420550)
+    PlayFlavor(Chef,"","","gathering_success",0,0)
+    Despawn(NPC)
+end
+
 
 
 function respawn(NPC)
@@ -27,6 +75,22 @@ end
 function Rat_1_Run(NPC,Spawn)
     local zone = GetZone(NPC)
     local Rat1 = GetSpawnByLocationID(zone,420362)
+    if Rat1 ~= nil then
+        waypoints2(Rat1)
+    end
+end
+
+function Rat_2(NPC,Spawn)
+    local zone = GetZone(NPC)
+    local Rat1 = GetSpawnByLocationID(zone,420349)
+    if Rat1 == nil or not IsAlive(Rat1) then
+        SpawnByLocationID(zone,420349)
+    end
+end
+
+function Rat_2_Run(NPC,Spawn)
+    local zone = GetZone(NPC)
+    local Rat1 = GetSpawnByLocationID(zone,420349)
     if Rat1 ~= nil then
         waypoints2(Rat1)
     end
@@ -79,20 +143,24 @@ function waypoints(NPC)
 	MovementLoopAddLocation(NPC, 52.88, 3, 65.32, 1, 0)
 	MovementLoopAddLocation(NPC, 53.27, 3, 68.01, 1, 0)
 	MovementLoopAddLocation(NPC, 47.97, 3, 72.59, 1, 0)
-	MovementLoopAddLocation(NPC, 30.27, 3, 80.25, 1, 0)
-	MovementLoopAddLocation(NPC, 29.25, 3, 79.81, 1, 2)
-	MovementLoopAddLocation(NPC, 30.93, 3, 69.23, 1, 0)
-	MovementLoopAddLocation(NPC, 28.76, 3, 61.79, 1, 0)
-	MovementLoopAddLocation(NPC, 24.7, 3, 61.78, 1, 0)
-	MovementLoopAddLocation(NPC, 21.63, 2.93, 66.95, 1, 0)
-	MovementLoopAddLocation(NPC, 17.96, 3.01, 72.13, 1, 0)
-	MovementLoopAddLocation(NPC, 5.76, 3, 67.83, 1, 0)
-	MovementLoopAddLocation(NPC, -2.09, 3, 61.88, 1, 0)
-	MovementLoopAddLocation(NPC, -1.3, 3, 57.67, 1, 0)
-	MovementLoopAddLocation(NPC, -5.37, 3, 56.58, 1, 0)
-	MovementLoopAddLocation(NPC, -6.35, 3, 58.17, 1, 0)
-	MovementLoopAddLocation(NPC, -6.35, 3, 58.17, 1, 3)
-	MovementLoopAddLocation(NPC, 0.26, 3, 63.21, 1, 0)
+	MovementLoopAddLocation(NPC, 30.27, 3, 80.25, 1, 1,"Rat_2")
+	MovementLoopAddLocation(NPC, 29.25, 3, 79.81, 1, 1)--Rat2
+	MovementLoopAddLocation(NPC, 29.25, 3, 79.81, 1, 3,"Rat_2_Target")--Rat2
+	MovementLoopAddLocation(NPC, 29.25, 3, 79.81, 1, 3,"Rat_2_Attack")--Rat2
+	MovementLoopAddLocation(NPC, 29.25, 3, 79.81, 1, 1,"Rat_2_Run")--Rat2
+	MovementLoopAddLocation(NPC, 30.93, 3, 69.23, 6, 0)
+	MovementLoopAddLocation(NPC, 28.76, 3, 61.79, 6, 0)
+	MovementLoopAddLocation(NPC, 24.7, 3, 61.78, 6, 0)
+	MovementLoopAddLocation(NPC, 21.63, 2.93, 66.95, 6, 0)
+	MovementLoopAddLocation(NPC, 17.96, 3.01, 72.13, 6, 0)
+	MovementLoopAddLocation(NPC, 5.76, 3, 67.83, 6, 0)
+	MovementLoopAddLocation(NPC, -2.09, 3, 61.88, 6, 0)
+	MovementLoopAddLocation(NPC, -1.3, 3, 57.67, 6, 0)
+	MovementLoopAddLocation(NPC, -5.37, 3, 56.58, 6, 0)
+	MovementLoopAddLocation(NPC, -6.35, 3, 58.17, 6, 0)
+	MovementLoopAddLocation(NPC, -6.35, 3, 58.17, 6, 1)
+	MovementLoopAddLocation(NPC, -6.35, 3, 58.17, 6, 12,"Rat2_Kill")
+	MovementLoopAddLocation(NPC, 0.26, 3, 63.21, 1, 0,"ResetTarget")
 	MovementLoopAddLocation(NPC, 2.94, 3, 66.56, 1, 0)
 	MovementLoopAddLocation(NPC, 12.27, 3, 70.02, 1, 0)
 	MovementLoopAddLocation(NPC, 20.24, 2.99, 69.4, 1, 0)
@@ -114,6 +182,33 @@ function Rat_1_Target(NPC)
     FaceTarget(NPC,Rat1)
     PlayFlavor(NPC,"","","attack",0,0)
    end 
+end
+
+function Rat_2_Attack(NPC)
+    local zone = GetZone(NPC)
+    local Rat2 = GetSpawnByLocationID(zone,420349)
+    if Rat2 ~= nil then
+    PlayFlavor(Rat2,"","","attack",0,0)
+   end 
+end
+
+function Rat_2_Target(NPC)
+    local zone = GetZone(NPC)
+    local Rat2 = GetSpawnByLocationID(zone,420349)
+    if Rat2 ~= nil then
+    SetTarget(NPC,Rat2)
+    FaceTarget(NPC,Rat2)
+    PlayFlavor(NPC,"","","attack",0,0)
+   end 
+end
+
+function Rat2_Kill(NPC)
+    local zone = GetZone(NPC)
+    local Rat2 = GetSpawnByLocationID(zone,420349)
+    if Rat2 ~= nil then
+    PlayFlavor(NPC,"","","attack",0,0)
+    KillSpawn(Rat2)
+    end 
 end
 
 function ResetTarget(NPC)
@@ -160,7 +255,23 @@ function waypoints2(NPC)
 	MovementLoopAddLocation(Rat1, 34.5, 3, 68.86, 4, 0)
 	MovementLoopAddLocation(Rat1, 36.18, 3, 64.02, 1, 0,"Despawning_1")
 	MovementLoopAddLocation(Rat1, 36.18, 3, 64.02, 1, 8,"Despawning_1")
-end
+    elseif GetSpawnLocationID(NPC) ==420349 then
+    local zone = GetZone(NPC)
+    local Rat2 = GetSpawnByLocationID(zone,420349)
+    MovementLoopAddLocation(Rat2, 30.93, 3, 69.23, 3, 1)
+	MovementLoopAddLocation(Rat2, 28.76, 3, 61.79, 3, 0)
+	MovementLoopAddLocation(Rat2, 24.7, 3, 61.78, 6, 0)
+	MovementLoopAddLocation(Rat2, 21.63, 2.93, 66.95, 6, 0)
+	MovementLoopAddLocation(Rat2, 17.96, 3.01, 72.13, 6, 0)
+	MovementLoopAddLocation(Rat2, 5.76, 3, 67.83, 6, 0)
+	MovementLoopAddLocation(Rat2, -2.09, 3, 61.88, 6, 0)
+	MovementLoopAddLocation(Rat2, -1.3, 3, 57.67, 6, 0)
+	MovementLoopAddLocation(Rat2, -5.37, 3, 56.58, 6, 0)
+	MovementLoopAddLocation(Rat2, -6.35, 3, 58.17, 6, 0)
+	MovementLoopAddLocation(Rat2, -6.35, 3, 58.17, 6, 10)	
+	MovementLoopAddLocation(Rat2, -0.77, 3.00, 57.48, 1, 0)	
+	MovementLoopAddLocation(Rat2, 4.15, 3.00, 52.91, 6, 999)	
+	end
 end
 
 function Despawning_1(NPC)

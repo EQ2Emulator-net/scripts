@@ -19,6 +19,7 @@ function hailed(NPC, Spawn)
 end
 
 function InRange(NPC,Spawn)
+	FaceTarget(NPC, Spawn)
     GenericEcologyCallout(NPC, Spawn, faction)
 end
     
