@@ -7,7 +7,9 @@
 --]]
 
 function spawn(NPC)
+    if GetSpawnLocationID(NPC) == 420519 then
 	waypoints(NPC)
+	end
 end
 
 function hailed(NPC, Spawn)

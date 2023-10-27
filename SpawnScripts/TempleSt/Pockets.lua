@@ -8,15 +8,58 @@
 function spawn(NPC)
 AddTimer(NPC,MakeRandomInt(3000,6000),"ChefCheck")
 AddTimer(NPC,MakeRandomInt(3000,6000),"waypoints")
+SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")
+SetTempVariable(NPC,"HissTimer", "0")
 end
+
+function InRange(NPC,Spawn)
+if not IsInCombat(NPC) and GetTempVariable(NPC,"HissTimer")~="1" then
+    if GetRace(Spawn)== 13 and MakeRandomInt(0,100) <=80 then
+    InRangeAttack(NPC,Spawn)
+    elseif MakeRandomInt(0,100) <=40 then
+    InRangeAttack(NPC,Spawn)
+end
+end
+
+function InRangeAttack(NPC,Spawn)
+    local Choice = MakeRandomInt(1,2)
+    if Choice == 1 then
+    FaceTarget(NPC,Spawn)
+    AddTimer(NPC,1000,"HissAttack",1,Spawn)
+    else
+    AddTimer(NPC,500,"Hiss",1,Spawn)
+    end    
+SetTempVariable(NPC,"HissTimer", "1")
+AddTimer(NPC,25000,"HissReset",1,Spawn)
+end
+end
+
+function HissAttack(NPC,Spawn)
+    PlayFlavor(NPC,"","","attack",0,0)
+end
+
+function Hiss(NPC,Spawn)
+   local Choice = MakeRandomInt(1,2)
+    if Choice == 1 then
+    PlaySound(NPC,"sounds/critters/cat/cat_hiss001.wav",GetX(NPC), GetY(NPC), GetZ(NPC))
+    else
+    PlaySound(NPC,"sounds/critters/cat/cat_hiss002.wav",GetX(NPC), GetY(NPC), GetZ(NPC))
+    end
+    SetTarget(NPC,nil)
+end
+
+function HissReset(NPC,Spawn)
+SetTempVariable(NPC,"HissTimer", "0")
+end   
+
 
 function ChefCheck(NPC,Spawn)
     if IsAlive(NPC) then
         AddTimer(NPC,MakeRandomInt(4000,7000),"ChefCheck")
 
-        if not IsInCombat(NPC) then
         local zone = GetZone(NPC)
         local Chef = GetSpawnByLocationID(zone,420550)
+        if not IsInCombat(NPC) and Chef~= nil and not IsInCombat(Chef)then
         local Distance = GetDistance(NPC,Chef,1)
         if Distance <=4 then
             Attack(Chef,NPC)

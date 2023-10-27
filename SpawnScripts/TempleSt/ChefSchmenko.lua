@@ -8,7 +8,14 @@
 
 
 function spawn(NPC)
-waypoints(NPC)
+if GetSpawnLocationID(NPC)==420550 then
+	SpawnSet(NPC,"model_type","65")
+    SpawnSet(NPC,"show_name","1")
+    SpawnSet(NPC,"targetable","1")
+    waypoints(NPC)
+    SetTempVariable(NPC,"CalloutTimer", "0")
+SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")		
+end    
     SetInfoStructString(NPC, "action_state", "draw_weapon_trigger")
 end
 
@@ -17,20 +24,21 @@ function respawn(NPC)
 end
 
 function InRange(NPC,Spawn)
-    if not IsPlayer(Spawn) and not IsInCombat(Spawn) then
-        if GetSpawnID(Spawn)== 1360017 or --Pig
-            GetSpawnID(Spawn)== 1360050 or --Cat, Skitter
-            GetSpawnID(Spawn)== 1360013 or --Cat, Methos
-            GetSpawnID(Spawn)== 1360036 or --Cat, Pockets
-            GetSpawnID(Spawn)== 1360035 --Cat, MrButtons
-            then
-            Attack(NPC,Spawn)
-        end
+function InRange(NPC,Spawn)
+	if not IsInCombat(NPC) and GetTempVariable(NPC,"CalloutTimer")~="1" then
+    RandomGreeting(NPC, Spawn)
+    SetTempVariable(NPC,"CalloutTimer", "1")
+    AddTimer(NPC,42000,"CalloutReset",1,Spawn)end
     end
 end
 
+function CalloutReset(NPC,Spawn)
+SetTempVariable(NPC,"CalloutTimer", "0")
+end   
+
+
 function hailed(NPC, Spawn)
-	RandomGreeting(NPC, Spawn)
+	RandomHail(NPC, Spawn)
 end
 
 function aggro(NPC,Spawn)
@@ -48,11 +56,28 @@ function scoop(NPC,Spawn)
    PlayFlavor(NPC,"","","gathering_success",0,0)
 end
 
+
+function RandomHail(NPC, Spawn)
+	local choice = MakeRandomInt(1,5)
+
+	if choice == 1 then
+		PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_urbanchef/ft/eco/evil/ratonga_eco_evil_urbanchef_guard_gm_1f674b43.mp3", "Oh! I... I'm not causing any trouble here. Don't mind me.", "whome", 3595799697, 1640670967, Spawn, 0)
+	elseif choice == 2 then
+		PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_urbanchef/ft/eco/evil/ratonga_eco_evil_urbanchef_hail_gm_c8ce2416.mp3", "Do you have any small animals you won't mind missing?", "scheme", 2477620923, 2758696689, Spawn, 0)
+	elseif choice == 3 then
+		PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_urbanchef/ft/eco/evil/ratonga_eco_evil_urbanchef_hail_gm_3c9902f6.mp3", "Fresh stew made with the finest ingredients! Come and get it!", "happy", 291667261, 3539823905, Spawn, 0)
+	elseif choice == 4 then
+		PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_urbanchef/ft/eco/evil/ratonga_eco_evil_urbanchef_hail_gm_6498c1fd.mp3", "Try my feline claw soup sometime. You must!", "agree", 1561843829, 2721588881, Spawn, 0)
+	elseif choice == 5 then
+		PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_urbanchef/ft/eco/evil/ratonga_eco_evil_urbanchef_hail_gm_a9f4bc35.mp3", "Don't bother me. I'm collecting fresh ingredients for a special recipe.", "shakefist", 2150316524, 1924252475, Spawn, 0)
+	end
+end
+
 function RandomGreeting(NPC, Spawn)
 	local choice = MakeRandomInt(1,4)
 
 	if choice == 1 then
-		PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_urbanchef/ft/eco/evil/ratonga_eco_evil_urbanchef_guard_gm_1f674b43.mp3", "Oh! I... I'm not causing any trouble here. Don't mind me.", "", 3595799697, 1640670967, Spawn, 0)
+		PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_urbanchef/ft/eco/evil/ratonga_eco_evil_urbanchef_pig_gm_fdce8620.mp3", "Here little piglet, I have piggy treats...", "", 2158157683, 2098170175, Spawn, 0)
 	elseif choice == 2 then
 		PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_urbanchef/ft/eco/evil/ratonga_eco_evil_urbanchef_cat_gm_9b64702d.mp3", "Here kitty kitty kitty...", "", 550240368, 2229553634, Spawn, 0)
 	elseif choice == 3 then
@@ -106,7 +131,39 @@ function waypoints(NPC)
 	MovementLoopAddLocation(NPC, 24.6, 2.92, 37.78, 1, 0)
 	MovementLoopAddLocation(NPC, 14.59, 2.92, 35.85, 1, 12)
 	MovementLoopAddLocation(NPC, 23.07, 2.92, 36.48, 2, 0)
-	MovementLoopAddLocation(NPC, 32.33, 2.92, 21.28, 2, 8)
+	MovementLoopAddLocation(NPC, 32.33, 2.92, 21.28, 1, 8)
+	MovementLoopAddLocation(NPC, 27.6, 2.92, 31.8, 1, 0) --Chase
+	MovementLoopAddLocation(NPC, 28.3, 2.92, 36.05, 1, 0)
+	MovementLoopAddLocation(NPC, 34.46, 3, 48.5, 1, 0)
+	MovementLoopAddLocation(NPC, 36.12, 3, 50.28, 1, 0)
+	MovementLoopAddLocation(NPC, 41.7, 3, 49.41, 1, 0)
+	MovementLoopAddLocation(NPC, 43.56, 3, 49.41, 1, 0)
+	MovementLoopAddLocation(NPC, 49.16, 3, 58.47, 2, 0)
+	MovementLoopAddLocation(NPC, 54.6, 3, 66.57, 2, 0,"Model")
+	MovementLoopAddLocation(NPC, 54.6, 3, 66.57, 2, 0,"Spawn")
+	MovementLoopAddLocation(NPC, 54.6, 3, 66.57, 1, 5,"Despawning")
+end	
+	
+
+function Spawn(NPC)
+	local zone = GetZone(NPC)
+	local Runner = GetSpawnByLocationID(zone, 133787203)
+	if Runner == nil then
+	    SpawnByLocationID(zone,133787203)
+	end
 end
+
+function Model(NPC)
+    SpawnSet(NPC,"model_type","2306")
+    SpawnSet(NPC,"show_name","0")
+    SpawnSet(NPC,"targetable","0")
+    SpawnSet(NPC, "show_command_icon", "0")
+end
+
+function Despawning(NPC)
+        Despawn(NPC)
+end
+
+
 
 

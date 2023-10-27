@@ -16,7 +16,9 @@ function spawn(NPC)
     AddTimer(NPC,MakeRandomInt(4000,7000),"PocketCheck")
     AddTimer(NPC,MakeRandomInt(4000,7000),"MethosCheck")
     AddTimer(NPC,MakeRandomInt(4000,7000),"CogCheck")
+    if GetSpawnLocationID(NPC) == 420583 then
 	waypoints(NPC)
+	end
 	SetPlayerProximityFunction(NPC, 4, "InRange", "LeaveRange")
 end
 

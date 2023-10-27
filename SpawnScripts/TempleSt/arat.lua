@@ -34,10 +34,9 @@ end
 function ChefCheck(NPC,Spawn)
     if IsAlive(NPC) then
         AddTimer(NPC,MakeRandomInt(4000,7000),"ChefCheck")
-
-        if not IsInCombat(NPC) then
         local zone = GetZone(NPC)
         local Chef = GetSpawnByLocationID(zone,420550)
+        if not IsInCombat(NPC) and Chef~= nil and not IsInCombat(Chef)then
         local Distance = GetDistance(NPC,Chef,1)
         if Distance <=4 then
             Attack(Chef,NPC)
