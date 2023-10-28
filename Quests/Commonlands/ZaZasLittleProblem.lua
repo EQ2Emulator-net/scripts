@@ -11,6 +11,7 @@
 	Followed by		:	None
 --]]
 
+require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I need monitor behemoth tears from the Commonlands.", 2, 100, "I need to collect the required ingredients for ZaZa's potion.", 176, 330065, 330738)
@@ -19,17 +20,18 @@ function Init(Quest)
 
 
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
-		AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
+	AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
    	AddQuestStepCompleteAction(Quest, 3, "Step3Complete")
 
 end
 
 function Accepted(Quest, QuestGiver, Player)
 	FaceTarget(QuestGiver, Player)
-	local conversation = CreateConversation()
-	AddConversationOption(conversation, "See you soon.")
-	StartConversation(conversation, QuestGiver, Player, "I'm trusting you with the happiness of my marriage.  You are most kind to help poor ZaZa.  I will see you again ... soon.")
-	PlayFlavor(NPC, "voiceover/english/zaza_lenska/fprt_hood03/quests/zazalenska/zazalenska004.mp3", "", "", 3780741793, 1494900278)
+	Dialog.New(QuestGiver, Player)
+	Dialog.AddDialog("I'm trusting you with the happiness of my marriage.  You are most kind to help poor ZaZa.  I will see you again ... soon.")
+	Dialog.AddVoiceover("voiceover/english/zaza_lenska/fprt_hood03/quests/zazalenska/zazalenska004.mp3", 3780741793, 1494900278)
+	Dialog.AddOption("See you soon.")
+	Dialog.Start()
 end
 
 

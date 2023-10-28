@@ -14,26 +14,29 @@ end
 
 function InRange(NPC,Spawn)
 if not IsInCombat(NPC) and GetTempVariable(NPC,"HissTimer")~="1" then
-    if GetRace(Spawn)== 13 and MakeRandomInt(0,100) <=80 then
-    InRangeAttack(NPC,Spawn)
-    elseif MakeRandomInt(0,100) <= 40 then
-    InRangeAttack(NPC,Spawn)
-    else
+   local Choice = MakeRandomInt(0,100)   
+   if GetRace(Spawn)== 13 then
+        if Choice <=75 then
+        InRange_Attack(NPC,Spawn)
+        end
+    elseif Choice <= 40 then
+        InRange_Attack(NPC,Spawn)
+    end      
 end
 end
 
-function InRangeAttack(NPC,Spawn)
+function InRange_Attack(NPC,Spawn)
     local Choice = MakeRandomInt(1,2)
     if Choice == 1 then
     FaceTarget(NPC,Spawn)
     AddTimer(NPC,1000,"HissAttack",1,Spawn)
-    else
+    elseif Choice == 2 then
     AddTimer(NPC,500,"Hiss",1,Spawn)
     end    
     SetTempVariable(NPC,"HissTimer", "1")
     AddTimer(NPC,25000,"HissReset",1,Spawn)
 end
-end
+
 
 function HissAttack(NPC,Spawn)
     PlayFlavor(NPC,"","","attack",0,0)
@@ -46,7 +49,6 @@ function Hiss(NPC,Spawn)
     else
     PlaySound(NPC,"sounds/critters/cat/cat_hiss002.wav",GetX(NPC), GetY(NPC), GetZ(NPC))
     end
-    SetTarget(NPC,nil)
 end
 
 function HissReset(NPC,Spawn)

@@ -8,7 +8,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function spawn(NPC)
-	waypoints(NPC)
+--	waypoints(NPC)
 end
 
 function hailed(NPC, Spawn)
@@ -71,7 +71,8 @@ function waypoints(NPC)
 	MovementLoopAddLocation(NPC, 9.11, 2.92, 31.25, 2, 0)
 	MovementLoopAddLocation(NPC, 22.83, 2.92, 34.03, 2, 25)
 	MovementLoopAddLocation(NPC, 21.81, 2.92, 31.83, 2, 0)
-	MovementLoopAddLocation(NPC, 33.35, 2.92, 17.51, 2, 25)
+	MovementLoopAddLocation(NPC, 32.32, 2.92, 10.48, 2, 1)
+	MovementLoopAddLocation(NPC, 32.32, 2.92, 10.48, 2, 25)
 	MovementLoopAddLocation(NPC, 20.39, 2.92, 25.93, 2, 0)
 end
 

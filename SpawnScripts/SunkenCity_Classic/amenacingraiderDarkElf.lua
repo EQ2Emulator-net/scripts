@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/SunkenCity_Classic/amenacingraider.lua
+    Script Name    : SpawnScripts/SunkenCity_Classic/amenacingraiderDarkElf.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.10.24 11:10:38
+    Script Date    : 2023.10.27 08:10:09
     Script Purpose : 
                    : 
 --]]
@@ -9,6 +9,7 @@ require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
+    Appearance(NPC)
     local Level = GetLevel(NPC)
     local level1 = 7
     local level2 = 8
@@ -28,7 +29,6 @@ function spawn(NPC, Spawn)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
-
 ChooseMovement(NPC)
 end
 
@@ -94,6 +94,7 @@ function RouteFour(NPC, Spawn)
 	MovementLoopAddLocation(NPC, X, Y, Z, 2, math.random(7,12), "ChooseMovement")
 end
 
+
 function respawn(NPC, Spawn)
     spawn(NPC)
 end
@@ -102,3 +103,10 @@ function hailed(NPC, Spawn)
     FaceTarget(NPC, Spawn)
 end
 
+function Appearance(NPC)
+    if GetGender(NPC)==2 then
+    SpawnSet(NPC,"model_type",116)    
+    else
+    SpawnSet(NPC,"model_type",115)    
+    end
+end
