@@ -112,11 +112,16 @@ function CritterRun(NPC,Spawn)
 	local zone = GetZone(NPC)
 	local Cog = GetSpawnByLocationID(zone, 133787201)
 	local Sprocket = GetSpawnByLocationID(zone, 133787202)
+	local RealCog = GetSpawnByLocationID(zone, 420519)
+	local RealSprocket = GetSpawnByLocationID(zone, 420583)
 	if  Cog ~=nil and not IsInCombat(Cog) then   
 	    local Cog = GetSpawnByLocationID(zone, 133787201)
         if MakeRandomInt(0,100) <= 40 then
         PlayFlavor(Cog,"","","attack",0,0)
         end
+ 	    if RealCog ~=nil then
+	        Despawn(RealCog)
+	    end
         local Cog = GetSpawnByLocationID(zone, 133787201)
 		if GetDistance(Cog, NPC) >= 2 then
 			speed = 6
@@ -131,7 +136,10 @@ function CritterRun(NPC,Spawn)
         if MakeRandomInt(0,100) <= 40 then
         PlayFlavor(Sprocket,"","","attack",0,0)
         end
-		if GetDistance(Sprocket, NPC) >= 2 then
+	    if RealSprocket ~=nil then
+	        Despawn(RealSprocket)
+	    end
+	    if GetDistance(Sprocket, NPC) >= 2 then
 			speed = 6
 			MoveToLocation(Sprocket, X - 1, Y, Z, speed)
 		else

@@ -1,13 +1,13 @@
 --[[
     Script Name    : Quests/TempleStreet/teeth_for_sparzit.lua
     Script Author  : Dorbin
-    Script Date    : 2023.07.08 06:07:27
+    Script Date    : 2023.10.29 06:07:27
     Script Purpose : 
 
         Zone       : TempleStreet
-        Quest Giver: Sparzit Cogsnibble
+        Quest Giver: Old Man Muckwort
         Preceded by: None
-        Followed by: Improving Design
+        Followed by: None
 --]]
 require "SpawnScripts/Generic/DialogModule"
 

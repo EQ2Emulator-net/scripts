@@ -15,17 +15,21 @@
 function Init(Quest)
 	AddQuestStepChat(Quest, 1, "I need to speak with Plordo.", 1, "I need to get Plordo the gnome to give Evelyn's money back.", 11, 1360008)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest,"Temple Street")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have spoken with Plordo.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "Plordo is quite adamant over the fact that he won't offer a refund.")
 
-	AddQuestStepChat(Quest, 2, "I should return to Evelyn.", 1, "I should return to Evelyn in Scale Yard.", 11, 1390023)
+	AddQuestStepChat(Quest, 2, "I need to talk with Evelyn.", 1, "I need to let Evelyn know that the gnome will not be giving her a refund.", 11, 1390023)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
+	UpdateQuestZone(Quest,"Scale Yard")
 end
 
 function QuestComplete(Quest, QuestGiver, Player)
+	UpdateQuestStepDescription(Quest, 2, "I have spoken to Evelyn.")
+	UpdateQuestTaskGroupDescription(Quest, 2, "Evelyn seemed to take the news rather well. That's the part that scares me.")
 	UpdateQuestDescription(Quest, "Evelyn Stoutfist was pretty upset when she heard the news about not getting a refund. I think she's planning to do something to the gnome.")
 	GiveQuestReward(Quest, Player)
 end

@@ -31,7 +31,7 @@ function spawn(NPC, Spawn)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
---ChooseMovement(NPC)
+ChooseMovement(NPC)
 end
 
 
