@@ -5,9 +5,10 @@
     Script Purpose : 
                    : 
 --]]
-
+require "SpawnScripts/Generic/CombatModule"
 function spawn(NPC)
-AddTimer(NPC,MakeRandomInt(0,2800),"ChooseMovement")
+    combatModule(NPC, Spawn)
+    AddTimer(NPC,MakeRandomInt(0,2800),"ChooseMovement")
 end
 
 function ChooseMovement(NPC)

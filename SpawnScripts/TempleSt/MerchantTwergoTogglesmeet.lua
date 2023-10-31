@@ -12,9 +12,80 @@ local TwergosPlan = 5915
 
 function spawn(NPC)
     ProvidesQuest(NPC, TwergosPlan)
+    SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")		
+    SetTempVariable(NPC,"CalloutTimer","false")
+    AddTimer(NPC,2000,"Vleko")
+    AddTimer(NPC,MakeRandomInt(2000,4000),"Emotes")
 end
 
+function LeaveRange(NPC,Spawn)
+    Vleko(NPC,Spawn)
+if GetTempVariable(NPC,"CalloutTimer")=="true" then    
+   SetTempVariable(NPC,"CalloutTimer","false")
+end
+end
+
+function InRange(NPC,Spawn)
+end
+
+function ResetCallout(NPC,Spawn)
+   SetTempVariable(NPC,"CalloutTimer","false")
+end
+
+function Emotes(NPC,Spawn)
+    local Choice = MakeRandomInt(1,6)
+
+if GetTempVariable(NPC,"CalloutTimer")=="false" then    
+if Choice == 1 then
+    if not IsPlayer(GetTarget(NPC)) then
+        PlayFlavor(NPC, "","","shame",0,0)
+    end
+        AddTimer(NPC,5200,"Emotes")
+        
+elseif Choice == 2 then   
+    if not IsPlayer(GetTarget(NPC)) then
+       PlayFlavor(NPC, "","","sulk",0,0)
+    end
+        AddTimer(NPC,5200,"Emotes")
+        
+elseif Choice == 3 then   
+    if not IsPlayer(GetTarget(NPC)) then
+        PlayFlavor(NPC, "","","point",0,0)
+    end
+        AddTimer(NPC,5000,"Emotes")
+        
+elseif Choice == 4 then   
+    if not IsPlayer(GetTarget(NPC)) then
+        PlayFlavor(NPC, "","","threaten",0,0)
+    end
+        AddTimer(NPC,7300,"Emotes")
+
+elseif Choice == 5 then   
+    if not IsPlayer(GetTarget(NPC)) then
+        PlayFlavor(NPC, "","","swear",0,0)
+    end
+        AddTimer(NPC,7300,"Emotes")
+elseif Choice == 6 then   
+    if not IsPlayer(GetTarget(NPC)) then
+        PlayFlavor(NPC, "","","peer",0,0)
+    end
+        AddTimer(NPC,7300,"Emotes")
+    end
+else --If Recently Called Out to Player
+        AddTimer(NPC,7000,"Emotes")
+    end    
+end
+
+function Vleko(NPC,Spawn)
+    local zone = GetZone(NPC)
+    local VlekoRatonga = GetSpawnByLocationID(zone,420537)
+    SetTarget(NPC,VlekoRatonga)
+    FaceTarget(NPC, VlekoRatonga)
+
+end    
+
 function hailed(NPC, Spawn)
+    SetTarget(NPC,Spawn)
 if GetFactionAmount(Spawn,12) <0 then
 	FaceTarget(NPC, Spawn)
     PlayFlavor(NPC, "","","shakefist",0,0, Spawn)
@@ -34,6 +105,7 @@ function respawn(NPC)
 end
 
 function Dialog1(NPC,Spawn)
+    SetTarget(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("My dad runs the best shop in town!  A much better shop, mind you, than those ratmen trying to ruin our business.")
@@ -49,6 +121,7 @@ function Dialog1(NPC,Spawn)
 end
 
 function Dialog1a(NPC,Spawn)
+    SetTarget(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("My father always has some plan in the works but never quite gets the bugs out of the details.  I, on the other hand, have thought up a flawless scheme.  I'm building a device that redirects the neuro-synaptic pathways of anyone who approaches within 10.24 decapaces of our shop, inducing an externally triggered behavioral modification to our benefit.")
@@ -61,6 +134,7 @@ function Dialog1a(NPC,Spawn)
 end
 
 function Dialog1b(NPC,Spawn)
+    SetTarget(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("It's a mind controller!  Brilliant, yes?  Everyone who comes near will feel an unstoppable urge to buy from us!  And it's almost completed, but I still need a bioadaptive energy source.  Perhaps you'll help me?")
@@ -78,6 +152,7 @@ function Offer1(NPC,Spawn)
 end
 
 function Dialog2(NPC,Spawn)
+    SetTarget(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	PlayFlavor(NPC, "", "", "glare", 0, 0, Spawn)
@@ -87,6 +162,7 @@ function Dialog2(NPC,Spawn)
 end
 
 function Dialog3(NPC,Spawn)
+    SetTarget(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Delightful!  They're nice and smelly too ... exactly what I need.  If they meet my specifications as a bioadaptive energy source, my device will control the minds of people everywhere ... within this trading plaza, that is.  I shall call it my \"Anti-Ratonga Transaction Detractor!\"")
@@ -97,6 +173,7 @@ function Dialog3(NPC,Spawn)
 end
 
 function Dialog3a(NPC,Spawn)
+    SetTarget(NPC,Spawn)
     SetStepComplete(Spawn, TwergosPlan, 2)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)

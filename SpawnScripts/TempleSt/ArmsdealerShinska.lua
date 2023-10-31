@@ -23,13 +23,5 @@ function hailed(NPC, Spawn)
 end
 
 function RandomGreeting(NPC, Spawn)
-	local choice = MakeRandomInt(1,3)
-
-	if choice == 1 then
-		PlayFlavor(NPC, "", "Hmmmmmm ...  You looks like you could use somethings to protect yourself.", "", 0, 0, Spawn, 0)
-	elseif choice == 2 then
-		PlayVoice(NPC, "voiceover/english/voice_emotes/greetings/greetings_3_1031.mp3", 0, 0, Spawn)
-	elseif choice == 3 then
-		PlayVoice(NPC, "voiceover/english/voice_emotes/greetings/greetings_2_1031.mp3", 0, 0, Spawn)
-	end
+		PlayFlavor(NPC, "voiceover/english/optional5/arms_dealer_shinska/ks_rarmdlrshinska_callout_64.mp3", "You need weapons on your journey. You come see Shinska... you come see her now!", "", 1984880476, 917173949, Spawn, 0)
 end

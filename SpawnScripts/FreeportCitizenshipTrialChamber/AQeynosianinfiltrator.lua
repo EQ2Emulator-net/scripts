@@ -5,7 +5,7 @@
     Script Purpose : 
                    : 
 --]]
-
+require "SpawnScripts/Generic/CombatModule"
 local BBCitizen = 5866 --Big Bend
 local BCCitizen = 5867 --Beggar's Court
 local LACitizen = 5868 --Longshadow Alley
@@ -14,6 +14,7 @@ local SBCitizen = 5870 --Stonestair Byway
 local TSCitizen = 5871 --Temple St
 
 function spawn(NPC)
+    combatModule(NPC, Spawn)
     local Level = GetLevel(NPC)
     local level1 = 5
     local level2 = 6

@@ -28,5 +28,5 @@ end
 function item_description(Item, Spawn)
     return "You have already examined this item."
 end
-nd
+
 

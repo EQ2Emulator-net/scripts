@@ -64,7 +64,7 @@ end
 function Dialog4(NPC, Spawn)
    Dialog.New(NPC, Spawn)
    Dialog.AddDialog("You have an impertinent manner.  Still, I may be able to use you.  I have applied myself to the dark arts so that I may one day channel my departed brother's spirit for further clues.  There is a special reagent I need to perform the channeling ritual.  If you gather it for me, you will be handsomely paid.")
-   Dialog.AddOption("Dark arts? I'm intrigued. What do you need?", "Dialog3")
+   Dialog.AddOption("Dark arts? I'm intrigued. What do you need?", "Offer")
    Dialog.AddOption("You pathetic fool. Centuries?! Get over it!")
    Dialog.Start()
 end

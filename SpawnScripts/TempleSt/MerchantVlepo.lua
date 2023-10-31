@@ -5,18 +5,113 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/DialogModule"
+
+local VlepoPlan = 5917
 
 function spawn(NPC)
+    ProvidesQuest(NPC, VlepoPlan)
+    SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")		
+    SetTempVariable(NPC,"CalloutTimer","false")
+    AddTimer(NPC,2000,"Qwergo")
+    AddTimer(NPC,MakeRandomInt(2500,4000),"Emotes")
 end
+
+function LeaveRange(NPC,Spawn)
+    Twergo(NPC,Spawn)
+if GetTempVariable(NPC,"CalloutTimer")=="true" then    
+   SetTempVariable(NPC,"CalloutTimer","false")
+end
+end
+
+function InRange(NPC,Spawn)
+end
+
+function ResetCallout(NPC,Spawn)
+   SetTempVariable(NPC,"CalloutTimer","false")
+end
+
+function Emotes(NPC,Spawn)
+    local Choice = MakeRandomInt(1,5)
+
+if GetTempVariable(NPC,"CalloutTimer")=="false" then    
+if Choice == 1 then
+    if not IsPlayer(GetTarget(NPC)) then
+        PlayFlavor(NPC, "","","tantrum",0,0)
+    end
+        AddTimer(NPC,2200,"Emotes")
+        
+elseif Choice == 2 then   
+    if not IsPlayer(GetTarget(NPC)) then
+       PlayFlavor(NPC, "","","shakefist",0,0)
+    end
+        AddTimer(NPC,5200,"Emotes")
+        
+elseif Choice == 3 then   
+    if not IsPlayer(GetTarget(NPC)) then
+        PlayFlavor(NPC, "","","point",0,0)
+    end
+        AddTimer(NPC,5000,"Emotes")
+        
+elseif Choice == 4 then   
+    if not IsPlayer(GetTarget(NPC)) then
+        PlayFlavor(NPC, "","","taunt",0,0)
+    end
+        AddTimer(NPC,7300,"Emotes")
+
+elseif Choice == 5 then   
+    if not IsPlayer(GetTarget(NPC)) then
+        PlayFlavor(NPC, "","","glare",0,0)
+    end
+        AddTimer(NPC,6300,"Emotes")
+    end
+    
+else --If Recently Called Out to Player
+        AddTimer(NPC,7000,"Emotes")
+    end    
+end
+
+function Qwergo(NPC,Spawn)
+    local zone = GetZone(NPC)
+    local QwergoGnome = GetSpawnByLocationID(zone,420562)
+    SetTarget(NPC,QwergoGnome)
+    FaceTarget(NPC, QwergoGnome)
+end    
 
 function respawn(NPC)
 	spawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-	RandomGreeting(NPC, Spawn)
+    SetTarget(NPC,Spawn)
+if GetFactionAmount(Spawn,12) <0 then
+	FaceTarget(NPC, Spawn)
+    PlayFlavor(NPC, "","","shakefist",0,0, Spawn)
+else
+    RandomGreeting(NPC, Spawn)
+end
 end
 
+
+function Dialog1(NPC,Spawn)
+    SetTarget(NPC,Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("Kahhh!!! I hate those Togglesmeets! Their items are shoddy.  We only makes the finest quality items. Togglesmeets will sell you the unsafes!  My poppa sells you good quality!")
+	Dialog.AddVoiceover("voiceover/english/merchant_vleko/fprt_hood03/mer_merchantvleko.mp3",4226142003,2683221742)
+	
+
+    if CanReceiveQuest(Spawn, VlekoPlan) then
+	Dialog.AddOption("Rediculous! Convince them to move their stall!", "Dialog1a")
+    elseif GetQuestStep(Spawn, VlekoPlan)==2 then
+	Dialog.AddOption("Here is the orcish sword you requested.", "Dialog2")
+    end
+	Dialog.AddOption("How about I just browse your wares.")
+	Dialog.Start()
+end
+
+--Why do we even care?  Those gnomes will blow themselves up one of these days, anyway.
+--Oh, yes we do. My son and I were here first. We were selling all types of items, then those gnomes moved in. I'll put a stop to it soon! Maybe for some money you help me?
 function RandomGreeting(NPC, Spawn)
 	local choice = MakeRandomInt(1,4)
 

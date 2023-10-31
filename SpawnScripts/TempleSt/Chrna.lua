@@ -9,6 +9,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 local TheMissingBook = 5681
+local QwergosPlan = 5916
 
 function spawn(NPC)
 waypoints(NPC)
@@ -39,6 +40,9 @@ function Dialog1(NPC, Spawn)
     if GetQuestStep(Spawn, TheMissingBook) == 1 then
     Dialog.AddOption("Treasures, as in a stolen book? Tell me where it is!","Dialog2")
     end
+    if GetQuestStep(Spawn, QwergosPlan) == 2 then
+    Dialog.AddOption("No, I don't. I need that rumblestick thing that you got from Plordo. It obviously doesn't work!","Dialog3")
+    end    
     Dialog.AddOption("I haven't seen any, but will keep an eye out for you.  Good luck!")
 	Dialog.Start()
 end
@@ -73,6 +77,29 @@ end
 
 function Dig(NPC, Spawn)
     PlayFlavor(NPC, "","","gathering_search",0,0)
+end
+
+function Dialog3(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+    PlayFlavor(NPC, "","","stare",0,0, Spawn)
+	Dialog.AddDialog("It won't?! Ohhh ... Plordo tell a lie to Chrna.  Maybe I should eat his face.")
+	Dialog.AddVoiceover("voiceover/english/chrna/fprt_hood03/quests/qwergotogglesmeet/chrna_qwergo_x1_initial.mp3", 4198507307, 1883427787)
+    Dialog.AddOption("Perhaps, but if you don't give it to me you might EXPLODE.","Dialog4")
+	Dialog.Start()
+end
+
+function Dialog4(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+    PlayFlavor(NPC, "","","grumble",0,0, Spawn)
+	Dialog.AddDialog("Peh!  Take the rumbley!  It scares Chrna.  All it do is make a tick-tick-tick sound, and the little numbers keep changing.")
+	Dialog.AddVoiceover("voiceover/english/chrna/fprt_hood03/quests/qwergotogglesmeet/chrna_qwergo_x1_initial2.mp3", 1216429846, 856282773)
+    if GetQuestStep(Spawn, QwergosPlan) == 2 then
+       SetStepComplete(Spawn, QwergosPlan, 2)
+    end
+    Dialog.AddOption("Interesting... Thank you.","Continue")
+	Dialog.Start()
 end
 
 function waypoints(NPC)

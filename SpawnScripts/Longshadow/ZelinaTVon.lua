@@ -86,17 +86,17 @@ function Dialog1a(NPC,Spawn)
 	Dialog.Start()
 end
 
-function Dialog1c(NPC,Spawn)
+function Dialog1b(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	PlayFlavor(NPC, "", "", "confused", 0, 0, Spawn)
 	Dialog.AddDialog("He promised he was going to make me dinner that night and I sent him a fine bottle of wine, to which I got a message back saying he was \"battling a horde.\"  You and I both know that he was with someone else.  You know what I want?")
-    Dialog.AddOption("Sounds like a lie!... But what does that have to do with me?","Dialog1d")
+    Dialog.AddOption("Sounds like a lie!... But what does that have to do with me?","Dialog1c")
     Dialog.AddOption("Perhaps you're reading too much into it.")
 	Dialog.Start()
 end
 
-function Dialog1d(NPC,Spawn)
+function Dialog1c(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("I'm trying to make myself more attractive to my mate. Lately, he has his eye on a certain huss ... er ... courtesan. He likes a wine with a sharp head, so I thought I could make a perfume that smells exactly like this wine. Would you be a dear and gather scent glands from some squalid vermin for my perfume?")

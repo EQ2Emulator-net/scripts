@@ -212,13 +212,13 @@ function DespawnCritter(NPC,Spawn)
 	        Despawn(Cog)
 	    end
 	    if RealCog ==nil then
-	        SpawnByLocationID(zone,420519)
+--	        SpawnByLocationID(zone,420519)
 	    end
 	    if Sprocket ~=nil then
 	        Despawn(Sprocket)
 	    end
 	    if RealSprocket ==nil then
-	        SpawnByLocationID(zone,420583)
+--	        SpawnByLocationID(zone,420583)
 	    end
 
 end
@@ -230,7 +230,7 @@ function RunningBack(NPC,Spawn)
 	local Cog = GetSpawnByLocationID(zone, 133787201)
 	local Sprocket = GetSpawnByLocationID(zone, 133787202)
 	    if Cog ~=nil then
-	    MovementLoopAddLocation(Cog, 52.48, 3.00, 45.73, 6, 6,"DespawnCritter")
+	        MovementLoopAddLocation(Cog, 52.48, 3.00, 45.73, 6, 6,"DespawnCritter")
             SetTarget(Cog,nil)
             SetTarget(NPC,nil)
 	    elseif Sprocket ~=nil then
