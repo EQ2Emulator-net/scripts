@@ -19,11 +19,21 @@
 
 
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
-    if MaxVal ~= nil and MinVal < MaxVal then
-        SpellDamage(Target, DmgType, math.random(MinVal, MaxVal))
-    else
-        SpellDamage(Target, DmgType, MinVal)
+    Level = GetLevel(Caster)
+    SpellLevel = 11
+    Mastery = SpellLevel + 10
+    StatBonus = GetInt(Caster) / 10
+        
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
     end
+    
+    DmgBonus = LvlBonus + StatBonus
+    MinDmg = math.floor(DmgBonus) * 2 + MinVal
+    MaxDmg = math.floor(DmgBonus) * 2 + MaxVal
+    
+    SpellDamage(Target, DmgType, MinDmg, MaxDmg)
         -- Roots target
     SetSpeedMultiplier(Target, 0)
 

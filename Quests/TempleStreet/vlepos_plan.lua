@@ -12,13 +12,14 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepChat(Quest, 1, "I need to speak with Shinska.", 1, "Shinska should be around here somewhere. I need to think of a way to steal the weapon.", 11, 1360012)
-	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
+	AddQuestStepChat(Quest, 1, "I need to speak with Shinska.", 1, "Shinska should be around here somewhere. I need to think of a way to steal the weapon.", 11, 1360221)
+	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have spoken with Shinska.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I stole the weapon right from under her rather large nose.")
+
 	AddQuestStepChat(Quest, 2, "I need to speak with Vlepo.", 1, "Now that I have the weapon, I should bring it back to Vlepo like he asked.", 284, 1360007	)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end

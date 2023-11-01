@@ -29,6 +29,7 @@ function cast(Caster, Target)
     Say(Caster, "Resistability not implemented")
 
 AddControlEffect(Target, 1) 
+
 end
 
 function remove(Caster, Target)

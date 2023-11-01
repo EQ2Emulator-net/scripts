@@ -18,7 +18,7 @@ function spawn(NPC)
 end
 
 function LeaveRange(NPC,Spawn)
-    Twergo(NPC,Spawn)
+    Qwergo(NPC,Spawn)
 if GetTempVariable(NPC,"CalloutTimer")=="true" then    
    SetTempVariable(NPC,"CalloutTimer","false")
 end
@@ -88,7 +88,11 @@ if GetFactionAmount(Spawn,12) <0 then
 	FaceTarget(NPC, Spawn)
     PlayFlavor(NPC, "","","shakefist",0,0, Spawn)
 else
-    RandomGreeting(NPC, Spawn)
+    if GetQuestStep(Spawn,VlepoPlan) ==1 then
+    PlayFlavor(NPC,"","Why you return? I don't see Shinska's weapon?","shrug",0,0,Spawn)
+    else
+    Dialog1(NPC,Spawn)
+    end
 end
 end
 
@@ -97,20 +101,48 @@ function Dialog1(NPC,Spawn)
     SetTarget(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Kahhh!!! I hate those Togglesmeets! Their items are shoddy.  We only makes the finest quality items. Togglesmeets will sell you the unsafes!  My poppa sells you good quality!")
-	Dialog.AddVoiceover("voiceover/english/merchant_vleko/fprt_hood03/mer_merchantvleko.mp3",4226142003,2683221742)
+	Dialog.AddDialog("My son and I runs a reputable business. Only good quality items do we sell. Those thieving Togglesmeets will steal from you, so you wants to buy from us!")
+	Dialog.AddVoiceover("voiceover/english/voice_emotes/greetings/greetings_"..MakeRandomInt(1,3).."_1046.mp3",0,0)
 	
 
-    if CanReceiveQuest(Spawn, VlekoPlan) then
-	Dialog.AddOption("Rediculous! Convince them to move their stall!", "Dialog1a")
-    elseif GetQuestStep(Spawn, VlekoPlan)==2 then
-	Dialog.AddOption("Here is the orcish sword you requested.", "Dialog2")
+    if CanReceiveQuest(Spawn, VlepoPlan) then
+	Dialog.AddOption("You must have quite the selection!", "Dialog2")
+    elseif GetQuestStep(Spawn, VlepoPlan)==2 then
+	Dialog.AddOption("Here is the orcish sword you requested.", "Dialog3")
     end
 	Dialog.AddOption("How about I just browse your wares.")
 	Dialog.Start()
 end
 
---Why do we even care?  Those gnomes will blow themselves up one of these days, anyway.
+function Dialog2(NPC,Spawn)
+    SetTarget(NPC,Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("Oh, yes we do. My son and I were here first. We were selling all types of items, then those gnomes moved in. I'll put a stop to it soon! Maybe for some money you help me?")
+    PlayFlavor(NPC, "","","agree",0,0, Spawn)
+    if CanReceiveQuest(Spawn, VlepoPlan) then
+	Dialog.AddOption("If there is coin involved, I would be happy to.", "Offer")
+    end
+	Dialog.AddOption("Not right now. I'm busy.")
+	Dialog.Start()
+end
+
+function Offer(NPC,Spawn)
+    OfferQuest(NPC,Spawn,VlepoPlan)
+end
+
+function Dialog3(NPC,Spawn)
+    SetTarget(NPC,Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("Good, good. I know my plan will work. Tonight when the gnomes leave, I slip in and put this weapon in their stall. Later, I call over Ogre Guard and tell him that the Shinska is missing a weapon. Dumb Ogre comes over here and checks my honest and clean merchandise, and then he sees the gnomes and smashes them into the ground. Here's your money. Now, you no say anything, you got it?")
+    PlayFlavor(NPC, "","","scheme",0,0, Spawn)
+	Dialog.AddOption("See what? I didn't see a thing...")
+	Dialog.Start()
+	SetStepComplete(Spawn,VlepoPlan,2)
+end
+
+--Whydo we even care?  Those gnomes will blow themselves up one of these days, anyway.
 --Oh, yes we do. My son and I were here first. We were selling all types of items, then those gnomes moved in. I'll put a stop to it soon! Maybe for some money you help me?
 function RandomGreeting(NPC, Spawn)
 	local choice = MakeRandomInt(1,4)

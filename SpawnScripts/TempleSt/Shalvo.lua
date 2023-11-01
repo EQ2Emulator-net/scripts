@@ -33,7 +33,6 @@ if GetFactionAmount(Spawn,12)<0 then
         Garbled(NPC,Spawn)
         end
     else
-        GenericEcologyHail(NPC, Spawn, faction)
 end
 end
 end
