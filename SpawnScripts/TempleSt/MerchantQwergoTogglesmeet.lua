@@ -115,7 +115,7 @@ function Dialog1(NPC,Spawn)
     Dialog.AddOption("Why don't you move your stall somewhere else?","Dialog1a")
     end
      if GetQuestStep(Spawn, QwergosPlan)==3 then 
-    Dialog.AddOption("Here are your ripe zombie brains, just as you ordered.","Dialog3")
+    Dialog.AddOption("Chrna gave me the Rumblebumbler... I should have asked her why it was ticking.","Dialog3")
     end
     Dialog.AddOption("Let me see your wares and judge for myself.")
 	Dialog.Start()
@@ -156,13 +156,13 @@ function Dialog3(NPC,Spawn)
 	Dialog.AddDialog("Oh, good-good-good!  Oh dear!  You triggered the bi-toggle capacitance diode!  I must deactivate it at once, or the entire city will be blown well into the sky ... now let's see ... was it the blue rod or the red ... I think the red, yes ... no!  The blue!  It's the blue!  There ... snap that in place ... and (*whew*) ... I have just averted a disaster of municipal proportions.")
 	Dialog.AddVoiceover("voiceover/english/merchant_qwergo_togglesmeet/fprt_hood03/quests/qwergotogglesmeet/qwergo_x1_finish.mp3", 79547774, 518183957)
  	PlayFlavor(NPC, "", "", "ponder", 0, 0, Spawn)
-    Dialog.AddOption("Chrna gave me the Rumblebumbler... I should have asked her why it was ticking.","Dialog3a")
+    Dialog.AddOption("Well... good! What could have started it? I didn't ask Chrna.","Dialog3a")
 	Dialog.Start()
 end
 
 function Dialog3a(NPC,Spawn)
     SetTarget(NPC,Spawn)
-    SetStepComplete(Spawn, QwergosPlan, 2)
+    SetStepComplete(Spawn, QwergosPlan, 3)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Ah, perhaps it was joggled in transport, then.  Delicate little items these are.  If it's still operational, I will carry out my original plan.  Otherwise, if it's not, I will cleverly offer it to the rats in exchange for their relocation.  Yes, yes, ingenious, that is!  Think like a rat when dealing with rats.  Oh, you're still here.  Take your payment.")

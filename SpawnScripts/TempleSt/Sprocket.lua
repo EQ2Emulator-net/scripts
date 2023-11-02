@@ -5,6 +5,7 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/CombatModule"
 
 local AttackTimer = false   --TIMER FOR ATTACK RESPONSE (ATTACKS KERRAN)
 local FollowTimer = false   --TIMER FOR FOLLOW SCRIPT

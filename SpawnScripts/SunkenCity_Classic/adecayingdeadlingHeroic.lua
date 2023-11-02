@@ -10,6 +10,7 @@ require "SpawnScripts/Generic/CombatModule"
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
     SpawnSet(NPC, "heroic", 1)
+    SetSpawnAnimation(NPC, 13016)
 end
 
 function hailed(NPC, Spawn)

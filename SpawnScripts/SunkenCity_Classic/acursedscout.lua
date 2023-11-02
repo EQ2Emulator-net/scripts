@@ -6,6 +6,7 @@
                    : 
 --]]
 require "SpawnScripts/Generic/CombatModule"
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseSkeleton1.lua")
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
@@ -29,6 +30,7 @@ function spawn(NPC, Spawn)
     SpawnSet(NPC, "power", power2)
     end
 ChooseMovement(NPC)
+    SetSpawnAnimation(NPC, 13016)
 end
 
 

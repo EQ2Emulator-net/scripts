@@ -6,15 +6,21 @@
                    : 
 --]]
 require "SpawnScripts/Generic/CombatModule"
+dofile("SpawnScripts/Generic/GenericGuardVoiceOvers.lua")
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
 end
 
-function hailed(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
-end
 
 function respawn(NPC)
 	spawn(NPC)
+end
+
+function hailed(NPC, Spawn)
+    if GetFactionAmount(Spawn,12)<0 then
+        else
+    FaceTarget(NPC, Spawn)
+    GenericGuardHail(NPC,Spawn)
+end
 end

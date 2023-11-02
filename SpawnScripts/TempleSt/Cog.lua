@@ -5,6 +5,7 @@
     Script Purpose : 
                    : 
 --]]
+require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC)
     if GetSpawnLocationID(NPC) == 420519 then

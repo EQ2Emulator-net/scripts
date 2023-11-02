@@ -24,13 +24,13 @@ function respawn(NPC)
 end
 
 function InRange(NPC,Spawn)
-function InRange(NPC,Spawn)
 	if not IsInCombat(NPC) and GetTempVariable(NPC,"CalloutTimer")~="1" then
     RandomGreeting(NPC, Spawn)
     SetTempVariable(NPC,"CalloutTimer", "1")
-    AddTimer(NPC,42000,"CalloutReset",1,Spawn)end
+    AddTimer(NPC,42000,"CalloutReset",1,Spawn)
     end
 end
+
 
 function CalloutReset(NPC,Spawn)
 SetTempVariable(NPC,"CalloutTimer", "0")

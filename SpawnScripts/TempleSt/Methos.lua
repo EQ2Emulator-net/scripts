@@ -5,6 +5,9 @@
     Script Purpose : 
                    : 
 --]]
+
+require "SpawnScripts/Generic/CombatModule"
+
 function spawn(NPC)
 AddTimer(NPC,MakeRandomInt(3000,6000),"ChefCheck")
 waypoints(NPC)
@@ -85,6 +88,7 @@ end
 end
 
 function kill (NPC,Spawn)
+    ApplySpellVisual(NPC,51)
     local zone = GetZone(NPC)
     local Chef = GetSpawnByLocationID(zone,420550)
     PlayFlavor(Chef,"","","1h_sword_attack",0,0)

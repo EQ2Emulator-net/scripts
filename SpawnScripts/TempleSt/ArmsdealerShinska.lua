@@ -58,7 +58,6 @@ function Dialog1(NPC, Spawn)
     elseif GetQuestStep(Spawn,Netherot)==2  then
     Dialog.AddOption("I have killed some netherot chanters.","Dialog6")
     end
-    Dialog.AddOption("I am not interested.")
 	Dialog.Start()
 end
 
@@ -134,7 +133,7 @@ function Dialog5(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Yes. I sells many weapons to many people, Shinska do. I consider selling new, enchanted weapons, but since those horrid Netherots told peoples not to do business with the Shinska, no one will makes my enchanted weapons. You help the Shinska with this, no?")
     PlayFlavor(NPC, "","","agree",0,0, Spawn)
-    Dialog.AddOption("[ Quietly steal a weapon off the display ]","Offer")
+    Dialog.AddOption("Perhaps I could look into this for you.","Offer")
     Dialog.AddOption("I don't think so!")
 	Dialog.Start()
 end

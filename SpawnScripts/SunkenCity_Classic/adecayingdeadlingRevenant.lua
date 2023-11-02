@@ -11,7 +11,7 @@ function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
     SetSeeHide(NPC,1)
     SetSeeInvis(NPC, 1)
-
+    SetSpawnAnimation(NPC, 13016)
 end
 
 function hailed(NPC, Spawn)

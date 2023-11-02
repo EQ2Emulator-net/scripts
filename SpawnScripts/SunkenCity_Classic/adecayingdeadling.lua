@@ -30,6 +30,7 @@ function spawn(NPC, Spawn)
     SpawnSet(NPC, "power", power2)
     end
 ChooseMovement(NPC)
+    SetSpawnAnimation(NPC, 13016)
 end
 
 

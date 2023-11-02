@@ -59,6 +59,7 @@ end
 end
 
 function kill (NPC,Spawn)
+    ApplySpellVisual(NPC,51)
     local zone = GetZone(NPC)
     local Chef = GetSpawnByLocationID(zone,420550)
     PlayFlavor(Chef,"","","1h_sword_attack",0,0)
