@@ -10,7 +10,7 @@ require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
-    ChooseMovement(NPC)
+AddTimer(NPC,MakeRandomInt(0,4000),"ChooseMovement")
 end
 
 

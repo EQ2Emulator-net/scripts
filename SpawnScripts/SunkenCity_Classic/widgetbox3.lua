@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/SunkenCity/widgetbox4.lua
-    Script Author  : torsten
-    Script Date    : 2022.07.16 04:07:26
+    Script Name    : SpawnScripts/SunkenCity_Classic/widgetbox3.lua
+    Script Author  : Dorbin
+    Script Date    : 2023.11.02 06:11:27
     Script Purpose : 
                    : 
 --]]

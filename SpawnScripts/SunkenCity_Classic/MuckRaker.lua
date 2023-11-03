@@ -12,7 +12,7 @@ function spawn(NPC)
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(18 + dmgMod)) 
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(32 + dmgMod))
     AddTimer(NPC, 6000, "waypoints")
-    
+    PlayFlavor(NPC,"","","result_spawn",0,0)
 end
 
 function hailed(NPC, Spawn)

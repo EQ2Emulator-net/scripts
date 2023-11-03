@@ -26,6 +26,20 @@ function Init(Quest)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 	AddQuestStepCompleteAction(Quest, 2, "Step2Complete")
 	AddQuestStepCompleteAction(Quest, 3, "Step3Complete")
+	--BoxCheck(Quest,Player)
+end
+
+function BoxCheck(Quest,Player)
+    if GetQuestStep(Player,Quest)== 1 then
+        local Choice1 = MakeRandomInt(1,3)
+        if Choice1== 1 then
+            SetTempVariable(Quest,"Mask1","1")
+        elseif Choice1== 2 then
+            SetTempVariable(Quest,"Mask1","2")
+        elseif Choice1== 3 then
+            SetTempVariable(Quest,"Mask1","3")
+        end
+end        
 end
 
 function Accepted(Quest, QuestGiver, Player)
