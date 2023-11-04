@@ -5,7 +5,7 @@
     Script Purpose : 
                    : 
 --]]
-
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseOgre1.lua")
 require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC, Spawn)

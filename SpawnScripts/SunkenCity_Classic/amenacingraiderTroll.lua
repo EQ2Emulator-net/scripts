@@ -7,6 +7,7 @@
 --]]
 
 require "SpawnScripts/Generic/CombatModule"
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseTroll1.lua")
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)

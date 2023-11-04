@@ -6,6 +6,7 @@
                    : 
 --]]
 require "SpawnScripts/Generic/CombatModule"
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseDarkElf1.lua")
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)

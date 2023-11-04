@@ -29,7 +29,7 @@ function Dialog1(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/optional1/lukur/fprt_adv01_sunken/lukur000.mp3", 1584752461, 2942049134)
 	if CanReceiveQuest(Spawn, LukursAntiques) then
 	Dialog.AddOption("Who are you?", "Dialog2")
-	elseif GetQuestStep(Spawn, LukursAntiques)==2 then
+	elseif GetQuestStep(Spawn, LukursAntiques)==4 then
 	Dialog.AddOption("I've returned with the masks.", "Dialog3")
     end	
 	Dialog.AddOption("I'm not one to be sifting through other people's things.")
@@ -60,7 +60,7 @@ function Dialog3(NPC, Spawn)
     PlayFlavor(NPC,"","","boggle",0,0,Spawn)
 	Dialog.AddOption("Thank you.")
 	Dialog.Start()
-	SetStepComplete(Spawn,LukursAntiques)
+	SetStepComplete(Spawn,LukursAntiques,4)
 end
 
 

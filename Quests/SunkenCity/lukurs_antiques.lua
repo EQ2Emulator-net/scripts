@@ -29,19 +29,6 @@ function Init(Quest)
 	--BoxCheck(Quest,Player)
 end
 
-function BoxCheck(Quest,Player)
-    if GetQuestStep(Player,Quest)== 1 then
-        local Choice1 = MakeRandomInt(1,3)
-        if Choice1== 1 then
-            SetTempVariable(Quest,"Mask1","1")
-        elseif Choice1== 2 then
-            SetTempVariable(Quest,"Mask1","2")
-        elseif Choice1== 3 then
-            SetTempVariable(Quest,"Mask1","3")
-        end
-end        
-end
-
 function Accepted(Quest, QuestGiver, Player)
 	FaceTarget(QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)
@@ -80,7 +67,7 @@ function QuestCheck(Quest, QuestGiver, Player)
     if QuestStepIsComplete(Player,374,1) and QuestStepIsComplete(Player,374,2) and QuestStepIsComplete(Player,374,3) then
 	UpdateQuestTaskGroupDescription(Quest, 1, "I found three ceremonial masks.")
 
-	AddQuestStepChat(Quest, 4, "I need to return to Lukur.", 1, "I need to return to Lukur in the Sunken City.  I can reach the Sunken City by using any of the bells in and around the City of Freeport.", 11, Lukur)
+	AddQuestStepChat(Quest, 4, "I need to return to Lukur.", 1, "I need to return to Lukur in the Sunken City.  I can reach the Sunken City by using any of the bells in and around the City of Freeport.", 11, Lukur,8410015)
 	AddQuestStepCompleteAction(Quest, 4, "QuestComplete")
 end
 end

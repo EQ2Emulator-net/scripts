@@ -1,11 +1,10 @@
 --[[
-    Script Name    : SpawnScripts/SunkenCity_Classic/widgetbox3.lua
+    Script Name    : SpawnScripts/SunkenCity_Classic/widgetbox2.lua
     Script Author  : Dorbin
-    Script Date    : 2023.11.02 06:11:27
+    Script Date    : 2023.11.03 12:11:09
     Script Purpose : 
                    : 
 --]]
-
 local LukursAntiques = 374
 function spawn(NPC)
     SetRequiredQuest(NPC, LukursAntiques, 1)
@@ -21,7 +20,7 @@ function casted_on(NPC, Spawn, SpellName)
             SetStepComplete(Spawn, LukursAntiques, 2)
             SendMessage(Spawn,"You find a Shadowed Mask wrapped in old rags.")
         else
-            SendMessage(Spawn,"You find nothing in the crate but soggy old fabrics.")
+            SendMessage(Spawn,"You only find worthless rusted spears in this crate.")
         end
     end
 end
@@ -32,7 +31,7 @@ function MaskCheck(NPC)
     local zone = GetZone(NPC)
     local Muck1 = GetSpawnByLocationID(zone, 133787343)
     local Muck2 = GetSpawnByLocationID(zone, 133787394)
-if Muck1 ~= nil and Muck2 == nil then
+if Muck2 ~= nil and Muck1 == nil then
     SetTempVariable(NPC,"Mask","true")
     else
 end   

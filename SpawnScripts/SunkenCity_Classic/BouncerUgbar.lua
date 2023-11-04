@@ -11,6 +11,7 @@ function spawn(NPC)
     SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(24 + dmgMod)) 
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(42 + dmgMod))
+    dofile("SpawnScripts/Generic/MonsterCallouts/BaseOgre1.lua")
 
 end
 

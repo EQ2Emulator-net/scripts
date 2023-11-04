@@ -28,8 +28,28 @@ function spawn(NPC, Spawn)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
-AddTimer(NPC,MakeRandomInt(0,4000),"ChooseMovement")
+    local SpawnID = GetSpawnLocationID(NPC)
+    if SpawnID < 133787438 or SpawnID > 133787441  then 
+    AddTimer(NPC,MakeRandomInt(0,4000),"ChooseMovement")
+    else                                                        --TABLE SPAWNING CRABS
+--    SetInfoStructString(NPC, "action_state", "combat_idle")
+    AddTimer(NPC,MakeRandomInt(1000,4000),"CombatScream")       --TABLE SPAWNING CRABS ATTACK CRY
+    AddTimer(NPC,5000,"CombatCheck")
+   end
 end
+
+function CombatScream(NPC)
+    PlaySound(NPC,"sounds/critters/crab/crab_scream01.wav",GetX(NPC),GetY(NPC),GetZ(NPC))
+end
+
+function CombatCheck(NPC)                                       --TABLE SPAWNING CRABS CHECKS FOR COMBAT
+    if IsInCombat(NPC)== true then
+    AddTimer(NPC,30000,"CombatCheck")
+        else
+    Despawn(NPC)
+    end
+end
+
 
 
 function ChooseMovement(NPC)
