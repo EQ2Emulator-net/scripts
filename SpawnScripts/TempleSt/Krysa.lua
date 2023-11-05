@@ -8,7 +8,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function spawn(NPC)
-
+    SetInfoStructString(NPC, "action_state", "dance")
 end
 
 function hailed(NPC, Spawn)

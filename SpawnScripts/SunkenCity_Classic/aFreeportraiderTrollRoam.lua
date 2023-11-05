@@ -12,7 +12,6 @@ function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
     Appearance(NPC)
     --SpawnSet(NPC, "heroic", 1)
-    
     local Level = GetLevel(NPC)
     local level1 = 7
     local level2 = 8
@@ -32,7 +31,7 @@ function spawn(NPC, Spawn)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
-ChooseMovement(NPC)
+AddTimer(NPC,MakeRandomInt(1000,5500),"ChooseMovement")
 end
 
 

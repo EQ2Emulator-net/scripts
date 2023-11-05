@@ -15,8 +15,8 @@ function spawn(NPC)
     PlayFlavor(NPC,"","","result_spawn",0,0)
 end
 
-function hailed(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
+function aggro(NPC,Spawn)
+    ApplySpellVisual(NPC,61)
 end
 
 function respawn(NPC)

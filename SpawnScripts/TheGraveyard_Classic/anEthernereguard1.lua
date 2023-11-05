@@ -16,7 +16,7 @@ end
 
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
-	SendMessage(NPC,"The ethernere guard stares you down. They obviously don't have time for you.","white")
+	SendMessage(Spawn,"The ethernere guard stares you down. They obviously don't have time for you.","white")
 end
 
 function respawn(NPC)

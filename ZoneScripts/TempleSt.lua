@@ -14,6 +14,6 @@ function player_entry(Zone, Player)
       SendPopUpMessage(Player, "Temple Street", 255, 255, 255)
 end
 
-function KnowledgePortal(Zone,Player)
-      SendPopUpMessage(Player, "DefiledTemple", 255, 255, 0)
+function DefiledTemple(Zone,Player)
+      SendPopUpMessage(Player, "The Defiled Temple", 255, 255, 0)
     end

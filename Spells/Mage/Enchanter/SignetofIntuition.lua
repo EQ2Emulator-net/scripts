@@ -10,7 +10,7 @@
 
   
 function cast(Caster, Target, BonusAmt, MitType, MitAmt)
-    AddSpellBonus(Target, 3, BonusAmt)
+    AddSpellBonus(Target, 2, BonusAmt)
     AddSpellBonus(Target, 4, BonusAmt)
     AddSpellBonus(Target, 208, MitAmt)
 

@@ -33,8 +33,26 @@ function spawn(NPC, Spawn)
     end
 
 --ChooseMovement(NPC)
+AddTimer(NPC,MakeRandomInt(3500,10000),"EmoteLoop")
 end
 
+function EmoteLoop(NPC)
+    if not IsInCombat(NPC) and GetRunbackDistance(NPC)<2 then
+        local choice = MakeRandomInt(1,5)
+        if choice == 1 then
+            PlayFlavor(NPC,"","","threaten",0,0)
+        elseif choice == 2 then
+            PlayFlavor(NPC,"","","feint",0,0)
+        elseif choice == 3 then
+            PlayFlavor(NPC,"","","tapfoot",0,0)
+        elseif choice == 4 then
+            PlayFlavor(NPC,"","","glare",0,0)
+        elseif choice == 5 then
+            PlayFlavor(NPC,"","","chuckle",0,0)
+        end
+end
+    AddTimer(NPC,MakeRandomInt(6500,12000),"EmoteLoop")
+end
 
 function ChooseMovement(NPC)
 	local route = math.random(1,4)

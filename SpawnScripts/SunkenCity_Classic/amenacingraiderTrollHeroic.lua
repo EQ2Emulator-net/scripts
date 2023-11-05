@@ -32,6 +32,25 @@ function spawn(NPC, Spawn)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
     end
+AddTimer(NPC,MakeRandomInt(3500,10000),"EmoteLoop")
+end
+
+function EmoteLoop(NPC)
+    if not IsInCombat(NPC) and GetRunbackDistance(NPC)<2 then
+        local choice = MakeRandomInt(1,5)
+        if choice == 1 then
+            PlayFlavor(NPC,"","","itch",0,0)
+        elseif choice == 2 then
+            PlayFlavor(NPC,"","","feint",0,0)
+        elseif choice == 3 then
+            PlayFlavor(NPC,"","","tapfoot",0,0)
+        elseif choice == 4 then
+            PlayFlavor(NPC,"","","peer",0,0)
+        elseif choice == 5 then
+            PlayFlavor(NPC,"","","swear",0,0)
+        end
+end
+    AddTimer(NPC,MakeRandomInt(6500,12000),"EmoteLoop")
 end
 
 function hailed(NPC, Spawn)

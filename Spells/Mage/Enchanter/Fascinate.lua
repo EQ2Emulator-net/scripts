@@ -28,8 +28,16 @@ end
 function cast(Caster, Target)
     Say(Caster, "Resistability not implemented")
 
-AddControlEffect(Target, 1) 
+    AddControlEffect(Target, 1) 
+    AddProc(Target, 2, 100.0)
 
+end
+
+function proc(Caster, Target, Type)
+    if type == 2 then
+        CancelSpell()
+    end
+    
 end
 
 function remove(Caster, Target)

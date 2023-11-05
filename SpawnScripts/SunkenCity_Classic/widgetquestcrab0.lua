@@ -35,15 +35,19 @@ function CrabSpawn(NPC,Spawn)
     local Crab4 = GetSpawnByLocationID(zone, 133787441)
     if Crab1 == nil then
         SpawnByLocationID(zone,133787438)
+        ApplySpellVisual(Crab2,61)
     end
     if Crab2 == nil then
         SpawnByLocationID(zone,133787439)
+        ApplySpellVisual(Crab2,61)
     end
     if Crab3 == nil then
         SpawnByLocationID(zone,133787440)
+        ApplySpellVisual(Crab3,61)
     end
     if Crab4 == nil then
         SpawnByLocationID(zone,133787441)
+        ApplySpellVisual(Crab4,61)
     end
 end
 
@@ -65,15 +69,19 @@ function CrabAttack(NPC,Spawn)
     local Crab3 = GetSpawnByLocationID(zone, 133787440)
     local Crab4 = GetSpawnByLocationID(zone, 133787441)
     if Crab1 ~= nil and not IsInCombat(NPC) then
+        ApplySpellVisual(Crab1,61)
         Attack(Crab1,Spawn)
     end
     if Crab2 ~= nil and not IsInCombat(NPC) then
+        ApplySpellVisual(Crab2,61)
         Attack(Crab2,Spawn)
     end
     if Crab3 ~= nil and not IsInCombat(NPC) then
-        Attack(Crab3,Spawn)
+         ApplySpellVisual(Crab3,61)
+       Attack(Crab3,Spawn)
     end
     if Crab4 ~= nil and not IsInCombat(NPC) then
-        Attack(Crab4,Spawn)
+         ApplySpellVisual(Crab4,61)
+       Attack(Crab4,Spawn)
     end
 end

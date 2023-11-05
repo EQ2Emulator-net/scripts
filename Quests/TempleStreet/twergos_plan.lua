@@ -12,7 +12,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill zombies in the Sunken City and collect their brains.", 4, 60, "I need to venture to the Sunken City and collect ten brains from zombies in the sunken city. I'll check each one to see if they still have a brain.", 109, 8410023,8410024,8410025,8410028,8410029,8410030)
+	AddQuestStepKill(Quest, 1, "I must kill zombies in the Sunken City and collect their brains.", 4, 66, "I need to venture to the Sunken City and collect ten brains from zombies in the sunken city. I'll check each one to see if they still have a brain.", 109, 8410023,8410024,8410025,8410028,8410029,8410030)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
     UpdateQuestZone(Quest,"Sunken City")
 end

@@ -9,6 +9,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function spawn(NPC)
+    SetInfoStructString(NPC, "action_state", "flirt")
 end
 
 function respawn(NPC)

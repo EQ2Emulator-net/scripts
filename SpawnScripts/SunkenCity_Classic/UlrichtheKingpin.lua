@@ -5,14 +5,13 @@
     Script Purpose : 
                    : 
 --]]
+    dofile("SpawnScripts/Generic/MonsterCallouts/BaseHuman1.lua")
 
 function spawn(NPC)
     dmgMod = GetStr(NPC)/10
     SetInfoStructUInt(NPC, "override_primary_weapon", 1)        
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(22 + dmgMod)) 
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(42 + dmgMod))
-dofile("SpawnScripts/Generic/MonsterCallouts/BaseHuman1.lua")
-
 end
 
 function hailed(NPC, Spawn)

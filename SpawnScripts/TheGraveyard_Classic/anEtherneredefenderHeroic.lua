@@ -16,7 +16,7 @@ end
 
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
-	SendMessage(NPC,"The defender looks at you with a tired, but determined, stare. Unwavered from its duties.","white")
+	SendMessage(Spawn,"The defender looks at you with a tired, but determined, stare. Unwavered from its duties.","white")
 end
 
 function respawn(NPC)

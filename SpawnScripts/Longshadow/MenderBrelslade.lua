@@ -11,6 +11,7 @@ function spawn(NPC)
 end
 
 function hailed(NPC, Spawn)
+    FaceTarget(NPC,Spawn)
     if GetFactionAmount(Spawn,12) >0 then
 	RandomGreeting(NPC, Spawn)
 	else
