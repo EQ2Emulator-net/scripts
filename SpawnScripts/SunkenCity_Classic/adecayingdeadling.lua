@@ -9,7 +9,9 @@ require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
-    
+    if GetClass(NPC) ==31 then
+    SetSeeHide(NPC,1)
+    end
     local Level = GetLevel(NPC)
     local level1 = 8
     local level2 = 9

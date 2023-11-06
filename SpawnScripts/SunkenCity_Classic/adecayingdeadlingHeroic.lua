@@ -11,10 +11,13 @@ function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
     SpawnSet(NPC, "heroic", 1)
     SetSpawnAnimation(NPC, 13016)
+    if GetClass(NPC) ==31 then
+    SetSeeHide(NPC,1)
+    end
 end
 
 function hailed(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
+	Attack(NPC, Spawn)
 end
 
 function respawn(NPC)

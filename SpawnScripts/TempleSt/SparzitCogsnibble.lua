@@ -8,18 +8,47 @@
 require "SpawnScripts/Generic/DialogModule"
 
 local Teeth = 5876
+local Design = 5920
 
 
 function spawn(NPC)
     ProvidesQuest(NPC,Teeth)
+    SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")		
+    SetTempVariable(NPC,"CalloutTimer","false")
 end
 
 function respawn(NPC)
 	spawn(NPC)
 end
 
+function InRange(NPC,Spawn)
+if CanReceiveQuest(Spawn,Teeth) then    
+   SetTempVariable(NPC,"CalloutTimer","true")
+    SetTarget(NPC,Spawn)
+    FaceTarget(NPC,Spawn)
+	PlayFlavor(NPC, "voiceover/english/sparzit_cogsnibble/fprt_hood03/100_barpatronsparzitcogsnibble_callout_ba239822.mp3", "Those voices ... why I do I keep hearing those maddening voices? You there ... do you hear the voices?", "scream", 2305242707, 1619320864, Spawn, 0)
+    AddTimer(NPC,24000,"ResetCallout",1,Spawn)
+end
+end
+
+function ResetCallout(NPC,Spawn)
+   SetTempVariable(NPC,"CalloutTimer","false")
+end
+
 function hailed(NPC, Spawn)
-Dialog1(NPC, Spawn)
+    SetTarget(NPC,Spawn)
+if GetFactionAmount(Spawn,12) <0 then
+	FaceTarget(NPC, Spawn)
+    PlayFlavor(NPC, "","","shakefist",0,0, Spawn)
+elseif CanReceiveQuest(Spawn, Teeth) then  
+    Dialog1(NPC,Spawn)
+elseif HasQuest(Spawn, Teeth) then  
+    Dialog1(NPC,Spawn)
+elseif CanReceiveQuest(Spawn, Design) then  
+    Dialog4 (NPC,Spawn)
+else  
+     Dialog1(NPC,Spawn)
+   end
 end
 
 function Dialog1(NPC, Spawn)
@@ -72,5 +101,16 @@ function Quest1Done(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/sparzit_cogsnibble/fprt_hood03/quests/sparzitcogsnibble/sparzit_x1_finish.mp3", 2748213193, 2852199972)
     PlayFlavor(NPC,"","","ponder",0,0,Spawn)
     Dialog.AddOption("I'll be sure to stay away once you've perfected them.")
+	Dialog.Start()
+end
+
+function Dialog4(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("Marvelously!  I re-plated the teeth with a corrosion resistant, super hard conducting alloy that delivers an electrical shock while piercing the toughest conventional armor!  The silly people who encounter my mechanisnake will hardly know what bit 'em!  Hoo-hoo!  Hear that scream?  Another victim!")
+	Dialog.AddVoiceover("voiceover/english/sparzit_cogsnibble/fprt_hood03/quests/sparzitcogsnibble/sparzit_x2_initial.mp3", 3138412668, 1958117669)
+    PlayFlavor(NPC,"","","scheme",0,0,Spawn)
+    --Dialog.AddOption("What is it your voices... er you need?","Offer")
+    Dialog.AddOption("Clockwork snake? I'll pass.")
 	Dialog.Start()
 end

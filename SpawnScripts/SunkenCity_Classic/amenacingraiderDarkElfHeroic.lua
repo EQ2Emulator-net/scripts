@@ -37,7 +37,7 @@ end
 
 function EmoteLoop(NPC)
     if not IsInCombat(NPC) and GetRunbackDistance(NPC)<2 then
-        local choice = MakeRandomInt(1,5)
+        local choice = MakeRandomInt(1,6)
         if choice == 1 then
             PlayFlavor(NPC,"","","sniff",0,0)
         elseif choice == 2 then
@@ -48,7 +48,9 @@ function EmoteLoop(NPC)
             PlayFlavor(NPC,"","","ponder",0,0)
         elseif choice == 5 then
             PlayFlavor(NPC,"","","chuckle",0,0)
-        end
+        elseif choice == 6 then
+            PlayFlavor(NPC,"","","brandish",0,0)
+            end
 end
     AddTimer(NPC,MakeRandomInt(6500,12000),"EmoteLoop")
 end

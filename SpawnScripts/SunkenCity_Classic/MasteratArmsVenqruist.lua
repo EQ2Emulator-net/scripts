@@ -12,6 +12,8 @@ function spawn(NPC)
     SetInfoStructUInt(NPC, "override_primary_weapon", 1)
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", 4 + dmgMod) 
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", 10 + dmgMod)
+    SetSeeHide(NPC,1)
+    SetSeeInvis(NPC,1)
 end
 
 function hailed(NPC, Spawn)

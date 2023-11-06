@@ -16,29 +16,58 @@
 
 
 function cast(Caster, Target, DoTType, DoTMin, DoTMax, DDType, DDMin, DDMax)
-    if DoTMax ~= nil and DoTMin < DoTMax then
-        SpellDamage(Target, DoTType, math.random(DoTMin, DoTMax))
-    else
-        SpellDamage(Target, DoTType, DoTMin)
-    end
-    
-    AddTimer(23900, "migraine")
-end
-
-function migraine(Caster, Target, DoTType, DoTMin, DoTMax, DDType, DDMin, DDMax)
-    	Spell = GetSpell(5505, GetSpellTier())
-    	SetSpellDataIndex(Spell, 0, DDType)
-		SetSpellDataIndex(Spell, 1, DDMin)
-		SetSpellDataIndex(Spell, 2, DDMax)
-		CastCustomSpell(Spell, Caster, Target)
+    damage(Caster, Target, DoTType, DoTMin, DoTMax)
+    AddTimer(Caster, 23850, "migraine")
 end
 
 function tick(Caster, Target, DoTType, DoTMin, DoTMax)
-    if DoTMax ~= nil and DoTMin < DoTMax then
-        SpellDamage(Target, DoTType, math.random(DoTMin, DoTMax))
-    else
-        SpellDamage(Target, DoTType, DoTMin)
+    damage(Caster, Target, DoTType, DoTMin, DoTMax)
+end
+
+function damage(Caster, Target, DoTType, DoTMin, DoTMax, DDType, DDMin, DDMax)
+    Level = GetLevel(Caster)
+    SpellLevel = 15
+    Mastery = SpellLevel + 10
+    StatBonus = GetInt(Caster) / 10
+    
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
     end
+
+    DmgBonus = LvlBonus + StatBonus
+    MaxDmg = math.floor(DmgBonus) * 2 + DoTMax
+    MinDmg = math.floor(DmgBonus) * 2 + DoTMin
+    
+    SpellDamage(Target, DoTType, MinDmg, MaxDmg)
+    
+end
+
+function migraine(Caster, Target, DoTType, DoTMin, DoTMax, DDType, DDMin, DDMax)
+    Level = GetLevel(Caster)
+    Mastery = SpellLevel + 15
+    StatBonus = GetInt(Caster) / 10
+    
+    if Level < Mastery then
+        LvlBonus = Level - SpellLevel
+        else LvlBonus = Mastery - SpellLevel
+    end
+
+    DmgBonus = LvlBonus + StatBonus
+    DDMaxDmg = math.floor(DmgBonus) * 2 + DDMax
+    DDMinDmg = math.floor(DmgBonus) * 2 + DDMin
+    
+    	Spell = GetSpell(5505, GetSpellTier())
+    	SetSpellDataIndex(Spell, 0, DDType)
+		SetSpellDataIndex(Spell, 1, DDMinDmg)
+		SetSpellDataIndex(Spell, 2, DDMaxDmg)
+		CastCustomSpell(Spell, Caster, Target)
+end
+
+
+
+function remove(Caster, Target)
+
 end
 
 

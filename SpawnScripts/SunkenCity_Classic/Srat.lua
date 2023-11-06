@@ -9,7 +9,7 @@ require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
-
+    SetSeeHide(NPC,1)
 end
 
 function hailed(NPC, Spawn)

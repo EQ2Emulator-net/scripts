@@ -13,11 +13,10 @@ function spawn(NPC)
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", math.floor(16 + dmgMod)) 
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", math.floor(28 + dmgMod))
     SetSpawnAnimation(NPC, 13016)
-
 end
 
 function hailed(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
+    Attack(NPC,Spawn)
 end
 
 function respawn(NPC)

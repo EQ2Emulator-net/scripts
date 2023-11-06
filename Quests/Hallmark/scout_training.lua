@@ -12,7 +12,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to kill five small rust monsters.", 5, 100, "Emissary Millia wants me to go to the Sunken City and kill five small Rust Monsters. She claims that a Rogue always keeps open an avenue of escape.", 142, 1240011,8410008)
+	AddQuestStepKill(Quest, 1, "I need to kill five rust monsters.", 5, 100, "Emissary Millia wants me to go to the Sunken City and kill five mature Rust Monsters. She claims that a Rogue always keeps open an avenue of escape.", 142, 1240011,8410008)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
     UpdateQuestZone(Quest,"Sunken City")
 end
@@ -34,8 +34,8 @@ function Deleted(Quest, QuestGiver, Player)
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
-	UpdateQuestStepDescription(Quest, 1, "I killed five small rust monsters.")
-	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed five small Rust Monsters as Millia has asked. If I were a Rogue and needed to get out of the city really fast, that would definitely help.")
+	UpdateQuestStepDescription(Quest, 1, "I killed five rust monsters.")
+	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed five Rust Monsters as Millia has asked. If I were a Rogue and needed to get out of the city really fast, that would definitely help.")
     UpdateQuestZone(Quest,"North Freeport")
 
 	AddQuestStepChat(Quest, 2, "I need to speak with Emissary Millia", 1, "I should let Millia know that I've done what she suggested.", 11, 1440464)
