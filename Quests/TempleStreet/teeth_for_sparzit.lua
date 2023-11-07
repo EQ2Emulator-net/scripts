@@ -5,7 +5,7 @@
     Script Purpose : 
 
         Zone       : TempleStreet
-        Quest Giver: Old Man Muckwort
+        Quest Giver: Sparzit
         Preceded by: None
         Followed by: None
 --]]

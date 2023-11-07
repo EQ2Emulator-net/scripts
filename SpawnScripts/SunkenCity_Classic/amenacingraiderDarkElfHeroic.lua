@@ -12,7 +12,7 @@ function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
     Appearance(NPC)
     SpawnSet(NPC, "heroic", 1)
-    
+     SetSeeHide(NPC,1)
     local Level = GetLevel(NPC)
     local level1 = 7
     local level2 = 8

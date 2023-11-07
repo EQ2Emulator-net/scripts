@@ -11,6 +11,7 @@ dofile("SpawnScripts/Generic/MonsterCallouts/BaseDarkElf1.lua")
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
     Appearance(NPC)
+    SetSeeHide(NPC,1)
     local Level = GetLevel(NPC)
     local level1 = 7
     local level2 = 8

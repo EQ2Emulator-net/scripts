@@ -15,12 +15,13 @@ require "SpawnScripts/Generic/DialogModule"
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I must kill ten diseased ratonga", 10, 100, " I need to venture to the sewers and kill ten diseased ratonga", 611, 1540002, 1540021, 1540022, 1540024, 1540028, 1540072, 1540073)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+	UpdateQuestZone(Quest,"Thieves Way")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have killed ten diseased ratonga.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed ten of the diseased ratonga and made sure the way is clear for Imnat's treasure.")
-    
+	UpdateQuestZone(Quest,"Longshadow Alley")
     AddQuestStepChat(Quest, 2, "I should return to Imnat D`Vren.", 1, "I should return to Imnat D`Vren in Longshadow Alley.", 11, 1380031)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end

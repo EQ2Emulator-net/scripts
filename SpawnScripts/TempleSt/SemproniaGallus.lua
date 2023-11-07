@@ -9,8 +9,10 @@
 require "SpawnScripts/Generic/DialogModule"
 
 local Citizenship = 5864
+local Keys = 5921
 
 function spawn(NPC)
+    ProvidesQuest(NPC,Keys)
     SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")		
 end
 
@@ -92,7 +94,38 @@ function Dialog1(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("This is the Freeport Reserve. Please make sure all deposits are in exact change and recognizable currency, thank you.")
 	Dialog.AddVoiceover("voiceover/english/banker_sempronia_gallus/fprt_hood03/bnk_semproniagallus_hail.mp3", 2059269441, 1111799165)
-	Dialog.AddOption("Thank you.")
+        if CanReceiveQuest(Spawn,Keys) then
+        Dialog.AddOption("Aren't you a little tall for a place like this?","Quest1")
+        elseif GetQuestStep(Spawn,Keys) == 2 then
+        Dialog.AddOption("The ratonga has been \"cured\". Here are your keys. ","Quest1Done")
+        end        
+        Dialog.AddOption("Thank you.")
 	Dialog.Start()
 end
 
+function Quest1(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("It seems you are painfully unaware of the consequences of allowing either Ratonga or Gnomes handling and distributing large amounts of money. The Coalition of Tradesfolke have sent me to this district to try to prevent anymore mishaps that are a result of allowing these races a position with the bank. As it stands, we are still looking for a Ratonga who has all of the keys to our safety deposit vaults.")
+	Dialog.AddVoiceover("voiceover/english/banker_sempronia_gallus/fprt_hood03/quests/semproniagallus/sempronia_x1_initial.mp3", 986781087, 1487041958)
+	    PlayFlavor(NPC, "", "", "scold", 0, 0, Spawn)
+        Dialog.AddOption("Is there something I could do?","Quest1Offer")
+        Dialog.AddOption("Lost bank keys?! I want nothing to do with this bank!")
+	Dialog.Start()
+end
+
+function Quest1Offer(NPC,Spawn)
+  	FaceTarget(NPC, Spawn)
+    OfferQuest(NPC,Spawn,Keys)
+end
+
+function Quest1Done(NPC, Spawn)
+    SetStepComplete(Spawn, Keys,2)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("Excellent... were the Coalition to have found out someone managed to abscond with the vault keys.... well, I don't even like thinking about it.  As per our agreement, here are some coins for your time.  Perhaps you may wish to deposit them within the Reserves?")
+	Dialog.AddVoiceover("voiceover/english/banker_sempronia_gallus/fprt_hood03/quests/semproniagallus/sempronia_x1_finish.mp3", 1236347558, 864344705)
+	PlayFlavor(NPC, "", "", "thanks", 0, 0, Spawn)
+    Dialog.AddOption("I'll consider it.")
+	Dialog.Start()
+end
