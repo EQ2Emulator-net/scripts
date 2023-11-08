@@ -15,6 +15,7 @@ function hailed(NPC, Spawn)
     Dialog1(NPC, Spawn)
 end
 
+--You not find Raban! I must make Kaysa and Spezi more ugly!
 
 function Dialog1(NPC, Spawn)
 	FaceTarget(NPC, Spawn)

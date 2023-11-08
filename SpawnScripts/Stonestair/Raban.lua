@@ -18,15 +18,7 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
-    if GetQuestStep(Spawn, AWorthyTeacher) == 1 then
-        FaceTarget(NPC, Spawn)
-	    Dialog.New(NPC, Spawn)
-	    Dialog.AddDialog("Can't you adventurers find some other place to drink?")
-	    Dialog.AddOption("I am not here to drink, madam. I bring a message from the Iksar Zekvila.", "Dialog2")
-	    Dialog.Start()
-    else
-       Dialog1(NPC, Spawn)
-    end
+    Dialog1(NPC, Spawn)
 end
 
 function Dialog1(NPC, Spawn)
@@ -34,9 +26,14 @@ function Dialog1(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Can't you adventurers find some other place to drink?")
 	Dialog.AddVoiceover("voiceover/english/optional1/tavern_patron,_erudite_female/fprt_hood02/tavern_patron_erudite_raban.mp3", 2922822950, 250860244)
+    if GetQuestStep(Spawn, AWorthyTeacher) == 1 then
+	    Dialog.AddOption("I am not here to drink, madam. I bring a message from the Iksar Zekvila.", "Dialog2")
+    end
 	Dialog.AddOption("Whatever.")
 	Dialog.Start()
 end
+
+--Hahahaaaa! It's so adorable when those little creatures fight each other...so emotional...so angry...perfect little beasts. Well, you tell Krysa that I'll do it for free. Considering all three of them, plus some little love-smitten ratonga, came to me for enchantments, it's worth it.  As I was saying, it's so charming to see those feral little beasts stab each other in the back. Haaahaaaahaaa.
 
 function Dialog2(NPC, Spawn)
     FaceTarget(NPC, Spawn)
