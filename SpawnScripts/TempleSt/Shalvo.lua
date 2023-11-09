@@ -16,7 +16,7 @@ end
 
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
-    if not HasLanguage(Spawn,12)then
+    if not HasLanguage(Spawn,26)then
     Garbled(NPC,Spawn)
     else
     GenericEcologyHail(NPC, Spawn, faction)
@@ -27,7 +27,7 @@ function InRange(NPC,Spawn)
 if GetFactionAmount(Spawn,12)<0 then
     FactionCheckCallout(NPC,Spawn,faction)
     else
-    if not HasLanguage(Spawn,12)then
+    if not HasLanguage(Spawn,26)then
         if math.random(0,100)<40 then
      	FaceTarget(NPC, Spawn)
         Garbled(NPC,Spawn)

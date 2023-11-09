@@ -8,8 +8,8 @@
 
 function cast(Caster, Target, MainVal, DoTVal)
     Level = GetLevel(Caster)
-    SpellLevel = 4
-    Mastery = SpellLevel + 3
+    SpellLevel = 3
+    Mastery = SpellLevel + 50
    
     if Level < Mastery then
         LvlBonus = Level - SpellLevel

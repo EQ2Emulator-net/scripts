@@ -23,8 +23,9 @@ function respawn(NPC)
 end
 
 function InRange(NPC,Spawn)
-if CanReceiveQuest(Spawn,Teeth) or CanReceiveQuest(Spawn,Design) then    
-   SetTempVariable(NPC,"CalloutTimer","true")
+if GetTempVariable(NPC,"CalloutTimer")=="false" then
+    if CanReceiveQuest(Spawn,Teeth) or CanReceiveQuest(Spawn,Design) then    
+    SetTempVariable(NPC,"CalloutTimer","true")
     SetTarget(NPC,Spawn)
     FaceTarget(NPC,Spawn)
     if CanReceiveQuest(Spawn,Teeth)  then    
@@ -33,6 +34,7 @@ if CanReceiveQuest(Spawn,Teeth) or CanReceiveQuest(Spawn,Design) then
 	PlayFlavor(NPC, "voiceover/english/sparzit_cogsnibble/fprt_hood03/100_barpatronsparzitcogsnibble_callout2_db4179dc.mp3", "Hmmm ... let's see ... yes ... yes ... these teeth are very basic. I must extend the teeth of my snake and draw out its tips ... yesssss ... I see where I went wrong. The barbs I use stick after puncturing a person's vitals. Woohoo! I'm on to something. Here, friend, take this coin for your time.", "tapfoot", 3052258109, 3734604849, Spawn, 0)
     end
     AddTimer(NPC,24000,"ResetCallout",1,Spawn)
+    end
 end
 end
 

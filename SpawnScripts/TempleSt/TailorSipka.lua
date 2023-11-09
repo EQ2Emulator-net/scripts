@@ -18,7 +18,7 @@ function respawn(NPC)
 end
 
 function InRange(NPC, Spawn)
-	 if MakeRandomInt(1, 100) <= 33 and GetFactionAmount(Spawn,12) >0 then
+	 if MakeRandomInt(1, 100) <= 20 and GetFactionAmount(Spawn,12) >0 then
 	    FaceTarget(NPC, Spawn)
     PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_1/ft/service/merchant/ratonga_merchant_service_evil_1_aoi_gf_53388b91.mp3", "Only traitors to the Overlord would pass up a bargain like this. You're not a traitor are you?", "scold", 1269771027, 1321830597, Spawn)
  elseif  GetFactionAmount(Spawn,12) <=0 then

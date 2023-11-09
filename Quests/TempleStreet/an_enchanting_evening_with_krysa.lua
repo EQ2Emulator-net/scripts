@@ -31,8 +31,8 @@ function Accepted(Quest, QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)
 	Dialog.AddDialog("Even though I don't have makeup, I still have the helps of a witch in the Erudite district. You go there for me, yes? When you get there, look for a woman named Raban. She is the witch who helps me. Tell her I brings her money if she makes Spezi and Krasa more ugly. Okay?")
 	Dialog.AddVoiceover("voiceover/english/krysa/fprt_hood03/quests/krysa/krysa_x2_accept.mp3", 67608218, 4287928755)
-    PlayFlavor(QuestGiver,"","","chuckle",0,0,Player)
-    Dialog.AddOption("Fine! I'm going!")
+    PlayFlavor(QuestGiver,"","","agree",0,0,Player)
+    Dialog.AddOption("I'll try to find her in Stonestair.")
 	Dialog.Start()
 end
 

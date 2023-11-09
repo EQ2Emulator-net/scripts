@@ -13,10 +13,10 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I need to find a glassy crab eye.", 1, 60, "I must find the ingredients that Frizi needs.", 83, 8410002,8410001,8410017)
-	AddQuestStepKill(Quest, 2, "I must find a shoreside asp fang.", 1, 60, "I must find the ingredients that Frizi needs.", 137, 8400012,8420020)
-	AddQuestStepKill(Quest, 3, "I must find a unbroken dune scorpion stinger.", 1, 60, "I must find the ingredients that Frizi needs.", 202, 8400005)
-	AddQuestStepKill(Quest, 4, "I must find an oversized rat stomach.", 1, 60, "I must find the ingredients that Frizi needs.", 83, 8430028,8430029)
+	AddQuestStepKill(Quest, 1, "I need to find a glassy crab eye.", 1, 66, "I must find the ingredients that Frizi needs.", 83, 8410002,8410001,8410017)
+	AddQuestStepKill(Quest, 2, "I must find a shoreside adder fang.", 1, 66, "I must find the ingredients that Frizi needs.", 137, 8420018,8420020)
+	AddQuestStepKill(Quest, 3, "I must find a unbroken scorpion stinger.", 1, 66, "I must find the ingredients that Frizi needs.", 202, 8410010)
+	AddQuestStepKill(Quest, 4, "I must find an oversized rat stomach.", 1, 66, "I must find the ingredients that Frizi needs.", 109, 8430009,8430010,8430011,8430029,8430008,8400001,8400002,8400003,8400004)
     UpdateQuestZone(Quest,"Multiple Zones")
 
 
@@ -30,7 +30,7 @@ end
 function Accepted(Quest, QuestGiver, Player)
 	FaceTarget(QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)
-	Dialog.AddDialog("Let's see, I need a glassy crab eye and a rat stomach--you'll find both items in the Sunken City. I also need a shoreside asp fang and a dune scorpion stinger from the Sprawl. Return to me after you gather these ingredients.")
+	Dialog.AddDialog("Let's see, I need a glassy crab eye and a scorpion stinger--you'll find both items in the Sunken City. I also need a shoreside adder fang from the Sprawl or Ruins. Finally, an enlarged rat stomach from... somewhere. Return to me after you gather these ingredients.")
 	Dialog.AddOption("I'll get to it.")
 	Dialog.Start()
 end

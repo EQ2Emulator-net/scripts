@@ -21,7 +21,7 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I've killed Dervish crooks.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've taken care of the Dervish crooks like I told Frizi I would.")
     UpdateQuestZone(Quest,"Temple Street")
-	AddQuestStepChat(Quest, 2, "I need to speak with Frizi.", 1, "I should return to Frizi and let her know the Guttersnipes are dealt with.", 11, 1360012)
+	AddQuestStepChat(Quest, 2, "I need to speak with Frizi.", 1, "I should return to Frizi and let her know the Guttersnipes are dealt with.", 11, 1360053)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 
@@ -29,9 +29,9 @@ end
 function Accepted(Quest, QuestGiver, Player)
 	FaceTarget(QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)
-	Dialog.AddDialog("Ahh ... that is very good. The Shinska will remembers that you offered her helps. You go into the sewers and finds the Netherot Chanters. Kills the beasts. That will teach them not to say bad things about the Shinska. Comes back and I give you reward, yes?")
-    PlayFlavor(QuestGiver,"","","sniff",0,0,Player)
-    Dialog.AddOption("You got it.")
+	Dialog.AddDialog("I appreciate the offer, but you're too late. The crooks who took them said they were going to use the pages to clean their ... backsides! Ooooh, it makes me so mad!! ... Kill them! YES! KILL them for me and I'll be more than happy. They ran off to the Sprawl. You'll find them wallowing in their own filth...")
+    PlayFlavor(QuestGiver,"","","grumble",0,0,Player)
+    Dialog.AddOption("Err... Sure. Good as dead.")
 	Dialog.Start()
 end
 

@@ -9,6 +9,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 local AWorthyTeacher = 5687
+local EnchantedEvening = 5926
 
 function spawn(NPC)
 end
@@ -29,11 +30,14 @@ function Dialog1(NPC, Spawn)
     if GetQuestStep(Spawn, AWorthyTeacher) == 1 then
 	    Dialog.AddOption("I am not here to drink, madam. I bring a message from the Iksar Zekvila.", "Dialog2")
     end
-	Dialog.AddOption("Whatever.")
+    if GetQuestStep(Spawn, EnchantedEvening) == 1 then
+	    Dialog.AddOption("Krysa is offering you more money to make the two other Ratonga \"more ugly\".", "Dialog3")
+    end
+    Dialog.AddOption("Whatever.")
 	Dialog.Start()
 end
 
---Hahahaaaa! It's so adorable when those little creatures fight each other...so emotional...so angry...perfect little beasts. Well, you tell Krysa that I'll do it for free. Considering all three of them, plus some little love-smitten ratonga, came to me for enchantments, it's worth it.  As I was saying, it's so charming to see those feral little beasts stab each other in the back. Haaahaaaahaaa.
+--
 
 function Dialog2(NPC, Spawn)
     FaceTarget(NPC, Spawn)
@@ -44,4 +48,12 @@ function Dialog2(NPC, Spawn)
     SetStepComplete(Spawn, AWorthyTeacher, 1)
 end
 
-
+function Dialog3(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("Hahahaaaa! It's so adorable when those little creatures fight each other...so emotional...so angry...perfect little beasts. Well, you tell Krysa that I'll do it for free. Considering all three of them, plus some little love-smitten ratonga, came to me for enchantments, it's worth it.  As I was saying, it's so charming to see those feral little beasts stab each other in the back. Haaahaaaahaaa.")
+    PlayFlavor(NPC, "","","chuckle",0,0, Spawn)
+	Dialog.AddOption("Interesting. I'll let her know.")
+	Dialog.Start()
+    SetStepComplete(Spawn, EnchantedEvening, 1)
+end
