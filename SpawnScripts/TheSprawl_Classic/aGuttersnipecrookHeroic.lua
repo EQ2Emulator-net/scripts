@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheSprawl_Classic/aGuttersnipehooligan.lua
+    Script Name    : SpawnScripts/TheSprawl_Classic/aGuttersnipecrookHeroic.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.11.08 08:11:01
+    Script Date    : 2023.11.10 03:11:48
     Script Purpose : 
                    : 
 --]]
@@ -9,16 +9,16 @@ require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
-    --SpawnSet(NPC, "heroic", 1)
+    SpawnSet(NPC, "heroic", 1)
     local Level = GetLevel(NPC)
-    local level1 = 8
-    local level2 = 9
+    local level1 = 7
+    local level2 = 8
     local difficulty1 = 6
-    local hp1 = 240
-    local power1 = 100
+    local hp1 = 200
+    local power1 = 90
     local difficulty2 = 6
-    local hp2 = 275
-    local power2 = 110
+    local hp2 = 240
+    local power2 = 100
     if Level == level1 then
     SpawnSet(NPC, "difficulty", difficulty1)
     SpawnSet(NPC, "hp", hp1)
