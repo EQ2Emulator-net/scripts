@@ -30,7 +30,7 @@ function spawn(NPC, Spawn)
     SpawnSet(NPC, "power", power2)
     end
     Appearance(NPC)
-AddTimer(NPC,MakeRandomInt(3500,10000),"EmoteLoop")
+    AddTimer(NPC,MakeRandomInt(3500,10000),"EmoteLoop")
 end
 
 function EmoteLoop(NPC)
