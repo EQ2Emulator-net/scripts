@@ -103,7 +103,7 @@ function Dialog1(NPC,Spawn)
 	
 
     if CanReceiveQuest(Spawn, VlekoPlan) then
-	Dialog.AddOption("Rediculous! Convince them to move their stall!", "Dialog1a")
+	Dialog.AddOption("Ridiculous! Convince them to move their stall!", "Dialog1a")
     elseif GetQuestStep(Spawn, VlekoPlan)==2 then
 	Dialog.AddOption("Here is the orcish sword you requested.", "Dialog2")
     end
