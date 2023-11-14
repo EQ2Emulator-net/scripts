@@ -38,7 +38,8 @@ end
 
 
 function hailed(NPC, Spawn)
-	RandomHail(NPC, Spawn)
+     FaceTarget(NPC,Spawn)
+	AddTimer(NPC,500,"RandomHail", 1,Spawn)
 end
 
 function aggro(NPC,Spawn)
@@ -67,7 +68,7 @@ function RandomHail(NPC, Spawn)
 	elseif choice == 3 then
 		PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_urbanchef/ft/eco/evil/ratonga_eco_evil_urbanchef_hail_gm_3c9902f6.mp3", "Fresh stew made with the finest ingredients! Come and get it!", "happy", 291667261, 3539823905, Spawn, 0)
 	elseif choice == 4 then
-		PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_urbanchef/ft/eco/evil/ratonga_eco_evil_urbanchef_hail_gm_6498c1fd.mp3", "Try my feline claw soup sometime. You must!", "agree", 1561843829, 2721588881, Spawn, 0)
+		PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_urbanchef/ft/eco/evil/ratonga_eco_evil_urbanchef_hail_gm_6498c1fd.mp3", "Try my feline claw soup sometime. You must!", "agree", 1561843829, 2180580092, Spawn, 0)
 	elseif choice == 5 then
 		PlayFlavor(NPC, "voiceover/english/ratonga_eco_evil_urbanchef/ft/eco/evil/ratonga_eco_evil_urbanchef_hail_gm_a9f4bc35.mp3", "Don't bother me. I'm collecting fresh ingredients for a special recipe.", "shakefist", 2150316524, 1924252475, Spawn, 0)
 	end

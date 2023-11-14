@@ -27,7 +27,7 @@ function Dialog1(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Take a good look!  There are nots many as attractive as I, Spezi. You want somes company?")
 	Dialog.AddVoiceover("voiceover/english/spezi_the_street_hag/fprt_hood03/qst_streethagspezi.mp3", 1064590659, 1345460348)
-    PlayFlavor(NPC,"","","flirt",0,0,Spawn)
+    PlayFlavor(NPC,"","","flustered",0,0,Spawn)
     if GetQuestStep(Spawn, TheMissingBook) == 1 then
     Dialog.AddOption("Enough! Where is the stolen tome from Longshadow Alley?","Dialog2")
     end

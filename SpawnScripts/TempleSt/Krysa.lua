@@ -8,6 +8,7 @@
 require "SpawnScripts/Generic/DialogModule"
 local Makeup = 5925
 local EnchantedEvening = 5926
+local TheMissingBook = 5681
 
 
 function spawn(NPC)

@@ -12,9 +12,9 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Gather five tokens from the creatures in the Sunken City.", 5, 34, "The Sunken City has been seeded with tokens for the residents of Beggar's Court to gather. These tokens may be found on any creatures in the Sunken City.  I can reach the Sunken City by using any of the bells in and around the City of Freeport.", 1338,1240000, 1240001,1240002,1240004,1240005,1240006,1240007,1240008,1240009,1240010,1240011,1240012,1240013,1240014,1240015,1240016,1240025,1240028,1240029,1240030,1240031,1240032,1240034,1240035,1240036,1240037,1240038,1240039,1240040,1240041,1240042,1240042,1240044,1240045,1240048)
+	AddQuestStepKill(Quest, 1, "Gather five tokens from the creatures in the Sunken City.", 5, 34, "The Sunken City has been seeded with tokens for the residents of Beggar's Court to gather. These tokens may be found on any creatures in the Sunken City.  I can reach the Sunken City by using any of the bells in and around the City of Freeport.", 1338,8410001, 8410002, 8410003, 8410004, 8410005, 8410006, 8410007, 8410008, 8410009, 8410010, 8410011, 8410012, 8410016, 8410017, 8410018,8410019, 8410020, 8410021, 8410022, 8410023, 8410024, 8410025, 8410026, 8410027, 8410028, 8410029, 8410030, 8410035,8410036, 8410037, 8410038,8410039, 8410040,8410041,8410042, 8410069, 8410070)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
-    UpdateQuestZone(Quest,"Sprawl")
+    UpdateQuestZone(Quest,"Sunken City")
 end
 
 function Accepted(Quest, QuestGiver, Player)
