@@ -17,8 +17,8 @@ function Init(Quest)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-    if HasItem(Player,3034) then
-        RemoveItem(Player,3034,1)
+    if HasItem(Player,3034,1) then
+        RemoveItem(Player,3034)
         SendMessage(Player,"You stuff the claw crab in your quest satchle.")
     end
 end

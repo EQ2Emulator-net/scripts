@@ -13,10 +13,14 @@
 function Init(Quest)
 	AddQuestStepChat(Quest, 1, "I need to find Tarakh.", 1, "I should take this note to Tarakh.  Based on the note's contents, he is probably a Ratonga.", 185, 1360000)
 	AddQuestStepCompleteAction(Quest, 1, "QuestComplete")
+    UpdateQuestZone(Quest,"Temple Street")
 end
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+    if HasItem(Player,1568,1) then
+        RemoveItem(Player,1568)
+        SendMessage(Player,"You place the dirty note in your quest satchle.")
+    end
 end
 
 function Declined(Quest, QuestGiver, Player)

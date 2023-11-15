@@ -32,10 +32,10 @@ end
 
 function Dialog2(Item,Player)
     conversation = CreateConversation()
-    if CanReceiveQuest(Player,AnAxesRevenge) then
+    if CanReceiveQuest(Player,RewardForAMissingMusicBox) then
     AddConversationOption(conversation, "[Write the name in your journal.]", "Offer")
     end
-    AddConversationOption(conversation, "[Put the axe away.]", "CloseItemConversation")
+    AddConversationOption(conversation, "[Put the music box away.]", "CloseItemConversation")
     StartDialogConversation(conversation, 2, Item, Player, "Inside the music box is a small engraving of the name \"Lucilla Quietus\" on a little gold plate.  You also discover that the music box no longer plays music.")
 end
 

@@ -19,8 +19,8 @@ function Init(Quest)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-    if HasItem(Player,1335) then
-        RemoveItem(Player,1335,1)
+    if HasItem(Player,1335,1) then
+        RemoveItem(Player,1335)
         SendMessage(Player,"You place the carved orc axe in your quest satchle.") 
     end
 end

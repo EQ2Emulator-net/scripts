@@ -17,8 +17,8 @@ function hailed(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Sorry, sorry.  What is it?  I can't really help out much since those local 858 union members stole my blasted toolbox!")
 	Dialog.AddVoiceover("voiceover/english/chuggle_valvesplitter/fprt_hood03/hail_chuggle000.mp3", 986790684, 3595790226)
-    if GetQuestStep(Spawn,ChugglesToolbox) ==1 then
-	Dialog.AddOption("I have your toolbox and tools right here.  Let's talk reward.  ", "Dialog2")
+    if GetQuestStep(Spawn,ChugglesToolbox) ==6 then
+	Dialog.AddOption("I have your toolbox and tools right here.  Let's talk reward.", "Dialog2")
     end
 	Dialog.AddOption("I'll leave you to your depression. ")
 	Dialog.Start()
@@ -36,7 +36,7 @@ end
 
 function complete(NPC, Spawn)
     PlayFlavor(NPC,"","","","thanks",0,0,Spawn)
-SetStepComplete(Spawn, ChugglesToolbox, 2)
+    SetStepComplete(Spawn, ChugglesToolbox, 6)
 end
 
 
