@@ -10,9 +10,9 @@
 function examined(Item, Player)
     conversation = CreateConversation()
 	if CanReceiveQuest(Player,RustySymbol) then
-    AddConversationOption(conversation, "Someone might be interested in this.","Offer")
+    AddConversationOption(conversation, "Someone of faith might want this.","Offer")
     end
-    AddConversationOption(conversation, "[Put the symbol away.]")
+    AddConversationOption(conversation, "[Put the symbol away]")
     StartDialogConversation(conversation, 2, Item, Player, "The metal medallion is very old and rusty but bears the symbol of Mithaniel Marr.")
 end
 
