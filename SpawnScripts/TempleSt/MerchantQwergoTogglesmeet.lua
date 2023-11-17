@@ -25,8 +25,8 @@ end
 end
 
 function InRange(NPC,Spawn)
-if CanReceiveQuest(Spawn,QwergosPlan) then    
-   SetTempVariable(NPC,"CalloutTimer","true")
+if CanReceiveQuest(Spawn,QwergosPlan) and GetTempVariable(NPC,"CalloutTimer") ~= "true"  then    
+    SetTempVariable(NPC,"CalloutTimer","true")
     SetTarget(NPC,Spawn)
     FaceTarget(NPC,Spawn)
 	PlayFlavor(NPC, "voiceover/english/merchant_qwergo_togglesmeet/fprt_hood03/100_merchantqwergobtogglesmeet_callout_3ca72d41.mp3", "I have something so very important to say to you! Will you not hear me out?", "wave", 892700118, 2368875233, Spawn, 0)
