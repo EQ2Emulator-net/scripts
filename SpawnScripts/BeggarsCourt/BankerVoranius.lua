@@ -1,7 +1,7 @@
 --[[
 	Script Name	: SpawnScripts/BeggarsCourt/BankerVoranius.lua
 	Script Purpose	: Banker Voranius <Banker>
-	Script Author	: John Adams
+	Script Author	: John Adams\\Dorbin
 	Script Date	: 2009.04.05
 	Script Notes	: Auto-Generated Conversation from PacketParser Data
 --]]
@@ -42,13 +42,23 @@ function Dialog1(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Hello there.  Voranius is my name.  I can help you with all your banking needs.")
 	Dialog.AddVoiceover("voiceover/english/banker_voranius/fprt_hood04/bnk_banker_voranius.mp3", 2601161199, 994867740)
-	Dialog.AddOption("Thanks.")
-	Dialog.Start()
 	if GetQuestStep(Spawn, DonationsfromtheBanker) == 1 then
-        SetStepComplete(Spawn, DonationsfromtheBanker, 1)	
+	Dialog.AddOption("The gang is ready for another withdrawl. Do it and you'll avoid any... \"mess\".","Dialog3")
     end
+    Dialog.AddOption("Thanks.")
+	Dialog.Start()
+
 end
 
+function Dialog3(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("What in the world are you talking about? I think I'll need to deduct some more -- wait, do you mean Galla's gang?   He's asking for more again? I see he's running out of thugs and just using idiots now.  Fine, fine, FINE! Here's some money for him.  I hope some witch makes his berries rot -- serves him right, I say. Now get out!")
+	Dialog.AddVoiceover("voiceover/english/banker_voranius/fprt_hood04/quests/maniusgalla/banker_manius_x2_initial.mp3", 4218680977, 2049323900)
+	Dialog.AddOption("Hey!... I'm sure he won't like hearing that.")
+	Dialog.Start()
+    SetStepComplete(Spawn, DonationsfromtheBanker, 1)	
+end
 
 function Dialog2(NPC, Spawn)
 	FaceTarget(NPC, Spawn)

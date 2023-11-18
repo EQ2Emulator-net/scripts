@@ -151,9 +151,12 @@ function TierOneC(NPC, Spawn)
     elseif difficulty == 5 then -- 2-4 dif 5
         lowDmg = math.floor(2 * GlobalDmgMod + dmgMod) 
         highDmg = math.floor(4 * GlobalDmgMod + dmgMod)
-    elseif difficulty >=6 then -- 2-7 damage- Dif 6-9
+    elseif difficulty ==6 then -- 2-7 damage- Dif 6
         lowDmg = math.floor(2 * GlobalDmgMod + dmgMod)
         highDmg = math.floor(7 * GlobalDmgMod + dmgMod)
+    elseif difficulty >=7 then -- 2-7 damage- Dif 7+
+        lowDmg = math.floor(5 * GlobalDmgMod + dmgMod)
+        highDmg = math.floor(10 * GlobalDmgMod + dmgMod)
     end
     
     SetInfoStructUInt(NPC, "override_primary_weapon", 1)
