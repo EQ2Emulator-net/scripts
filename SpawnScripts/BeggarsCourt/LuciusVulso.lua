@@ -1,10 +1,11 @@
 --[[
 	Script Name		: SpawnScripts/BeggarsCourt/LuciusVulso.lua
 	Script Purpose	: Lucius Vulso
-	Script Author	: torsten
+	Script Author	: torsten\\Dorbin
 	Script Date		: 2022.07.15
 	Script Notes	: 
 --]]
+require "SpawnScripts/Generic/DialogModule"
 
 local CasingtheJoint = 5652
 local IntoTheSewersForLucius = 5653
@@ -90,8 +91,8 @@ function Dialog1(NPC, Spawn)
 	elseif GetQuestStep(Spawn,CasingtheJoint) ==2 then
 	Dialog.AddOption("There's a rumor running around that the vault can be tunneled into through the sewers.", "Dialog3")
     else
-    Dialog.AddOption("Alright.")
     end	    
+    Dialog.AddOption("Alright.")
 	Dialog.Start()
 end
 

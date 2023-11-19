@@ -1,7 +1,7 @@
 --[[
 	Script Name		: SpawnScripts/BeggarsCourt/AntiusVedrix.lua
 	Script Purpose	: Antius Vedrix
-	Script Author	: torsten
+	Script Author	: torsten\\Dorbin
 	Script Date		: 2022.07.15
 	Script Notes	: 
 --]]
@@ -100,8 +100,7 @@ function Dialog2(NPC, Spawn)
 	Dialog.AddDialog("Good, good, you know the password. All right, so you are the new guy. Okay, I tied up the package nice and tight like Mirini wanted ...  it even has flowers on it. Go ahead, do your thing, and make sure Mirini gets it!")
 	Dialog.AddVoiceover("voiceover/english/antius_vedrix/fprt_hood04/quests/antiusvedrix/antius_x1_initial.mp3", 3222236480, 2970401654)
 	PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn, 0)
-	Dialog.AddOption("What is going on here!?", "Offer")
-	Dialog.AddOption("[Lie] Sure. Don't tell anyone I was here until the job is done.", "Offer")
+	Dialog.AddOption("No, really. What is going on here!?", "Offer")
 	Dialog.AddOption("This whole thing is a mixup. I'm leaving!")
 	Dialog.Start()
 end

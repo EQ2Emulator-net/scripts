@@ -5,6 +5,7 @@
 	Script Date		: 11.17.2023
 	Script Notes	: 
 --]]
+require "SpawnScripts/Generic/DialogModule"
 
 local AnErrandfortheQueen = 5650
 
@@ -64,17 +65,6 @@ function Offer(NPC, Spawn)
 end
 
 
-
-function hailed(NPC, Spawn)
-    if not HasQuest(Spawn, AnErrandfortheQueen) and not HasCompletedQuest(Spawn, AnErrandfortheQueen) then
-        OfferQuest(NPC, Spawn, AnErrandfortheQueen)
-    end
-    if GetQuestStep(Spawn, AnErrandfortheQueen) == 2 then
-        SetStepComplete(Spawn, AnErrandfortheQueen, 2)
-    end
-	RandomGreeting(NPC, Spawn)
-end
-
 function Dialog1(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
@@ -97,7 +87,7 @@ function Dialog2(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("HOW DARE YOU ADDRESS ME LIKE THAT!  I am Queen Antonia Bayle, lord and protector of the UNIVERSE!  I'm on a top-secret mission, so do not spread word of my presence, understand?  My mission is to eat all the cheese before my husband, Lucan, finds it.  I need my public executioner, NOW!  Is that you?")
 	Dialog.AddVoiceover("voiceover/english/tullia_domna/fprt_hood04/quests/tulladomna/tulla_x1_initial.mp3", 309451026, 621524268)
-	PlayFlavor(NPC, "", "", "swear", 0, 0, Spawn, 0)
+	PlayFlavor(NPC, "", "", "boggle", 0, 0, Spawn, 0)
 	Dialog.AddOption("I mispoke your 'Highness'... I am here to 'serve'.", "Offer")
 	Dialog.AddOption("Wow, talk about a basket case! I've heard enough.")
 	Dialog.Start()

@@ -14,6 +14,7 @@ function spawn(NPC)
     ProvidesQuest(NPC, BottlesOfBeerInMyHand)
     SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")		
     SetTempVariable(NPC,"CalloutTimer","false")
+    SetInfoStructString(NPC, "action_state", "artificing_idle")
 end
 
 function InRange(NPC,Spawn)
@@ -27,8 +28,6 @@ elseif HasCompletedQuest(Spawn,BottlesOfBeerInMyHand) and GetTempVariable(NPC,"C
     FaceTarget(NPC,Spawn)
 	PlayFlavor(NPC, "voiceover/english/festus_septimus/fprt_hood04/100_std_festus_septimius_hum_m_multhail4_73ae922d.mp3", "Leave before you break something. I no longer need your services.", "no", 266472789, 272800124, Spawn, 0)
    AddTimer(NPC,100000,"ResetCallout",1,Spawn)
-else
-	PlayFlavor(NPC, "", "", "artificing_idle", 0, 0, Spawn, 0)
 end
 end
 

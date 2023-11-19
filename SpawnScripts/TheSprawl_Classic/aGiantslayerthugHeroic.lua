@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheSprawl_Classic/aGiantslayerthug.lua
+    Script Name    : SpawnScripts/TheSprawl_Classic/aGiantslayerthugHeroic.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.11.08 08:11:14
+    Script Date    : 2023.11.18 10:11:24
     Script Purpose : 
                    : 
 --]]
@@ -10,6 +10,7 @@ require "SpawnScripts/Generic/CombatModule"
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
     barbarian(NPC)
+    SpawnSet(NPC, "heroic", 1)
     
     local Level = GetLevel(NPC)
     local level1 = 7

@@ -9,7 +9,7 @@ require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
-    race(NPC)
+    troll(NPC)
     SpawnSet(NPC, "heroic", 1)
     local Level = GetLevel(NPC)
     local level1 = 4

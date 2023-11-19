@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheSprawl_Classic/aGiantslayerbrutePath1.lua
+    Script Name    : SpawnScripts/TheSprawl_Classic/aGiantslayerbasherPath1.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.11.16 09:11:09
+    Script Date    : 2023.11.18 09:11:50
     Script Purpose : 
                    : 
 --]]
@@ -9,17 +9,18 @@ require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
-    troll(NPC)
+    ogre(NPC)
     waypoints(NPC)
+    
     local Level = GetLevel(NPC)
-    local level1 = 4
-    local level2 = 5
+    local level1 = 5
+    local level2 = 6
     local difficulty1 = 6
-    local hp1 = 110
-    local power1 = 55
+    local hp1 = 130
+    local power1 = 65
     local difficulty2 = 6
-    local hp2 = 130
-    local power2 = 65
+    local hp2 = 150
+    local power2 = 80
     if Level == level1 then
     SpawnSet(NPC, "difficulty", difficulty1)
     SpawnSet(NPC, "hp", hp1)

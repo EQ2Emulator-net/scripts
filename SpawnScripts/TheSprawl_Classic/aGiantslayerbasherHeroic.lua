@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheSprawl_Classic/aGiantslayerthug.lua
+    Script Name    : SpawnScripts/TheSprawl_Classic/aGiantslayerbasherHeroic.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.11.08 08:11:14
+    Script Date    : 2023.11.18 10:11:30
     Script Purpose : 
                    : 
 --]]
@@ -9,17 +9,18 @@ require "SpawnScripts/Generic/CombatModule"
 
 function spawn(NPC, Spawn)
     combatModule(NPC, Spawn)
-    barbarian(NPC)
+    ogre(NPC)
+    SpawnSet(NPC, "heroic", 1)
     
     local Level = GetLevel(NPC)
-    local level1 = 7
-    local level2 = 8
+    local level1 = 5
+    local level2 = 6
     local difficulty1 = 6
-    local hp1 = 200
-    local power1 = 90
+    local hp1 = 130
+    local power1 = 65
     local difficulty2 = 6
-    local hp2 = 240
-    local power2 = 100
+    local hp2 = 150
+    local power2 = 80
     if Level == level1 then
     SpawnSet(NPC, "difficulty", difficulty1)
     SpawnSet(NPC, "hp", hp1)

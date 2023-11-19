@@ -149,7 +149,7 @@ end
 
 function Finished(NPC, Player)
 		FaceTarget(NPC, Player)
-        PlayFlavor(NPC,"voiceover/english/assistant_dreak/tutorial_island02/030_wizard_assistant_dreak_quest_completed_e3b1aced.mp3","Thanks for all your help!  Make sure to clean up when you're done in the cellar.","thanks",1096069834,205718440, Spawn)
+        PlayFlavor(NPC,"voiceover/english/assistant_dreak/tutorial_island02/030_wizard_assistant_dreak_quest_completed_e3b1aced.mp3","Thanks for all your help!  Make sure to clean up when you're done in the cellar.","thanks",1096069834,205718440, Player)
 end
 --[[
 
