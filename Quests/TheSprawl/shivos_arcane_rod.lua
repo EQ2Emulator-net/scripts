@@ -17,7 +17,10 @@ function Init(Quest)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+    if HasItem(Player, 2804) then
+    RemoveItem(Player, 2804)
+    SendMessage(Player,"You place the magic rod in your quest satchle.")
+    end
 end
 
 function Declined(Quest, QuestGiver, Player)
