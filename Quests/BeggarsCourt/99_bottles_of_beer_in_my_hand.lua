@@ -16,11 +16,14 @@ require "SpawnScripts/Generic/DialogModule"
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I must kill some brine sifters.", 5, 100, "I need to travel to the Sunken City and kill brine sifters until I have a big handful of sand from their gizzards. When they're dead, I'll collect the sand that's in their gizzards.", 77, 8410001, 8410001)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+    UpdateQuestZone(Quest,"Sunken City")	
+
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have killed the brine sifters.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed the crabs and collected all the sand I could find in their gizzards.")
+    UpdateQuestZone(Quest,"Beggar's Court")	
 
     AddQuestStepChat(Quest, 2, "I should return to Festus Septimius.", 1, "I should bring this sand back to Festus Septimus if I want to get paid.", 11, 1370024)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")

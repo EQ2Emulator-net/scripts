@@ -6,11 +6,10 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/BaseGoblin2.lua")
-require "SpawnScripts/Generic/CombatModule"
-
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
-    combatModule(NPC, Spawn)
+    NPCModule(NPC, Spawn)
     AddTimer(NPC,2000,"EmoteLoop")
 end
 

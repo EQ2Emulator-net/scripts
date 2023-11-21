@@ -5,12 +5,11 @@
     Script Purpose : 
                    : 
 --]]
-
-require "SpawnScripts/Generic/CombatModule"
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
-    combatModule(NPC, Spawn)
-AddTimer(NPC, 1000, "followsentry")      
+    NPCModule(NPC, Spawn)
+    AddTimer(NPC, 1000, "followsentry")      
 end
 
 function hailed(NPC, Spawn)

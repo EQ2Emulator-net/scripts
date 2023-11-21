@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/IsleRefuge1/awarwolfB.lua
+    Script Name    : SpawnScripts/TheSprawl_Classic/awoodelfscout.lua
     Script Author  : LordPazuzu
-    Script Date    : 2022.09.26 02:09:12
+    Script Date    : 2023.11.20 07:11:25
     Script Purpose : 
                    : 
 --]]
@@ -12,6 +12,7 @@ function spawn(NPC, Spawn)
 end
 
 function hailed(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
 end
 
 function respawn(NPC)

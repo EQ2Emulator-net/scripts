@@ -6,34 +6,11 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/HighwaymanAntonica.lua")
-require "SpawnScripts/Generic/CombatModule"
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
-    combatModule(NPC, Spawn)
-    local RaceCheck = MakeRandomInt(1,2)
-    local GenderCheck = MakeRandomInt(1,2)
-    if GenderCheck == 1 then
-        SpawnSet(NPC,"gender",1)
-    else
-        SpawnSet(NPC,"gender",2)
-    end
-  local RaceChoice = MakeRandomInt(1,5)
-    if RaceCheck ==1 then
-        SpawnSet(NPC,"race",0)
-        if GetGender(NPC)==1 then
-        SpawnSet(NPC,"model_type",MakeRandomInt(1467,1471))
-        else
-        SpawnSet(NPC,"model_type",MakeRandomInt(1462,1466))
-        end
-    else
-        SpawnSet(NPC,"race",9)
-        if GetGender(NPC)==1 then
-        SpawnSet(NPC,"model_type",134)
-        else
-        SpawnSet(NPC,"model_type",132)
-        end     
-
-    end
+    NPCModule(NPC, Spawn)
+    
     local Level = GetLevel(NPC)
     local level1 = 17
     local level2 = 18
@@ -52,6 +29,15 @@ function spawn(NPC, Spawn)
     SpawnSet(NPC, "difficulty", difficulty2)
     SpawnSet(NPC, "hp", hp2)
     SpawnSet(NPC, "power", power2)
+    end
+    
+    local RaceCheck = MakeRandomInt(1,2)
+    if RaceCheck ==1 then
+        SpawnSet(NPC,"race",0)
+        human(NPC, Spawn)
+    else
+        SpawnSet(NPC,"race",9)
+        barbarian(NPC, Spawn)   
     end
 
 end

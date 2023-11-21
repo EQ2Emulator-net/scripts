@@ -5,11 +5,10 @@
     Script Purpose : Pulled from Rylec's locations on QueensColony
                    : 
 --]]
-
-require "SpawnScripts/Generic/CombatModule"
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
-    combatModule(NPC, Spawn)  
+    NPCModule(NPC, Spawn)  
     AddTimer(NPC, 6000, "waypoints")
 end
 
