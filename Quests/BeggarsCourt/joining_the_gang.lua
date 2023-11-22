@@ -10,6 +10,7 @@
 	Preceded by		:	None
 	Followed by		:	Donations from the Banker
 --]]
+require "SpawnScripts/Generic/DialogModule"
 
 
 function Init(Quest)

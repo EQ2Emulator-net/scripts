@@ -8,7 +8,6 @@
 
 require "SpawnScripts/Generic/DialogModule"
 local ColdBloodedRelations = 5808
-
 function spawn(NPC)
     ProvidesQuest(NPC, ColdBloodedRelations)
 end
@@ -22,6 +21,8 @@ function hailed(NPC, Spawn)
     RandomGreeting(NPC, Spawn)
     if not HasQuest(Spawn, ColdBloodedRelations) and not HasCompletedQuest(Spawn, ColdBloodedRelations) then
         Dialog1(NPC, Spawn)
+    elseif HasQuest(Spawn, ColdBloodedRelations) and QuestStepIsComplete(Spawn, ColdBloodedrelations, 2) then
+        Dialog2(NPC, Spawn)
     elseif HasQuest(Spawn, ColdBloodedRelations) then
         PlayFlavor(NPC, "", "Oemor...", "", 0, 0, Spawn, 0)
     end
@@ -61,7 +62,7 @@ end
 function Dialog2(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Oh, really? She liked them, did she? She seeks my presence? How do I look? Spectacular! How is my breath? Oh, glorious day!")
+	Dialog.AddDialog("Oh, really? She liked them, did she? She seeks my presence? How do I look? Spectacular! How is my breath? Oh, glorious day!", "getfrogdicksucked")
 	Dialog.AddVoiceover("voiceover/english/voice_emotes/greetings/greetings_1_1024.mp3", 0, 0)
 	Dialog.AddOption("Whoa, calm down!")
 	Dialog.Start()
@@ -125,4 +126,8 @@ end
 function ColdBloodedRelationsQuest(NPC, Spawn)
     FaceTarget(NPC, Spawn)
     OfferQuest(NPC, Spawn, ColdBloodedRelations)
+end
+
+function getfrogdicksucked(NPC, Spawn)
+    SetStepComplete(Spawn, ColdBloodedRelations, 3)
 end

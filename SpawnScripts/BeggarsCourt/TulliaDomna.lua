@@ -70,6 +70,7 @@ function Dialog1(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("It's disgusting that a person of my fine breeding has to do business with lowly half-breeds.")
 	Dialog.AddVoiceover("voiceover/english/tullia_domna/fprt_hood04/std_tullia_domna.mp3", 4000439764, 2378172444)
+ 	PlayFlavor(NPC, "", "", "sniff", 0, 0, Spawn, 0)
     if CanReceiveQuest(Spawn,AnErrandfortheQueen) then
 	Dialog.AddOption("I'm not sure what kind of breeding made you, but it certainly wasn't fine!", "Dialog2")
 	elseif GetQuestStep(Spawn,AnErrandfortheQueen) ==2 then

@@ -10,7 +10,6 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     ogre(NPC)
-    waypoints(NPC)
     SpawnSet(NPC, "heroic", 1)
     AddTimer(NPC,MakeRandomInt(3500,10000),"EmoteLoop")
 end

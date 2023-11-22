@@ -2,8 +2,8 @@
     Script Name    : SpawnScripts/Generic/NPCModule.lua
     Script Author  : LordPazuzu
     Script Date    : 2023.11.20 08:11:41
-    Script Purpose : 
-                   : 
+    Script Purpose : NPC Statistics Control Script- In Development
+                   : Supersedes CombatModule.lua
 --]]
 GlobalDmgMod = 1.0      -- Global Damage Multiplier- make global adjustments to all NPC autoattack damage.
 GlobalStatMod = 1.0     -- Global Attribute Multiplier- make global adjustments to NPC attribute scores.
@@ -13,12 +13,10 @@ GlobalPowerMod = 1.0    -- Global Power Pool Multiplier
 function  NPCModule(NPC, Spawn) 
     level = GetLevel(NPC)           -- NPC Level
     difficulty = GetDifficulty(NPC) -- NPC Difficulty 
-    
     Attributes(NPC)
     LevelSwitch(NPC)
     Regen(NPC)
     HealthPower(NPC)
-    
 end
 
 --Determine damage function based on NPC level.
@@ -80,7 +78,6 @@ function Attributes(NPC, Spawn)
         finalStat = nineStat
     end
  
-    
     SetInfoStructFloat(NPC, "str", finalStat)
     SetStrBase(NPC, finalStat)
     SetInfoStructFloat(NPC, "agi", finalStat)
@@ -93,8 +90,6 @@ function Attributes(NPC, Spawn)
     SetWisBase(NPC, finalStat)
   
 end
-
-
 
 --Health and power regeneration rates
 function Regen(NPC, Spawn)
@@ -109,19 +104,14 @@ function Regen(NPC, Spawn)
     
 end
 
-
 --Damage functions based on NPC level range.
-
 --Level 1-3
 function TierOneA(NPC, Spawn)
     local dmgMod =GetStr(NPC)/10          -- Strength-based damage bonus for autoattack damage.
     lowDmg = math.floor(0 * GlobalDmgMod + dmgMod)
     highDmg = math.floor(2 * GlobalDmgMod + dmgMod)
-    SetInfoStructUInt(NPC, "override_primary_weapon", 1)        -- Enables override of server autoattack damage. Set to 0 to  allow server to set damage.
-    SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
-    SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
+    damage(NPC)
 end
-
 
 --Level 4-5
 function TierOneB(NPC, Spawn)
@@ -136,11 +126,8 @@ function TierOneB(NPC, Spawn)
         lowDmg = math.floor(2 * GlobalDmgMod + dmgMod)
         highDmg = math.floor(4 * GlobalDmgMod + dmgMod)
     end
-    SetInfoStructUInt(NPC, "override_primary_weapon", 1)
-    SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
-    SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
+    damage(NPC)
 end
-
 
 --Level 6-9
 function TierOneC(NPC, Spawn)
@@ -158,12 +145,8 @@ function TierOneC(NPC, Spawn)
         lowDmg = math.floor(5 * GlobalDmgMod + dmgMod)
         highDmg = math.floor(10 * GlobalDmgMod + dmgMod)
     end
-    
-    SetInfoStructUInt(NPC, "override_primary_weapon", 1)
-    SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
-    SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
+    damage(NPC)
 end
-
 
 --Level 10-15
 function TierTwoA(NPC, Spawn)
@@ -184,12 +167,8 @@ function TierTwoA(NPC, Spawn)
         lowDmg = math.floor(12 * GlobalDmgMod + dmgMod)
         highDmg = math.floor(24 * GlobalDmgMod + dmgMod)
     end
-    
-    SetInfoStructUInt(NPC, "override_primary_weapon", 1)
-    SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
-    SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
+    damage(NPC)
 end
-
 
 --Level 16-19
 function TierTwoB(NPC, Spawn)
@@ -210,11 +189,7 @@ function TierTwoB(NPC, Spawn)
         lowDmg = math.floor(25 * GlobalDmgMod + dmgMod)
         highDmg = math.floor(55 * GlobalDmgMod + dmgMod)
     end
-    
-    SetInfoStructUInt(NPC, "override_primary_weapon", 1)
-    SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
-    SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
-
+    damage(NPC)
 end
 
 --Level 20-24
@@ -236,11 +211,7 @@ function TierThreeA(NPC, Spawn)
         lowDmg = math.floor(25 * GlobalDmgMod + dmgMod)
         highDmg = math.floor(55 * GlobalDmgMod + dmgMod)
     end
-    
-    SetInfoStructUInt(NPC, "override_primary_weapon", 1)
-    SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
-    SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
- 
+    damage(NPC)
 end
 
 --Level 25-29
@@ -262,11 +233,14 @@ function TierThreeB(NPC, Spawn)
         lowDmg = math.floor(35 * GlobalDmgMod + dmgMod)
         highDmg = math.floor(75 * GlobalDmgMod + dmgMod)
     end
-    
-    SetInfoStructUInt(NPC, "override_primary_weapon", 1)
+    damage(NPC)
+end
+
+--Autoattack damage override function.
+function damage(NPC, Spawn)
+    SetInfoStructUInt(NPC, "override_primary_weapon", 1) --Set to 1 enables override for autoattack damage.  Set to 0 to allow server to set damage.
     SetInfoStructUInt(NPC, "primary_weapon_damage_low", lowDmg) 
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
-
 end
 
 --Race functions for DoF compatibility
@@ -277,7 +251,7 @@ function dwarf(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",110)    
     end
-    
+    hair(NPC)
 end
 
 function froglok(NPC, Spawn)
@@ -287,7 +261,7 @@ function froglok(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",77)    
     end
-    
+    hair(NPC)
 end
 
 function  halfling(NPC, Spawn)
@@ -297,7 +271,7 @@ function  halfling(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",108)    
     end
-    
+    hair(NPC)
 end
 
 function  highelf(NPC, Spawn)
@@ -307,7 +281,7 @@ function  highelf(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",136)    
     end
-    
+    hair(NPC)
 end
 
 function woodelf(NPC, Spawn)
@@ -317,7 +291,7 @@ function woodelf(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",114)    
     end
-    
+    hair(NPC)
 end
 
 function barbarian(NPC, Spawn)
@@ -327,6 +301,7 @@ function barbarian(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",112)    
     end
+    hair(NPC)
     
 end
 
@@ -337,7 +312,7 @@ function erudite(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",119)    
     end
-    
+    hair(NPC)
 end
 
 function gnome(NPC, Spawn)
@@ -347,7 +322,7 @@ function gnome(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",121)    
     end
-    
+    hair(NPC)
 end
 
 function halfelf(NPC, Spawn)
@@ -357,7 +332,7 @@ function halfelf(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",78)    
     end
-    
+    hair(NPC)
 end
 
 function human(NPC, Spawn)
@@ -367,7 +342,7 @@ function human(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",134)    
     end
-    
+    hair(NPC)
 end
 
 function  kerra(NPC, Spawn)
@@ -377,7 +352,7 @@ function  kerra(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",82)    
     end
-    
+    hair(NPC)
 end
 
 function darkelf(NPC, Spawn)
@@ -387,7 +362,7 @@ function darkelf(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",115)    
     end
-    
+    hair(NPC)
 end
 
 function iksar(NPC, Spawn)
@@ -397,7 +372,7 @@ function iksar(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",103)    
     end
-    
+    hair(NPC)
 end
 
 function ogre(NPC, Spawn)
@@ -407,6 +382,7 @@ function ogre(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",124)    
     end
+    hair(NPC)
 end
 
 function ratonga(NPC, Spawn)
@@ -416,7 +392,7 @@ function ratonga(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",53)    
     end
-    
+    hair(NPC)
 end
 
 function  troll(NPC, Spawn)
@@ -426,13 +402,24 @@ function  troll(NPC, Spawn)
     else
     SpawnSet(NPC,"model_type",106)    
     end
-    
+    hair(NPC)
+end
+
+function hair(NPC, Spawn)
+    local hair = MakeRandomInt(1125, 1139)
+    SpawnSet(NPC, "hair_type", hair)
 end
 
 function HealthPower(NPC, Spawn)
     
-    -- Calculate multipliers based on  difficulty tier
-    if difficulty <= 3 then
+    -- Calculate multipliers based on difficulty tier
+    if difficulty == 1 then
+        HPMod = 0.20
+        PWMod = 0.20  
+    elseif difficulty == 2 then
+        HPMod = 0.25
+        PWMod = 0.25
+    elseif difficulty == 3 then
         HPMod = 0.35
         PWMod = 0.35
     elseif difficulty == 4 then
@@ -551,3 +538,4 @@ function HealthPower(NPC, Spawn)
     ModifyPower(NPC, math.floor(pw))
     
 end
+

@@ -38,11 +38,11 @@ function QuestComplete(Quest, QuestGiver, Player)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-	FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)
+	FaceTarget(QuestGiver, Player)
+	Dialog.New(QuestGiver, Player)
 	Dialog.AddDialog("Okay, here's the deal. The guy is a vagrant who lives out in the ruins, right?  We want to send the message that no one messes with us. You need to head south of here and do some dirty work to his buddies, understand?")
 	Dialog.AddVoiceover("voiceover/english/crispin_luvinius/fprt_hood04/quests/crispinluvinius/crispin_x1_accept.mp3", 121176241, 3802962144)
-	PlayFlavor(NPC, "", "", "sniff", 0, 0, Spawn, 0)
+	PlayFlavor(QuestGiver, "", "", "sniff", 0, 0, Player, 0)
 	Dialog.AddOption("Sounds like an easy job.", "Dialog3")
 	Dialog.Start()
 end

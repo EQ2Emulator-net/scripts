@@ -61,7 +61,7 @@ function Dialog2(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Did you hear that, boys? This runt wants to join our gang! HA HA HA HA! You couldn't fight your way out of a wet parchment bag let alone join us. HA HA HA! We keep people safe inside the city districts!  You're better off paying us for protection, runt.")
     PlayFlavor(NPC, "","","chuckle",0,0, Spawn)
-	Dialog.AddOption("Why don't you give me a test?", "Dialog3")
+	Dialog.AddOption("Why don't you give me a test?", "Offer1")
 	Dialog.AddOption("I don't need to take this from you. Good bye.")
 	Dialog.Start()
 end

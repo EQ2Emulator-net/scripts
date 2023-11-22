@@ -24,6 +24,7 @@ function Accepted(Quest, QuestGiver, Player)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("That's what I like to hear!  Remember that dirty vagrant you delivered the message to?  Rumor has it he's hiding among rogues and scoundrels from the other districts -- a gang called the Giantslayers.  And his ... brethren ... have gotten their feathers all ruffled and are planning to come here to ... pay court ... if you understand me.  They want to send a message to their leader. Now, I enjoy a good tussle as much as anyone, of course, but, uh ... we don't want to rob you of an opportunity to prove your fighting skills. So, why don't you go to the Giantslayers and tan their mangy hides for us?")
 	Dialog.AddVoiceover("voiceover/english/crispin_luvinius/fprt_hood04/quests/crispinluvinius/crispin_x2_accept.mp3", 4053471999, 555717236)
+	PlayFlavor(NPC, "", "", "agree", 0, 0, Spawn, 0)
 	Dialog.AddOption("Don't worry... I'll handle it.", "Dialog6")
 	Dialog.Start()
 end
