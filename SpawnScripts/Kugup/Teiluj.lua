@@ -21,7 +21,7 @@ function hailed(NPC, Spawn)
     RandomGreeting(NPC, Spawn)
     if not HasQuest(Spawn, ColdBloodedRelations) and not HasCompletedQuest(Spawn, ColdBloodedRelations) then
         Dialog1(NPC, Spawn)
-    elseif HasQuest(Spawn, ColdBloodedRelations) and QuestStepIsComplete(Spawn, ColdBloodedrelations, 2) then
+    elseif HasQuest(Spawn, ColdBloodedRelations) and GetQuestStep(Spawn, ColdBloodedRelations) == 3 then
         Dialog2(NPC, Spawn)
     elseif HasQuest(Spawn, ColdBloodedRelations) then
         PlayFlavor(NPC, "", "Oemor...", "", 0, 0, Spawn, 0)
@@ -62,7 +62,8 @@ end
 function Dialog2(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Oh, really? She liked them, did she? She seeks my presence? How do I look? Spectacular! How is my breath? Oh, glorious day!", "getfrogdicksucked")
+	Dialog.AddDialog("Oh, really? She liked them, did she? She seeks my presence? How do I look? Spectacular! How is my breath? Oh, glorious day!")
+	getfrogdicksucked(NPC, Spawn)
 	Dialog.AddVoiceover("voiceover/english/voice_emotes/greetings/greetings_1_1024.mp3", 0, 0)
 	Dialog.AddOption("Whoa, calm down!")
 	Dialog.Start()

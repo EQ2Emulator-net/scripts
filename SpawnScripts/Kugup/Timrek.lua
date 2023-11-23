@@ -7,8 +7,10 @@
 --]]
 
 require "SpawnScripts/Generic/DialogModule"
+local ThePuzzledTactician = 5930
 
 function spawn(NPC)
+    ProvidesQuest(NPC, ThePuzzledTactician)
 end
 
 function respawn(NPC)
@@ -17,7 +19,14 @@ end
 
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
+	if not HasQuest(Spawn, ThePuzzledTactician) and not HasCompletedQuest(Spawn, ThePuzzledTactician) then
+    Dialog2(NPC, Spawn)
+    elseif HasQuest(Spawn, ThePuzzledTactician) and GetQuestStep(Spawn, ThePuzzledTactician) == 1 then
+        Dialog12(NPC, Spawn)
+        else
 	RandomGreeting(NPC, Spawn)
+end
+
 end
 
 function RandomGreeting(NPC, Spawn)
@@ -127,7 +136,7 @@ function Dialog11(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("It's a logic puzzle. If you'd like to take a crack at it, be my guest. I must warn you though, it isn't easy.")
-	Dialog.AddOption("Sure, I'll take a look.", "Dialog15")
+	Dialog.AddOption("Sure, I'll take a look.", "ThePuzzledTacticianQuest")
 	Dialog.AddOption("No thanks, I enjoy my sanity.")
 	Dialog.Start()
 end
@@ -137,9 +146,9 @@ function Dialog12(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("So you've had a crack at it now, eh? What do you think?")
 	Dialog.AddVoiceover("voiceover/english/voice_emotes/greetings/greetings_2_1024.mp3", 0, 0)
-	Dialog.AddOption("Can I hear the riddle again?")
+	Dialog.AddOption("Can I hear the riddle again?", "Dialog8")
 	Dialog.AddOption("I think I have it!", "Dialog13")
-	Dialog.AddOption("Reset the puzzle")
+	Dialog.AddOption("Reset the puzzle", "Dialog7")
 	Dialog.AddOption("Nevermind")
 	Dialog.Start()
 end
@@ -158,7 +167,7 @@ function Dialog14(NPC, Spawn)
 	Dialog.AddDialog("So, you've had a crack at it now, eh? What do you think?")
 	Dialog.AddVoiceover("voiceover/english/voice_emotes/greetings/greetings_2_1024.mp3", 0, 0)
 	Dialog.AddOption("Can I hear the riddle again?")
-	Dialog.AddOption("I think I have it!")
+	Dialog.AddOption("I think I have it!", "Dialog13")
 	Dialog.AddOption("Reset the puzzle", "Dialog7")
 	Dialog.AddOption("Nevermind")
 	Dialog.Start()
@@ -168,7 +177,7 @@ function Dialog15(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Alright! Here's the riddle. Once you hear it, go place the totems on the correct platforms. When you think you're finished, or you want to start over, come talk to me!")
-	Dialog.AddOption("What's the riddle?")
+	Dialog.AddOption("What's the riddle?", "Dialog8")
 	Dialog.AddOption("I don't need to hear the riddle.")
 	Dialog.Start()
 end
@@ -214,3 +223,7 @@ function Dialog19(NPC, Spawn)
 	Dialog.Start()
 end
 
+function ThePuzzledTacticianQuest(NPC, Spawn)
+    OfferQuest(NPC, Spawn, ThePuzzledTactician)
+    Dialog15(NPC, Spawn)
+end
