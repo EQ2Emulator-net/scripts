@@ -5,6 +5,7 @@
 	Script Date		: 2022.07.17
 	Script Notes	: Auto-Generated Conversation from PacketParser Data
 --]]
+require "SpawnScripts/Generic/DialogModule"
 
 local SiricusandtheMilitia = 5663
 
@@ -111,7 +112,7 @@ function Dialog4(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Oh no. I've waited several weeks now ... Gosh, I didn't know the Militia had such a long waiting list. I guess I have no choice but to wait. Thank you for your help, good friend. ")
 	Dialog.AddVoiceover("voiceover/english/siricus_calventius/fprt_hood04/quests/siricuscalventius/siricus_x1_finish.mp3", 1070794522, 2366770692)
-	PlayFlavor(NPC, "", "", "sulk", 0, 0, Spawn, 0)
+	PlayFlavor(NPC, "", "", "pout", 0, 0, Spawn, 0)
 	Dialog.AddOption("Yeah, good luck with that.")
 	Dialog.Start()
 	SetStepComplete(Spawn,SiricusandtheMilitia,2)

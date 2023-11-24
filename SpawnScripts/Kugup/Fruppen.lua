@@ -8,7 +8,10 @@
 
 require "SpawnScripts/Generic/DialogModule"
 
+local StaffingUpQuest = 5932
+
 function spawn(NPC)
+ProvidesQuest(NPC, StaffingUpQuest)
 end
 
 function respawn(NPC)
@@ -17,7 +20,12 @@ end
 
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
-	RandomGreeting(NPC, Spawn)
+	if not HasQuest(Spawn, StaffingUpQuest) and not HasCompletedQuest(Spawn, StaffingUpQuest) then
+        Dialog5(NPC, Spawn)
+    elseif HasQuest(Spawn, StaffingUpQuest) and GetQuestStep(Spawn, StaffingUpQuest) == 2 then
+        Dialog2(NPC, Spawn)
+	else RandomGreeting(NPC, Spawn)
+end
 end
 
 function RandomGreeting(NPC, Spawn)
@@ -38,6 +46,7 @@ function Dialog1(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Hey this branch is perfect! Whoa! Thanks so much!")
+	SetStepComplete(Spawn, StaffingUpQuest, 2)
 	Dialog.AddOption("You're welcome. Practice hard!")
 	Dialog.Start()
 end
@@ -103,7 +112,7 @@ function Dialog8(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("Really?! I mean... You don't have to if you don't want to. Do you want to?")
-	Dialog.AddOption("Sure thing!", "Dialog4")
+	Dialog.AddOption("Sure thing!", "StaffingUpInit")
 	Dialog.AddOption("Not really")
 	Dialog.Start()
 end
@@ -117,3 +126,12 @@ function Dialog9(NPC, Spawn)
 	Dialog.Start()
 end
 
+function StaffingUpInit(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    OfferQuest(NPC, Spawn, StaffingUpQuest)
+    Dialog4(NPC, Spawn)
+end
+
+--function StaffingUpComplete(NPC, Spawn)
+    --SetStepComplete(Spawn, StaffingUpQuest, 2)
+--end

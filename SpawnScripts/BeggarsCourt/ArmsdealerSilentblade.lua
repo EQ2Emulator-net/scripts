@@ -5,6 +5,7 @@
 	Script Date		: 2022.07.15
 	Script Notes	: 
 --]]
+require "SpawnScripts/Generic/DialogModule"
 
 local FreeWaresforSilentblade = 5654
 local GetRichQuick = 5655

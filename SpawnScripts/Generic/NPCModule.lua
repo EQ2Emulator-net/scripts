@@ -13,10 +13,13 @@ GlobalPowerMod = 1.0    -- Global Power Pool Multiplier
 function  NPCModule(NPC, Spawn) 
     level = GetLevel(NPC)           -- NPC Level
     difficulty = GetDifficulty(NPC) -- NPC Difficulty 
-    Attributes(NPC)
-    LevelSwitch(NPC)
-    Regen(NPC)
-    HealthPower(NPC)
+    
+    --Included functions.  Comment out a function to disable.
+    Attributes(NPC)     -- Determines basic stats of the NPC(str, agi, sta, int, wis)
+    LevelSwitch(NPC)    -- Determines the NPC's tier for the purposes of autoattack damage.
+    Regen(NPC)          -- Sets NPC's health and/or power regeneration rates or disables regeneration entirely.
+    HealthPower(NPC)    -- Calculates NPC's based on level and difficulty.
+    Heroic(NPC)         -- Detects if an NPC should be flagged as heroic and sets the heroic flag accordingly.
 end
 
 --Determine damage function based on NPC level.
@@ -243,7 +246,7 @@ function damage(NPC, Spawn)
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
 end
 
---Race functions for DoF compatibility
+--Race functions for DoF compatibility.  These are called independently in the NPC's spawn function.
 function dwarf(NPC, Spawn)
     SpawnSet(NPC,"race",2)
     if GetGender(NPC)==2 then
@@ -537,5 +540,11 @@ function HealthPower(NPC, Spawn)
     SetMaxPower(NPC, math.floor(pw))
     ModifyPower(NPC, math.floor(pw))
     
+end
+
+function Heroic(NPC, Spawn)
+    if difficulty == 8 or difficulty == 9 then
+        SpawnSet(NPC, "heroic", 1)
+    end
 end
 

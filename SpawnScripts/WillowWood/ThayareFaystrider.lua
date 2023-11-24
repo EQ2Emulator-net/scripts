@@ -1,7 +1,7 @@
 --[[
 	Script Name	: SpawnScripts/WillowWood/ThayareFaystrider.lua
 	Script Purpose	: Thayare Faystrider 
-	Script Author	: Scatman
+	Script Author	: Scatman\\Dorbin
 	Script Date	: 2009.09.15
 	Script Notes	: 
 --]]
@@ -20,13 +20,6 @@ function hailed(NPC, Spawn)
     Dialog1(NPC, Spawn)
 end
 
-function OldDialog1(NPC,Spawn)
-conversation = CreateConversation()
-	PlayFlavor(NPC, "voiceover/english/optional5/thayare/qey_village05/thayare000.mp3", "", "", 1834305487, 313746184, Spawn)
-	AddConversationOption(conversation, "The cataclysms have passed. ", "dlg_8_1")
-	AddConversationOption(conversation, "I cannot speak now. Farewell.")
-	StartConversation(conversation, NPC, Spawn, "So kind, yet so naive to the horrors of the past, tragedies to be repeated, no doubt. ")
-end
 
 function Dialog1(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
@@ -95,18 +88,18 @@ function Dialog7(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("She drifted from this realm more than four-hundred-years ago in the Age of Turmoil. It was the great War of the Fay, the war of the elves. The elf empire of below and their allies challenged the combined nations of elfkind. Armies of Teir'Dal, orc, troll, and others crept towards the Faydark hoping to extinguish the elves of sun.")
 	Dialog.AddVoiceover("voiceover/english/optional5/thayare/qey_village05/thayare006.mp3", 3098906679, 78236071)
-	Dialog.AddOption("You fought in this war? ", "Dialog7")
+	Dialog.AddOption("You fought in this war? ", "Dialog8")
 	Dialog.AddOption("What is the Faydark? ","Dialog9")
 	Dialog.AddOption("I shall remember your words. Farewell.")
 	Dialog.Start()
 end
 
-function Dialog7(NPC, Spawn)
+function Dialog8(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
     Dialog.AddDialog( "The Faydark was one of the last of the great forests of Norrath. It rested upon a continent far, far from here, taking up most of the land with its billowing evergreen canopy. Its grandeur was unmatched. It's within this sprawling majesty that we Feir'Dal built our great city in the last of the towering Elddar trees, the tree city called Kelethin.   ")
 	Dialog.AddVoiceover("voiceover/english/optional5/thayare/qey_village05/thayare007.mp3",567824333, 4242442867)
-	Dialog.AddOption( "You fought for this forest?", "Dialog8")
+	Dialog.AddOption( "You fought for this forest?", "Dialog9")
 	Dialog.AddOption( "I shall remember your words. Farewell.")
 	Dialog.Start()
 end
@@ -165,9 +158,9 @@ end
 function Dialog14(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Greatly outnumbered, the dark hordes were repelled. They retreated to the shadowed realms from whence they came. Some unfortunate ones fled to the Loping Plains seeking a haven in the moors of Mistmoore, never to be heard from again.  ")
-	Dialog.AddVoiceover("voiceover/english/optional5/thayare_faystrider/qey_village05/thayare014.mp3", 2960216728, 621843039)
-	Dialog.AddOption("So the war was not long?", "Dialog15")
+	Dialog.AddDialog("Defeat seemed certain, but as we fought futile battles on many fronts, the horns of war were heard along the borders of the Faydark! The brigades of the dwarven empire Kaladim marched in from the western mountains, and from the east came the gnomes of Ak'Anon with their ticking and puffing clockwork army. The elves of the sun would triumph this day.           ")
+	Dialog.AddVoiceover("voiceover/english/optional5/thayare/qey_village05/thayare013.mp3", 3275962358, 3603060383)
+	Dialog.AddOption("What happened to the evil horde?", "Dialog15")
 	Dialog.AddOption("I shall remember your words. Farewell.")
 	Dialog.Start()
 end
@@ -175,9 +168,9 @@ end
 function Dialog15(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Don't let my short tale confuse you. This war raged for more than a few seasons. Blood stained the forest floor, green turned to ash. It was in the final defense of Kelethin that my sister sustained a mortal blow, dying within my arms, her last breath gracing my tear-soaked face.  ")
-	Dialog.AddVoiceover("voiceover/english/optional5/thayare/qey_village05/thayare015.mp3", 4021587135, 1996842290)
-	Dialog.AddOption("How did you end up here?", "Dialog16")
+	Dialog.AddDialog("Greatly outnumbered, the dark hordes were repelled. They retreated to the shadowed realms from whence they came. Some unfortunate ones fled to the Loping Plains seeking a haven in the moors of Mistmoore, never to be heard from again.  ")
+	Dialog.AddVoiceover("voiceover/english/optional5/thayare_faystrider/qey_village05/thayare014.mp3", 2960216728, 621843039)
+	Dialog.AddOption("So the war was not long?", "Dialog16")
 	Dialog.AddOption("I shall remember your words. Farewell.")
 	Dialog.Start()
 end
@@ -185,7 +178,17 @@ end
 function Dialog16(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Kelethin and Felwithe were restored under the guidance of the princess Queen, Lenya Thex, but the scars remained, both upon the land and within my memory. I departed the Faydark in search of a new life that would bury my visions of the war, but as I learned, war is eternal and it is far reaching. Since my days in the Faydark, I have traversed much more bloodshed. It is inescapable, yet I live on to defend the Laws of Tunare and to honor those that have fallen, such as my beloved sister Geeda.  ")
+	Dialog.AddDialog("Don't let my short tale confuse you. This war raged for more than a few seasons. Blood stained the forest floor, green turned to ash. It was in the final defense of Kelethin that my sister sustained a mortal blow, dying within my arms, her last breath gracing my tear-soaked face.  ")
+	Dialog.AddVoiceover("voiceover/english/optional5/thayare/qey_village05/thayare015.mp3", 4021587135, 1996842290)
+	Dialog.AddOption("How did you end up here?", "Dialog17")
+	Dialog.AddOption("I shall remember your words. Farewell.")
+	Dialog.Start()
+end
+
+function Dialog17(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
+	Dialog.New(NPC, Spawn)
+	Dialog.AddDialog("Kelethin and Felwithe were restored under the guidance of the princess Queen, Lenya Thex, but the scars remained, both upon the land and within my memory. I departed the Faydark in search of a new life that would bury my visions of the war, but as I learned, war is eternal and it is far reaching. Since my days in the Faydark, I have traversed much more bloodshed. It is inescapable, yet I live on to defend the Laws of Tunare and to honor those that have fallen, such as my beloved sister Geeda.")
 	Dialog.AddVoiceover("voiceover/english/optional5/thayare/qey_village05/thayare016.mp3", 1874720017, 996176396)
 	Dialog.AddOption("I wish you peace. Thank you.")
 	Dialog.Start()
@@ -193,15 +196,7 @@ end
 
 
 
-function Dialog11(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
-	Dialog.New(NPC, Spawn)
-	Dialog.AddDialog("Defeat seemed certain, but as we fought futile battles on many fronts, the horns of war were heard along the borders of the Faydark! The brigades of the dwarven empire Kaladim marched in from the western mountains, and from the east came the gnomes of Ak'Anon with their ticking and puffing clockwork army. The elves of the sun would triumph this day.           ")
-	Dialog.AddVoiceover("voiceover/english/optional5/thayare/qey_village05/thayare013.mp3", 3275962358, 3603060383)
-	Dialog.AddOption("What happened to the evil horde?", "Dialog10")
-	Dialog.AddOption("I shall remember your words. Farewell.")
-	Dialog.Start()
-end
+
 
 
 
