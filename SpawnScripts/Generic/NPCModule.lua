@@ -15,11 +15,12 @@ function  NPCModule(NPC, Spawn)
     difficulty = GetDifficulty(NPC) -- NPC Difficulty 
     
     --Included functions.  Comment out a function to disable.
-    Attributes(NPC)     -- Determines basic stats of the NPC(str, agi, sta, int, wis)
-    LevelSwitch(NPC)    -- Determines the NPC's tier for the purposes of autoattack damage.
-    Regen(NPC)          -- Sets NPC's health and/or power regeneration rates or disables regeneration entirely.
-    HealthPower(NPC)    -- Calculates NPC's based on level and difficulty.
-    Heroic(NPC)         -- Detects if an NPC should be flagged as heroic and sets the heroic flag accordingly.
+    Attributes(NPC, Spawn)     -- Determines basic stats of the NPC(str, agi, sta, int, wis)
+    LevelSwitch(NPC, Spawn)    -- Determines the NPC's tier for the purposes of autoattack damage.
+    Regen(NPC, Spawn)          -- Sets NPC's health and/or power regeneration rates or disables regeneration entirely.
+    HealthPower(NPC, Spawn)    -- Calculates NPC's based on level and difficulty.
+    --Heroic(NPC, Spawn)         -- Detects if an NPC should be flagged as heroic and sets the heroic flag accordingly.
+    AddTimer(NPC, 10, "Heroic")
 end
 
 --Determine damage function based on NPC level.
@@ -249,168 +250,212 @@ end
 --Race functions for DoF compatibility.  These are called independently in the NPC's spawn function.
 function dwarf(NPC, Spawn)
     SpawnSet(NPC,"race",2)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",109)    
     else
     SpawnSet(NPC,"model_type",110)    
     end
+    
     hair(NPC)
 end
 
 function froglok(NPC, Spawn)
     SpawnSet(NPC,"race",4)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",76)    
     else
     SpawnSet(NPC,"model_type",77)    
     end
+    
     hair(NPC)
 end
 
 function  halfling(NPC, Spawn)
+    local hair = MakeRandomInt(1,2)
     SpawnSet(NPC,"race",7)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",107)    
     else
     SpawnSet(NPC,"model_type",108)    
     end
-    hair(NPC)
+    
+    if hair == 1 then
+        SpawnSet(NPC, "hair_type", MakeRandomInt(1125,1128))
+    else
+        SpawnSet(NPC, "hair_type", MakeRandomInt(1133,1139))
+    end
+    haircolor(NPC)
+
 end
 
 function  highelf(NPC, Spawn)
     SpawnSet(NPC,"race",8)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",135)    
     else
     SpawnSet(NPC,"model_type",136)    
     end
+    
     hair(NPC)
 end
 
 function woodelf(NPC, Spawn)
     SpawnSet(NPC,"race",15)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",113)    
     else
     SpawnSet(NPC,"model_type",114)    
     end
-    hair(NPC)
+    
+    SpawnSet(NPC, "hair_type", MakeRandomInt(1133, 1139))
+    haircolor(NPC)
 end
 
 function barbarian(NPC, Spawn)
     SpawnSet(NPC,"race",0)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",111)    
     else
     SpawnSet(NPC,"model_type",112)    
     end
-    hair(NPC)
     
+    if hair == 1 then
+        SpawnSet(NPC, "hair_type", MakeRandomInt(1125,1128))
+    else
+        SpawnSet(NPC, "hair_type", MakeRandomInt(1133,1139))
+    end
+    haircolor(NPC)
 end
 
 function erudite(NPC, Spawn)
     SpawnSet(NPC,"race",3)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",120)    
     else
     SpawnSet(NPC,"model_type",119)    
     end
+    
     hair(NPC)
 end
 
 function gnome(NPC, Spawn)
     SpawnSet(NPC,"race",5)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",122)    
     else
     SpawnSet(NPC,"model_type",121)    
     end
+    
     hair(NPC)
 end
 
 function halfelf(NPC, Spawn)
     SpawnSet(NPC,"race",6)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",79)    
     else
     SpawnSet(NPC,"model_type",78)    
     end
+    
     hair(NPC)
 end
 
 function human(NPC, Spawn)
     SpawnSet(NPC,"race",9)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",132)    
     else
     SpawnSet(NPC,"model_type",134)    
     end
+    
     hair(NPC)
 end
 
 function  kerra(NPC, Spawn)
     SpawnSet(NPC,"race",11)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",81)    
     else
     SpawnSet(NPC,"model_type",82)    
     end
+    
     hair(NPC)
 end
 
 function darkelf(NPC, Spawn)
     SpawnSet(NPC,"race",1)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",116)    
     else
     SpawnSet(NPC,"model_type",115)    
     end
+    
     hair(NPC)
 end
 
 function iksar(NPC, Spawn)
     SpawnSet(NPC,"race",10)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",104)    
     else
     SpawnSet(NPC,"model_type",103)    
     end
+    
     hair(NPC)
 end
 
 function ogre(NPC, Spawn)
     SpawnSet(NPC,"race",12)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",123)    
     else
     SpawnSet(NPC,"model_type",124)    
     end
+    
     hair(NPC)
 end
 
 function ratonga(NPC, Spawn)
     SpawnSet(NPC,"race",13)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",54)    
     else
     SpawnSet(NPC,"model_type",53)    
     end
+    
     hair(NPC)
 end
 
 function  troll(NPC, Spawn)
     SpawnSet(NPC,"race",14)
+    
     if GetGender(NPC)==2 then
     SpawnSet(NPC,"model_type",105)    
     else
     SpawnSet(NPC,"model_type",106)    
     end
+    
     hair(NPC)
 end
 
 function hair(NPC, Spawn)
-    local hair = MakeRandomInt(1125, 1139)
-    SpawnSet(NPC, "hair_type", hair)
+    SpawnSet(NPC, "hair_type", MakeRandomInt(1125, 1139))
+    haircolor(NPC)
 end
 
 function HealthPower(NPC, Spawn)
@@ -543,8 +588,48 @@ function HealthPower(NPC, Spawn)
 end
 
 function Heroic(NPC, Spawn)
+    local group = GetGroup(NPC)
+    
+    if group ~= nil then
+        local groupsize = #group
+        if groupsize > 1 then
+            SpawnSet(NPC, "heroic", 1) 
+        end
+    end
+        
     if difficulty == 8 or difficulty == 9 then
         SpawnSet(NPC, "heroic", 1)
+    end
+    
+end
+
+function haircolor(NPC, Spawn)
+    local color = MakeRandomInt(1,5)
+    if color == 1 then
+        SpawnSet(NPC, "hair_type_color", "102 36 18")
+        SpawnSet(NPC, "hair_type_highlight_color", "138 129 121")
+        SpawnSet(NPC, "hair_face_color", "102 36 18")
+        SpawnSet(NPC, "hair_face_highlight_color", "138 129 121")
+    elseif color == 2 then
+        SpawnSet(NPC, "hair_type_color", "218 187 120")
+        SpawnSet(NPC, "hair_type_highlight_color", "114 65 4")
+        SpawnSet(NPC, "hair_face_color", "218 187 120")
+        SpawnSet(NPC, "hair_face_highlight_color", "114 65 4")
+    elseif color == 3 then
+        SpawnSet(NPC, "hair_type_color", "51 18 8")
+        SpawnSet(NPC, "hair_type_highlight_color", "60 59 55")
+        SpawnSet(NPC, "hair_face_color", "51 18 8")
+        SpawnSet(NPC, "hair_face_highlight_color", "60 59 55")
+    elseif color == 4 then
+        SpawnSet(NPC, "hair_type_color", "5 5 10")
+        SpawnSet(NPC, "hair_type_highlight_color", "5 5 10")
+        SpawnSet(NPC, "hair_face_color", "5 5 10")
+        SpawnSet(NPC, "hair_face_highlight_color", "5 5 10")
+    elseif color == 5 then    
+        SpawnSet(NPC, "hair_type_color", "230 230 230")
+        SpawnSet(NPC, "hair_type_highlight_color", "154 147 81")
+        SpawnSet(NPC, "hair_face_color", "230 230 230")
+        SpawnSet(NPC, "hair_face_highlight_color", "154 147 81")    
     end
 end
 

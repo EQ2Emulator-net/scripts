@@ -16,7 +16,7 @@ require "SpawnScripts/Generic/DialogModule"
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "I need to collect twenty dervish thug scalps.", 20, 100, "I need to collect scalps from the dervish thugs in the Commonlands for Marcus Cantarius.", 138, 330096, 330105)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
-    UpdateQuestZone(Quest,"Commonlands")
+    UpdateQuestZone(Quest,"The Commonlands")
 end
 
 function Step1Complete(Quest, QuestGiver, Player)
@@ -39,8 +39,11 @@ function Accepted(Quest, QuestGiver, Player)
 	FaceTarget(QuestGiver, Player)
 	Dialog.New(QuestGiver, Player)
 	Dialog.AddDialog("My hatred for the dervish thugs is unequaled. Bring me a large amount of these fiends' scalps. I wish to decorate my home with them. I promise to reward you handsomely.")
-	Dialog.AddVoiceover("voiceover/english/marcus_cantarius/fprt_hood04/quests/marcuscantarius/marcuscantarius003.mp3", 395004029, 46881327)
+	Dialog.AddVoiceover("voiceover/english/marcus_cantarius/fprt_hood04/quests/marcuscantarius/marcuscantarius003.mp3", 3150858972, 2644148691)
 	Dialog.AddOption("Gladly.")
+    if CanReceiveQuest(Player, 5660) then
+  	Dialog.AddOption("Of course. Other than scalping dervish, do you need anything else?","Dialog4")
+    end
 	Dialog.Start()
 end
 

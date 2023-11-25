@@ -9,8 +9,9 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
-    troll(NPC, Spawn)
-
+    barbarian(NPC, Spawn)
+    
+    
 end
 
 function attacked(NPC)
@@ -20,7 +21,7 @@ end
 
 
 function hailed(NPC, Spawn)
-	FaceTarget(NPC, Spawn)
+
 end
 
 
