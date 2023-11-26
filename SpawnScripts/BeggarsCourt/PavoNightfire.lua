@@ -1,7 +1,7 @@
 --[[
 	Script Name		: SpawnScripts/BeggarsCourt/PavoNightfire.lua
 	Script Purpose	: Pavo Nightfire
-	Script Author	: torsten
+	Script Author	: torsten\\Dorbin
 	Script Date		: 2022.07.18
 	Script Notes	: Auto-Generated Conversation from PacketParser Data
 --]]

@@ -17,7 +17,11 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
+    if not HasCompletedQuest(Spawn,DeliverHelptoJanusFieri) then
     Dialog1(NPC, Spawn)
+    else
+    Dialog11(NPC, Spawn)
+    end
 end
 
 function Dialog1(NPC, Spawn)

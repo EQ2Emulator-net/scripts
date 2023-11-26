@@ -30,7 +30,7 @@ end
 function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I've killed Bloodsaber meddlers.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I slew Bloodsaber rat men until I found a clue.")
-    if not HasItem(Player,1236) and GetQuestStep(Player,5366) == 2 then
+    if not HasItem(Player,1236) and GetQuestStepProgress(Player,5366,3) == 0 then
     GiveQuestItem(Quest, Player, "I slew Bloodsaber rat men until I found a clue.", 1236)
     end
 	AddQuestStep(Quest, 2, "Read the Bloodsaber note", 1, 100, "I should read the note I now carry in my inventory, the one I found on the Bloodsaber.", 11)

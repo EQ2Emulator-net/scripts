@@ -13,6 +13,8 @@ end
 function InRange(NPC, Spawn) --Quest Callout
     --QUEST CHECK, CHECKS EACH RACE SUBURB
   
+    if GetFactionAmount(Spawn,11)>-1 then
+        
     if not HasQuest(Spawn,5760) and not HasCompletedQuest(Spawn, 5760) and
     not HasQuest(Spawn,5761) and not HasCompletedQuest(Spawn, 5761) and
     not HasQuest(Spawn,5762) and not HasCompletedQuest(Spawn, 5762) and
@@ -28,7 +30,7 @@ function InRange(NPC, Spawn) --Quest Callout
     StartDialogConversation(conversation, 1, NPC, Spawn, "The voice of Queen Antonia Bayle enters your mind as you step forward... \n\n\"Prepare yourself. When you enter the city gates, you accept the challenge of citizenship.\"")
     end
 
-
+    end
 end
 
 

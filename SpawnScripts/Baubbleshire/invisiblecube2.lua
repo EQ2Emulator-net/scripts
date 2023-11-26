@@ -10,7 +10,7 @@ SetPlayerProximityFunction(NPC, 6, "InRange", "LeaveRange")
 end
 
 function InRange(NPC, Spawn) --Quest Callout
- if GetFactionAmount(Spawn,11)>=10000 then
+ if GetFactionAmount(Spawn,11)>-1 then
      --QUEST CHECK, CHECKS EACH RACE SUBURB
     if not HasQuest(Spawn,5760) and not HasCompletedQuest(Spawn, 5760) and
     not HasQuest(Spawn,5761) and not HasCompletedQuest(Spawn, 5761) and
