@@ -109,7 +109,7 @@ function Dialog9(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("I was but an adolescent, barely able to string a bow, yet I fought. My sister was in her prime, and she was a highly-skilled scout, an elite soldier of the Scouts of Tunare. But even her skill could not prepare her or the tree city of Kelethin for the onslaught from the northern coasts and the orc hordes from Crushbone.  ")
 	Dialog.AddVoiceover("voiceover/english/optional5/thayare/qey_village05/thayare008.mp3", 2595470053, 1587010551)
-	("How did it begin?", "Dialog10")
+	Dialog.AddOption("How did it begin?", "Dialog10")
 	Dialog.AddOption("I shall remember your words. Farewell.")
 	Dialog.Start()
 end

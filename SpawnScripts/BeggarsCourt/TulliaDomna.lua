@@ -89,7 +89,7 @@ function Dialog2(NPC, Spawn)
 	Dialog.AddDialog("HOW DARE YOU ADDRESS ME LIKE THAT!  I am Queen Antonia Bayle, lord and protector of the UNIVERSE!  I'm on a top-secret mission, so do not spread word of my presence, understand?  My mission is to eat all the cheese before my husband, Lucan, finds it.  I need my public executioner, NOW!  Is that you?")
 	Dialog.AddVoiceover("voiceover/english/tullia_domna/fprt_hood04/quests/tulladomna/tulla_x1_initial.mp3", 309451026, 621524268)
 	PlayFlavor(NPC, "", "", "boggle", 0, 0, Spawn, 0)
-	Dialog.AddOption("I mispoke your 'Highness'... I am here to 'serve'.", "Offer")
+	Dialog.AddOption("Whoa, are you okay?", "Offer")
 	Dialog.AddOption("Wow, talk about a basket case! I've heard enough.")
 	Dialog.Start()
 end

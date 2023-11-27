@@ -247,6 +247,156 @@ function damage(NPC, Spawn)
     SetInfoStructUInt(NPC, "primary_weapon_damage_high", highDmg)
 end
 
+--Calculate Hitpoints and Power
+function HealthPower(NPC, Spawn)
+    
+    -- Calculate multipliers based on difficulty tier
+    if difficulty == 1 then
+        HPMod = 0.20
+        PWMod = 0.20  
+    elseif difficulty == 2 then
+        HPMod = 0.25
+        PWMod = 0.25
+    elseif difficulty == 3 then
+        HPMod = 0.35
+        PWMod = 0.35
+    elseif difficulty == 4 then
+        HPMod = 0.45
+        PWMod = 0.45
+    elseif difficulty == 5 then
+        HPMod = 0.66
+        PWMod = 0.66
+    elseif difficulty == 6 then
+        HPMod = 1.0
+        PWMod = 1.0
+    elseif difficulty == 7 then
+        HPMod = 1.45
+        PWMod = 1.45
+    elseif difficulty == 8 then
+        HPMod = 2.2
+        PWMod = 2.2
+    elseif difficulty == 9 then
+        HPMod = 3.25
+        PWMod = 3.25
+    end
+     
+    --Calculate hitpoints and power based on level and difficuty
+    if level == 1 then
+        hp = 30 * HPMod * GlobalHPMod
+        pw = 25 * PWMod * GlobalPowerMod
+    elseif level == 2 then
+        hp = 45 * HPMod * GlobalHPMod
+        pw = 35 * PWMod * GlobalPowerMod
+    elseif level == 3 then
+        hp = 75 * HPMod * GlobalHPMod
+        pw = 45 * PWMod * GlobalPowerMod
+    elseif level == 4 then
+        hp = 110 * HPMod * GlobalHPMod
+        pw = 55 * PWMod * GlobalPowerMod
+    elseif level == 5 then
+        hp = 130 * HPMod * GlobalHPMod
+        pw = 65 * PWMod * GlobalPowerMod
+    elseif level ==  6 then
+        hp = 150 * HPMod * GlobalHPMod
+        pw = 80 * PWMod * GlobalPowerMod
+    elseif level == 7 then
+        hp = 200 * HPMod * GlobalHPMod
+        pw = 90 * PWMod * GlobalPowerMod
+    elseif level == 8 then
+        hp = 240 * HPMod * GlobalHPMod
+        pw = 100* PWMod * GlobalPowerMod
+    elseif level == 9 then
+        hp = 275 * HPMod * GlobalHPMod
+        pw = 110 * PWMod * GlobalPowerMod
+    elseif level == 10 then
+        hp = 370 * HPMod * GlobalHPMod
+        pw = 130 * PWMod * GlobalPowerMod
+    elseif level ==  11 then
+        hp = 430 * HPMod * GlobalHPMod
+        pw = 160 * PWMod * GlobalPowerMod
+    elseif level == 12 then
+        hp = 550 * HPMod * GlobalHPMod
+        pw = 185 * PWMod * GlobalPowerMod
+    elseif level == 13 then
+        hp = 680 * HPMod * GlobalHPMod
+        pw = 205 * PWMod * GlobalPowerMod
+    elseif level == 14 then
+        hp = 795 * HPMod * GlobalHPMod
+        pw = 240 * PWMod * GlobalPowerMod
+    elseif level == 15 then
+        hp = 920 * HPMod * GlobalHPMod
+        pw = 270 * PWMod * GlobalPowerMod
+    elseif level == 16 then
+        hp = 1045 * HPMod * GlobalHPMod
+        pw = 310 * PWMod * GlobalPowerMod
+    elseif level == 17 then
+        hp = 1180 * HPMod * GlobalHPMod
+        pw = 360 * PWMod * GlobalPowerMod
+    elseif level == 18 then
+        hp = 1290 * HPMod * GlobalHPMod
+        pw = 410 * PWMod * GlobalPowerMod
+    elseif level == 19 then
+        hp = 1440 * HPMod * GlobalHPMod
+        pw = 425 * PWMod * GlobalPowerMod
+    elseif level == 20 then
+        hp = 1930 * HPMod * GlobalHPMod
+        pw = 475 * PWMod * GlobalPowerMod
+    elseif level == 21 then
+        hp = 2120 * HPMod * GlobalHPMod
+        pw = 500 * PWMod * GlobalPowerMod
+    elseif level == 22 then
+        hp = 2355 * HPMod * GlobalHPMod
+        pw = 545 * PWMod * GlobalPowerMod
+    elseif level == 23 then
+        hp = 2595 * HPMod * GlobalHPMod
+        pw = 575 * PWMod * GlobalPowerMod
+    elseif level == 24 then
+        hp = 2840 * HPMod * GlobalHPMod
+        pw = 620 * PWMod * GlobalPowerMod
+    elseif level == 25 then
+        hp = 3080 * HPMod * GlobalHPMod
+        pw = 670 * PWMod * GlobalPowerMod
+    elseif level == 26 then
+        hp = 3340 * HPMod * GlobalHPMod
+        pw = 700 * PWMod * GlobalPowerMod
+    elseif level == 27 then
+        hp = 3600 * HPMod * GlobalHPMod
+        pw = 755 * PWMod * GlobalPowerMod
+    elseif level == 28 then
+        hp = 3820 * HPMod * GlobalHPMod
+        pw = 795 * PWMod * GlobalPowerMod
+    elseif level == 29 then
+        hp = 4240 * HPMod * GlobalHPMod
+        pw = 835 * PWMod * GlobalPowerMod
+    end  
+
+    SetMaxHP(NPC, math.floor(hp))
+    ModifyHP(NPC, math.floor(hp))
+    SetMaxPower(NPC, math.floor(pw))
+    ModifyPower(NPC, math.floor(pw))
+    
+end
+
+--Automatically set heroic flags based on specified criteria
+function Heroic(NPC, Spawn)
+    local group = GetGroup(NPC)
+    
+    if group ~= nil then
+        local groupsize = #group
+        if groupsize > 1 then
+            SpawnSet(NPC, "heroic", 1) 
+        end
+    end
+        
+    if difficulty == 8 or difficulty == 9 then
+        SpawnSet(NPC, "heroic", 1)
+    end
+    
+end
+
+
+-- OPTIONAL COSMETIC FUNCTIONS--
+
 --Race functions for DoF compatibility.  These are called independently in the NPC's spawn function.
 function dwarf(NPC, Spawn)
     SpawnSet(NPC,"race",2)
@@ -458,150 +608,6 @@ function hair(NPC, Spawn)
     haircolor(NPC)
 end
 
-function HealthPower(NPC, Spawn)
-    
-    -- Calculate multipliers based on difficulty tier
-    if difficulty == 1 then
-        HPMod = 0.20
-        PWMod = 0.20  
-    elseif difficulty == 2 then
-        HPMod = 0.25
-        PWMod = 0.25
-    elseif difficulty == 3 then
-        HPMod = 0.35
-        PWMod = 0.35
-    elseif difficulty == 4 then
-        HPMod = 0.45
-        PWMod = 0.45
-    elseif difficulty == 5 then
-        HPMod = 0.66
-        PWMod = 0.66
-    elseif difficulty == 6 then
-        HPMod = 1.0
-        PWMod = 1.0
-    elseif difficulty == 7 then
-        HPMod = 1.45
-        PWMod = 1.45
-    elseif difficulty == 8 then
-        HPMod = 2.2
-        PWMod = 2.2
-    elseif difficulty == 9 then
-        HPMod = 3.25
-        PWMod = 3.25
-    end
-     
-    --Calculate hitpoints and power based on level and difficuty
-    if level == 1 then
-        hp = 30 * HPMod * GlobalHPMod
-        pw = 25 * PWMod * GlobalPowerMod
-    elseif level == 2 then
-        hp = 45 * HPMod * GlobalHPMod
-        pw = 35 * PWMod * GlobalPowerMod
-    elseif level == 3 then
-        hp = 75 * HPMod * GlobalHPMod
-        pw = 45 * PWMod * GlobalPowerMod
-    elseif level == 4 then
-        hp = 110 * HPMod * GlobalHPMod
-        pw = 55 * PWMod * GlobalPowerMod
-    elseif level == 5 then
-        hp = 130 * HPMod * GlobalHPMod
-        pw = 65 * PWMod * GlobalPowerMod
-    elseif level ==  6 then
-        hp = 150 * HPMod * GlobalHPMod
-        pw = 80 * PWMod * GlobalPowerMod
-    elseif level == 7 then
-        hp = 200 * HPMod * GlobalHPMod
-        pw = 90 * PWMod * GlobalPowerMod
-    elseif level == 8 then
-        hp = 240 * HPMod * GlobalHPMod
-        pw = 100* PWMod * GlobalPowerMod
-    elseif level == 9 then
-        hp = 275 * HPMod * GlobalHPMod
-        pw = 110 * PWMod * GlobalPowerMod
-    elseif level == 10 then
-        hp = 370 * HPMod * GlobalHPMod
-        pw = 130 * PWMod * GlobalPowerMod
-    elseif level ==  11 then
-        hp = 430 * HPMod * GlobalHPMod
-        pw = 160 * PWMod * GlobalPowerMod
-    elseif level == 12 then
-        hp = 550 * HPMod * GlobalHPMod
-        pw = 185 * PWMod * GlobalPowerMod
-    elseif level == 13 then
-        hp = 680 * HPMod * GlobalHPMod
-        pw = 205 * PWMod * GlobalPowerMod
-    elseif level == 14 then
-        hp = 795 * HPMod * GlobalHPMod
-        pw = 240 * PWMod * GlobalPowerMod
-    elseif level == 15 then
-        hp = 920 * HPMod * GlobalHPMod
-        pw = 270 * PWMod * GlobalPowerMod
-    elseif level == 16 then
-        hp = 1045 * HPMod * GlobalHPMod
-        pw = 310 * PWMod * GlobalPowerMod
-    elseif level == 17 then
-        hp = 1180 * HPMod * GlobalHPMod
-        pw = 360 * PWMod * GlobalPowerMod
-    elseif level == 18 then
-        hp = 1290 * HPMod * GlobalHPMod
-        pw = 410 * PWMod * GlobalPowerMod
-    elseif level == 19 then
-        hp = 1440 * HPMod * GlobalHPMod
-        pw = 425 * PWMod * GlobalPowerMod
-    elseif level == 20 then
-        hp = 1930 * HPMod * GlobalHPMod
-        pw = 475 * PWMod * GlobalPowerMod
-    elseif level == 21 then
-        hp = 2120 * HPMod * GlobalHPMod
-        pw = 500 * PWMod * GlobalPowerMod
-    elseif level == 22 then
-        hp = 2355 * HPMod * GlobalHPMod
-        pw = 545 * PWMod * GlobalPowerMod
-    elseif level == 23 then
-        hp = 2595 * HPMod * GlobalHPMod
-        pw = 575 * PWMod * GlobalPowerMod
-    elseif level == 24 then
-        hp = 2840 * HPMod * GlobalHPMod
-        pw = 620 * PWMod * GlobalPowerMod
-    elseif level == 25 then
-        hp = 3080 * HPMod * GlobalHPMod
-        pw = 670 * PWMod * GlobalPowerMod
-    elseif level == 26 then
-        hp = 3340 * HPMod * GlobalHPMod
-        pw = 700 * PWMod * GlobalPowerMod
-    elseif level == 27 then
-        hp = 3600 * HPMod * GlobalHPMod
-        pw = 755 * PWMod * GlobalPowerMod
-    elseif level == 28 then
-        hp = 3820 * HPMod * GlobalHPMod
-        pw = 795 * PWMod * GlobalPowerMod
-    elseif level == 29 then
-        hp = 4240 * HPMod * GlobalHPMod
-        pw = 835 * PWMod * GlobalPowerMod
-    end  
-
-    SetMaxHP(NPC, math.floor(hp))
-    ModifyHP(NPC, math.floor(hp))
-    SetMaxPower(NPC, math.floor(pw))
-    ModifyPower(NPC, math.floor(pw))
-    
-end
-
-function Heroic(NPC, Spawn)
-    local group = GetGroup(NPC)
-    
-    if group ~= nil then
-        local groupsize = #group
-        if groupsize > 1 then
-            SpawnSet(NPC, "heroic", 1) 
-        end
-    end
-        
-    if difficulty == 8 or difficulty == 9 then
-        SpawnSet(NPC, "heroic", 1)
-    end
-    
-end
 
 function haircolor(NPC, Spawn)
     local color = MakeRandomInt(1,5)
@@ -632,4 +638,138 @@ function haircolor(NPC, Spawn)
         SpawnSet(NPC, "hair_face_highlight_color", "154 147 81")    
     end
 end
+
+
+--Idle Animation Packages:  Call the function in the main spawn function of the spawn script.
+
+function IdleAggressive(NPC)
+    if not IsInCombat(NPC) and GetRunbackDistance(NPC)<2 then
+        local choice = MakeRandomInt(1,5)
+        if choice == 1 then
+            PlayFlavor(NPC,"","","scheme",0,0)
+        elseif choice == 2 then
+            PlayFlavor(NPC,"","","brandish",0,0)
+        elseif choice == 3 then
+            PlayFlavor(NPC,"","","tapfoot",0,0)
+        elseif choice == 4 then
+            PlayFlavor(NPC,"","","swear",0,0)
+        elseif choice == 5 then
+            PlayFlavor(NPC,"","","threaten",0,0)
+        end
+end
+    AddTimer(NPC,MakeRandomInt(6500,12000),"IdleAggressive")
+end
+
+function IdleAlert(NPC)
+    if not IsInCombat(NPC) and GetRunbackDistance(NPC)<2 then
+        local choice = MakeRandomInt(1,5)
+        if choice == 1 then
+            PlayFlavor(NPC,"","","peer",0,0)
+        elseif choice == 2 then
+            PlayFlavor(NPC,"","","listen",0,0)
+        elseif choice == 3 then
+            PlayFlavor(NPC,"","","tapfoot",0,0)
+        elseif choice == 4 then
+            PlayFlavor(NPC,"","","yawn",0,0)
+        elseif choice == 5 then
+            PlayFlavor(NPC,"","","ponder",0,0)
+        end
+end
+    AddTimer(NPC,MakeRandomInt(6500,12000),"IdleAlert")
+end
+
+function IdleMischief(NPC)
+    if not IsInCombat(NPC) and GetRunbackDistance(NPC)<2 then
+        local choice = MakeRandomInt(1,5)
+        if choice == 1 then
+            PlayFlavor(NPC,"","","moon",0,0)
+        elseif choice == 2 then
+            PlayFlavor(NPC,"","","neener",0,0)
+        elseif choice == 3 then
+            PlayFlavor(NPC,"","","giggle",0,0)
+        elseif choice == 4 then
+            PlayFlavor(NPC,"","","dance",0,0)
+        elseif choice == 5 then
+            PlayFlavor(NPC,"","","heartattack",0,0)
+        end
+end
+    AddTimer(NPC,MakeRandomInt(6500,12000),"IdleMischief")
+end
+
+function IdleBored(NPC)
+    if not IsInCombat(NPC) and GetRunbackDistance(NPC)<2 then
+        local choice = MakeRandomInt(1,5)
+        if choice == 1 then
+            PlayFlavor(NPC,"","","tapfoot",0,0)
+        elseif choice == 2 then
+            PlayFlavor(NPC,"","","sigh",0,0)
+        elseif choice == 3 then
+            PlayFlavor(NPC,"","","stretch",0,0)
+        elseif choice == 4 then
+            PlayFlavor(NPC,"","","yawn",0,0)
+        elseif choice == 5 then
+            PlayFlavor(NPC,"","","stare",0,0)
+        end
+end
+    AddTimer(NPC,MakeRandomInt(6500,12000),"IdleBored")
+end
+
+function IdlePlayful(NPC)
+    if not IsInCombat(NPC) and GetRunbackDistance(NPC)<2 then
+        local choice = MakeRandomInt(1,5)
+        if choice == 1 then
+            PlayFlavor(NPC,"","","dance",0,0)
+        elseif choice == 2 then
+            PlayFlavor(NPC,"","","flirt",0,0)
+        elseif choice == 3 then
+            PlayFlavor(NPC,"","","smile",0,0)
+        elseif choice == 4 then
+            PlayFlavor(NPC,"","","thumbsup",0,0)
+        elseif choice == 5 then
+            PlayFlavor(NPC,"","","yeah",0,0)
+        end
+end
+    AddTimer(NPC,MakeRandomInt(6500,12000),"IdlePlayful")
+end
+
+function IdleSad(NPC)
+    if not IsInCombat(NPC) and GetRunbackDistance(NPC)<2 then
+        local choice = MakeRandomInt(1,5)
+        if choice == 1 then
+            PlayFlavor(NPC,"","","sad",0,0)
+        elseif choice == 2 then
+            PlayFlavor(NPC,"","","pout",0,0)
+        elseif choice == 3 then
+            PlayFlavor(NPC,"","","sigh",0,0)
+        elseif choice == 4 then
+            PlayFlavor(NPC,"","","sulk",0,0)
+        elseif choice == 5 then
+            PlayFlavor(NPC,"","","cry",0,0)
+        end
+end
+    AddTimer(NPC,MakeRandomInt(6500,12000),"IdleSad")
+end
+
+function IdleSneaky(NPC)
+    if not IsInCombat(NPC) and GetRunbackDistance(NPC)<2 then
+        local choice = MakeRandomInt(1,5)
+        if choice == 1 then
+            PlayFlavor(NPC,"","","scheme",0,0)
+        elseif choice == 2 then
+            PlayFlavor(NPC,"","","smirk",0,0)
+        elseif choice == 3 then
+            PlayFlavor(NPC,"","","whome",0,0)
+        elseif choice == 4 then
+            PlayFlavor(NPC,"","","beckon",0,0)
+        elseif choice == 5 then
+            PlayFlavor(NPC,"","","cutthroat",0,0)
+        end
+end
+    AddTimer(NPC,MakeRandomInt(6500,12000),"IdleSneaky")
+end
+
+
+
+
+
 

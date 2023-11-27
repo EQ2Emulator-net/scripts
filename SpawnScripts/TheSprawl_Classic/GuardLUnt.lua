@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheSprawl_Classic/ahalflingupstart.lua
+    Script Name    : SpawnScripts/TheSprawl_Classic/GuardLUnt.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.11.20 07:11:46
+    Script Date    : 2023.11.27 06:11:34
     Script Purpose : 
                    : 
 --]]
@@ -9,8 +9,6 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
-    halfling(NPC)
-    IdleAlert(NPC)
 end
 
 function hailed(NPC, Spawn)
