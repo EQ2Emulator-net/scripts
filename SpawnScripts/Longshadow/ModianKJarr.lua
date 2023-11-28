@@ -1,7 +1,7 @@
 --[[
 	Script Name		: SpawnScripts/LongshadowAlley/ModianKJarr.lua
 	Script Purpose	: Modian K`Jarr
-	Script Author	: torsten
+	Script Author	: torsten\\Dorbin
 	Script Date		: 2022.07.23
 	Script Notes	: Auto-Generated Conversation from PacketParser Data
 --]]
