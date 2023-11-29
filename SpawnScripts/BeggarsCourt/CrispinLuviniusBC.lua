@@ -39,7 +39,7 @@ else
             SetTempVariable(NPC, "CalloutTimer1", "true")
 
         elseif GetTempVariable(NPC, "CalloutTimer1")== "true"then
-		    PlayFlavor(NPC, "voiceover/english/crispin_luvinius/fprt_hood04/100_std_crispin_luvinius_hum_m_multhail1_e039d831.mp3", "Are you looking for trouble?  It'll find you if you don't keep walking.", "", 2395364912, 2338408737, Spawn, 0)
+		    PlayFlavor(NPC, "voiceover/english/crispin_luvinius/fprt_hood04/100_std_crispin_luvinius_hum_m_multhail1_e039d831.mp3", "Are you looking for trouble?  It'll find you if you don't keep walking.", "glare", 2395364912, 2338408737, Spawn, 0)
             SetTempVariable(NPC, "CalloutTimer1", "false")
         end
     end

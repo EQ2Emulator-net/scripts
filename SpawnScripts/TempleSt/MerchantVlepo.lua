@@ -108,7 +108,7 @@ function Dialog1(NPC,Spawn)
     if CanReceiveQuest(Spawn, VlepoPlan) then
 	Dialog.AddOption("You must have quite the selection!", "Dialog2")
     elseif GetQuestStep(Spawn, VlepoPlan)==2 then
-	Dialog.AddOption("Here is the orcish sword you requested.", "Dialog3")
+	Dialog.AddOption("Here is a weapon from Shinska's you wanted.", "Dialog3")
     end
 	Dialog.AddOption("How about I just browse your wares.")
 	Dialog.Start()

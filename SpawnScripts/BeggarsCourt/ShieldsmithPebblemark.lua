@@ -1,9 +1,9 @@
 --[[
-	Script Name		: SpawnScripts/BeggarsCourt/MolinDriftwater.lua
-	Script Purpose	: Molin Driftwater
-	Script Author	: Dorbin
-	Script Date		: 2022.07.18
-	Script Notes	: Auto-Generated Conversation from PacketParser Data
+    Script Name    : SpawnScripts/BeggarsCourt/ShieldsmithPebblemark.lua
+    Script Author  : Dorbin
+    Script Date    : 2023.11.28 07:11:48
+    Script Purpose : 
+                   : 
 --]]
 require "SpawnScripts/Generic/DialogModule"
 

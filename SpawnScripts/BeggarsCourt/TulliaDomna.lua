@@ -40,10 +40,6 @@ else
         end
     end
 else
-    if MakeRandomInt(0,100) <= 60 then
-	FaceTarget(NPC, Spawn)
-	PlayFlavor(NPC, "", "", "royalwave", 0, 0, Spawn, 0)
-	end
 end
 end
 end

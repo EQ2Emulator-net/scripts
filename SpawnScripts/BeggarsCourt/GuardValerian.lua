@@ -7,9 +7,6 @@
 --]]
 dofile("SpawnScripts/Generic/GenericGuardVoiceOvers.lua")
 
-function spawn(NPC)
-end
-
 function respawn(NPC)
 	spawn(NPC)
 end

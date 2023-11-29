@@ -122,8 +122,8 @@ function Dialog3(NPC,Spawn)
 end
 
 function OfferQuest2(NPC,Spawn)
-    if CanReceiveQuest(Spawn, TheMissingBook) then
-    OfferQuest(NPC, Spawn, TheMissingBook)
+    if CanReceiveQuest(Spawn, MagicalRetribution) then
+    OfferQuest(NPC, Spawn, MagicalRetribution)
     end
 end
 

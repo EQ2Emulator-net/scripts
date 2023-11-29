@@ -20,7 +20,7 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have spoken with Shinska.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I stole the weapon right from under her rather large nose.")
 
-	AddQuestStepChat(Quest, 2, "I need to speak with Vlepo.", 1, "Now that I have the weapon, I should bring it back to Vlepo like he asked.", 284, 1360007	)
+	AddQuestStepChat(Quest, 2, "I need to speak with Vlepo.", 1, "Now that I have the weapon, I should bring it back to Vlepo like he asked.", 284, 1360018	)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 
