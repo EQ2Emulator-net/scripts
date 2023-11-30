@@ -34,7 +34,7 @@ local Level = GetLevel(NPC)
 end
 
 function ChooseMovement(NPC)
-	local route = math.random(1,3)
+	local route = MakeRandomInt(1,3)
 	if route == 1 then
 	    RouteOne(NPC, Spawn)
 	elseif route == 2 then

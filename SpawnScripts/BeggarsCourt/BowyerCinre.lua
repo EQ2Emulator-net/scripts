@@ -1,15 +1,15 @@
 --[[
-	Script Name		: SpawnScripts/LongshadowAlley/VDyhn.lua
-	Script Purpose	: V`Dyhn
-	Script Author	: torsten
-	Script Date		: 2022.07.20
-	Script Notes	: Auto-Generated Conversation from PacketParser Data
+    Script Name    : SpawnScripts/BeggarsCourt/BowyerCinre.lua
+    Script Author  : Dorbin
+    Script Date    : 2023.11.30 04:11:09
+    Script Purpose : 
+                   : 
 --]]
 
 require "SpawnScripts/Generic/DialogModule"
 
 function spawn(NPC)
-SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")
+SetPlayerProximityFunction(NPC, 9, "InRange", "LeaveRange")
     SetInfoStructString(NPC, "action_state", "woodworking_idle")
 end
 
@@ -44,10 +44,10 @@ function     Dialog1(NPC, Spawn)
     FaceTarget(NPC,Spawn)
 	local choice = MakeRandomInt(1,3)
 	if choice == 1 then
-		PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_1/ft/service/merchant/darkelf_merchant_service_evil_1_hail_gm_f715099e.mp3", "Hello there, kind adventurer.  My merchandise carries the seal of the Overlord himself!  Go ahead, take a look!", "", 1302153135, 3653961458, Spawn, 0)
+        PlayFlavor(NPC, "voiceover/english/human_eco_evil_1/ft/service/weaponsmith/human_weaponsmith_service_evil_1_hail_gf_febc50f4.mp3", "We have a nice selection of previously owned weapons for those with modest funds.", "snicker", 371686597, 174492048, Spawn)
 	elseif choice == 2 then
-		PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_1/ft/service/merchant/darkelf_merchant_service_evil_1_hail_gm_6ec08438.mp3", "In spite of the cost of living, it's still quite a popular item.", "", 2781916825, 678640011, Spawn, 0)
+        PlayFlavor(NPC, "voiceover/english/human_eco_evil_1/ft/service/weaponsmith/human_weaponsmith_service_evil_1_hail_gf_fa46b6f6.mp3", "Is there a specific way you're looking to kill someone? Disemboweling, beheading, impaling, strangulation? ", "shrug", 501792161, 2107655376, Spawn)
 	elseif choice == 3 then
-		PlayFlavor(NPC, "voiceover/english/optional2/darkelf_eco_evil_1/ft/service/merchant/darkelf_merchant_service_evil_1_hail_gm_aff3fc07.mp3", "Are you going to buy anything today or am I just wasting my time?  This isn't a museum display you know!", "", 898812878, 1402234103, Spawn, 0)
+		PlayFlavor(NPC, "voiceover/english/human_eco_evil_1/ft/service/weaponsmith/human_weaponsmith_service_evil_1_hail_gf_9d2ef5c4.mp3", "A good weapon at your side is the only real friend you'll ever have!", "agree", 3419843926, 3349211138, Spawn, 0)
 	end
 end

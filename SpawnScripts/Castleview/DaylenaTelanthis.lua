@@ -1,7 +1,7 @@
 --[[
 	Script Name	: SpawnScripts/Castleview/DaylenaTelanthis.lua
 	Script Purpose	: Daylena Telanthis 
-	Script Author	: Scatman
+	Script Author	: Scatman\\Dorbin
 	Script Date	: 2009.10.03
 	Script Notes	: Added faction check  - 2022.04.18 Dorbin
 --]]

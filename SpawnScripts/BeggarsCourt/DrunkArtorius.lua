@@ -13,7 +13,7 @@ SetPlayerProximityFunction(NPC, 5, "InRange", "LeaveRange")
 end
 
 function InRange(NPC, Spawn) 
-    GenericDrunkCallout(NPC, Spawn, faction)    
+--    GenericDrunkCallout(NPC, Spawn, faction)    
     end
 
 
@@ -45,12 +45,41 @@ function Drink2(NPC)
     AddTimer(NPC,6000, "Drink3")
 end
 
-function Drink3(NPC)
-        PlayFlavor(NPC,"","","drinking_idle",0,0)
+function Drink3(NPC) -- Checks if the guard is near
+    local zone = GetZone(NPC)
+    local Guard = GetSpawnByLocationID(zone, 403010)
+    local Distance = GetDistance(NPC,Guard)
+    if Distance>5 then
+    PlayFlavor(NPC,"","","drinking_idle",0,0)
+    else
+    PlayFlavor(NPC,"","","sniff",0,0)
+    end
 end
 
 
 function waypoints(NPC)
+	MovementLoopAddLocation(NPC, 82.03, -7.08, 102.12, 2, 0)
+	MovementLoopAddLocation(NPC, 81.23, -7.08, 100.5, 2, MakeRandomInt(7,13))
+	MovementLoopAddLocation(NPC, 81.23, -7.08, 100.5, 2, 0)
+	MovementLoopAddLocation(NPC, 80.05, -7.08, 103.32, 2, 1)
+	MovementLoopAddLocation(NPC, 80.05, -7.08, 103.32, 2, MakeRandomInt(10,13),"Drink3")
+	MovementLoopAddLocation(NPC, 82.53, -7.08, 103.57, 2, 1)
+	MovementLoopAddLocation(NPC, 82.53, -7.08, 103.57, 2, MakeRandomInt(7,13),"Drink3")
+	MovementLoopAddLocation(NPC, 80.79, -7.08, 102.37, 2, MakeRandomInt(7,13))
+	MovementLoopAddLocation(NPC, 80.79, -7.08, 102.37, 2, 1)
+	MovementLoopAddLocation(NPC, 80.62, -7.08, 99.52, 2, MakeRandomInt(10,13),"Drink3")
+	MovementLoopAddLocation(NPC, 80.29, -7.08, 104.09, 2, 1)
+	MovementLoopAddLocation(NPC, 80.29, -7.08, 104.09, 2, MakeRandomInt(10,13),"Drink3")
+	MovementLoopAddLocation(NPC, 78.36, -7.08, 106.45, 2, 0)
+	MovementLoopAddLocation(NPC, 76.59, -7.08, 106.76, 2, MakeRandomInt(7,13))
+	MovementLoopAddLocation(NPC, 76.76, -7.08, 104.63, 2, MakeRandomInt(7,13))
+	MovementLoopAddLocation(NPC, 81.06, -7.08, 102.97, 2, 1)
+	MovementLoopAddLocation(NPC, 81.06, -7.08, 102.97, 2, MakeRandomInt(10,13),"Drink3")
+	MovementLoopAddLocation(NPC, 77.14, -7.08, 104, 2, MakeRandomInt(7,13))
+	MovementLoopAddLocation(NPC, 75.78, -7.08, 106.22, 2, 1)
+	MovementLoopAddLocation(NPC, 75.78, -7.08, 106.22, 2, MakeRandomInt(10,13),"Drink3")
+
+--[[
 	MovementLoopAddLocation(NPC, 56.11, 3.75, 3.2, 2, 0)
 	MovementLoopAddLocation(NPC, 57.67, 3.75, 2.29, 2, 1)
 	MovementLoopAddLocation(NPC, 57.67, 3.75, 2.29, 2, 30,"Drink")
@@ -81,7 +110,7 @@ function waypoints(NPC)
 	MovementLoopAddLocation(NPC, 53.16, 4, -3.62, 2, 0)
 	MovementLoopAddLocation(NPC, 52.99, 4, -1.23, 2, 0)
 	MovementLoopAddLocation(NPC, 57.73, 3.75, 4.32, 2, 1)
-	MovementLoopAddLocation(NPC, 57.73, 3.75, 4.32, 2, 30,"Drink")
+	MovementLoopAddLocation(NPC, 57.73, 3.75, 4.32, 2, 30,"Drink")]]--
 end
 
 

@@ -14,7 +14,7 @@ local AdvancedProblemSolving = 5662
 function spawn(NPC)
 	ProvidesQuest(NPC, ProblemSolving)
 	ProvidesQuest(NPC, AdvancedProblemSolving)
-    SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")		
+    SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")		
     SetTempVariable(NPC,"CalloutTimer","false")
     SetTempVariable(NPC, "CalloutTimer1", "false")
 end
@@ -43,7 +43,18 @@ else
             SetTempVariable(NPC, "CalloutTimer1", "false")
         end
     end
-    else
+    elseif HasQuest(Spawn, ProblemSolving) or HasQuest(Spawn, AdvancedProblemSolving) then
+        SetTempVariable(NPC, "CalloutTimer", "true")
+        AddTimer(NPC,30000,"ResetTimer",1,Spawn)
+        FaceTarget(NPC, Spawn)
+        if  GetTempVariable(NPC, "CalloutTimer1")== "false"then
+        PlayFlavor(NPC, "voiceover/english/crispin_luvinius/fprt_hood04/100_std_crispin_luvinius_hum_m_multhail3_69ad5b7d.mp3","I thought you weren't looking for trouble, problem solver? I suggest you solve my problem or trouble will find you, understand?","glare",3672937879,782097653, Spawn)
+            SetTempVariable(NPC, "CalloutTimer1", "true")
+
+        elseif GetTempVariable(NPC, "CalloutTimer1")== "true"then
+            PlayFlavor(NPC, "voiceover/english/crispin_luvinius/fprt_hood04/100_std_crispin_luvinius_hum_m_multhail3_69ad5b7d.mp3","I thought you weren't looking for trouble, problem solver? I suggest you solve my problem or trouble will find you, understand?","tapfoot",3672937879,782097653, Spawn)
+            SetTempVariable(NPC, "CalloutTimer1", "false")
+        end    
 end
 end
 end

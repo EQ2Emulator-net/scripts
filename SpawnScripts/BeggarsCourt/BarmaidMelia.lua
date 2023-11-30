@@ -29,16 +29,26 @@ end
 
 
 function BartenderCall(NPC,Spawn)
-    if GetTempVariable(NPC,"BartenderCallout")== "false" then
+    if GetTempVariable(NPC,"BartenderCallout")== "false" and MakeRandomInt(0,100) <=66 then
     local zone = GetZone(NPC)
     local Bartender = GetSpawnByLocationID(zone, 402926)
-    SetTarget(Bartender,NPC)    
-    FaceTarget(Bartender,NPC)    
-    PlayFlavor(Bartender, "voiceover/english/human_eco_evil_bartender/ft/eco/evil/human_eco_evil_bartender_barmaid_gm_fce6ec9a.mp3", "I can't tell this pub from a pigsty.  Get to work and clean this mess!", "scold", 1129202055, 4037261409)
     SetTempVariable(NPC,"BartenderCallout","true")
-    AddTimer(NPC,1500,"Turn")
-    AddTimer(NPC,4500,"Reset")
-    AddTimer(NPC,6500,"Reset2")
+
+        if MakeRandomInt(1,2)== 1 then
+        SetTarget(Bartender,NPC)    
+        FaceTarget(Bartender,NPC)    
+        PlayFlavor(Bartender, "voiceover/english/human_eco_evil_bartender/ft/eco/evil/human_eco_evil_bartender_barmaid_gm_fce6ec9a.mp3", "I can't tell this pub from a pigsty.  Get to work and clean this mess!", "scold", 1129202055, 4037261409)
+        AddTimer(NPC,1500,"Turn")
+        AddTimer(NPC,4500,"Reset")
+        AddTimer(NPC,6500,"Reset2")
+        else
+        PlayFlavor(NPC, "voiceover/english/human_eco_good_bartender/ft/eco/good/human_eco_good_bartender_drunk_gf_a8ee7698.mp3", "I don't have much patience for you today. Watch yourself.", "glare", 3292238371, 2757124824)
+        SetTarget(NPC,Bartender)    
+        FaceTarget(NPC,Bartender)  
+        AddTimer(NPC,1500,"Turn_2")
+        AddTimer(NPC,4500,"Reset")
+        AddTimer(NPC,6500,"Reset2")
+        end
     else
     Action(NPC)
     SetTempVariable(NPC,"BartenderCallout","false")
@@ -57,6 +67,19 @@ function Turn(NPC,Spawn)
     PlayFlavor(NPC, "", "", "shakefist", 0, 0)
     end
 end    
+ 
+ function Turn_2(NPC,Spawn)
+    local zone = GetZone(NPC)
+    local Bartender = GetSpawnByLocationID(zone, 402926)
+    SetTarget(Bartender,NPC)    
+    FaceTarget(Bartender,NPC)
+    local choice = MakeRandomInt(1, 2)
+    if choice == 1 then
+    PlayFlavor(Bartender, "", "", "grumble", 0, 0)
+    elseif choice == 2 then
+    PlayFlavor(Bartender, "", "", "whome", 0, 0)
+    end
+end   
     
 function Reset(NPC,Spawn)
     local zone = GetZone(NPC)

@@ -2570,6 +2570,8 @@ function GenericRaceCheckHail(NPC, Spawn, faction)
 					        PlayFlavor(NPC, "", "I've never met a dwarf before. Is it true they're stupid? ", "stare", 0, 0, Spawn)
                             elseif spawnRace == ERUDITE then
 					        PlayFlavor(NPC, "voiceover/english/halfelf_eco_race_evil/ft/eco/evil/halfelf_eco_race_evil_erudite_gf_ba79a909.mp3", "Good day.  Hope you're not planning any experiments around here today.", "hello", 324880456, 63443987, Spawn)
+                            elseif spawnRace == GNOME then
+					        PlayFlavor(NPC, "voiceover/english/halfelf_eco_race_good/ft/eco/good/halfelf_eco_race_good_gnome_gf_e91c924a.mp3", "If I wanted to build something, I'd ask you.", "no", 4236848712, 1210106222, Spawn)
                             elseif spawnRace == IKSAR then
 	                	    PlayFlavor(NPC, "voiceover/english/halfelf_eco_race_evil/ft/eco/evil/halfelf_eco_race_evil_iksar_gf_a25f2702.mp3", "Okay, scales.  I don't need luggage right now.", "no", 3274806092, 49060946, Spawn)
                             elseif spawnRace == OGRE then
@@ -9282,7 +9284,7 @@ function GenericDrunkHail(NPC, Spawn, faction)
     	    
     elseif race == HUMAN then
         if gender == MALE then
-	local choice = MakeRandomInt(1,6)
+	local choice = MakeRandomInt(1,7)
 
 	if choice == 1 then
 		PlayFlavor(NPC, "voiceover/english/human_eco_evil_drunk/ft/eco/evil/human_eco_evil_drunk_bartender_gm_e4fde966.mp3", "I haven't that much to drink yet, I got here when... bah I forgot.", "no", 612325975, 4257910058, Spawn, 0)
@@ -9296,6 +9298,8 @@ function GenericDrunkHail(NPC, Spawn, faction)
 		PlayFlavor(NPC, "voiceover/english/human_eco_evil_drunk/ft/eco/evil/human_eco_evil_drunk_barmaid_gm_7f76ecc6.mp3", "Hurry up! My stomach's near dry thanks to ya.", "frustrated", 2014105974, 2128019974, Spawn, 0)
 	elseif choice == 6 then
 		PlayFlavor(NPC, "voiceover/english/human_eco_evil_drunk/ft/eco/evil/human_eco_evil_drunk_barmaid_gm_605d472a.mp3", "I could use another ale for the road anytime now.", "tapfoot", 3290510064, 443036239, Spawn, 0)
+	elseif choice == 7 then
+         PlayFlavor(NPC,"voiceover/english/human_eco_evil_drunk/ft/eco/evil/human_eco_evil_drunk_guard_gm_b5bfa487.mp3","Look sir.  I just had'one ale n' hour ago withh dinner.","no",1705294225,1483651602,Spawn)
 	end
     	elseif gender == FEMALE then
 	choice = MakeRandomInt(1,4)
@@ -9371,7 +9375,7 @@ function GenericDrunkCallout(NPC, Spawn, faction)
     	    end 
     elseif race == HUMAN then
         if gender == MALE then
-	local choice = MakeRandomInt(1,6)
+	local choice = MakeRandomInt(1,7)
 
 	if choice == 1 then
 		PlayFlavor(NPC, "voiceover/english/human_eco_evil_drunk/ft/eco/evil/human_eco_evil_drunk_bartender_gm_e4fde966.mp3", "I haven't that much to drink yet, I got here when... bah I forgot.", "no", 612325975, 4257910058, Spawn, 0)
@@ -9385,6 +9389,8 @@ function GenericDrunkCallout(NPC, Spawn, faction)
 		PlayFlavor(NPC, "voiceover/english/human_eco_evil_drunk/ft/eco/evil/human_eco_evil_drunk_barmaid_gm_7f76ecc6.mp3", "Hurry up! My stomach's near dry thanks to ya.", "frustrated", 2014105974, 2128019974, Spawn, 0)
 	elseif choice == 6 then
 		PlayFlavor(NPC, "voiceover/english/human_eco_evil_drunk/ft/eco/evil/human_eco_evil_drunk_barmaid_gm_605d472a.mp3", "I could use another ale for the road anytime now.", "tapfoot", 3290510064, 443036239, Spawn, 0)
+	elseif choice == 7 then
+         PlayFlavor(NPC,"voiceover/english/human_eco_evil_drunk/ft/eco/evil/human_eco_evil_drunk_guard_gm_b5bfa487.mp3","Look sir.  I just had'one ale n' hour ago withh dinner.","no",1705294225,1483651602,Spawn)
 	end      
             
     	elseif gender == FEMALE then

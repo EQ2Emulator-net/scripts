@@ -35,7 +35,7 @@ end
 
 function ChooseMovement(NPC)
   
-	local route = math.random(1,2)
+	local route = MakeRandomInt(1,2)
 	if route == 1 then
 	    RouteOne(NPC, Spawn)
 	--elseif route == 2 then

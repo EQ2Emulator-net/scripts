@@ -7,19 +7,33 @@
 --]]
 
 dofile("SpawnScripts/Generic/GenericEcologyVoiceOvers.lua")
+dofile("SpawnScripts/Generic/UnknownLanguage.lua")
 
 function spawn(NPC)
-SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")		
 waypoints(NPC)
+SetPlayerProximityFunction(NPC, 7, "InRange", "LeaveRange")		
 end
 
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
-GenericEcologyHail(NPC, Spawn, faction)
+    if not HasLanguage(Spawn,7)then
+    Garbled(NPC,Spawn)
+    else
+    GenericEcologyHail(NPC, Spawn, faction)
+end
 end
 
 function InRange(NPC,Spawn)
-GenericEcologyCallout(NPC, Spawn, faction)
+if GetFactionAmount(Spawn,12)<0 then
+    FactionCheckCallout(NPC,Spawn,faction)
+    else
+    if not HasLanguage(Spawn,7)then
+        if math.random(0,100)<40 then
+        Garbled(NPC,Spawn)
+        end
+    else
+end
+end
 end
     
 function respawn(NPC)

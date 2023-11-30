@@ -21,6 +21,8 @@ function InRange(NPC,Spawn)
     GenericRaceCheckCallout(NPC, Spawn)
     end
 
+
+
 function respawn(NPC)
 	spawn(NPC)
 end

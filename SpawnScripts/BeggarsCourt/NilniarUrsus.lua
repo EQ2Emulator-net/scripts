@@ -11,7 +11,7 @@ local TimeCheck = false                                                       --
 local CalloutTimeCheck = false                                                -- used to delay between callout uses
 
 function spawn(NPC)
-    SetPlayerProximityFunction(NPC, 6, "InRange", "LeaveRange")
+--    SetPlayerProximityFunction(NPC, 6, "InRange", "LeaveRange")
 end
 
 function InRange(NPC, Spawn)
