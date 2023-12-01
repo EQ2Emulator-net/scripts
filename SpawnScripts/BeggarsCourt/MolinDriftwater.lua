@@ -8,7 +8,8 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function spawn(NPC)
-SetPlayerProximityFunction(NPC, 9, "InRange", "LeaveRange")
+SetPlayerProximityFunction(NPC, 11, "InRange", "LeaveRange")
+    SetInfoStructString(NPC, "action_state", "ponder")
 end
 
 function respawn(NPC)
@@ -19,6 +20,14 @@ function InRange(NPC, Spawn)
 if  GetFactionAmount(Spawn,12) <=0 then
 	 FaceTarget(NPC, Spawn)
      PlayFlavor(NPC, "", "", "shakefist", 0, 0, Spawn, 0)
+    elseif MakeRandomInt(0,100)<=50 then
+        local choice = MakeRandomInt(1,2)
+ 	    FaceTarget(NPC, Spawn)
+        if choice == 1 then
+        PlayFlavor(NPC, "", "", "beckon", 0, 0, Spawn, 0)
+        else
+        PlayFlavor(NPC, "", "", "hello", 0, 0, Spawn, 0)
+        end
     end
 end   
 
@@ -36,7 +45,7 @@ function hailed(NPC, Spawn)
     end	    
 end
 
-function     Dialog1(NPC, Spawn)
+function  Dialog1(NPC, Spawn)
     FaceTarget(NPC,Spawn)
 	local choice = MakeRandomInt(1,3)
 	if choice == 1 then
