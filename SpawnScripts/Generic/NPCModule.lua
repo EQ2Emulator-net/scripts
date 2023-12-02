@@ -769,7 +769,23 @@ end
 end
 
 
+--[[ Randomized Movement Loops
+    Call the RandomMovement() function in the NPC's spawn function.
+    Example format: RandomMovement(NPC, Spawn, -5, 5, 2, 8, 15)
+    This exampled sets the NPC to randomly move anywhere in a 5 meter radius
+    from it's spawn point at a speed of 2, moving every 8-15 seconds.
+--]]
 
-
+function RandomMovement(NPC, Spawn, NegDist, PosDist, Speed, MinDly, MaxDly)
+    local X = GetX(NPC)
+	local Y = GetY(NPC)
+	local Z = GetZ(NPC)
+    MovementLoopAddLocation(NPC, X, Y, Z, Speed, MakeRandomInt(MinDly, MaxDly))
+	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y, Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
+	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y, Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
+	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y, Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
+	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y, Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
+	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y, Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
+end
 
 

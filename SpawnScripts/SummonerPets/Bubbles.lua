@@ -10,6 +10,7 @@ require "SpawnScripts/Generic/NPCModule"
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     barbarian(NPC, Spawn)
+    RandomMovement(NPC, Spawn, -20, 20, 2, 5, 10)
     
     
 end
@@ -29,3 +30,4 @@ end
 function respawn(NPC)
 	spawn(NPC)
 end
+

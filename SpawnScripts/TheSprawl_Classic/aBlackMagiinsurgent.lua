@@ -6,6 +6,7 @@
                    : 
 --]]
 require "SpawnScripts/Generic/NPCModule"
+dofile("SpawnScripts/Generic/MonsterCallouts/BlackMagi.lua")
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
