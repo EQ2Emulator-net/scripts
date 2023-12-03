@@ -1,19 +1,16 @@
 --[[
-    Script Name    : SpawnScripts/TheSprawl_Classic/aGiantslayerbasher.lua
+    Script Name    : SpawnScripts/TheThievesWay_Classic/aunionmenderLocal858.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.11.08 08:11:10
+    Script Date    : 2023.12.02 04:12:51
     Script Purpose : 
                    : 
 --]]
 require "SpawnScripts/Generic/NPCModule"
-dofile("SpawnScripts/Generic/MonsterCallouts/Giantslayer.lua")
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
-    ogre(NPC)
-    IdleAggressive(NPC)
+    gnome(NPC, Spawn)
 end
-
 
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)

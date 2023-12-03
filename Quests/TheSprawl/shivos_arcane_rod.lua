@@ -17,8 +17,8 @@ function Init(Quest)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-    if HasItem(Player, 2804) then
-    RemoveItem(Player, 2804)
+    if HasItem(Player, 2292) then
+    RemoveItem(Player, 2292)
     SendMessage(Player,"You place the magic rod in your quest satchle.")
     end
 end

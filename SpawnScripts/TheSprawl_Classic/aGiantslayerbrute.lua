@@ -6,6 +6,7 @@
                    : 
 --]]
 require "SpawnScripts/Generic/NPCModule"
+dofile("SpawnScripts/Generic/MonsterCallouts/Giantslayer.lua")
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)

@@ -13,7 +13,7 @@ require "SpawnScripts/Generic/DialogModule"
 
 
 function Init(Quest)
-	AddQuestStepZoneLoc(Quest, 1, "I need to scout the goblin camp.", 12, "I need to scout out the main goblin camp and gather information for the outpost.  If I can sneak past the brutes and manage to get close enough to their central camps in the north I should be able to get the information I need.", 11, 195.26, -0.68, -188.07,325)
+	AddQuestStepZoneLoc(Quest, 1, "I need to scout the goblin camp.", 14, "I need to scout out the main goblin camp and gather information for the outpost.  If I can sneak past the brutes and manage to get close enough to their central camps in the north I should be able to get the information I need.", 11, 195.26, -0.68, -188.07,325)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
 end
 

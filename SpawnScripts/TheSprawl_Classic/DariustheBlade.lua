@@ -5,6 +5,7 @@
     Script Purpose : 
                    : 
 --]]
+dofile("SpawnScripts/Generic/MonsterCallouts/BaseHuman1.lua")
 
 function spawn(NPC)
     dmgMod = GetStr(NPC)/10

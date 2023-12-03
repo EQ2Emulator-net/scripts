@@ -11,7 +11,7 @@ local SiricusandtheMilitia = 5663
 
 function spawn(NPC)
     ProvidesQuest(NPC, SiricusandtheMilitia)
-    SetPlayerProximityFunction(NPC, 10, "InRange", "LeaveRange")		
+    SetPlayerProximityFunction(NPC, 8, "InRange", "LeaveRange")		
     SetTempVariable(NPC,"CalloutTimer","false")
     SetInfoStructString(NPC, "action_state", "artificing_idle")
 end

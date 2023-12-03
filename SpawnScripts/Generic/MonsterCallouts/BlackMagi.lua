@@ -47,15 +47,14 @@ if  GetTempVariable(NPC, "CalloutTimer")== "false" and math.random(0,100) <=33 a
     Garbled(NPC,Player)
     else
     if GetGender(NPC) ==1 then -- MALE
-  	local choice = MakeRandomInt(1,4)
+  	local choice = MakeRandomInt(1,3)
  	    if choice == 1 then
 		PlayFlavor(NPC, "voiceover/english/optional3/ratonga_black_magi/ft/ratonga/ratonga_black_magi_1_aggro_gm_ad7530c0.mp3", "Kill the intruder!", "", 2219487268, 4134058791, Player, 26)
         elseif choice == 2 then
 		PlayFlavor(NPC, "voiceover/english/optional3/ratonga_black_magi/ft/ratonga/ratonga_black_magi_1_aggro_gm_b7a71d5b.mp3", "Blind its eyes!", "", 1105207049, 1634151428, Player, 26)
         elseif choice == 3 then
 		PlayFlavor(NPC, "voiceover/english/optional3/ratonga_black_magi/ft/ratonga/ratonga_black_magi_1_aggro_gm_a33765b3.mp3", "The Black Magus rule the Sprawl!", "", 1461049897, 1751771993, Player, 26)
-        elseif choice == 4 then
-		PlayFlavor(NPC, "voiceover/english/optional3/ratonga_black_magi/ft/ratonga/ratonga_black_magi_1_garbled_gm_5c77ba46.mp3", "Chee   ava   kirAH   tay!", "", 1953495633, 901796916, Player, 26)
+
         end
     else
    	local choice = MakeRandomInt(1,3)
