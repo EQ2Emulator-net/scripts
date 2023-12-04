@@ -35,9 +35,9 @@ end
     
 function Dialog2(NPC,Spawn)
         local con = CreateConversation()
-        AddConversationOption(con, "I need to make this area safer by removing young kodiaks!", "offer")
+        AddConversationOption(con, "I need to remove young kodiaks!", "offer")
         AddConversationOption(con, "[Leave the banner alone]")
-        StartDialogConversation(con, 1, NPC, Spawn, "The banner reads,\n\n \"The final resting place of Guyc Swampleg. A great friend, but not a great runner. The young kodiaks got him while he was fishing.\"")
+        StartDialogConversation(con, 1, NPC, Spawn, "The banner reads:\n\n \"The final resting place of Guyc Swampleg. A great friend, but not a great runner. The young kodiaks got him while he was fishing.\"")
 end      
     
 function offer(NPC, Spawn)

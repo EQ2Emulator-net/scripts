@@ -46,7 +46,7 @@ elseif GetRace(NPC) == Halfling then
     if GetGender(NPC) ==1 then -- MALE
   	local choice = MakeRandomInt(1,4)
  	    if choice == 1 then
-        PlayFlavor(NPC, "voiceover/english/halfling_crazed/ft/halfling/halfling_crazed_1_garbled_gm_43769f72.mp3", "Hilee salee lalow madow", "", 3504619090, 2512475919, Spawn,8)
+        PlayFlavor(NPC, "voiceover/english/optional3/halfling_corrupted/ft/halfling/halfling_corrupted_1_garbled_gm_43769f72.mp3", "Hilee salee lalow madow", "", 1546052685, 4072580842, Spawn,8)
         elseif choice == 2 then
         PlayFlavor(NPC, "voiceover/english/halfling_crazed/ft/halfling/halfling_crazed_1_garbled_gm_54e55451.mp3", "Lilleee mabee tarrah roo sakdooo", "", 2087702128, 2642872371, Spawn,8)
         elseif choice == 3 then
@@ -57,7 +57,7 @@ elseif GetRace(NPC) == Halfling then
     else
    	local choice = MakeRandomInt(1,4)
 	    if choice == 1 then -- FEMALE
-        PlayFlavor(NPC, "voiceover/english/halfling_base_1/ft/halfling/halfling_base_1_1_garbled_gf_54e55451.mp3", "garbled text not to be translated", "", 1486303618, 2371451914, Spawn,8)
+        PlayFlavor(NPC, "voiceover/english/halfling_corrupted/ft/halfling/halfling_corrupted_1_garbled_gf_54e55451.mp3", "Lilleee mabee tarrah roo sakdooo", "", 3766403918, 1171422621, Spawn,8)
         elseif choice == 2 then
         PlayFlavor(NPC, "voiceover/english/halfling_base_1/ft/halfling/halfling_base_1_1_garbled_gf_823f1021.mp3", "garbled text not to be translated", "", 3051197299, 2401133915, Spawn,8)
         elseif choice == 3 then

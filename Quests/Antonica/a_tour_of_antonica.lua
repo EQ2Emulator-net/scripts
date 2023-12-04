@@ -79,7 +79,7 @@ function Step7Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 7, "I visited the Qeynos Hill Claymore.")
 	UpdateQuestTaskGroupDescription(Quest, 7, "I visited the Qeynos Hill.")
 
-	AddQuestStepZoneLoc(Quest, 8, "I must visit Archer's Wood", 20, "I must visit the glade in Archer Woods located in Antonica.", 11, -659, -8, 509, 12)
+	AddQuestStepZoneLoc(Quest, 8, "I must visit Archer's Wood", 15, "I must visit the glade in Archer Woods located in Antonica.", 11, -593.42, -11.00, 664.09, 12)
 	AddQuestStepCompleteAction(Quest, 8, "Step8Complete")
 end
 
@@ -127,7 +127,7 @@ function Step13Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 13, "I visited the Grave of Windstalker.")
 	UpdateQuestTaskGroupDescription(Quest, 13, "I visited the Grave of Windstalker.")
 
-	AddQuestStepZoneLoc(Quest, 14, "I must visit the Hidden Vale", 16, "I must visit the Hidden Vale in Antonica.", 11, -2054, -47, 959, 12)
+	AddQuestStepZoneLoc(Quest, 14, "I must visit the Hidden Vale", 16, "I must visit the Hidden Vale in Antonica.", 11, -2054, 47, 959, 12)
 	AddQuestStepCompleteAction(Quest, 14, "Step14Complete")
 end
 

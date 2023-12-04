@@ -95,6 +95,8 @@ function Reload(Quest, QuestGiver, Player, Step)
 	elseif Step == 3 then
 		Step3Complete(Quest, QuestGiver, Player)
 	elseif Step == 4 then
+		Step5Complete(Quest, QuestGiver, Player)
+	elseif Step == 5 then
 		QuestComplete(Quest, QuestGiver, Player)
 	end
 end
