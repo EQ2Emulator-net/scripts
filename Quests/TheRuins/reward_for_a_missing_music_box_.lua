@@ -19,7 +19,10 @@ function Init(Quest)
 end
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+    if HasItem(Player, 1286,1) then
+    RemoveItem(Player, 1286)
+    SendMessage(Player,"You place the broken music box in your quest satchle.")
+    end
 end
 
 function Declined(Quest, QuestGiver, Player)
@@ -34,11 +37,9 @@ function QuestComplete(Quest, QuestGiver, Player)
 	-- The following UpdateQuestStepDescription and UpdateTaskGroupDescription are not needed, parser adds them for completion in case stuff needs to be moved around
 	UpdateQuestStepDescription(Quest, 1, "I found Lucilla Quietus.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I found Lucilla Quietus and talked a reward out of her.")
-    if HasItem(Player, 1286,1) then
-    RemoveItem(Player, 1286)
+
 	UpdateQuestDescription(Quest, "I found Lucilla and demanded a reward for the return of her stolen music box.  She finally consented to pay and I gave her the music box.  I wish I would have checked out the music box more thoroughly... <br>")
 	GiveQuestReward(Quest, Player)
-end
 end
 
 function Reload(Quest, QuestGiver, Player, Step)

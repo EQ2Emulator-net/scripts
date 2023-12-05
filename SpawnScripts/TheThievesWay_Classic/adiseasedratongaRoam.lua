@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheThievesWay_Classic/adiseasedratonga.lua
+    Script Name    : SpawnScripts/TheThievesWay_Classic/adiseasedratongaRoam.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.12.04 04:12:34
+    Script Date    : 2023.12.04 09:12:16
     Script Purpose : 
                    : 
 --]]
@@ -11,7 +11,7 @@ function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     ratonga(NPC, Spawn)
     class(NPC)
-    IdleSneaky(NPC)
+    RandomMovement(NPC, Spawn, -4, 4, 2, 8, 15)
 end
 
 function hailed(NPC, Spawn)
