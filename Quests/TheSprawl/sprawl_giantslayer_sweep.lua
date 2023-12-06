@@ -28,7 +28,11 @@ end
 
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+	FaceTarget(QuestGiver, Player)
+	conversation = CreateConversation()
+
+	AddConversationOption(conversation, "I will do so.")
+	StartConversation(conversation, QuestGiver, Player, "There is a band of ruffians known as the Giantslayers. You will teach them to respect Freeport and fear the Overlord! Is that clear?")
 end
 
 function Declined(Quest, QuestGiver, Player)

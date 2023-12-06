@@ -16,7 +16,7 @@ function  NPCModule(NPC, Spawn)
     
     --Included functions.  Comment out a function to disable.
     Attributes(NPC, Spawn)     -- Determines basic stats of the NPC(str, agi, sta, int, wis)
-    LevelSwitch(NPC, Spawn)    -- Determines the NPC's tier for the purposes of autoattack damage.
+    AutoAttack(NPC, Spawn)    -- Determines the NPC's tier for the purposes of autoattack damage.
     Regen(NPC, Spawn)          -- Sets NPC's health and/or power regeneration rates or disables regeneration entirely.
     HealthPower(NPC, Spawn)    -- Calculates NPC's based on level and difficulty.
     --Heroic(NPC, Spawn)         -- Detects if an NPC should be flagged as heroic and sets the heroic flag accordingly.
@@ -24,7 +24,7 @@ function  NPCModule(NPC, Spawn)
 end
 
 --Determine damage function based on NPC level.
-function LevelSwitch(NPC, Spawn)
+function AutoAttack(NPC, Spawn)
     if  level  <= 3 then
         TierOneA(NPC)
     elseif level >= 4 and level  <= 5 then

@@ -24,7 +24,11 @@ end
 
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+	FaceTarget(QuestGiver, Player)
+	conversation = CreateConversation()
+
+	AddConversationOption(conversation, "I will do so.")
+	StartConversation(conversation, QuestGiver, Player, "Glad to hear it. Defeat them and return to me for your payment.")
 end
 
 function Declined(Quest, QuestGiver, Player)

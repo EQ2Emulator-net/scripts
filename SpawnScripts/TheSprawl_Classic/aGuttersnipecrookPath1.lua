@@ -6,6 +6,7 @@
                    : 
 --]]
 require "SpawnScripts/Generic/NPCModule"
+dofile ("SpawnScripts/Generic/MonsterCallouts/Guttersnipe.lua")
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
