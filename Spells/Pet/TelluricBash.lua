@@ -9,8 +9,8 @@
 
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
   local StrBonus = math.floor(GetStr(Caster) / 10)
-  local MinDmg = MinVal + StrBonus
-  local MaxDmg = MaxVal + StrBonus
+  local MinDmg = math.floor(MinVal + StrBonus)
+  local MaxDmg = math.floor(MaxVal + StrBonus)
   
     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
     

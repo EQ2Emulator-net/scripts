@@ -8,9 +8,9 @@
                    
 
 function cast(Caster, Target, DmgType, MinVal, MaxVal)
-    if MaxVal ~= nil and MinVal < MaxVal then
-        SpellDamage(Target, DmgType, math.random(MinVal, MaxVal))
-    else
-        SpellDamage(Target, DmgType, MinVal)
-    end
+     DmgBonus = GetInt(Caster)/10
+     MinDmg = math.floor(MinVal + DmgBonus)
+     MaxDmg = math.floor(MaxVal + DmgBonus)
+     SpellDamage(Target, DmgType, MinDmg, MaxDmg)
+    
 end

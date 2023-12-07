@@ -42,7 +42,7 @@ function Discord(NPC,Spawn)
     AddConversationOption(con, "[ Content Status ]", "ContentStatus")
     AddConversationOption(con, "[ Report a Bug? ]", "Bugs")
     AddConversationOption(con, "[ Exit ]","CloseConvo")
-    StartDialogConversation(con, 1, NPC, Spawn, "There are 2 EQ2EMU test servers in the production process, EQ2EMU (Discord Channel: EQ2Emu) and Zeklabs (Discord Channel: EQ2EQ2 & EQ2PVP).\n\n Both have distinct Discord channels that generally share information.  EQ2EMU handles most Content updates & related bug reports. Zeklabs handles hard coding / server stability.  Both servers exchange data frequently to coordinate the best testing server experiences.\n\nChoose your test server accordingly.")
+    StartDialogConversation(con, 1, NPC, Spawn, "There are 2 EQ2EMU test servers in the production process, EQ2EMU (Discord Channel: EQ2Emu) and Zeklabs (Discord Channel: EQ2EQ2 & EQ2PVP).\n\nBoth have distinct Discord channels that generally share information.  EQ2EMU handles most Content updates & related bug reports. Zeklabs handles hard coding / server stability.  Both servers exchange data frequently to coordinate the best testing server experiences.\n\nChoose your test server accordingly.")
  end   
  
  function Goal(NPC,Spawn)
@@ -53,7 +53,7 @@ function Discord(NPC,Spawn)
     AddConversationOption(con, "[ Content Status ]", "ContentStatus")
     AddConversationOption(con, "[ Report a Bug? ]", "Bugs")
     AddConversationOption(con, "[ Exit ]","CloseConvo")
-    StartDialogConversation(con, 1, NPC, Spawn, "Goal: The ability to take what is developed here and apply it to a custom server.  Content across the EMU is focused from Classic to Altar of Malice (AoM) in various states. A future server oporator can take the EQ2EMU tools and apply their own rulesets with the content foundation here.\n\n Currently, the AOM client has had the most stability work completed, but other clients, such as Desert of Flames (DoF) have some minor support until they receive additional attention.")
+    StartDialogConversation(con, 1, NPC, Spawn, "Goal: The ability to take what is developed here and apply it to a custom server.  Content across the EMU is focused from Classic to Altar of Malice (AoM) in various states. A future server oporator can take the EQ2EMU tools and apply their own rulesets with the content foundation here.\n\n Currently, the Altar of Malice (AOM) client AND  Desert of Flames (DoF) haves had the most stability work completed, but other clients will still possibly work (at your own risk). BOTH stable clients are a work in progress. Please report bugs on the EMU Discord!")
  end   
  
 function CurrentStatus(NPC,Spawn)
@@ -88,7 +88,7 @@ function Zones(NPC,Spawn)
     AddConversationOption(con, "[ Quests ]","Quests")
     AddConversationOption(con, "[ Player Housing ]","PlayerHouse")
     AddConversationOption(con, "[ Exit ]","CloseConvo")
-   StartDialogConversation(con, 1, NPC, Spawn, "Zones: Classic Content zones have received the most attention.\n\n Isle of Refuge is nearly 90%\n\n  Classic Qeynos and all of its \'hoods\' & dungeons are the most complete.\n\n Queen's Colony is nearly 90%,\n\n Outpost of the Overlord is roughly 80%.\n\n Freeport is roughly 30% complete with an Ecology pass still necessary.\n\n Frostfang Sea is mostly complete.\n\n Various other zones, such as Nek Castle, and Tier 5 raid zones have had unique attention.\n\n NOTE: EVERYTHING is a work in progress!")
+   StartDialogConversation(con, 1, NPC, Spawn, "Zones: Classic Content zones have received the most attention.\n\n Isle of Refuge is nearly 90%\n\n  Classic Qeynos and all of its \'hoods\' & dungeons are the most complete.\n\n Queen's Colony is nearly 90%,\n\n Outpost of the Overlord is roughly 80%.\n\n Freeport is roughly 50% complete with an Ecology pass still necessary.\n\n Frostfang Sea is mostly complete.\n\n Various other zones, such as Nek Castle, and Tier 5 raid zones have had unique attention.\n\n NOTE: EVERYTHING is a work in progress!")
 end  
  
 function Combat(NPC,Spawn)
@@ -112,7 +112,7 @@ function Tradeskill(NPC,Spawn)
     AddConversationOption(con, "[ Quests ]","Quests")
     AddConversationOption(con, "[ Player Housing ]","PlayerHouse")
     AddConversationOption(con, "[ Exit ]","CloseConvo")
-   StartDialogConversation(con, 1, NPC, Spawn, "Tradeskill: Tradeskilling is not viable right now.  A Major update is in the works for Tradeskilling, so please hold on to bug reports until it is applied.  Advancement trainers in Freeport and Qeynos have been scripted and are ready once the systems have been updated.")
+   StartDialogConversation(con, 1, NPC, Spawn, "Tradeskill: Tradeskilling is not viable right now. (See Tradeskill Bugs for more)\n\nClassic era levels 1-9 recipes are in place with subcombines.\n\nAdvancement trainers in Freeport and Qeynos have been scripted and are ready once the systems have been updated.")
 end 
 
 function Quests(NPC,Spawn)
@@ -136,7 +136,7 @@ function PlayerHouse(NPC,Spawn)
     AddConversationOption(con, "[ Quests ]","Quests")
     AddConversationOption(con, "[ Player Housing ]","PlayerHouse")
     AddConversationOption(con, "[ Exit ]","CloseConvo")
-   StartDialogConversation(con, 1, NPC, Spawn, "Player Housing: A work in progress.  Currently, you can purchase a home in the major cities, but placing furniture does not work entirely.  Zoning out of a player home can be done with /house or /zone ###.  Free Inn Rooms in Qeynos temporarily use the Bell system when leaving via the inn room door.")
+   StartDialogConversation(con, 1, NPC, Spawn, "Player Housing: A work in progress.  Currently, you can purchase a home in the major cities, but placing furniture does not work entirely. Furniture placement needs attention. Wall and ceiling mounts are not functional.")
 end  
  
   function Bugs(NPC,Spawn)
@@ -180,7 +180,7 @@ function QuesttBugs(NPC,Spawn)
     AddConversationOption(con, "[ Quest Bugs ]", "QuesttBugs")
     AddConversationOption(con, "[ Tradeskill Bugs ]", "TradeskillBugs")
     AddConversationOption(con, "[ Exit ]","CloseConvo")
-    StartDialogConversation(con, 1, NPC, Spawn, "Quest Bugs:\n\n -Non-deletable quests can currently be deleted. Function needs implementation.\n\n -Multiple Quest Offer Windows can occur and causes content flow issues.\n\n -Updating Current Zone is not behaving appropriately.\n\n -Not all currently active quests can be completed. Highlighting those will bring focus to them for later modification. ")
+    StartDialogConversation(con, 1, NPC, Spawn, "Quest Bugs:\n\n -Non-deletable quests can currently be deleted. Function needs implementation.\n\n -Multiple Quest Offer Windows can occur and causes content flow issues.\n\n -Updating Current Zone is not behaving appropriately.\n\n -Not all currently active quests can be completed. Feel free to report bugs on any quest you're offered. ")
  end
  
 function TradeskillBugs(NPC,Spawn)
@@ -191,7 +191,7 @@ function TradeskillBugs(NPC,Spawn)
     AddConversationOption(con, "[ Quest Bugs ]", "QuesttBugs")
     AddConversationOption(con, "[ Tradeskill Bugs ]", "TradeskillBugs")
     AddConversationOption(con, "[ Exit ]","CloseConvo")
-    StartDialogConversation(con, 1, NPC, Spawn, "Tradeskill Bugs:  Currently Tradeskilling is not in a working state, and a major work in progress. EmemJr has an update that will handle most of the existing crafting mechanics and will be released for testing when he deems it ready.")
+    StartDialogConversation(con, 1, NPC, Spawn, "Tradeskill Bugs:  Currently Tradeskilling is not in a desired state, and a major work in progress. Classic era levels 1-9 recipes are in place with subcombines. Crafting animations are still needing attention.")
  end
  
  function GeneralBugs(NPC,Spawn)
@@ -202,5 +202,5 @@ function TradeskillBugs(NPC,Spawn)
     AddConversationOption(con, "[ Quest Bugs ]", "QuesttBugs")
     AddConversationOption(con, "[ Tradeskill Bugs ]", "TradeskillBugs")
     AddConversationOption(con, "[ Exit ]","CloseConvo")
-    StartDialogConversation(con, 1, NPC, Spawn, "General Bugs:  - Banking system, from shared bank to stack management, needs attention.\n\n -Follow, Pet follow, and mob stacking are works in progress.\n\n -Waypoint system is very basic right now.\n\n -Location Point of Interest isn't completely implemented yet.\n\n -Achievements are not active.")
+    StartDialogConversation(con, 1, NPC, Spawn, "General Bugs:  - Banking system, from shared bank to stack management, needs attention.\n\n -Follow, Pet follow, and mob stacking are works in progress.\n\n -Waypoint system is very basic right now.\n\n -Location Point of Interest isn't completely implemented yet.\n\n -Achievements are not active.\n\n-Alternate Advancement & Diety systems are not implemented.")
  end 

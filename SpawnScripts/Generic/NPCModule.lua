@@ -788,4 +788,16 @@ function RandomMovement(NPC, Spawn, NegDist, PosDist, Speed, MinDly, MaxDly)
 	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y, Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
 end
 
+function RandomMovementFlight(NPC, Spawn, NegDist, PosDist, NegHeight, PosHeight, Speed, MinDly, MaxDly)
+    local X = GetX(NPC)
+	local Y = GetY(NPC)
+	local Z = GetZ(NPC)
+    MovementLoopAddLocation(NPC, X, Y, Z, Speed, MakeRandomInt(MinDly, MaxDly))
+	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y + MakeRandomInt(NegHeight, PosHeight), Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
+	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y + MakeRandomInt(NegHeight, PosHeight), Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
+	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y + MakeRandomInt(NegHeight, PosHeight), Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
+	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y + MakeRandomInt(NegHeight, PosHeight), Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
+	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y + MakeRandomInt(NegHeight, PosHeight), Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
+end
+
 
