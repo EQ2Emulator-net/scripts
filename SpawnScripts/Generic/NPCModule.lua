@@ -467,6 +467,7 @@ function woodelf(NPC, Spawn)
 end
 
 function barbarian(NPC, Spawn)
+    local hair = MakeRandomInt(1,2)
     SpawnSet(NPC,"race",0)
     
     if GetGender(NPC)==2 then
