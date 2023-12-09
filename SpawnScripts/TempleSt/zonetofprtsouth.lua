@@ -27,6 +27,9 @@ function casted_on(NPC, Spawn,SpellName)
     SendMessage(Spawn,"Only Freeport citizens may enter the city.","red")
     
     else
+    if invul == true and GetFactionAmount(Spawn,12) < 30000 then
+    SendMessage(Spawn,"Your GM invulnerability allows you to bypass citizenship.","white")
+    end     
         ZoneRef = GetZone("SouthFreeport")
         Zone(ZoneRef,Spawn,-174.94, -36.63, 325.07, 37.31)        
     end    

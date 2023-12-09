@@ -6,11 +6,12 @@
                    : 
 --]]
 dofile("SpawnScripts/Generic/MonsterCallouts/ForestersAntonica.lua")
-require "SpawnScripts/Generic/CombatModule"
+require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
-    combatModule(NPC, Spawn)
+    NPCModule(NPC, Spawn)
     AddTimer(NPC, 6000,  "ChooseMovement")
+    human(NPC)
 end
 
 function ChooseMovement(NPC)

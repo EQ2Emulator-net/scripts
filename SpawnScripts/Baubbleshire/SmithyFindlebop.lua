@@ -51,7 +51,7 @@ if GetFactionAmount(Spawn,11) <0 then
 	FaceTarget(NPC, Spawn)
     PlayFlavor(NPC, "","","shakefist",0,0, Spawn)
 else  
-	if not HasCompletedQuest(Spawn, MystratTails) then
+	if CanReceiveQuest(Spawn, MystratTails) then
 	    FaceTarget(NPC, Spawn)
         Begin(NPC,Spawn)
 	else

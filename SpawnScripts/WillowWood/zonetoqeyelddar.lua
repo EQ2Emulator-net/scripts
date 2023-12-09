@@ -27,6 +27,9 @@ local invul = IsInvulnerable(Spawn)
     SendMessage(Spawn,"Only citizens may enter the city of Qeynos.","red")
     
     else
+    if invul == true and GetFactionAmount(Spawn,11) < 30000 then
+    SendMessage(Spawn,"Your GM invulnerability allows you to bypass citizenship.","white")
+    end     
         ZoneRef = GetZone("ElddarGrove")
         Zone(ZoneRef,Spawn,809.22, -21.51, -562.41, 154.8)        
     end    

@@ -1121,9 +1121,9 @@ function Skills(NPC,Spawn)
    local level = GetLevel(Spawn)*5
 
 
---FIGHTER SKILLS--
+                    --  FIGHTER SKILLS  --
 
--- Martial
+-- Martial/Fighter
 if GetClass (Spawn) == FIGHTER or
 GetClass (Spawn) == WARRIOR or
 GetClass (Spawn) == GUARDIAN or
@@ -1174,7 +1174,6 @@ elseif HasSkill(Spawn,1209716810) then
     RemoveSkill(Spawn, 1209716810)
 end
 end
-
 
 -- Brawl/Brawling
 if GetClass (Spawn) == BRAWLER or
@@ -1240,23 +1239,7 @@ elseif HasSkill(Spawn,2741805322) then
 end
 end
 
---SCOUT SKILLS--
-
-local SCOUT = 31 
-local ROGUE = 32 
-local SWASHBUCKLER = 33 
-local BRIGAND = 34 
-local BARD = 35 
-local TROUBADOR = 36 
-local DIRGE = 37 
-local PREDATOR = 38 
-local RANGER = 39 
-local ASSASSIN = 40 
-local ANIMALIST = 41 
-local BEASTLORD = 42 
-local SHAPER = 43 
-local CHANNELER = 44 
-
+                    -- SCOUT SKILLS --
 
 --Reconnaissance/Scout
 if GetClass (Spawn) == SCOUT or
@@ -1373,26 +1356,586 @@ elseif HasSkill(Spawn,2711101135) then
 end
 end
 
+                    -- MAGE SKILLS --
+
+-- Evocations/Mage
+if GetClass (Spawn) == MAGE or
+GetClass (Spawn) == SORCERER or
+GetClass (Spawn) == WIZARD or
+GetClass (Spawn) == WARLOCK or
+GetClass (Spawn) == ENCHANTER or
+GetClass (Spawn) == ILLUSIONIST or
+GetClass (Spawn) == COERCER or
+GetClass (Spawn) == SUMMONER or
+GetClass (Spawn) == CONJUROR or
+GetClass (Spawn) == NECROMANCER then 
+if not HasSkill(Spawn, 3820670534) then -- Evocations skill
+    AddSkill(Spawn, 3820670534,1,level)
+    SendMessage(Spawn, "You have learned the Evocations skill")
+elseif HasSkill(Spawn,3820670534) then
+    RemoveSkill(Spawn, 3820670534)
+end
+end
 
 
+ -- Sorcery/Sorcerer
+if GetClass (Spawn) == SORCERER or
+GetClass (Spawn) == WIZARD or
+GetClass (Spawn) == WARLOCK then 
+if not HasSkill(Spawn, 2533124061) then -- Sorcery skill
+    AddSkill(Spawn, 2533124061,1,level)
+    SendMessage(Spawn, "You have learned the Sorcery skill")
+elseif HasSkill(Spawn,2533124061) then
+    RemoveSkill(Spawn, 2533124061)
+end
+end
+
+--  Elemental Mastery/Wizard
+if GetClass (Spawn) == WIZARD then 
+if not HasSkill(Spawn, 2662430630) then -- Elemental Mastery skill
+    AddSkill(Spawn, 2662430630,1,level)
+    SendMessage(Spawn, "You have learned the Elemental Mastery skill")
+elseif HasSkill(Spawn,2662430630) then
+    RemoveSkill(Spawn, 2662430630)
+end
+end
+
+-- Noctivagance/Warlock
+if GetClass (Spawn) == WARLOCK then 
+if not HasSkill(Spawn, 193411854) then -- Noctivagance skill
+    AddSkill(Spawn, 193411854,1,level)
+    SendMessage(Spawn, "You have learned the Noctivagance skill")
+elseif HasSkill(Spawn,193411854) then
+    RemoveSkill(Spawn, 193411854)
+end
+end
 
 
-if not HasSkill(Spawn, 3421494576) then -- Crushing
+-- Enchantments/Enchanter
+if GetClass (Spawn) == ENCHANTER or
+GetClass (Spawn) == ILLUSIONIST or
+GetClass (Spawn) == COERCER then 
+if not HasSkill(Spawn, 287643040) then -- Enchantments skill
+    AddSkill(Spawn, 287643040,1,level)
+    SendMessage(Spawn, "You have learned the Enchantments skill")
+elseif HasSkill(Spawn,287643040) then
+    RemoveSkill(Spawn, 287643040)
+end
+end
+
+-- Hallucinations/Illusionist
+if GetClass (Spawn) == ILLUSIONIST then 
+if not HasSkill(Spawn, 2898101972) then -- Hallucinations skill
+    AddSkill(Spawn, 2898101972,1,level)
+    SendMessage(Spawn, "You have learned the Hallucinations skill")
+elseif HasSkill(Spawn,2898101972) then
+    RemoveSkill(Spawn, 2898101972)
+end
+end
+
+-- Protean/Coecerer
+if GetClass (Spawn) == COERCER then 
+if not HasSkill(Spawn, 3067436248) then -- Protean skill
+    AddSkill(Spawn, 3067436248,1,level)
+    SendMessage(Spawn, "You have learned the Protean skill")
+elseif HasSkill(Spawn,3067436248) then
+    RemoveSkill(Spawn, 3067436248)
+end
+end
+
+-- Legerdemain/Summoner
+if GetClass (Spawn) == SUMMONER or
+GetClass (Spawn) == CONJUROR or
+GetClass (Spawn) == NECROMANCER then 
+if not HasSkill(Spawn, 2120065377) then -- Legerdemain skill
+    AddSkill(Spawn, 2120065377,1,level)
+    SendMessage(Spawn, "You have learned the Legerdemain skill")
+elseif HasSkill(Spawn,2120065377) then
+    RemoveSkill(Spawn, 2120065377)
+end
+end
+
+-- Conjurations/Conjuror
+if GetClass (Spawn) == CONJUROR then 
+if not HasSkill(Spawn, 2042842194) then -- Conjurations skill
+    AddSkill(Spawn, 2042842194,1,level)
+    SendMessage(Spawn, "You have learned the Conjurations skill")
+elseif HasSkill(Spawn,2042842194) then
+    RemoveSkill(Spawn, 2042842194)
+end
+end
+
+-- Sepulchers/Necromancer
+if GetClass (Spawn) == NECROMANCER then 
+if not HasSkill(Spawn, 289471519) then -- Sepulchers skill
+    AddSkill(Spawn, 289471519,1,level)
+    SendMessage(Spawn, "You have learned the Sepulchers skill")
+elseif HasSkill(Spawn,289471519) then
+    RemoveSkill(Spawn, 289471519)
+end
+end
+
+                    -- PRIEST SKILLS --
+
+-- Inspirations/Priest
+if GetClass (Spawn) == PRIEST or
+GetClass (Spawn) == CLERIC or
+GetClass (Spawn) == TEMPLAR or
+GetClass (Spawn) == INQUISITOR or
+GetClass (Spawn) == DRUID or
+GetClass (Spawn) == WARDEN or
+GetClass (Spawn) == FURY or
+GetClass (Spawn) == SHAMAN or
+GetClass (Spawn) == MYSTIC or
+GetClass (Spawn) == DEFILER then 
+if not HasSkill(Spawn, 2463145248) then -- Inspirations skill
+    AddSkill(Spawn, 2463145248,1,level)
+    SendMessage(Spawn, "You have learned the Inspirations skill")
+elseif HasSkill(Spawn,2463145248) then
+    RemoveSkill(Spawn, 2463145248)
+end
+end
+
+
+ -- Theurgy/Cleric
+if GetClass (Spawn) == CLERIC or
+GetClass (Spawn) == TEMPLAR or
+GetClass (Spawn) == INQUISITOR then 
+if not HasSkill(Spawn, 2533124061) then -- Theurgy skill
+    AddSkill(Spawn, 2533124061,1,level)
+    SendMessage(Spawn, "You have learned the Theurgy skill")
+elseif HasSkill(Spawn,2533124061) then
+    RemoveSkill(Spawn, 2533124061)
+end
+end
+
+--  Regimens/Templar
+if GetClass (Spawn) == TEMPLAR then 
+if not HasSkill(Spawn, 2581053277) then -- Regimens skill
+    AddSkill(Spawn, 2581053277,1,level)
+    SendMessage(Spawn, "You have learned the Regimens skill")
+elseif HasSkill(Spawn,2581053277) then
+    RemoveSkill(Spawn, 2581053277)
+end
+end
+
+-- Inquisitions/Inquisitor
+if GetClass (Spawn) == INQUISITOR then 
+if not HasSkill(Spawn, 1829443087) then -- Inquisitions skill
+    AddSkill(Spawn, 1829443087,1,level)
+    SendMessage(Spawn, "You have learned the Inquisitions skill")
+elseif HasSkill(Spawn,1829443087) then
+    RemoveSkill(Spawn, 1829443087)
+end
+end
+
+
+-- Archegenesis/Druid
+if GetClass (Spawn) == DRUID or
+GetClass (Spawn) == WARDEN or
+GetClass (Spawn) == FURY then 
+if not HasSkill(Spawn, 3282420779) then -- Archegenesis skill
+    AddSkill(Spawn, 3282420779,1,level)
+    SendMessage(Spawn, "You have learned the Archegenesis skill")
+elseif HasSkill(Spawn,3282420779) then
+    RemoveSkill(Spawn, 3282420779)
+end
+end
+
+-- Nature's Refuge/Warden
+if GetClass (Spawn) == WARDEN then 
+if not HasSkill(Spawn, 1040683335) then -- Nature's Refuge skill
+    AddSkill(Spawn, 1040683335,1,level)
+    SendMessage(Spawn, "You have learned the Nature's Refuge skill")
+elseif HasSkill(Spawn,1040683335) then
+    RemoveSkill(Spawn, 1040683335)
+end
+end
+
+-- Nature's Reckoning/Fury
+if GetClass (Spawn) == FURY then 
+if not HasSkill(Spawn, 1624274802) then -- Nature's Reckoning skill
+    AddSkill(Spawn, 1624274802,1,level)
+    SendMessage(Spawn, "You have learned the Nature's Reckoning skill")
+elseif HasSkill(Spawn,1624274802) then
+    RemoveSkill(Spawn, 1624274802)
+end
+end
+
+-- Talismans/Shaman
+if GetClass (Spawn) == SHAMAN or
+GetClass (Spawn) == MYSTIC or
+GetClass (Spawn) == DEFILER then 
+if not HasSkill(Spawn, 2120065377) then -- Talismans skill
+    AddSkill(Spawn, 2120065377,1,level)
+    SendMessage(Spawn, "You have learned the Talismans skill")
+elseif HasSkill(Spawn,2120065377) then
+    RemoveSkill(Spawn, 2120065377)
+end
+end
+
+-- Fetichisms/Mystic
+if GetClass (Spawn) == MYSTIC then 
+if not HasSkill(Spawn, 3467160477) then -- Fetichisms skill
+    AddSkill(Spawn, 3467160477,1,level)
+    SendMessage(Spawn, "You have learned the Fetichisms skill")
+elseif HasSkill(Spawn,3467160477) then
+    RemoveSkill(Spawn, 3467160477)
+end
+end
+
+-- Vehemence/Defiler
+if GetClass (Spawn) == DEFILER then 
+if not HasSkill(Spawn, 3191839982) then -- Vehemence skill
+    AddSkill(Spawn, 3191839982,1,level)
+    SendMessage(Spawn, "You have learned the Vehemence skill")
+elseif HasSkill(Spawn,3191839982) then
+    RemoveSkill(Spawn, 3191839982)
+end
+end
+
+                    -- CASTING SKILLS --
+                    
+if GetClass(Spawn) == CRUSADER or
+GetClass (Spawn) == PALADIN or
+GetClass (Spawn) == SHADOWKNIGHT or
+GetClass (Spawn) == BARD or
+GetClass (Spawn) == TROUBADOR or
+GetClass (Spawn) == DIRGE or
+GetClass (Spawn) == PRIEST or
+GetClass (Spawn) == CLERIC or
+GetClass (Spawn) == TEMPLAR or
+GetClass (Spawn) == INQUISITOR or
+GetClass (Spawn) == DRUID or
+GetClass (Spawn) == WARDEN or
+GetClass (Spawn) == FURY or
+GetClass (Spawn) == SHAMAN or
+GetClass (Spawn) == MYSTIC or
+GetClass (Spawn) == DEFILER or
+GetClass (Spawn) == MAGE or
+GetClass (Spawn) == SORCERER or
+GetClass (Spawn) == WIZARD or
+GetClass (Spawn) == WARLOCK or
+GetClass (Spawn) == ENCHANTER or
+GetClass (Spawn) == ILLUSIONIST or
+GetClass (Spawn) == COERCER or
+GetClass (Spawn) == SUMMONER or
+GetClass (Spawn) == CONJUROR or
+GetClass (Spawn) == NECROMANCER then 
+    
+    if not HasSkill(Spawn, 613995491) then -- Disruption
+    AddSkill(Spawn, 613995491,1,level)
+    SendMessage(Spawn, "You have learned the Disruption skill")
+    end
+    if not HasSkill(Spawn, 366253016) then -- Ministration
+    AddSkill(Spawn, 366253016,1,level)
+    SendMessage(Spawn, "You have learned the Ministration skill")
+    end
+    if not HasSkill(Spawn, 3587918036) then -- Ordination
+    AddSkill(Spawn, 3587918036,1,level)
+    SendMessage(Spawn, "You have learned the Ordination skill")
+    end
+    if not HasSkill(Spawn, 882983852) then -- Subjugation
+    AddSkill(Spawn, 882983852,1,level)
+    SendMessage(Spawn, "You have learned the Subjugation skill")
+    end
+else   
+    
+    if HasSkill(Spawn, 613995491) then-- Disruption
+    RemoveSkill(Spawn, 613995491)
+    end
+    if HasSkill(Spawn,366253016) then-- Ministration
+    RemoveSkill(Spawn, 366253016)
+    end
+    if HasSkill(Spawn,3587918036) then-- Ordination
+    RemoveSkill(Spawn, 3587918036)
+    end
+    if HasSkill(Spawn,882983852) then-- Subjugation
+    RemoveSkill(Spawn, 882983852)
+    end
+    end
+end
+
+if not HasSkill(Spawn, 2638198038) and not GetClass(Spawn) == 0 then -- Focus
+    AddSkill(Spawn, 2638198038,1,level)
+    SendMessage(Spawn, "You have learned the Focus skill")
+    elseif HasSkill(Spawn,2638198038) then-- Focus
+    RemoveSkill(Spawn, 2638198038)
+end
+
+                    -- DAMAGE TYPE SKILLS --
+
+--CRUSHING
+if GetClass (Spawn) == FIGHTER or
+GetClass (Spawn) == WARRIOR or
+GetClass (Spawn) == GUARDIAN or
+GetClass (Spawn) == BERZERKER or
+GetClass (Spawn) == BRAWLER or
+GetClass (Spawn) == MONK or
+GetClass (Spawn) == BRUISER or
+GetClass (Spawn) == CRUSADER or
+GetClass (Spawn) == PALADIN or
+GetClass (Spawn) == SHADOWKNIGHT or
+
+GetClass (Spawn) == PRIEST or
+GetClass (Spawn) == CLERIC or
+GetClass (Spawn) == TEMPLAR or
+GetClass (Spawn) == INQUISITOR or
+GetClass (Spawn) == DRUID or
+GetClass (Spawn) == WARDEN or
+GetClass (Spawn) == FURY or
+GetClass (Spawn) == SHAMAN or
+GetClass (Spawn) == MYSTIC or
+GetClass (Spawn) == DEFILER or
+
+GetClass (Spawn) == MAGE or
+GetClass (Spawn) == SORCERER or
+GetClass (Spawn) == WIZARD or
+GetClass (Spawn) == WARLOCK or
+GetClass (Spawn) == ENCHANTER or
+GetClass (Spawn) == ILLUSIONIST or
+GetClass (Spawn) == COERCER or
+GetClass (Spawn) == SUMMONER or
+GetClass (Spawn) == CONJUROR or
+GetClass (Spawn) == NECROMANCER then 
+    if not HasSkill(Spawn, 3421494576) then -- CRUSHING
     AddSkill(Spawn, 3421494576,1,level)
     SendMessage(Spawn, "You have learned the Crushing skill")
+    end
+elseif HasSkill(Spawn, 3421494576) then -- CRUSHING
+    RemoveSkill(Spawn, 2638198038)
 end
-if not HasSkill(Spawn, 418532101) then -- Slashing
+
+--SLASHING
+if GetClass (Spawn) == FIGHTER or
+GetClass (Spawn) == WARRIOR or
+GetClass (Spawn) == GUARDIAN or
+GetClass (Spawn) == BERZERKER or
+GetClass (Spawn) == BRAWLER or
+GetClass (Spawn) == MONK or
+GetClass (Spawn) == BRUISER or
+GetClass (Spawn) == CRUSADER or
+GetClass (Spawn) == PALADIN or
+GetClass (Spawn) == SHADOWKNIGHT or
+
+GetClass (Spawn) == DRUID or
+GetClass (Spawn) == WARDEN or
+GetClass (Spawn) == FURY or
+
+GetClass (Spawn) == SCOUT or 
+GetClass (Spawn) == ROGUE or
+GetClass (Spawn) == SWASHBUCKLER or
+GetClass (Spawn) == BRIGAND or
+GetClass (Spawn) == BARD or
+GetClass (Spawn) == TROUBADOR or
+GetClass (Spawn) == DIRGE or
+GetClass (Spawn) == PREDATOR or
+GetClass (Spawn) == RANGER or
+GetClass (Spawn) == ASSASSIN then 
+    if not HasSkill(Spawn, 418532101) then -- SLASHING
     AddSkill(Spawn, 418532101,1,level)
     SendMessage(Spawn, "You have learned the Slashing skill")
+    end
+elseif HasSkill(Spawn, 418532101) then -- CRUSHING
+    RemoveSkill(Spawn, 418532101)
 end
+
+--PIERCING
+if GetClass (Spawn) == FIGHTER or
+GetClass (Spawn) == WARRIOR or
+GetClass (Spawn) == GUARDIAN or
+GetClass (Spawn) == BERZERKER or
+GetClass (Spawn) == BRAWLER or
+GetClass (Spawn) == MONK or
+GetClass (Spawn) == BRUISER or
+
+GetClass (Spawn) == SHAMAN or
+GetClass (Spawn) == MYSTIC or
+GetClass (Spawn) == DEFILER or
+
+GetClass (Spawn) == MAGE or
+GetClass (Spawn) == SORCERER or
+GetClass (Spawn) == WIZARD or
+GetClass (Spawn) == WARLOCK or
+GetClass (Spawn) == ENCHANTER or
+GetClass (Spawn) == ILLUSIONIST or
+GetClass (Spawn) == COERCER or
+GetClass (Spawn) == SUMMONER or
+GetClass (Spawn) == CONJUROR or
+GetClass (Spawn) == NECROMANCER or
+
+GetClass (Spawn) == SCOUT or 
+GetClass (Spawn) == ROGUE or
+GetClass (Spawn) == SWASHBUCKLER or
+GetClass (Spawn) == BRIGAND or
+GetClass (Spawn) == BARD or
+GetClass (Spawn) == TROUBADOR or
+GetClass (Spawn) == DIRGE or
+GetClass (Spawn) == PREDATOR or
+GetClass (Spawn) == RANGER or
+GetClass (Spawn) == ASSASSIN then
+    if not HasSkill(Spawn, 3048574950) then  -- Piercing
+    AddSkill(Spawn, 3048574950,1,level)
+    SendMessage(Spawn, "You have learned the Piercing skill")
+    end
+elseif HasSkill(Spawn, 3048574950) then -- Piercing
+    RemoveSkill(Spawn, 3048574950)
+    end
+
+--RANGED
+if GetClass (Spawn) == WARRIOR or
+GetClass (Spawn) == GUARDIAN or
+GetClass (Spawn) == BERZERKER or
+GetClass (Spawn) == BRAWLER or
+GetClass (Spawn) == MONK or
+GetClass (Spawn) == BRUISER or
+GetClass (Spawn) == SCOUT or 
+GetClass (Spawn) == ROGUE or
+GetClass (Spawn) == SWASHBUCKLER or
+GetClass (Spawn) == BRIGAND or
+GetClass (Spawn) == BARD or
+GetClass (Spawn) == TROUBADOR or
+GetClass (Spawn) == DIRGE or
+GetClass (Spawn) == PREDATOR or
+GetClass (Spawn) == RANGER or
+GetClass (Spawn) == ASSASSIN then
+    if not HasSkill(Spawn, 1756482397) then -- Ranged
+    AddSkill(Spawn, 1756482397,1,level)
+    SendMessage(Spawn, "You have learned the Ranged skill")
+    end
+elseif HasSkill(Spawn, 1756482397) then -- Ranged
+    RemoveSkill(Spawn, 1756482397)
+    end
+    
+
+                    -- DEFENSE TYPE SKILLS --
+
+--Very Light Armor
+if not HasSkill(Spawn, 3539032716) then -- Very Light Armor
+    AddSkill(Spawn, 3539032716,1,level)
+    SendMessage(Spawn, "You are now more proficient with Very Light Armor")
+end
+
+--Light Armor
+if GetClass (Spawn) == FIGHTER or
+GetClass (Spawn) == WARRIOR or
+GetClass (Spawn) == GUARDIAN or
+GetClass (Spawn) == BERZERKER or
+GetClass (Spawn) == BRAWLER or
+GetClass (Spawn) == MONK or
+GetClass (Spawn) == BRUISER or
+GetClass (Spawn) == CRUSADER or
+GetClass (Spawn) == PALADIN or
+GetClass (Spawn) == SHADOWKNIGHT or
+
+GetClass (Spawn) == PRIEST or
+GetClass (Spawn) == CLERIC or
+GetClass (Spawn) == TEMPLAR or
+GetClass (Spawn) == INQUISITOR or
+GetClass (Spawn) == DRUID or
+GetClass (Spawn) == WARDEN or
+GetClass (Spawn) == FURY or
+GetClass (Spawn) == SHAMAN or
+GetClass (Spawn) == MYSTIC or
+GetClass (Spawn) == DEFILER or
+
+GetClass (Spawn) == SCOUT or 
+GetClass (Spawn) == ROGUE or
+GetClass (Spawn) == SWASHBUCKLER or
+GetClass (Spawn) == BRIGAND or
+GetClass (Spawn) == BARD or
+GetClass (Spawn) == TROUBADOR or
+GetClass (Spawn) == DIRGE or
+GetClass (Spawn) == PREDATOR or
+GetClass (Spawn) == RANGER or
+GetClass (Spawn) == ASSASSIN then
+
+    if not HasSkill(Spawn, 2897193374) then -- Light Armor
+    AddSkill(Spawn, 2897193374,1,level)
+    SendMessage(Spawn, "You are now more proficient with Light Armor")
+    end
+elseif HasSkill(Spawn, 2897193374) then -- Light Armor
+    RemoveSkill(Spawn, 2897193374)
+    end
+    
+--Medium Armor
+if GetClass (Spawn) == WARRIOR or
+GetClass (Spawn) == GUARDIAN or
+GetClass (Spawn) == BERZERKER or
+GetClass (Spawn) == CRUSADER or
+GetClass (Spawn) == PALADIN or
+GetClass (Spawn) == SHADOWKNIGHT or
+
+GetClass (Spawn) == TEMPLAR or
+GetClass (Spawn) == INQUISITOR or
+GetClass (Spawn) == MYSTIC or
+GetClass (Spawn) == DEFILER or
+
+GetClass (Spawn) == SWASHBUCKLER or
+GetClass (Spawn) == BRIGAND or
+GetClass (Spawn) == TROUBADOR or
+GetClass (Spawn) == DIRGE or
+GetClass (Spawn) == RANGER or
+GetClass (Spawn) == ASSASSIN then
+
+    if not HasSkill(Spawn, 2246237129) then -- Medium Armor
+    AddSkill(Spawn, 2246237129,1,level)
+    SendMessage(Spawn, "You are now more proficient with Medium Armor")
+    end
+elseif HasSkill(Spawn, 2246237129) then -- Medium Armor
+    RemoveSkill(Spawn, 2246237129)
+    end
+
+--Heavy Armor
+if GetClass (Spawn) == GUARDIAN or
+GetClass (Spawn) == BERZERKER or
+GetClass (Spawn) == PALADIN or
+GetClass (Spawn) == SHADOWKNIGHT or
+
+GetClass (Spawn) == TEMPLAR or
+GetClass (Spawn) == INQUISITOR then
+
+    if not HasSkill(Spawn, 241174330) then -- Heavy Armor
+    AddSkill(Spawn, 241174330,1,level)
+    SendMessage(Spawn, "You are now more proficient with Heavy Armor")
+    end
+elseif HasSkill(Spawn, 241174330) then -- Heavy Armor
+    RemoveSkill(Spawn, 241174330)
+    end
+
+--Defense
+if not HasSkill(Spawn, 609880714) then -- Defense
+    AddSkill(Spawn, 609880714,30,level)
+    SendMessage(Spawn, "You have learned the Defense skill")
+end
+
+--Spell Avoidance
+if not HasSkill(Spawn, 2383540775) then -- Spell Avoidance
+    AddSkill(Spawn, 2383540775,30,level)
+    SendMessage(Spawn, "You have learned the Spell Avoidance skill")
+end
+
+--Magic Affinity
+if not HasSkill(Spawn, 2072844078) then -- Magic Affinity
+    AddSkill(Spawn, 2072844078,1,level)
+    SendMessage(Spawn, "You have learned the Magic Affinity skill")
+end
+
+-- Alcohol Tolerance
+if not HasSkill(Spawn, 4250045746) and not GetClass(Spawn) == 0 then -- Alcohol Tolerance
+    AddSkill(Spawn, 4250045746,1,level)
+    SendMessage(Spawn, "You have learned the Alcohol Tolerance skill")
+    elseif HasSkill(Spawn,4250045746) then-- Alcohol Tolerance
+    RemoveSkill(Spawn, 4250045746)
+end
+
+
+--[[
 if not HasSkill(Spawn, 1852383242) then -- Dual Wield
     AddSkill(Spawn, 1852383242,1,level)
     SendMessage(Spawn, "You have learned the Dual Wield skill")
-end
-if not HasSkill(Spawn, 2638198038) then -- Focus
-    AddSkill(Spawn, 2638198038,1,level)
-    SendMessage(Spawn, "You have learned the Focus skill")
-end
+end]]--
+
 
 --WEAPON SKILLS
  if not HasSkill(Spawn, 2897193374) then -- Light Armor

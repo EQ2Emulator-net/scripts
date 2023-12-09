@@ -98,7 +98,8 @@ function hailed(NPC, Spawn)
     if GetFactionAmount(Spawn,11)<0 then	  
     PlayFlavor(NPC, "", "", "shakefist", 0, 0, Spawn)
     else    
-	Begin(NPC, Spawn)
+    FaceTarget(NPC, Spawn)
+    AddTimer(NPC,500,"Begin",1,Spawn)
     end
 end
 
@@ -115,7 +116,7 @@ function Begin(NPC, Spawn)
 	if GetLevel(Spawn) <= 4 then
 	Dialog.AddOption("Perhaps I'll be better off getting more experience first.")
     end
-	if not HasQuest(Spawn, FIGHT_THE_FORGOTTEN_GUARDIANS) and not HasCompletedQuest(Spawn, FIGHT_THE_FORGOTTEN_GUARDIANS) and GetLevel(Spawn) >= 5 then
+	if CanReceiveQuest(Spawn, FIGHT_THE_FORGOTTEN_GUARDIANS) and GetLevel(Spawn) >= 5 then
 	Dialog.AddOption("Do deputies get paid well?", "PaidWell")
     end
 	if HasQuest(Spawn, FIGHT_THE_FORGOTTEN_GUARDIANS) and GetQuestStep(Spawn, FIGHT_THE_FORGOTTEN_GUARDIANS) == 2 then

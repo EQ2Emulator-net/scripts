@@ -39,7 +39,7 @@ function Dialog1(NPC, Spawn)
     if CanReceiveQuest(Spawn, DeadManEyes) then
 	Dialog.AddOption("What are you going on about?", "Dialog2")
     elseif GetQuestStep(Spawn, DeadManEyes) == 2 then
-	Dialog.AddOption("Here are the eyes you requested.", "Dialog8")
+	Dialog.AddOption("Here are the eyes you requested.", "Dialog5")
     end
 	Dialog.AddOption("Perhaps you should lock your door then!")
 	Dialog.Start()

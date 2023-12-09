@@ -22,7 +22,7 @@ seen_quest_praise = false
 function GenerateStateDefines(player)
     local bLegacy = (GetClientVersion(player) <= 526)
     
-    if bLegacy then
+    if bLegacy == true then
         VSTATE_WAVE = 883
         VSTATE_HELLO = 318
         VSTATE_DOUBLETAKE = 250

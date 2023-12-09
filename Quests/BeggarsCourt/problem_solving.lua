@@ -24,7 +24,7 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I've dealt with the vagrants.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "Those vagrants got the message loud and clear.")
     UpdateQuestZone(Quest,"Beggar's Court")	
-	AddQuestStepChat(Quest, 2, "Talk with Crispin", 1, "I should let Crispin in Beggar's Court know that his problem has been solved.  I should get paid, too.  I can reach the Sprawl by using any of the bells in and around the City of Freeport.", 11, 1370126)
+	AddQuestStepChat(Quest, 2, "Talk with Crispin", 1, "I should let Crispin in Beggar's Court know that his problem has been solved.  I should get paid, too.", 11, 1370126)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 

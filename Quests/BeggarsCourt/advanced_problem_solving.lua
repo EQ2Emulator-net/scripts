@@ -42,7 +42,7 @@ function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've sent the Giantslayers a message that they shouldn't listen to vagrants who tell tall tales.")
     UpdateQuestZone(Quest,"Beggar's Court")	
 
-	AddQuestStepChat(Quest, 2, "Talk with Crispin", 1, "I should let Crispin in the Sprawl know that he and his gang have nothing to worry about.  I can reach the Sprawl by using any of the bells in and around the City of Freeport.", 11, 1370126)
+	AddQuestStepChat(Quest, 2, "Talk with Crispin", 1, "I should let Crispin in the Beggar's Court know that he and his gang have nothing to worry about.  I can reach the Sprawl by using any of the bells in and around the City of Freeport.", 11, 1370126)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 

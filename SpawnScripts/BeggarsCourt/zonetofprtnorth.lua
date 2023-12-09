@@ -27,6 +27,9 @@ if SpellName == 'Enter North Freeport' then
     SendMessage(Spawn,"Only Freeport citizens may enter the city.","red")
     
     else
+    if invul == true and GetFactionAmount(Spawn,12) < 30000 then
+    SendMessage(Spawn,"Your GM invulnerability allows you to bypass citizenship.","white")
+    end     
         ZoneRef = GetZone("NorthFreeport")
         Zone(ZoneRef,Spawn,-149.38, -50.6, -376.76, 204.84)        
     end    

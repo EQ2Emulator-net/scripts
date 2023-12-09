@@ -18,7 +18,7 @@ function hailed(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	Dialog.AddDialog("And who might you be?")
 	Dialog.AddVoiceover("voiceover/english/knight_grel_stoneshearer/antonica/quests/firemyst/grel_stoneshearer000.mp3", 3381463190, 2283836874)
-	if GetQuestStepProgress(Spawn, LordGrimrotsScythe,1) == 0 then
+	if GetQuestStepProgress(Spawn, LordGrimrotsScythe,1) == 0 and HasQuest(Spawn,LordGrimrotsScythe) then
 	Dialog.AddOption( "Ignar Steadirt sent me.", "Option1")
 	end
 	Dialog.AddOption("Just passing through, sorry to interrupt you.")

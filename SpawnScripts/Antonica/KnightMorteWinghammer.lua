@@ -19,7 +19,7 @@ function hailed(NPC, Spawn)
 	Dialog.AddDialog("Hello!  It's such a pleasure to talk to someone else for a change!  What brings you this way from the big city, eh?")
 	Dialog.AddVoiceover("voiceover/english/knight_morte_winghammer/antonica/quests/firemyst/morte_winghammer000.mp3", 427855541, 2221169308)
 	PlayFlavor(NPC, "", "", "hello", 0, 0, Spawn)
-    if GetQuestStepProgress(Spawn, LordGrimrotsScythe,3) == 0 then
+    if GetQuestStepProgress(Spawn, LordGrimrotsScythe,3) == 0 and HasQuest(Spawn,LordGrimrotsScythe) then
 	Dialog.AddOption("You're...in the dwarven brigade?  But...you're a human!  I mean, Ignar sent me.", "Option1")
 	end
 	Dialog.AddOption("Glad to brighten your day.  Just passing through.")

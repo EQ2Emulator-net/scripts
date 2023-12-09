@@ -84,12 +84,12 @@ function Dialog1(NPC, Spawn)
     if CanReceiveQuest(Spawn,ProblemSolving) then
 	Dialog.AddOption("I don't have a problem... I solve problems. Anything you need fixed?", "Dialog2")
     elseif GetQuestStep(Spawn, ProblemSolving) == 2 then
-	Dialog.AddOption("They won't be delivering any kind of message.", "Dialog4")
+	Dialog.AddOption("They won't be delivering ANY kind of message.", "Dialog4")
     end    
     if CanReceiveQuest(Spawn,AdvancedProblemSolving) then
 	Dialog.AddOption("So... have any more problems you can't handle yourself?", "Dialog5")
     elseif GetQuestStep(Spawn, AdvancedProblemSolving) == 2 then
-	Dialog.AddOption("They won't be delivering any kind of message.", "Dialog4")
+	Dialog.AddOption("Those Giantslayers got the 'message'.", "Dialog7")
     end  
     Dialog.AddOption("I don't want any trouble.")
 	Dialog.Start()

@@ -64,7 +64,7 @@ function Dialog1(NPC, Spawn)
         Dialog.AddOption("Here are some of fine snake teeth you asked for.","Quest1Done")
         end        
          if CanReceiveQuest(Spawn,Design) then
-        Dialog.AddOption("Tell me. How are your contraption improvements coming along?","Dialog2")
+        Dialog.AddOption("Tell me. How are your contraption improvements coming along?","Dialog4")
         elseif GetQuestStep(Spawn,Design) == 2 then
         Dialog.AddOption("Here are your \"fresh Bone-Rot\" samples.","Quest2Done")
         end        
@@ -95,8 +95,10 @@ function Dialog3(NPC, Spawn)
 end
 
 function Offer(NPC,Spawn)
-  	FaceTarget(NPC, Spawn)
+if CanReceiveQuest(Spawn,Teeth) then
+    FaceTarget(NPC, Spawn)
     OfferQuest(NPC,Spawn,Teeth)
+    end
 end
 
 function Quest1Done(NPC, Spawn)
@@ -143,8 +145,10 @@ function Dialog6(NPC, Spawn)
 end
 
 function Offer2(NPC,Spawn)
-  	FaceTarget(NPC, Spawn)
+if CanReceiveQuest(Spawn,Design) then
+    FaceTarget(NPC, Spawn)
     OfferQuest(NPC,Spawn,Design)
+    end
 end
 
 function Quest2Done(NPC, Spawn)

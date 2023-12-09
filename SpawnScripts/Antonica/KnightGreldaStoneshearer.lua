@@ -19,7 +19,7 @@ function hailed(NPC, Spawn)
 	Dialog.AddDialog("Stop right where you are, or I'll slit your throat, stranger!")
 	Dialog.AddVoiceover("voiceover/english/knight_grelda_stoneshearer/antonica/quests/firemyst/grelda_stoneshearer000.mp3", 2872853431, 2142483830)
 	PlayFlavor(NPC, "", "", "threaten", 0, 0, Spawn)
-	if GetQuestStepProgress(Spawn, LordGrimrotsScythe,2) == 0 then
+	if GetQuestStepProgress(Spawn, LordGrimrotsScythe,2) == 0 and HasQuest(Spawn,LordGrimrotsScythe) then
 	Dialog.AddOption("Uh...Ignar Steadirt sent me.", "Option1")
 	end
 	Dialog.AddOption("Back off and I'll go easy on you.")
