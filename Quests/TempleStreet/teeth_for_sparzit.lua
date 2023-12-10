@@ -12,7 +12,7 @@
 require "SpawnScripts/Generic/DialogModule"
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "I must kill some snakes in the Sprawl until I find a pair of Perfect Snake Fangs.", 1, 33, "I need to kill snakes until I find a perfect set of fangs.", 102, 1260018)
+	AddQuestStepKill(Quest, 1, "I must kill some snakes in the Sprawl until I find a pair of Perfect Snake Fangs.", 1, 33, "I need to kill snakes until I find a perfect set of fangs.", 102, 8400009,8400012)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
     UpdateQuestZone(Quest,"Sprawl")
 end

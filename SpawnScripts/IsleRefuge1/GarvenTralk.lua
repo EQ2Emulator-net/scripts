@@ -6,6 +6,7 @@
                    : 
 --]]
 require "SpawnScripts/Generic/DialogModule"
+dofile("SpawnScripts/Generic/ClassSkillCheck.lua")
 
 local IsleIntro = 5725
 
@@ -130,9 +131,9 @@ function YesS(NPC, Spawn)
 	SetStepComplete(Spawn,IsleIntro,1)
 	SetAdventureClass(Spawn,31)
     SendMessage(Spawn, "Congratulations!  You have chosen the path of the Scout.","yellow")
-
-    HarvestSkills(NPC,Spawn) 
-    ScoutSkills(NPC,Spawn)
+--    HarvestSkills(NPC,Spawn) 
+--    ScoutSkills(NPC,Spawn)
+    AddTimer(NPC,1000,"SkillCheck",1,Spawn)
     
     OfferQuest(NPC,Spawn,ScoutGI)
 	if GetLevel(Spawn)<3 then
@@ -167,8 +168,9 @@ function YesP(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 	SetAdventureClass(Spawn,11)
  	SetStepComplete(Spawn,IsleIntro,1)
-    HarvestSkills(NPC,Spawn)
-    PriestSkills(NPC,Spawn)
+-- HarvestSkills(NPC,Spawn)
+--    PriestSkills(NPC,Spawn)
+    AddTimer(NPC,1000,"SkillCheck",1,Spawn)
     
     SendMessage(Player, "Congratulations!  You have chosen the path of the Priest.","yellow")
 	OfferQuest(NPC,Spawn,PriestGI)
@@ -208,8 +210,9 @@ function YesM(NPC, Spawn)
 	SetStepComplete(Spawn,IsleIntro,1)
     SendMessage(Spawn, "Congratulations!  You have chosen the path of the Mage.","yellow")
 	SetAdventureClass(Spawn,21)
-    HarvestSkills(NPC,Spawn)
-    MageSkills(NPC,Spawn)
+--    HarvestSkills(NPC,Spawn)
+--    MageSkills(NPC,Spawn)
+    AddTimer(NPC,1000,"SkillCheck",1,Spawn)
 
     OfferQuest(NPC,Spawn,MageGI)
 	if GetLevel(Spawn)<3 then
@@ -234,9 +237,10 @@ function YesF(NPC, Spawn)
 	SetStepComplete(Spawn,IsleIntro,1)
 	SetAdventureClass(Spawn,1)
     SendMessage(Spawn, "Congratulations!  You have chosen the path of the Fighter.","yellow")
+    AddTimer(NPC,1000,"SkillCheck",1,Spawn)
     
-    HarvestSkills(NPC,Spawn)
-    FighterSkills(NPC,Spawn)
+--    HarvestSkills(NPC,Spawn)
+--    FighterSkills(NPC,Spawn)
     
     OfferQuest(NPC,Spawn,FighterGI)
 	if GetLevel(Spawn)<3 then

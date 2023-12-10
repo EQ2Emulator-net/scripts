@@ -9,7 +9,7 @@ require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
-    halfelf(NPC,Spawn)
+    race(NPC,Spawn)
 end
 
 function hailed(NPC, Spawn)
@@ -18,4 +18,17 @@ end
 
 function respawn(NPC)
 	spawn(NPC)
+end
+
+function race(NPC, Spawn)
+    local race = MakeRandomInt(1,6)
+    if race == 1 or race == 2 then
+        human(NPC, Spawn)
+    elseif race == 3 or race == 4 then
+        halfelf(NPC, Spawn)
+    elseif race == 5 then
+        kerra(NPC, Spawn)
+    elseif race == 6 then
+        darkelf(NPC, Spawn)
+    end
 end

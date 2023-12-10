@@ -11,7 +11,7 @@
 --]]
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Gather five tokens from the creatures in the The Thieves' Way.", 5, 34, "The Thieves' Way has been seeded with tokens for the residents of Temple Street to gather. These tokens may be found on any creatures in the Thieves' Way.", 1379, 1540000,154002,1540003,1540004,1540005,1540006,1540007,1540008,1540009,1540010,1540011,1540012,1540013,1540014,1540015,1540016,1540017,1540018,1540019,1540020,1540021,1540022,1540023,1540023,1540025,1540026,1540027,1540028,1540029,1540031,1540032,1540040,1540041,1540042,1540045,1540043,1540044,1540046,1540072,1540073)
+	AddQuestStepKill(Quest, 1, "Gather five tokens from the creatures in the The Thieves' Way.", 5, 34, "The Thieves' Way has been seeded with tokens for the residents of Temple Street to gather. These tokens may be found on any creatures in the Thieves' Way.", 1379, 8430001, 8430002, 8430003, 8430004, 8430005, 8430006, 8430007, 8430008, 8430010, 8430011, 8430012, 8430013, 8430014, 8430015, 8430016, 8430017, 8430018, 8430024, 8430025, 8430026, 8430027, 8430028, 8430029,8430030, 8430031, 8430032, 8430033, 8430034, 8430035)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
     UpdateQuestZone(Quest,"Theives Way")
 end

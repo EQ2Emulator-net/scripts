@@ -81,11 +81,8 @@ end
 end
 
 function Skills(NPC,Spawn)
-    if GetClass(Spawn)==1 then
-    FighterSkills(NPC,Spawn)
-    HarvestSkills(NPC,Spawn)
+    SkillCheck(NPC,Spawn)
     PlayFlavor(NPC,"","","nod",0,0,Spawn)
-    end
 end
 
 function Thanks(NPC,Spawn)

@@ -10,6 +10,7 @@
         Followed by: None
 --]]
 require "SpawnScripts/Generic/DialogModule"
+dofile("SpawnScripts/Generic/ClassSkillCheck.lua")
 
 function Init(Quest)
 	AddQuestStep(Quest, 1, "I need to subdue the mob in the Fermented Grape, a small tavern in South Qeynos.  The tavern is located amongst the southern-most row of buildings.", 1, 100, "I need to save the other bard from an angry crowd.", 11)
@@ -49,7 +50,9 @@ function QuestComplete(Quest, QuestGiver, Player)
     SendPopUpMessage(Player, "Congratulations! You are a Bard.",250,250,200)
     ApplySpellVisual(Player, 324)
     PlaySound(Player, "sounds/test/endquest.wav", GetX(Player), GetY(Player), GetZ(Player), Player)
-    
+--  SkillCheck(Quest,Player)
+
+   
    local level = GetLevel(Player)*5
 if not HasSkill(Player, 1921433074) then -- Reconnaissance
     AddSkill(Player, 1921433074,1,level)
@@ -314,7 +317,7 @@ if HasSkill(Player, 1553857724) then -- Investigation
 end
 if HasSkill(Player, 3429135390) then -- Mystical Destruction
     RemoveSkill(Player, 3429135390)
-end    
+end 
 	end
 	UpdateQuestDescription(Quest, "I managed to lay out the entire mob single-handedly.  I've proven that even in the off-chance I give a bad performance, I can handle anything the crowd might throw at me.")
 	GiveQuestReward(Quest, Player)

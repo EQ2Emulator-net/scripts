@@ -70,7 +70,7 @@ function Step6Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 6, "I've placed the mirror and spoken with the slumlord.")
 	UpdateQuestTaskGroupDescription(Quest, 6, "I've placed the mirror and spoken with the slumlord.")
     UpdateQuestZone(Quest,"Sunken City")
-	AddQuestStepZoneLoc(Quest, 7, "I need to use the mariner's bells near the docks to get to the Sunken City.",6,"\"The more daring of you bold, courageous adventurer types tend to make a living by killing things in the Sunken City.  You have to take a ferry to reach the place.  Go to the mariner's bell near the docks and give it a ring to travel there.  I'll show you a few other places after you take a look at the gates.\" - Valthun", 2297,-48.62,-0.1,41.83,124)
+	AddQuestStepZoneLoc(Quest, 7, "I need to use the mariner's bells near the docks to get to the Sunken City.",6,"\"The more daring of you bold, courageous adventurer types tend to make a living by killing things in the Sunken City.  You have to take a ferry to reach the place.  Go to the mariner's bell near the docks and give it a ring to travel there.  I'll show you a few other places after you take a look at the gates.\" - Valthun", 2297,-48.62,-0.1,41.83,841)
 	AddQuestStepCompleteAction(Quest, 7, "Step7Complete")   
 end
 

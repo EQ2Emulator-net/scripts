@@ -12,7 +12,7 @@
 
 
 function Init(Quest)
-	AddQuestStepKill(Quest, 1, "Gather five tokens from the creatures in the Sprawl.", 5, 34, "The Sprawl has been seeded with tokens for the residents of Big Bend to gather. These tokens may be found on any creatures in the Sprawl.  I can reach the Sprawl by using any of the bells in and around the City of Freeport.", 1368, 1260000,1260005,1260006,1260007,1260008,1260009,1260010,1260011,1260012,1260013,1260014,1260015,1260018,1260022,1260025,1260026,1260027,1260029,1260030,1260031,1260032,1260036,1260064,1260065)
+	AddQuestStepKill(Quest, 1, "Gather five tokens from the creatures in the Sprawl.", 5, 34, "The Sprawl has been seeded with tokens for the residents of Big Bend to gather. These tokens may be found on any creatures in the Sprawl.  I can reach the Sprawl by using any of the bells in and around the City of Freeport.", 1368, 8400001, 8400002, 8400003, 8400004, 8400005, 8400009, 8400010, 8400011, 8400012, 8400013, 8400015, 8400016, 8400023, 8400025, 8400026, 8400027, 8400028, 8400029, 8400030, 8400031, 8400032, 8400033)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
     UpdateQuestZone(Quest,"Sprawl")
 end

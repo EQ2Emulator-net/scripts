@@ -1,17 +1,16 @@
 --[[
-    Script Name    : SpawnScripts/TheThievesWay_Classic/aravenouscube.lua
-    Script Author  : LordPazuzu
-    Script Date    : 2023.12.02 04:12:34
+    Script Name    : SpawnScripts/GobblerocksHideout/aGobblerockgrunt.lua
+    Script Author  : Premierio015
+    Script Date    : 2023.12.09 12:12:21
     Script Purpose : 
                    : 
 --]]
+
 require "SpawnScripts/Generic/NPCModule"
 
 function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
-    RandomMovement(NPC, Spawn, 5,-5, 2, 8, 15)
 end
-
 function hailed(NPC, Spawn)
 	FaceTarget(NPC, Spawn)
 end

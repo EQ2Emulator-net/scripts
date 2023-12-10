@@ -80,11 +80,8 @@ end
 end
 
 function Skills(NPC,Spawn)
-    if GetClass(Spawn)==31 then
-    ScoutSkills(NPC,Spawn)
-    HarvestSkills(NPC,Spawn)
+    SkillCheck(NPC,Spawn)
     PlayFlavor(NPC,"","","nod",0,0,Spawn)
-    end
 end
 
 function respawn(NPC)
