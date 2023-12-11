@@ -1,7 +1,7 @@
 --[[
 	Script Name		: SpawnScripts/BigBend/KorkoofCrackstone.lua
 	Script Purpose	: Korkoof Crackstone
-	Script Author	: torsten
+	Script Author	: Dorbin
 	Script Date		: 2022.07.13
 	Script Notes	: Auto-Generated Conversation from PacketParser Data
 --]]
@@ -101,7 +101,7 @@ function CanDo2(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	PlayFlavor(NPC, "", "", "nod", 0, 0, Spawn)
-	Dialog.AddDialog("Our society also has our very own Broker, who you can talk to in order to buy and sell items from other players.  A very handy connection, indeed!")
+	Dialog.AddDialog("Our society also has our very own Broker, who you can talk to in order to buy and sell items from other adventurers.  A very handy connection, indeed!")
 	Dialog.AddOption("Thank you for all the information!")
     if GetTradeskillLevel(Spawn)<2 then
 	Dialog.AddOption("I'm rather new at crafting. Can you help me?", "HelpMe")
@@ -113,7 +113,7 @@ function HelpMe(NPC,Spawn)
 	FaceTarget(NPC, Spawn)
 	Dialog.New(NPC, Spawn)
 	PlayFlavor(NPC, "", "", "nod", 0, 0, Spawn)
-	Dialog.AddDialog("In order to be competitive in today's marketplace, the Circle of Vaniki provides you with this basic guide to commerce.  You will learn many things on your own over time, so do not consider this book your only guide to success.  Rely on your own resources and skills and you will prosper.")
+	Dialog.AddDialog("In order to be competitive in today's marketplace, The Ransackers Annex provides you with this basic guide to commerce.  You will learn many things on your own over time, so do not consider this book your only guide to success.  Rely on your own resources and skills and you will prosper.")
  	Dialog.AddOption("What can I do here?", "CanDo")
 	Dialog.AddOption("Thank you for all the information!")
     if GetTradeskillLevel(Spawn) <2  then

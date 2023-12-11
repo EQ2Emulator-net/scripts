@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheThievesWay_Classic/aDarkbladefuryPRIEST.lua
+    Script Name    : SpawnScripts/TheThievesWay_Classic/aDarkbladefuryRoam.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.12.02 04:12:17
+    Script Date    : 2023.12.11 04:12:49
     Script Purpose : 
                    : 
 --]]
@@ -11,6 +11,7 @@ function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     human(NPC,Spawn)
     class(NPC)
+    RandomMovement(NPC, Spawn, 5, -5, 2, 8, 15)
 end
 
 function hailed(NPC, Spawn)

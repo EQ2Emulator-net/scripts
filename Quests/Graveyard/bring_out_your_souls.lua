@@ -15,6 +15,7 @@
 function Init(Quest)
 	AddQuestStepKill(Quest, 1, "Kill undead", 10, 100, "Zekvila asked me to destroy some undead in the Graveyard. I'll hold out the crystal as each one is destroyed.  I can reach the Graveyard by using any of the bells in and around the City of Freeport.", 611, 1250007, 1250006, 1250010, 1250008, 1250018, 1250012, 1250013, 1250019, 1250030, 1250033, 1250026, 1250023, 1250028, 1250024, 1250021)
 	AddQuestStepCompleteAction(Quest, 1, "Step1Complete")
+    UpdateQuestZone(Quest,"Graveyard")
 end
 
 function Accepted(Quest, QuestGiver, Player)
@@ -32,8 +33,9 @@ end
 function Step1Complete(Quest, QuestGiver, Player)
 	UpdateQuestStepDescription(Quest, 1, "I have killed the undead.")
 	UpdateQuestTaskGroupDescription(Quest, 1, "I've killed ten undead and collected their souls.")
+    UpdateQuestZone(Quest,"Scale Yard")
 
-	AddQuestStepChat(Quest, 2, "Speak with Zekvila", 1, "I should return the crystal to Zekvila in the Graveyard.  I can reach the Graveyard by using any of the bells in and around the City of Freeport.", 11, 1250034)
+	AddQuestStepChat(Quest, 2, "Speak with Zekvila", 1, "I should return the crystal to Zekvila in the Scale Yard.", 11, 1250034)
 	AddQuestStepCompleteAction(Quest, 2, "QuestComplete")
 end
 

@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheThievesWay_Classic/aDarkbladefuryPRIEST.lua
+    Script Name    : SpawnScripts/TheThievesWay_Classic/aDarkbladefury.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.12.02 04:12:17
+    Script Date    : 2023.12.11 04:12:03
     Script Purpose : 
                    : 
 --]]

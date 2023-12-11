@@ -1,7 +1,7 @@
 --[[
-    Script Name    : SpawnScripts/TheThievesWay_Classic/aDarkbladefuryPRIEST.lua
+    Script Name    : SpawnScripts/TheThievesWay_Classic/aDarkbladefuryTest.lua
     Script Author  : LordPazuzu
-    Script Date    : 2023.12.02 04:12:17
+    Script Date    : 2023.12.11 06:12:06
     Script Purpose : 
                    : 
 --]]
@@ -11,6 +11,7 @@ function spawn(NPC, Spawn)
     NPCModule(NPC, Spawn)
     human(NPC,Spawn)
     class(NPC)
+    SpawnSet(NPC, id, 8430008)
 end
 
 function hailed(NPC, Spawn)
