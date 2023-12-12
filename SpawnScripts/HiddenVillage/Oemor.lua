@@ -14,6 +14,7 @@ function respawn(NPC)
 end
 
 function hailed(NPC, Spawn)
+	FaceTarget(NPC, Spawn)
 	RandomGreeting(NPC, Spawn)
 end
 

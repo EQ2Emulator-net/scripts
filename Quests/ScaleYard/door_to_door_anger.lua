@@ -1,7 +1,7 @@
 --[[
 	Script Name		:	door_to_door_anger.lua
 	Script Purpose	:	Handles the quest, "Door to Door Anger"
-	Script Author	:	torsten
+	Script Author	:	torsten\\Dorbin
 	Script Date		:	21.07.2022
 	Script Notes	:	
 
@@ -10,6 +10,7 @@
 	Preceded by		:	None
 	Followed by		:	None
 --]]
+require "SpawnScripts/Generic/DialogModule"
 
 
 function Init(Quest)
@@ -36,7 +37,13 @@ end
 
 
 function Accepted(Quest, QuestGiver, Player)
-	-- Add dialog here for when the quest is accepted
+	FaceTarget(QuestGiver, Player)
+	Dialog.New(QuestGiver, Player)
+	Dialog.AddDialog("Unless you can fix the contraption, but it's completely broken, thanks to that no-good gnome.  If you want to help, go find that scoundrel and get my money back.  I think his name is Plordo Blotty or something.  His shop is in the Districts.")
+	Dialog.AddVoiceover("voiceover/english/evelyn_stoutfist/fprt_hood06/quests/evelynstoutfist/evelyn_x1_accept.mp3",0,0)
+    PlayFlavor(QuestGiver, "","","confused",0,0, Player)
+	Dialog.AddOption("I'll see what I can do.")
+	Dialog.Start()
 end
 
 function Declined(Quest, QuestGiver, Player)
