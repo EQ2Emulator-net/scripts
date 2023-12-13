@@ -769,6 +769,7 @@ end
     AddTimer(NPC,MakeRandomInt(6500,12000),"IdleSneaky")
 end
 
+-- PATHING SCRIPTS --
 
 --[[ Randomized Movement Loops
     Call the RandomMovement() function in the NPC's spawn function.
@@ -801,4 +802,19 @@ function RandomMovementFlight(NPC, Spawn, NegDist, PosDist, NegHeight, PosHeight
 	MovementLoopAddLocation(NPC, X + MakeRandomInt(NegDist, PosDist), Y + MakeRandomInt(NegHeight, PosHeight), Z + MakeRandomInt(NegDist, PosDist), Speed, MakeRandomInt(MinDly, MaxDly))
 end
 
+---Set an NPC to follow another NPC 
+function FollowNPC(NPC, Spawn, LocID, Speed)
+	local zone = GetZone(NPC)
+	local leader = GetSpawnByLocationID(zone, LocID)
+
+        local leaderX = GetX(leader)
+        local leaderY = GetY(leader)
+        local leaderZ = GetZ(leader)
+
+	if GetDistance(NPC, leader) >= 2 then
+	    MoveToLocation(NPC, leaderX, leaderY, leaderZ, Speed)
+	end 
+	
+	AddTimer(NPC, 1500, "FollowNPC")	
+end
 
